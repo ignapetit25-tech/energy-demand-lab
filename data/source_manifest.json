@@ -1,0 +1,14 @@
+{
+  "downloaded_at": "2026-09-20",
+  "source_page": "https://datos.gob.ar/dataset/sspm-demanda-electricidad/archivo/sspm_367.3",
+  "api_query": "https://apis.datos.gob.ar/series/api/series/?ids=367.3_DEMANDA_TOTAL__13,367.3_TEMPERATURDIO__20,367.3_POTENCIA_MIMA__15&format=csv&limit=5000",
+  "license": "Creative Commons Attribution 4.0",
+  "series": {
+    "367.3_DEMANDA_TOTAL__13": "Monthly total electricity demand in GWh",
+    "367.3_TEMPERATURDIO__20": "Monthly average temperature in degrees Celsius",
+    "367.3_POTENCIA_MIMA__15": "Monthly maximum power in MW"
+  },
+  "local_file": "data/raw/electricity_demand_monthly.csv",
+  "sha256": "13e2b0d693b3a04e5efe74afcf3bf328bd68a6b7f93f78fde2f1a021dec68106",
+  "rows_including_header": 309
+}

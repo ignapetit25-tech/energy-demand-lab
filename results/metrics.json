@@ -1,0 +1,51 @@
+{
+  "data": {
+    "source_sha256": "13e2b0d693b3a04e5efe74afcf3bf328bd68a6b7f93f78fde2f1a021dec68106",
+    "observations": 308,
+    "start": "2001-01-01",
+    "end": "2026-08-01",
+    "train_observations": 252,
+    "holdout_observations": 56,
+    "holdout_start": "2022-01-01"
+  },
+  "models": {
+    "seasonal_naive": {
+      "mae_gwh": 631.293,
+      "rmse_gwh": 853.113,
+      "mape_percent": 5.237,
+      "mean_error_gwh": -158.43
+    },
+    "calendar_trend": {
+      "mae_gwh": 1003.836,
+      "rmse_gwh": 1152.976,
+      "mape_percent": 8.951,
+      "mean_error_gwh": 849.742
+    },
+    "calendar_trend_temperature": {
+      "mae_gwh": 922.558,
+      "rmse_gwh": 1064.99,
+      "mape_percent": 8.252,
+      "mean_error_gwh": 905.903
+    }
+  },
+  "hypothesis": {
+    "claim": "Temperature features reduce holdout MAE by at least 5% versus calendar and linear trend alone.",
+    "mae_improvement_percent": 8.097,
+    "passed": true,
+    "year_block_bootstrap_mae_difference_gwh_95_interval": [
+      -17.512,
+      184.109
+    ],
+    "uncertainty_interval_excludes_zero": false,
+    "interpretation": "The predefined improvement threshold was met."
+  },
+  "benchmark_context": {
+    "temperature_model_mae_increase_vs_seasonal_naive_percent": 46.138,
+    "interpretation": "The seasonal-naive model has lower holdout MAE than either fitted regression."
+  },
+  "boundaries": [
+    "This is an explanatory benchmark using observed monthly temperature, not a production forecast.",
+    "The aggregate national series cannot identify causal effects or local network constraints.",
+    "The holdout includes incomplete calendar year 2026 through August."
+  ]
+}
