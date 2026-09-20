@@ -14,7 +14,20 @@ Heating and cooling degree features must reduce holdout mean absolute error by a
 
 The temperature features reduced holdout MAE by 8.1% against the calendar-and-trend regression, so the predefined point-estimate threshold passed. The year-block uncertainty interval ranges from -17.5 to 184.1 GWh and crosses zero, so the evidence is not stable across holdout years. The temperature model also has 46.1% higher MAE than the much simpler seasonal-naive benchmark.
 
-The useful conclusion is therefore narrow: observed temperature adds some information to this particular regression specification, but this is not yet a competitive forecasting model. A stronger next experiment needs rolling-origin evaluation, structural-break handling, and weather values that would actually have been available at forecast time.
+The useful conclusion is therefore narrow: observed temperature adds some information to this particular regression specification, but this is not yet a competitive forecasting model. This motivated the rolling-origin extension below. A deployable follow-up still needs structural-break handling and weather values that would actually have been available at forecast time.
+
+## Rolling-origin extension
+
+A second protocol was committed before running an expanding-window backtest from January 2016 through August 2026. The model was refitted before each of 128 monthly predictions using only earlier demand observations.
+
+The predefined usefulness gate failed:
+
+- temperature-model MAE was 33.4% higher than seasonal naive;
+- it beat seasonal naive in only 2 of 10 complete years;
+- the year-block interval for seasonal-naive error minus temperature-model error was -370.7 to -41.1 GWh;
+- temperature helped relative to seasonal naive in warm and cold months but deteriorated sharply in shoulder months.
+
+This extension is explicitly exploratory relative to the original fixed holdout. It does not revise that earlier result. It shows why a favorable comparison against one weak baseline is insufficient.
 
 ## Data source
 
@@ -42,6 +55,8 @@ The analysis writes:
 - `results/predictions.csv` with every holdout prediction and error;
 - `results/report.md` with the concise conclusion;
 - `results/holdout_predictions.svg` with actual and predicted demand.
+- `results/rolling_metrics.json` and `results/rolling_report.md` with the expanding-window extension;
+- `results/rolling_predictions.csv` and `results/rolling_mae_by_year.svg` with its auditable forecasts and annual errors.
 
 ## Method
 
