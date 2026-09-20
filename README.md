@@ -49,6 +49,8 @@ python3 -m unittest discover -s tests -v
 python3 scripts/verify_release.py
 ```
 
+The GitHub Actions workflow runs the same release verifier on every push and pull request, and can also be started manually. Until the repository is published, this is validated CI configuration rather than evidence of a hosted run.
+
 The analysis writes:
 
 - `results/metrics.json` with data scope, holdout metrics, hypothesis result, and boundaries;
