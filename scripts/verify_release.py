@@ -12,6 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 EXPECTED_HASH = "13e2b0d693b3a04e5efe74afcf3bf328bd68a6b7f93f78fde2f1a021dec68106"
+EXPECTED_SECTOR_HASH = "31d390ba985e387f964c213c854979ac39e1d382ee40d7b8b45fbfb7aa90f04b"
 
 
 def run(command: list[str], suppress_stdout: bool = False) -> None:
@@ -52,7 +53,26 @@ def main() -> None:
             raise SystemExit("Unexpected shoulder-season bias")
         if diagnostic["interpretation_inputs"]["shoulder_recent_60m_mae_gwh"] != 362.154:
             raise SystemExit("Unexpected recent-window diagnostic result")
-    print("Release verification passed: source, 10 tests, outputs, and frozen results.")
+        run(
+            [sys.executable, "src/retrospective_diagnostics.py", "--output", temporary],
+            suppress_stdout=True,
+        )
+        advanced = json.loads((Path(temporary) / "metrics.json").read_text(encoding="utf-8"))
+        if advanced["shoulder_overall"]["calendar_trend"]["mean_error_gwh"] != 1050.92:
+            raise SystemExit("Unexpected shoulder calendar-trend bias")
+        if (
+            advanced["shoulder_by_feature_state"]["dead_band"]["models"][
+                "expanding_temperature"
+            ]["mae_gwh"]
+            != 1222.297
+        ):
+            raise SystemExit("Unexpected dead-band diagnostic result")
+        sector_path = ROOT / "data" / "raw" / "electricity_demand_sectors_monthly.csv"
+        import hashlib
+
+        if hashlib.sha256(sector_path.read_bytes()).hexdigest() != EXPECTED_SECTOR_HASH:
+            raise SystemExit("Sector source hash changed")
+    print("Release verification passed: source, 12 tests, outputs, and frozen results.")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,521 @@
+{
+  "status": "RETROSPECTIVE-DESCRIPTIVE; NOT CONFIRMATORY",
+  "design": {
+    "rolling_forecasts": 128,
+    "shoulder_observations": 63,
+    "dead_band_c": [
+      18.0,
+      22.0
+    ],
+    "sector_observations": 260,
+    "sector_start": "2005-01-01",
+    "sector_end": "2026-08-01"
+  },
+  "shoulder_overall": {
+    "seasonal_naive": {
+      "mae_gwh": 573.53,
+      "rmse_gwh": 777.78,
+      "mape_percent": 5.287,
+      "mean_error_gwh": -48.782,
+      "bias_share_percent": -8.506
+    },
+    "calendar_trend": {
+      "mae_gwh": 1110.372,
+      "rmse_gwh": 1210.744,
+      "mape_percent": 10.723,
+      "mean_error_gwh": 1050.92,
+      "bias_share_percent": 94.646
+    },
+    "expanding_temperature": {
+      "mae_gwh": 1029.417,
+      "rmse_gwh": 1118.12,
+      "mape_percent": 9.97,
+      "mean_error_gwh": 1029.417,
+      "bias_share_percent": 100.0
+    }
+  },
+  "shoulder_by_feature_state": {
+    "dead_band": {
+      "observations": 25,
+      "models": {
+        "seasonal_naive": {
+          "mae_gwh": 449.486,
+          "rmse_gwh": 575.005,
+          "mape_percent": 4.489,
+          "mean_error_gwh": 110.458,
+          "bias_share_percent": 24.574
+        },
+        "calendar_trend": {
+          "mae_gwh": 1342.314,
+          "rmse_gwh": 1395.487,
+          "mape_percent": 13.33,
+          "mean_error_gwh": 1342.314,
+          "bias_share_percent": 100.0
+        },
+        "expanding_temperature": {
+          "mae_gwh": 1222.297,
+          "rmse_gwh": 1283.794,
+          "mape_percent": 12.165,
+          "mean_error_gwh": 1222.297,
+          "bias_share_percent": 100.0
+        }
+      }
+    },
+    "active": {
+      "observations": 38,
+      "models": {
+        "seasonal_naive": {
+          "mae_gwh": 655.138,
+          "rmse_gwh": 886.234,
+          "mape_percent": 5.812,
+          "mean_error_gwh": -153.545,
+          "bias_share_percent": -23.437
+        },
+        "calendar_trend": {
+          "mae_gwh": 957.779,
+          "rmse_gwh": 1071.978,
+          "mape_percent": 9.007,
+          "mean_error_gwh": 859.214,
+          "bias_share_percent": 89.709
+        },
+        "expanding_temperature": {
+          "mae_gwh": 902.523,
+          "rmse_gwh": 994.18,
+          "mape_percent": 8.525,
+          "mean_error_gwh": 902.523,
+          "bias_share_percent": 100.0
+        }
+      }
+    }
+  },
+  "parameter_paths": {
+    "expanding": {
+      "trend_gwh_per_year": {
+        "first": 333.376978,
+        "last": 219.18347,
+        "minimum": 219.183,
+        "maximum": 334.535
+      },
+      "month_march": {
+        "first": 324.155285,
+        "last": 406.520033,
+        "minimum": 253.411,
+        "maximum": 502.484
+      },
+      "month_april": {
+        "first": -287.002389,
+        "last": -338.569952,
+        "minimum": -397.123,
+        "maximum": -85.456
+      },
+      "month_may": {
+        "first": -78.796216,
+        "last": -90.152584,
+        "minimum": -230.519,
+        "maximum": 74.997
+      },
+      "month_september": {
+        "first": -444.062636,
+        "last": -494.042113,
+        "minimum": -603.501,
+        "maximum": -286.509
+      },
+      "month_october": {
+        "first": -62.556539,
+        "last": -14.832976,
+        "minimum": -168.022,
+        "maximum": 117.885
+      },
+      "month_november": {
+        "first": -55.418614,
+        "last": 74.699281,
+        "minimum": -105.974,
+        "maximum": 160.365
+      },
+      "heating_gwh_per_degree": {
+        "first": 113.993047,
+        "last": 187.823631,
+        "minimum": 109.258,
+        "maximum": 194.629
+      },
+      "cooling_gwh_per_degree": {
+        "first": 283.665364,
+        "last": 442.610546,
+        "minimum": 283.665,
+        "maximum": 460.226
+      }
+    },
+    "recent_60m": {
+      "trend_gwh_per_year": {
+        "first": 325.845761,
+        "last": 64.117098,
+        "minimum": -107.054,
+        "maximum": 325.846
+      },
+      "month_march": {
+        "first": 194.623768,
+        "last": 60.155386,
+        "minimum": -364.222,
+        "maximum": 470.897
+      },
+      "month_april": {
+        "first": -590.719028,
+        "last": -867.968203,
+        "minimum": -1376.023,
+        "maximum": -267.431
+      },
+      "month_may": {
+        "first": -254.623255,
+        "last": -668.661761,
+        "minimum": -1161.857,
+        "maximum": -97.929
+      },
+      "month_september": {
+        "first": -669.129049,
+        "last": -1220.760802,
+        "minimum": -1475.852,
+        "maximum": -625.039
+      },
+      "month_october": {
+        "first": -167.860436,
+        "last": -476.641699,
+        "minimum": -1000.286,
+        "maximum": 13.305
+      },
+      "month_november": {
+        "first": -196.165527,
+        "last": -180.103059,
+        "minimum": -825.872,
+        "maximum": 286.354
+      },
+      "heating_gwh_per_degree": {
+        "first": 142.475904,
+        "last": 368.578836,
+        "minimum": 118.455,
+        "maximum": 449.178
+      },
+      "cooling_gwh_per_degree": {
+        "first": 376.83356,
+        "last": 573.488741,
+        "minimum": 317.198,
+        "maximum": 645.385
+      }
+    }
+  },
+  "sector_annual": {
+    "2005": {
+      "residential": {
+        "index_2015_100": 54.284,
+        "share_percent": 32.544
+      },
+      "commerce_industry": {
+        "index_2015_100": 84.671,
+        "share_percent": 46.708
+      },
+      "large_users": {
+        "index_2015_100": 74.261,
+        "share_percent": 20.749
+      }
+    },
+    "2006": {
+      "residential": {
+        "index_2015_100": 58.834,
+        "share_percent": 33.631
+      },
+      "commerce_industry": {
+        "index_2015_100": 81.113,
+        "share_percent": 42.681
+      },
+      "large_users": {
+        "index_2015_100": 88.882,
+        "share_percent": 23.687
+      }
+    },
+    "2007": {
+      "residential": {
+        "index_2015_100": 66.958,
+        "share_percent": 35.945
+      },
+      "commerce_industry": {
+        "index_2015_100": 85.42,
+        "share_percent": 42.287
+      },
+      "large_users": {
+        "index_2015_100": 86.718,
+        "share_percent": 21.768
+      }
+    },
+    "2008": {
+      "residential": {
+        "index_2015_100": 69.662,
+        "share_percent": 36.375
+      },
+      "commerce_industry": {
+        "index_2015_100": 84.587,
+        "share_percent": 40.665
+      },
+      "large_users": {
+        "index_2015_100": 94.216,
+        "share_percent": 22.96
+      }
+    },
+    "2009": {
+      "residential": {
+        "index_2015_100": 71.385,
+        "share_percent": 37.733
+      },
+      "commerce_industry": {
+        "index_2015_100": 83.778,
+        "share_percent": 40.805
+      },
+      "large_users": {
+        "index_2015_100": 86.929,
+        "share_percent": 21.462
+      }
+    },
+    "2010": {
+      "residential": {
+        "index_2015_100": 76.956,
+        "share_percent": 38.356
+      },
+      "commerce_industry": {
+        "index_2015_100": 88.157,
+        "share_percent": 40.569
+      },
+      "large_users": {
+        "index_2015_100": 90.263,
+        "share_percent": 21.076
+      }
+    },
+    "2011": {
+      "residential": {
+        "index_2015_100": 80.947,
+        "share_percent": 38.364
+      },
+      "commerce_industry": {
+        "index_2015_100": 91.175,
+        "share_percent": 39.915
+      },
+      "large_users": {
+        "index_2015_100": 97.792,
+        "share_percent": 21.721
+      }
+    },
+    "2012": {
+      "residential": {
+        "index_2015_100": 86.169,
+        "share_percent": 39.258
+      },
+      "commerce_industry": {
+        "index_2015_100": 93.523,
+        "share_percent": 39.324
+      },
+      "large_users": {
+        "index_2015_100": 100.305,
+        "share_percent": 21.418
+      }
+    },
+    "2013": {
+      "residential": {
+        "index_2015_100": 90.915,
+        "share_percent": 40.052
+      },
+      "commerce_industry": {
+        "index_2015_100": 95.32,
+        "share_percent": 38.816
+      },
+      "large_users": {
+        "index_2015_100": 102.105,
+        "share_percent": 21.132
+      }
+    },
+    "2014": {
+      "residential": {
+        "index_2015_100": 92.818,
+        "share_percent": 40.524
+      },
+      "commerce_industry": {
+        "index_2015_100": 96.336,
+        "share_percent": 38.845
+      },
+      "large_users": {
+        "index_2015_100": 100.788,
+        "share_percent": 20.631
+      }
+    },
+    "2015": {
+      "residential": {
+        "index_2015_100": 100.0,
+        "share_percent": 41.833
+      },
+      "commerce_industry": {
+        "index_2015_100": 100.0,
+        "share_percent": 38.584
+      },
+      "large_users": {
+        "index_2015_100": 100.0,
+        "share_percent": 19.583
+      }
+    },
+    "2016": {
+      "residential": {
+        "index_2015_100": 102.964,
+        "share_percent": 42.691
+      },
+      "commerce_industry": {
+        "index_2015_100": 101.947,
+        "share_percent": 39.07
+      },
+      "large_users": {
+        "index_2015_100": 93.667,
+        "share_percent": 18.239
+      }
+    },
+    "2017": {
+      "residential": {
+        "index_2015_100": 100.87,
+        "share_percent": 42.028
+      },
+      "commerce_industry": {
+        "index_2015_100": 101.551,
+        "share_percent": 39.06
+      },
+      "large_users": {
+        "index_2015_100": 96.698,
+        "share_percent": 18.911
+      }
+    },
+    "2018": {
+      "residential": {
+        "index_2015_100": 102.879,
+        "share_percent": 42.643
+      },
+      "commerce_industry": {
+        "index_2015_100": 101.109,
+        "share_percent": 38.815
+      },
+      "large_users": {
+        "index_2015_100": 95.112,
+        "share_percent": 18.541
+      }
+    },
+    "2019": {
+      "residential": {
+        "index_2015_100": 100.188,
+        "share_percent": 42.902
+      },
+      "commerce_industry": {
+        "index_2015_100": 97.966,
+        "share_percent": 38.755
+      },
+      "large_users": {
+        "index_2015_100": 91.34,
+        "share_percent": 18.343
+      }
+    },
+    "2020": {
+      "residential": {
+        "index_2015_100": 108.294,
+        "share_percent": 47.033
+      },
+      "commerce_industry": {
+        "index_2015_100": 91.438,
+        "share_percent": 36.62
+      },
+      "large_users": {
+        "index_2015_100": 80.445,
+        "share_percent": 16.348
+      }
+    },
+    "2021": {
+      "residential": {
+        "index_2015_100": 109.673,
+        "share_percent": 45.168
+      },
+      "commerce_industry": {
+        "index_2015_100": 96.803,
+        "share_percent": 36.937
+      },
+      "large_users": {
+        "index_2015_100": 92.373,
+        "share_percent": 17.895
+      }
+    },
+    "2022": {
+      "residential": {
+        "index_2015_100": 113.951,
+        "share_percent": 45.163
+      },
+      "commerce_industry": {
+        "index_2015_100": 102.392,
+        "share_percent": 37.74
+      },
+      "large_users": {
+        "index_2015_100": 91.138,
+        "share_percent": 17.097
+      }
+    },
+    "2023": {
+      "residential": {
+        "index_2015_100": 117.811,
+        "share_percent": 46.057
+      },
+      "commerce_industry": {
+        "index_2015_100": 102.547,
+        "share_percent": 37.197
+      },
+      "large_users": {
+        "index_2015_100": 90.713,
+        "share_percent": 16.745
+      }
+    },
+    "2024": {
+      "residential": {
+        "index_2015_100": 118.343,
+        "share_percent": 46.512
+      },
+      "commerce_industry": {
+        "index_2015_100": 100.837,
+        "share_percent": 36.752
+      },
+      "large_users": {
+        "index_2015_100": 90.369,
+        "share_percent": 16.736
+      }
+    },
+    "2025": {
+      "residential": {
+        "index_2015_100": 119.788,
+        "share_percent": 46.66
+      },
+      "commerce_industry": {
+        "index_2015_100": 100.227,
+        "share_percent": 36.279
+      },
+      "large_users": {
+        "index_2015_100": 92.468,
+        "share_percent": 17.061
+      }
+    },
+    "2026": {
+      "residential": {
+        "index_2015_100": 126.515,
+        "share_percent": 47.668
+      },
+      "commerce_industry": {
+        "index_2015_100": 99.518,
+        "share_percent": 34.644
+      },
+      "large_users": {
+        "index_2015_100": 100.183,
+        "share_percent": 17.687
+      }
+    }
+  },
+  "boundaries": [
+    "All evaluated demand outcomes through August 2026 were previously examined.",
+    "Parameter instability does not identify its economic cause.",
+    "Sector divergence is descriptive and cannot establish tariff or activity effects.",
+    "Current-month observed temperature remains a perfect-foresight input."
+  ]
+}

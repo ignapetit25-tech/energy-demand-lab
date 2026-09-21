@@ -35,6 +35,8 @@ A diagnostic protocol was committed before investigating the rolling model's sho
 
 The recent-window result is a promising exploratory lead, not an independently confirmed winner. An annual-change temperature model also improved on seasonal naive, supporting a future architecture that anchors on recent demand rather than extrapolating the full 2001-present trend.
 
+An advanced prespecified retrospective diagnostic then separated the main mechanisms. The dead band matters: expanding-temperature MAE is 1,222.3 GWh inside 18-22 C and 902.5 GWh when a weather feature is active. It is not the primary source of bias, however, because calendar and trend already overpredicts shoulder demand by 1,050.9 GWh on average. Sector data add context: from 2015 to 2025 the residential share rose from 41.8% to 46.7%, while commerce and industry remained near its 2015 level and large-user demand remained below it. These findings establish instability and composition change, not their economic causes.
+
 ## Data source
 
 The project uses 308 consecutive monthly observations from the official Datos Argentina time-series API, January 2001 through August 2026:
@@ -53,6 +55,7 @@ Python 3.10+ and no third-party packages are required.
 python3 src/analyze.py
 python3 src/rolling_backtest.py
 python3 src/shoulder_diagnostic.py
+python3 src/retrospective_diagnostics.py
 python3 -m unittest discover -s tests -v
 python3 scripts/verify_release.py
 ```
@@ -68,6 +71,7 @@ The analysis writes:
 - `results/rolling_metrics.json` and `results/rolling_report.md` with the expanding-window extension;
 - `results/rolling_predictions.csv` and `results/rolling_mae_by_year.svg` with its auditable forecasts and annual errors.
 - `results/shoulder_diagnostic_metrics.json`, `results/shoulder_diagnostic_predictions.csv`, and `results/shoulder_diagnostic_report.md` with the prespecified failure analysis.
+- `results/retrospective_descriptive/` with dead-band, coefficient-path, forecast-decomposition, and sector-composition diagnostics. Every artifact in this folder is explicitly non-confirmatory.
 
 ## Method
 

@@ -1,0 +1,22 @@
+{
+  "downloaded_at": "2026-09-20",
+  "api_query": "https://apis.datos.gob.ar/series/api/series/?ids=367.3_DEMANDA_TOTAL__13,367.3_DEMANDA_REIAL__19,367.3_COMERCIO_ERIA__20,367.3_GRANDES_USIOS__16&format=json&limit=5000",
+  "source": "Datos Argentina / CAMMESA",
+  "series": {
+    "total_gwh": "367.3_DEMANDA_TOTAL__13",
+    "residential_gwh": "367.3_DEMANDA_REIAL__19",
+    "commerce_industry_gwh": "367.3_COMERCIO_ERIA__20",
+    "large_users_gwh": "367.3_GRANDES_USIOS__16"
+  },
+  "coverage": {
+    "start": "2005-01-01",
+    "end": "2026-08-01",
+    "observations": 260
+  },
+  "validation": {
+    "consecutive_months": true,
+    "components_sum_to_total_tolerance_gwh": 0.01
+  },
+  "local_file": "data/raw/electricity_demand_sectors_monthly.csv",
+  "sha256": "31d390ba985e387f964c213c854979ac39e1d382ee40d7b8b45fbfb7aa90f04b"
+}
