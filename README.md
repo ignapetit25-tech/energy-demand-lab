@@ -90,3 +90,5 @@ The code uses ordinary least squares implemented with the Python standard librar
 - A negative result remains part of the portfolio and determines the next experiment.
 
 See [`docs/research-plan.md`](docs/research-plan.md) for the complete preregistered logic.
+
+The external next-stage methodology review is evaluated in [`docs/external-review-audit.md`](docs/external-review-audit.md). The audit accepts its core caution while correcting the first prospective target, sector-data coverage, climate-normal period, and demand-availability lag before implementation.
