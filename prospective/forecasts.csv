@@ -1,0 +1,2 @@
+target_period,issue_timestamp,latest_allowed_demand_period,seasonal_naive_gwh,primary_adaptive_annual_change_gwh,selected_window_months,fixed_60m_annual_change_gwh,seasonal_naive_expanding_drift_gwh,inner_mae_w36_gwh,inner_mae_w60_gwh,inner_mae_w84_gwh,inner_mae_w120_gwh
+2026-10-01,2026-09-20T23:44:41-03:00,2026-08-01,10591.336,10578.252,120,10706.834,10809.74,713.062,616.871,606.615,592.267

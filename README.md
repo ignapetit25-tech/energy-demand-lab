@@ -43,6 +43,10 @@ A nested retrospective protocol then tested whether annual-change training-windo
 
 The parallel perfect-foresight temperature variant reached 393.9 GWh overall, showing that target-month weather contains substantial potential information. It does not establish deployable skill because realized monthly temperature is unavailable at forecast time. The nested result therefore rejects adaptive recency alone as a rescue and sharpens the next question: whether archived or prospectively captured weather forecasts can recover enough of the oracle gap.
 
+## Prospective forecast
+
+The first eligible untouched target is October 2026. Its protocol was committed before calculation, and the forecast was issued on September 20 from an immutable August data vintage. Seasonal naive forecasts 10,591.336 GWh; the primary adaptive annual-change rule selected a 120-month window and forecasts 10,578.252 GWh. No target-month weather information was used. One outcome will be descriptive only, and the forecast will not be rewritten after release.
+
 ## Data source
 
 The project uses 308 consecutive monthly observations from the official Datos Argentina time-series API, January 2001 through August 2026:
@@ -80,6 +84,7 @@ The analysis writes:
 - `results/shoulder_diagnostic_metrics.json`, `results/shoulder_diagnostic_predictions.csv`, and `results/shoulder_diagnostic_report.md` with the prespecified failure analysis.
 - `results/retrospective_descriptive/` with dead-band, coefficient-path, forecast-decomposition, and sector-composition diagnostics. Every artifact in this folder is explicitly non-confirmatory.
 - `results/nested_exploratory/` with lag-correct nested window selections, honest-information forecasts, and a separately labeled temperature-oracle upper bound.
+- `prospective/preregistration.md`, `prospective/forecasts.csv`, and `prospective/vintages/2026-10/` with the frozen October protocol, forecast, source data, code hash, and input hash.
 
 ## Method
 

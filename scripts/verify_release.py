@@ -80,7 +80,27 @@ def main() -> None:
             raise SystemExit("Unexpected nested window-selection trajectory")
         if nested["design"]["latest_demand_lag_months"] != 2:
             raise SystemExit("Nested validation did not preserve the availability lag")
-    print("Release verification passed: source, 14 tests, outputs, and frozen results.")
+        forecast_manifest = json.loads(
+            (ROOT / "prospective" / "vintages" / "2026-10" / "manifest.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        if forecast_manifest["source_sha256"] != EXPECTED_HASH:
+            raise SystemExit("Prospective input vintage hash changed")
+        forecast_code = ROOT / forecast_manifest["forecast_code"]
+        if hashlib.sha256(forecast_code.read_bytes()).hexdigest() != forecast_manifest[
+            "forecast_code_sha256"
+        ]:
+            raise SystemExit("Prospective forecast code changed after issuance")
+        with (ROOT / "prospective" / "forecasts.csv").open(
+            newline="", encoding="utf-8"
+        ) as handle:
+            forecasts = list(__import__("csv").DictReader(handle))
+        if len(forecasts) != 1 or forecasts[0]["target_period"] != "2026-10-01":
+            raise SystemExit("Unexpected prospective forecast ledger")
+        if forecasts[0]["primary_adaptive_annual_change_gwh"] != "10578.252":
+            raise SystemExit("Prospective October forecast changed")
+    print("Release verification passed: source, 15 tests, outputs, and frozen results.")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,12 @@
+{
+  "target_period": "2026-10-01",
+  "issue_timestamp": "2026-09-20T23:44:41-03:00",
+  "source_file": "data/raw/electricity_demand_monthly.csv",
+  "source_sha256": "13e2b0d693b3a04e5efe74afcf3bf328bd68a6b7f93f78fde2f1a021dec68106",
+  "latest_source_period": "2026-08-01",
+  "vintage_file": "prospective/vintages/2026-10/electricity_demand_monthly.csv",
+  "forecast_code": "src/prospective_forecast.py",
+  "forecast_code_sha256": "e9068b0e0e74c1fa81c9c9caf64dc2e21bd21dcfb97892d4243184ec510cdc28",
+  "weather_deviation_input": 0.0,
+  "weather_interpretation": "No current-month weather input; climatology implies zero deviation."
+}
