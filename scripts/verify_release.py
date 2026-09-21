@@ -72,7 +72,15 @@ def main() -> None:
 
         if hashlib.sha256(sector_path.read_bytes()).hexdigest() != EXPECTED_SECTOR_HASH:
             raise SystemExit("Sector source hash changed")
-    print("Release verification passed: source, 12 tests, outputs, and frozen results.")
+        run([sys.executable, "src/nested_validation.py", "--output", temporary], suppress_stdout=True)
+        nested = json.loads((Path(temporary) / "metrics.json").read_text(encoding="utf-8"))
+        if nested["overall"]["adaptive_annual_change_honest"]["mae_gwh"] != 622.376:
+            raise SystemExit("Unexpected nested honest-information result")
+        if nested["window_selection_frequency"]["honest"]["120"] != 108:
+            raise SystemExit("Unexpected nested window-selection trajectory")
+        if nested["design"]["latest_demand_lag_months"] != 2:
+            raise SystemExit("Nested validation did not preserve the availability lag")
+    print("Release verification passed: source, 14 tests, outputs, and frozen results.")
 
 
 if __name__ == "__main__":

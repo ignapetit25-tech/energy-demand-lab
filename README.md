@@ -37,6 +37,12 @@ The recent-window result is a promising exploratory lead, not an independently c
 
 An advanced prespecified retrospective diagnostic then separated the main mechanisms. The dead band matters: expanding-temperature MAE is 1,222.3 GWh inside 18-22 C and 902.5 GWh when a weather feature is active. It is not the primary source of bias, however, because calendar and trend already overpredicts shoulder demand by 1,050.9 GWh on average. Sector data add context: from 2015 to 2025 the residential share rose from 41.8% to 46.7%, while commerce and industry remained near its 2015 level and large-user demand remained below it. These findings establish instability and composition change, not their economic causes.
 
+## Nested window-selection extension
+
+A nested retrospective protocol then tested whether annual-change training-window length could be selected using only demand outcomes available with a two-month reporting lag. The primary honest-information rule selected 120 months in 108 of 128 forecasts and achieved MAE of 622.4 GWh, worse than seasonal naive at 566.6 GWh. Its shoulder MAE was also worse, 645.8 versus 573.5 GWh, and the descriptive year-block interval favored seasonal naive.
+
+The parallel perfect-foresight temperature variant reached 393.9 GWh overall, showing that target-month weather contains substantial potential information. It does not establish deployable skill because realized monthly temperature is unavailable at forecast time. The nested result therefore rejects adaptive recency alone as a rescue and sharpens the next question: whether archived or prospectively captured weather forecasts can recover enough of the oracle gap.
+
 ## Data source
 
 The project uses 308 consecutive monthly observations from the official Datos Argentina time-series API, January 2001 through August 2026:
@@ -56,6 +62,7 @@ python3 src/analyze.py
 python3 src/rolling_backtest.py
 python3 src/shoulder_diagnostic.py
 python3 src/retrospective_diagnostics.py
+python3 src/nested_validation.py
 python3 -m unittest discover -s tests -v
 python3 scripts/verify_release.py
 ```
@@ -72,6 +79,7 @@ The analysis writes:
 - `results/rolling_predictions.csv` and `results/rolling_mae_by_year.svg` with its auditable forecasts and annual errors.
 - `results/shoulder_diagnostic_metrics.json`, `results/shoulder_diagnostic_predictions.csv`, and `results/shoulder_diagnostic_report.md` with the prespecified failure analysis.
 - `results/retrospective_descriptive/` with dead-band, coefficient-path, forecast-decomposition, and sector-composition diagnostics. Every artifact in this folder is explicitly non-confirmatory.
+- `results/nested_exploratory/` with lag-correct nested window selections, honest-information forecasts, and a separately labeled temperature-oracle upper bound.
 
 ## Method
 

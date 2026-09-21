@@ -1,0 +1,117 @@
+{
+  "status": "RETROSPECTIVE-EXPLORATORY; NOT CONFIRMATORY",
+  "design": {
+    "first_outer_forecast": "2016-01-01",
+    "last_outer_forecast": "2026-08-01",
+    "outer_forecasts": 128,
+    "inner_months": 24,
+    "candidate_windows": [
+      36,
+      60,
+      84,
+      120
+    ],
+    "latest_demand_lag_months": 2,
+    "tie_break": "larger window"
+  },
+  "overall": {
+    "seasonal_naive": {
+      "mae_gwh": 566.628,
+      "rmse_gwh": 736.101,
+      "mape_percent": 4.98,
+      "mean_error_gwh": -83.125
+    },
+    "seasonal_naive_expanding_drift": {
+      "mae_gwh": 586.256,
+      "rmse_gwh": 755.669,
+      "mape_percent": 5.222,
+      "mean_error_gwh": 167.798
+    },
+    "expanding_level_temperature_oracle": {
+      "mae_gwh": 765.206,
+      "rmse_gwh": 907.72,
+      "mape_percent": 7.159,
+      "mean_error_gwh": 737.837
+    },
+    "fixed_60m_annual_change_honest": {
+      "mae_gwh": 646.731,
+      "rmse_gwh": 827.348,
+      "mape_percent": 5.72,
+      "mean_error_gwh": 59.468
+    },
+    "adaptive_annual_change_honest": {
+      "mae_gwh": 622.376,
+      "rmse_gwh": 798.129,
+      "mape_percent": 5.522,
+      "mean_error_gwh": 82.234
+    },
+    "adaptive_annual_change_temperature_oracle": {
+      "mae_gwh": 393.868,
+      "rmse_gwh": 506.862,
+      "mape_percent": 3.582,
+      "mean_error_gwh": 81.757
+    }
+  },
+  "shoulder": {
+    "seasonal_naive": {
+      "mae_gwh": 573.53,
+      "rmse_gwh": 777.78,
+      "mape_percent": 5.287,
+      "mean_error_gwh": -48.782
+    },
+    "seasonal_naive_expanding_drift": {
+      "mae_gwh": 615.549,
+      "rmse_gwh": 809.202,
+      "mape_percent": 5.749,
+      "mean_error_gwh": 202.442
+    },
+    "expanding_level_temperature_oracle": {
+      "mae_gwh": 1042.544,
+      "rmse_gwh": 1130.95,
+      "mape_percent": 10.094,
+      "mean_error_gwh": 1042.544
+    },
+    "fixed_60m_annual_change_honest": {
+      "mae_gwh": 655.175,
+      "rmse_gwh": 875.097,
+      "mape_percent": 6.076,
+      "mean_error_gwh": 68.671
+    },
+    "adaptive_annual_change_honest": {
+      "mae_gwh": 645.815,
+      "rmse_gwh": 851.737,
+      "mape_percent": 6.004,
+      "mean_error_gwh": 86.957
+    },
+    "adaptive_annual_change_temperature_oracle": {
+      "mae_gwh": 443.245,
+      "rmse_gwh": 568.266,
+      "mape_percent": 4.239,
+      "mean_error_gwh": 59.192
+    }
+  },
+  "window_selection_frequency": {
+    "honest": {
+      "36": 9,
+      "60": 0,
+      "84": 11,
+      "120": 108
+    },
+    "temperature_oracle": {
+      "36": 26,
+      "60": 27,
+      "84": 26,
+      "120": 49
+    }
+  },
+  "seasonal_naive_minus_adaptive_honest_mae_year_block_95_interval_gwh": [
+    -99.057,
+    -13.791
+  ],
+  "boundaries": [
+    "All outer outcomes were previously examined; nested selection is not confirmation.",
+    "The primary adaptive model uses no current-month weather information.",
+    "The temperature variant uses realized target-month temperature and is an oracle upper bound.",
+    "Historical national-holiday adjustment is deferred until authoritative dated calendars are frozen."
+  ]
+}
