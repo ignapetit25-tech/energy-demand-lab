@@ -44,7 +44,15 @@ def main() -> None:
             raise SystemExit("Unexpected rolling-origin usefulness result")
         if rolling["comparisons"]["temperature_mae_change_vs_seasonal_naive_percent"] != 33.386:
             raise SystemExit("Unexpected rolling-origin benchmark result")
-    print("Release verification passed: source, 8 tests, outputs, and frozen results.")
+        run([sys.executable, "src/shoulder_diagnostic.py", "--output", temporary], suppress_stdout=True)
+        diagnostic = json.loads(
+            (Path(temporary) / "shoulder_diagnostic_metrics.json").read_text(encoding="utf-8")
+        )
+        if diagnostic["interpretation_inputs"]["shoulder_expanding_mean_error_gwh"] != 1029.417:
+            raise SystemExit("Unexpected shoulder-season bias")
+        if diagnostic["interpretation_inputs"]["shoulder_recent_60m_mae_gwh"] != 362.154:
+            raise SystemExit("Unexpected recent-window diagnostic result")
+    print("Release verification passed: source, 10 tests, outputs, and frozen results.")
 
 
 if __name__ == "__main__":

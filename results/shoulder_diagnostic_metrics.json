@@ -1,0 +1,721 @@
+{
+  "design": {
+    "forecasts": 128,
+    "first_forecast": "2016-01-01",
+    "last_forecast": "2026-08-01",
+    "shoulder_months": [
+      3,
+      4,
+      5,
+      9,
+      10,
+      11
+    ],
+    "recent_window_months": 60,
+    "observed_temperature_oracle": true
+  },
+  "feature_activation": {
+    "by_season": {
+      "warm": {
+        "observations": 32,
+        "dead_band_percent": 0.0,
+        "heating_active_percent": 0.0,
+        "cooling_active_percent": 100.0
+      },
+      "cold": {
+        "observations": 33,
+        "dead_band_percent": 0.0,
+        "heating_active_percent": 100.0,
+        "cooling_active_percent": 0.0
+      },
+      "shoulder": {
+        "observations": 63,
+        "dead_band_percent": 39.683,
+        "heating_active_percent": 41.27,
+        "cooling_active_percent": 19.048
+      }
+    },
+    "by_month": {
+      "1": {
+        "observations": 11,
+        "dead_band_percent": 0.0,
+        "heating_active_percent": 0.0,
+        "cooling_active_percent": 100.0
+      },
+      "2": {
+        "observations": 11,
+        "dead_band_percent": 0.0,
+        "heating_active_percent": 0.0,
+        "cooling_active_percent": 100.0
+      },
+      "3": {
+        "observations": 11,
+        "dead_band_percent": 27.273,
+        "heating_active_percent": 0.0,
+        "cooling_active_percent": 72.727
+      },
+      "4": {
+        "observations": 11,
+        "dead_band_percent": 81.818,
+        "heating_active_percent": 9.091,
+        "cooling_active_percent": 9.091
+      },
+      "5": {
+        "observations": 11,
+        "dead_band_percent": 0.0,
+        "heating_active_percent": 100.0,
+        "cooling_active_percent": 0.0
+      },
+      "6": {
+        "observations": 11,
+        "dead_band_percent": 0.0,
+        "heating_active_percent": 100.0,
+        "cooling_active_percent": 0.0
+      },
+      "7": {
+        "observations": 11,
+        "dead_band_percent": 0.0,
+        "heating_active_percent": 100.0,
+        "cooling_active_percent": 0.0
+      },
+      "8": {
+        "observations": 11,
+        "dead_band_percent": 0.0,
+        "heating_active_percent": 100.0,
+        "cooling_active_percent": 0.0
+      },
+      "9": {
+        "observations": 10,
+        "dead_band_percent": 0.0,
+        "heating_active_percent": 100.0,
+        "cooling_active_percent": 0.0
+      },
+      "10": {
+        "observations": 10,
+        "dead_band_percent": 60.0,
+        "heating_active_percent": 40.0,
+        "cooling_active_percent": 0.0
+      },
+      "11": {
+        "observations": 10,
+        "dead_band_percent": 70.0,
+        "heating_active_percent": 0.0,
+        "cooling_active_percent": 30.0
+      },
+      "12": {
+        "observations": 10,
+        "dead_band_percent": 0.0,
+        "heating_active_percent": 0.0,
+        "cooling_active_percent": 100.0
+      }
+    }
+  },
+  "overall": {
+    "seasonal_naive": {
+      "mae_gwh": 566.628,
+      "rmse_gwh": 736.101,
+      "mape_percent": 4.98,
+      "mean_error_gwh": -83.125
+    },
+    "expanding_temperature": {
+      "mae_gwh": 755.803,
+      "rmse_gwh": 897.477,
+      "mape_percent": 7.072,
+      "mean_error_gwh": 728.058
+    },
+    "recent_60m_temperature": {
+      "mae_gwh": 334.031,
+      "rmse_gwh": 426.174,
+      "mape_percent": 3.014,
+      "mean_error_gwh": 45.423
+    },
+    "annual_change_temperature": {
+      "mae_gwh": 431.378,
+      "rmse_gwh": 539.923,
+      "mape_percent": 3.921,
+      "mean_error_gwh": 180.669
+    }
+  },
+  "by_season": {
+    "warm": {
+      "seasonal_naive": {
+        "mae_gwh": 605.204,
+        "rmse_gwh": 738.637,
+        "mape_percent": 5.052,
+        "mean_error_gwh": -116.323
+      },
+      "expanding_temperature": {
+        "mae_gwh": 520.542,
+        "rmse_gwh": 643.663,
+        "mape_percent": 4.546,
+        "mean_error_gwh": 455.3
+      },
+      "recent_60m_temperature": {
+        "mae_gwh": 309.947,
+        "rmse_gwh": 379.129,
+        "mape_percent": 2.567,
+        "mean_error_gwh": -13.097
+      },
+      "annual_change_temperature": {
+        "mae_gwh": 385.501,
+        "rmse_gwh": 472.398,
+        "mape_percent": 3.297,
+        "mean_error_gwh": 189.137
+      }
+    },
+    "cold": {
+      "seasonal_naive": {
+        "mae_gwh": 516.045,
+        "rmse_gwh": 646.341,
+        "mape_percent": 4.325,
+        "mean_error_gwh": -116.496
+      },
+      "expanding_temperature": {
+        "mae_gwh": 461.582,
+        "rmse_gwh": 579.438,
+        "mape_percent": 3.991,
+        "mean_error_gwh": 417.229
+      },
+      "recent_60m_temperature": {
+        "mae_gwh": 303.695,
+        "rmse_gwh": 415.623,
+        "mape_percent": 2.531,
+        "mean_error_gwh": -40.764
+      },
+      "annual_change_temperature": {
+        "mae_gwh": 398.668,
+        "rmse_gwh": 519.26,
+        "mape_percent": 3.413,
+        "mean_error_gwh": 175.648
+      }
+    },
+    "shoulder": {
+      "seasonal_naive": {
+        "mae_gwh": 573.53,
+        "rmse_gwh": 777.78,
+        "mape_percent": 5.287,
+        "mean_error_gwh": -48.782
+      },
+      "expanding_temperature": {
+        "mae_gwh": 1029.417,
+        "rmse_gwh": 1118.12,
+        "mape_percent": 9.97,
+        "mean_error_gwh": 1029.417
+      },
+      "recent_60m_temperature": {
+        "mae_gwh": 362.154,
+        "rmse_gwh": 453.342,
+        "mape_percent": 3.494,
+        "mean_error_gwh": 120.293
+      },
+      "annual_change_temperature": {
+        "mae_gwh": 471.814,
+        "rmse_gwh": 581.121,
+        "mape_percent": 4.504,
+        "mean_error_gwh": 178.998
+      }
+    }
+  },
+  "by_month": {
+    "1": {
+      "seasonal_naive": {
+        "mae_gwh": 465.698,
+        "rmse_gwh": 544.389,
+        "mape_percent": 3.646,
+        "mean_error_gwh": -130.835
+      },
+      "expanding_temperature": {
+        "mae_gwh": 285.639,
+        "rmse_gwh": 381.307,
+        "mape_percent": 2.353,
+        "mean_error_gwh": 153.903
+      },
+      "recent_60m_temperature": {
+        "mae_gwh": 291.041,
+        "rmse_gwh": 363.967,
+        "mape_percent": 2.281,
+        "mean_error_gwh": -72.849
+      },
+      "annual_change_temperature": {
+        "mae_gwh": 304.766,
+        "rmse_gwh": 391.679,
+        "mape_percent": 2.447,
+        "mean_error_gwh": 173.17
+      }
+    },
+    "2": {
+      "seasonal_naive": {
+        "mae_gwh": 689.542,
+        "rmse_gwh": 794.099,
+        "mape_percent": 6.025,
+        "mean_error_gwh": -101.412
+      },
+      "expanding_temperature": {
+        "mae_gwh": 584.894,
+        "rmse_gwh": 719.615,
+        "mape_percent": 5.358,
+        "mean_error_gwh": 526.835
+      },
+      "recent_60m_temperature": {
+        "mae_gwh": 249.065,
+        "rmse_gwh": 295.359,
+        "mape_percent": 2.214,
+        "mean_error_gwh": 4.406
+      },
+      "annual_change_temperature": {
+        "mae_gwh": 477.55,
+        "rmse_gwh": 548.99,
+        "mape_percent": 4.231,
+        "mean_error_gwh": 179.431
+      }
+    },
+    "3": {
+      "seasonal_naive": {
+        "mae_gwh": 912.523,
+        "rmse_gwh": 1280.508,
+        "mape_percent": 7.686,
+        "mean_error_gwh": -36.046
+      },
+      "expanding_temperature": {
+        "mae_gwh": 872.482,
+        "rmse_gwh": 976.772,
+        "mape_percent": 7.873,
+        "mean_error_gwh": 872.482
+      },
+      "recent_60m_temperature": {
+        "mae_gwh": 417.507,
+        "rmse_gwh": 497.63,
+        "mape_percent": 3.738,
+        "mean_error_gwh": 100.647
+      },
+      "annual_change_temperature": {
+        "mae_gwh": 591.469,
+        "rmse_gwh": 737.05,
+        "mape_percent": 5.2,
+        "mean_error_gwh": 190.736
+      }
+    },
+    "4": {
+      "seasonal_naive": {
+        "mae_gwh": 555.518,
+        "rmse_gwh": 680.485,
+        "mape_percent": 5.709,
+        "mean_error_gwh": -50.264
+      },
+      "expanding_temperature": {
+        "mae_gwh": 1283.436,
+        "rmse_gwh": 1405.727,
+        "mape_percent": 13.278,
+        "mean_error_gwh": 1283.436
+      },
+      "recent_60m_temperature": {
+        "mae_gwh": 478.265,
+        "rmse_gwh": 576.207,
+        "mape_percent": 5.001,
+        "mean_error_gwh": 179.871
+      },
+      "annual_change_temperature": {
+        "mae_gwh": 577.227,
+        "rmse_gwh": 704.965,
+        "mape_percent": 5.993,
+        "mean_error_gwh": 149.045
+      }
+    },
+    "5": {
+      "seasonal_naive": {
+        "mae_gwh": 866.17,
+        "rmse_gwh": 956.735,
+        "mape_percent": 7.74,
+        "mean_error_gwh": -153.082
+      },
+      "expanding_temperature": {
+        "mae_gwh": 807.319,
+        "rmse_gwh": 959.089,
+        "mape_percent": 7.605,
+        "mean_error_gwh": 807.319
+      },
+      "recent_60m_temperature": {
+        "mae_gwh": 302.771,
+        "rmse_gwh": 419.362,
+        "mape_percent": 2.808,
+        "mean_error_gwh": 31.817
+      },
+      "annual_change_temperature": {
+        "mae_gwh": 625.074,
+        "rmse_gwh": 677.67,
+        "mape_percent": 5.75,
+        "mean_error_gwh": 124.317
+      }
+    },
+    "6": {
+      "seasonal_naive": {
+        "mae_gwh": 784.594,
+        "rmse_gwh": 904.29,
+        "mape_percent": 6.611,
+        "mean_error_gwh": -126.068
+      },
+      "expanding_temperature": {
+        "mae_gwh": 517.938,
+        "rmse_gwh": 658.157,
+        "mape_percent": 4.542,
+        "mean_error_gwh": 405.859
+      },
+      "recent_60m_temperature": {
+        "mae_gwh": 353.092,
+        "rmse_gwh": 490.95,
+        "mape_percent": 2.947,
+        "mean_error_gwh": -75.502
+      },
+      "annual_change_temperature": {
+        "mae_gwh": 563.863,
+        "rmse_gwh": 678.467,
+        "mape_percent": 4.829,
+        "mean_error_gwh": 168.951
+      }
+    },
+    "7": {
+      "seasonal_naive": {
+        "mae_gwh": 327.558,
+        "rmse_gwh": 415.107,
+        "mape_percent": 2.601,
+        "mean_error_gwh": -105.078
+      },
+      "expanding_temperature": {
+        "mae_gwh": 218.555,
+        "rmse_gwh": 270.032,
+        "mape_percent": 1.767,
+        "mean_error_gwh": 197.576
+      },
+      "recent_60m_temperature": {
+        "mae_gwh": 289.357,
+        "rmse_gwh": 379.653,
+        "mape_percent": 2.292,
+        "mean_error_gwh": -95.455
+      },
+      "annual_change_temperature": {
+        "mae_gwh": 266.749,
+        "rmse_gwh": 348.898,
+        "mape_percent": 2.177,
+        "mean_error_gwh": 190.377
+      }
+    },
+    "8": {
+      "seasonal_naive": {
+        "mae_gwh": 435.982,
+        "rmse_gwh": 513.047,
+        "mape_percent": 3.764,
+        "mean_error_gwh": -118.342
+      },
+      "expanding_temperature": {
+        "mae_gwh": 648.252,
+        "rmse_gwh": 707.925,
+        "mape_percent": 5.664,
+        "mean_error_gwh": 648.252
+      },
+      "recent_60m_temperature": {
+        "mae_gwh": 268.635,
+        "rmse_gwh": 364.773,
+        "mape_percent": 2.353,
+        "mean_error_gwh": 48.664
+      },
+      "annual_change_temperature": {
+        "mae_gwh": 365.394,
+        "rmse_gwh": 476.283,
+        "mape_percent": 3.233,
+        "mean_error_gwh": 167.616
+      }
+    },
+    "9": {
+      "seasonal_naive": {
+        "mae_gwh": 351.753,
+        "rmse_gwh": 420.088,
+        "mape_percent": 3.401,
+        "mean_error_gwh": -7.864
+      },
+      "expanding_temperature": {
+        "mae_gwh": 1035.109,
+        "rmse_gwh": 1066.373,
+        "mape_percent": 10.066,
+        "mean_error_gwh": 1035.109
+      },
+      "recent_60m_temperature": {
+        "mae_gwh": 232.531,
+        "rmse_gwh": 282.486,
+        "mape_percent": 2.259,
+        "mean_error_gwh": 106.4
+      },
+      "annual_change_temperature": {
+        "mae_gwh": 348.726,
+        "rmse_gwh": 402.368,
+        "mape_percent": 3.406,
+        "mean_error_gwh": 219.798
+      }
+    },
+    "10": {
+      "seasonal_naive": {
+        "mae_gwh": 341.656,
+        "rmse_gwh": 385.132,
+        "mape_percent": 3.346,
+        "mean_error_gwh": 13.084
+      },
+      "expanding_temperature": {
+        "mae_gwh": 1191.898,
+        "rmse_gwh": 1206.291,
+        "mape_percent": 11.612,
+        "mean_error_gwh": 1191.898
+      },
+      "recent_60m_temperature": {
+        "mae_gwh": 387.807,
+        "rmse_gwh": 477.878,
+        "mape_percent": 3.798,
+        "mean_error_gwh": 208.09
+      },
+      "annual_change_temperature": {
+        "mae_gwh": 354.294,
+        "rmse_gwh": 447.117,
+        "mape_percent": 3.498,
+        "mean_error_gwh": 212.896
+      }
+    },
+    "11": {
+      "seasonal_naive": {
+        "mae_gwh": 352.199,
+        "rmse_gwh": 407.951,
+        "mape_percent": 3.314,
+        "mean_error_gwh": -49.215
+      },
+      "expanding_temperature": {
+        "mae_gwh": 998.761,
+        "rmse_gwh": 1024.168,
+        "mape_percent": 9.5,
+        "mean_error_gwh": 998.761
+      },
+      "recent_60m_temperature": {
+        "mae_gwh": 342.837,
+        "rmse_gwh": 394.383,
+        "mape_percent": 3.255,
+        "mean_error_gwh": 99.789
+      },
+      "annual_change_temperature": {
+        "mae_gwh": 296.262,
+        "rmse_gwh": 341.038,
+        "mape_percent": 2.831,
+        "mean_error_gwh": 184.487
+      }
+    },
+    "12": {
+      "seasonal_naive": {
+        "mae_gwh": 665.89,
+        "rmse_gwh": 852.186,
+        "mape_percent": 5.528,
+        "mean_error_gwh": -116.761
+      },
+      "expanding_temperature": {
+        "mae_gwh": 708.148,
+        "rmse_gwh": 772.143,
+        "mape_percent": 6.066,
+        "mean_error_gwh": 708.148
+      },
+      "recent_60m_temperature": {
+        "mae_gwh": 397.713,
+        "rmse_gwh": 467.21,
+        "mape_percent": 3.271,
+        "mean_error_gwh": 33.377
+      },
+      "annual_change_temperature": {
+        "mae_gwh": 373.057,
+        "rmse_gwh": 462.418,
+        "mape_percent": 3.203,
+        "mean_error_gwh": 217.375
+      }
+    }
+  },
+  "by_period": {
+    "2016-2019": {
+      "seasonal_naive": {
+        "mae_gwh": 486.63,
+        "rmse_gwh": 583.652,
+        "mape_percent": 4.474,
+        "mean_error_gwh": 65.908
+      },
+      "expanding_temperature": {
+        "mae_gwh": 686.221,
+        "rmse_gwh": 800.543,
+        "mape_percent": 6.497,
+        "mean_error_gwh": 635.658
+      },
+      "recent_60m_temperature": {
+        "mae_gwh": 267.138,
+        "rmse_gwh": 352.93,
+        "mape_percent": 2.521,
+        "mean_error_gwh": 189.716
+      },
+      "annual_change_temperature": {
+        "mae_gwh": 440.975,
+        "rmse_gwh": 557.237,
+        "mape_percent": 4.115,
+        "mean_error_gwh": 353.662
+      }
+    },
+    "2020-2022": {
+      "seasonal_naive": {
+        "mae_gwh": 545.679,
+        "rmse_gwh": 676.764,
+        "mape_percent": 4.952,
+        "mean_error_gwh": -273.033
+      },
+      "expanding_temperature": {
+        "mae_gwh": 922.035,
+        "rmse_gwh": 1079.811,
+        "mape_percent": 8.829,
+        "mean_error_gwh": 893.588
+      },
+      "recent_60m_temperature": {
+        "mae_gwh": 502.661,
+        "rmse_gwh": 588.339,
+        "mape_percent": 4.545,
+        "mean_error_gwh": -254.88
+      },
+      "annual_change_temperature": {
+        "mae_gwh": 458.374,
+        "rmse_gwh": 557.845,
+        "mape_percent": 4.286,
+        "mean_error_gwh": -19.017
+      }
+    },
+    "2023-2026": {
+      "seasonal_naive": {
+        "mae_gwh": 671.039,
+        "rmse_gwh": 911.0,
+        "mape_percent": 5.557,
+        "mean_error_gwh": -90.326
+      },
+      "expanding_temperature": {
+        "mae_gwh": 695.703,
+        "rmse_gwh": 830.69,
+        "mape_percent": 6.263,
+        "mean_error_gwh": 693.425
+      },
+      "recent_60m_temperature": {
+        "mae_gwh": 269.034,
+        "rmse_gwh": 330.56,
+        "mape_percent": 2.3,
+        "mean_error_gwh": 133.715
+      },
+      "annual_change_temperature": {
+        "mae_gwh": 398.822,
+        "rmse_gwh": 504.675,
+        "mape_percent": 3.41,
+        "mean_error_gwh": 155.329
+      }
+    }
+  },
+  "shoulder_error_concentration": {
+    "gross_positive_excess_abs_error_gwh": 37438.356,
+    "top_10_share_of_gross_positive_excess_percent": 34.426,
+    "top_10_losses": [
+      {
+        "period": "2020-04-01",
+        "actual_gwh": 8537.2,
+        "temperature_c": 18.0,
+        "feature_state": "dead_band",
+        "seasonal_naive_abs_error_gwh": 1034.93,
+        "expanding_temperature_abs_error_gwh": 2656.649,
+        "excess_abs_error_gwh": 1621.719
+      },
+      {
+        "period": "2025-04-01",
+        "actual_gwh": 9822.825,
+        "temperature_c": 18.4,
+        "feature_state": "dead_band",
+        "seasonal_naive_abs_error_gwh": 182.096,
+        "expanding_temperature_abs_error_gwh": 1704.09,
+        "excess_abs_error_gwh": 1521.994
+      },
+      {
+        "period": "2024-04-01",
+        "actual_gwh": 10004.921,
+        "temperature_c": 18.7,
+        "feature_state": "dead_band",
+        "seasonal_naive_abs_error_gwh": 41.291,
+        "expanding_temperature_abs_error_gwh": 1445.918,
+        "excess_abs_error_gwh": 1404.627
+      },
+      {
+        "period": "2020-05-01",
+        "actual_gwh": 9617.328,
+        "temperature_c": 15.7,
+        "feature_state": "heating",
+        "seasonal_naive_abs_error_gwh": 764.734,
+        "expanding_temperature_abs_error_gwh": 2072.908,
+        "excess_abs_error_gwh": 1308.174
+      },
+      {
+        "period": "2020-09-01",
+        "actual_gwh": 10045.023,
+        "temperature_c": 14.6,
+        "feature_state": "heating",
+        "seasonal_naive_abs_error_gwh": 173.065,
+        "expanding_temperature_abs_error_gwh": 1442.979,
+        "excess_abs_error_gwh": 1269.914
+      },
+      {
+        "period": "2023-04-01",
+        "actual_gwh": 10046.212,
+        "temperature_c": 19.1,
+        "feature_state": "dead_band",
+        "seasonal_naive_abs_error_gwh": 101.152,
+        "expanding_temperature_abs_error_gwh": 1309.418,
+        "excess_abs_error_gwh": 1208.266
+      },
+      {
+        "period": "2025-10-01",
+        "actual_gwh": 10591.336,
+        "temperature_c": 19.5,
+        "feature_state": "dead_band",
+        "seasonal_naive_abs_error_gwh": 87.586,
+        "expanding_temperature_abs_error_gwh": 1257.916,
+        "excess_abs_error_gwh": 1170.33
+      },
+      {
+        "period": "2020-10-01",
+        "actual_gwh": 10013.844,
+        "temperature_c": 17.2,
+        "feature_state": "heating",
+        "seasonal_naive_abs_error_gwh": 366.843,
+        "expanding_temperature_abs_error_gwh": 1501.81,
+        "excess_abs_error_gwh": 1134.967
+      },
+      {
+        "period": "2018-10-01",
+        "actual_gwh": 9904.219,
+        "temperature_c": 17.8,
+        "feature_state": "heating",
+        "seasonal_naive_abs_error_gwh": 323.111,
+        "expanding_temperature_abs_error_gwh": 1453.395,
+        "excess_abs_error_gwh": 1130.284
+      },
+      {
+        "period": "2022-10-01",
+        "actual_gwh": 10221.299,
+        "temperature_c": 18.1,
+        "feature_state": "dead_band",
+        "seasonal_naive_abs_error_gwh": 230.026,
+        "expanding_temperature_abs_error_gwh": 1348.261,
+        "excess_abs_error_gwh": 1118.235
+      }
+    ]
+  },
+  "interpretation_inputs": {
+    "shoulder_dead_band_percent": 39.683,
+    "shoulder_expanding_mean_error_gwh": 1029.417,
+    "shoulder_recent_60m_mae_gwh": 362.154,
+    "shoulder_annual_change_mae_gwh": 471.814,
+    "shoulder_seasonal_naive_mae_gwh": 573.53
+  },
+  "boundaries": [
+    "This is a prespecified exploratory diagnostic after the rolling-origin result.",
+    "The alternative models are diagnostic probes and were not subjected to a new confirmation set.",
+    "Observed current-month temperature makes all temperature models oracle benchmarks."
+  ]
+}

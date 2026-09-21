@@ -29,6 +29,12 @@ The predefined usefulness gate failed:
 
 This extension is explicitly exploratory relative to the original fixed holdout. It does not revise that earlier result. It shows why a favorable comparison against one weak baseline is insufficient.
 
+## Shoulder-month diagnostic
+
+A diagnostic protocol was committed before investigating the rolling model's shoulder-season failure. The expanding temperature regression overpredicted every evaluated shoulder month by an average of 1,029.4 GWh. Temperature features were inactive inside the 18-22 C dead band in 39.7% of shoulder observations, but the more important failure was the long linear trend: fitting the same model on only the most recent 60 months reduced shoulder MAE from 1,029.4 to 362.2 GWh.
+
+The recent-window result is a promising exploratory lead, not an independently confirmed winner. An annual-change temperature model also improved on seasonal naive, supporting a future architecture that anchors on recent demand rather than extrapolating the full 2001-present trend.
+
 ## Data source
 
 The project uses 308 consecutive monthly observations from the official Datos Argentina time-series API, January 2001 through August 2026:
@@ -45,6 +51,8 @@ Python 3.10+ and no third-party packages are required.
 
 ```bash
 python3 src/analyze.py
+python3 src/rolling_backtest.py
+python3 src/shoulder_diagnostic.py
 python3 -m unittest discover -s tests -v
 python3 scripts/verify_release.py
 ```
@@ -59,6 +67,7 @@ The analysis writes:
 - `results/holdout_predictions.svg` with actual and predicted demand.
 - `results/rolling_metrics.json` and `results/rolling_report.md` with the expanding-window extension;
 - `results/rolling_predictions.csv` and `results/rolling_mae_by_year.svg` with its auditable forecasts and annual errors.
+- `results/shoulder_diagnostic_metrics.json`, `results/shoulder_diagnostic_predictions.csv`, and `results/shoulder_diagnostic_report.md` with the prespecified failure analysis.
 
 ## Method
 
