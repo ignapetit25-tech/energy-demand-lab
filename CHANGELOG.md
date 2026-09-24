@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-09-24 — Excel download and prospective evaluator
+
+- Added a formula-based XLSX with an editable reporting month, matched year-to-date comparisons, chart and original sector data.
+- Added the Excel download to the website while retaining selected-month CSV and Markdown exports.
+- Added source and workbook hash validation before deployment to prevent stale downloads.
+- Connected prospective outcomes and errors to the dashboard; pending observations remain null.
+- Added source-snapshot archival, idempotent outcome recording and revision detection without rewriting issued forecasts.
+- Documented outstanding publication, weather, calendar and uncertainty work in `docs/estado-y-actualizacion.md`.
+
 ## 2026-09-24 — GitHub Pages website
 
 - Added an explicit public site build with portable relative links and internal-link verification.

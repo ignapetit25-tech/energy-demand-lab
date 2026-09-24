@@ -1,5 +1,6 @@
 'use strict';
 const D = window.ENERGY_DATA;
+const P = window.PROSPECTIVE_DATA;
 const $ = id => document.getElementById(id);
 const num = (v, digits = 1) => Number(v).toLocaleString('es-AR', {minimumFractionDigits: digits, maximumFractionDigits: digits});
 const date = (v, short = false) => new Date(v.slice(0, 10) + 'T12:00:00Z').toLocaleDateString('es-AR', {month: short ? 'short' : 'long', year: 'numeric', timeZone: 'UTC'});
@@ -47,7 +48,10 @@ function evidence(){
   $('sample').textContent=`${rows.length} meses · enero 2016–agosto 2026. Otoño y primavera: marzo–mayo y septiembre–noviembre. Rezago supuesto de demanda: 2 meses. Series históricas descargadas en 2026; no son archivos de cada publicación original.`;
   $('history').innerHTML=rows.map(r=>`<tr><td>${date(r.period,true)}</td>${['actual_gwh','seasonal_naive_gwh','adaptive_honest_gwh','adaptive_oracle_gwh'].map(k=>`<td>${num(r[k])}</td>`).join('')}</tr>`).join('');
 }
-$('forecasts').innerHTML=D.forecasts.map(f=>`<tr><td>${date(f.target_period)}</td><td>${f.issue_timestamp.slice(0,10)}<br><small>${f.issue_timestamp.slice(11)} · hora de emisión</small></td><td>${num(f.primary_adaptive_annual_change_gwh)}</td><td>${num(f.seasonal_naive_gwh)}</td><td class="pending">Pendiente · sin evaluar</td></tr>`).join('');
-$('download').onclick=()=>{const keys=Object.keys(D.forecasts[0]);const csv=[keys.join(','),...D.forecasts.map(r=>keys.map(k=>r[k]).join(','))].join('\r\n');const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='energy-demand-pronosticos.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+const outcomes=new Map(P.records.map(r=>[r.target_period,r]));
+$('forecast-status').textContent=outcomes.get(F.target_period)?.status==='evaluated'?'Evaluado':'Pendiente de evaluación';
+$('prospective-summary').textContent=P.evaluated_months?`${P.evaluated_months} meses evaluados · ${P.pending_months} pendientes. MAE del modelo: ${num(P.metrics.overall.models.primary.mae_gwh)} GWh; referencia: ${num(P.metrics.overall.models.benchmark.mae_gwh)} GWh. Seguimiento descriptivo.`:`${P.pending_months} pronóstico pendiente. Todavía no hay resultados observados registrados: los errores no se calculan ni se muestran como cero.`;
+$('forecasts').innerHTML=D.forecasts.map(f=>{const o=outcomes.get(f.target_period),done=o?.status==='evaluated';return `<tr><td>${date(f.target_period)}</td><td>${f.issue_timestamp.slice(0,10)}<br><small>${f.issue_timestamp.slice(11)} · hora de emisión</small></td><td>${num(f.primary_adaptive_annual_change_gwh)}</td><td>${num(f.seasonal_naive_gwh)}</td><td class="${done?'':'pending'}">${done?`${num(o.actual_gwh)} GWh<br><small>Registrado: ${o.captured_at.slice(0,10)}</small>`:'Pendiente · sin evaluar'}</td><td>${done?num(o.errors.primary.signed_gwh):'—'}</td><td>${done?num(o.errors.benchmark.absolute_gwh):'—'}</td></tr>`;}).join('');
+$('download').onclick=()=>{const rows=D.forecasts.map(f=>{const o=outcomes.get(f.target_period);return {...f,status:o.status,actual_gwh:o.actual_gwh,primary_signed_error_gwh:o.errors?.primary.signed_gwh,primary_absolute_error_gwh:o.errors?.primary.absolute_gwh,benchmark_absolute_error_gwh:o.errors?.benchmark.absolute_gwh,captured_at:o.captured_at,publication_date:o.publication_date,source_url:o.source_url,source_sha256:o.source_sha256};});const keys=Object.keys(rows[0]);const quote=v=>'"'+String(v??'').replaceAll('"','""')+'"';const csv=[keys.map(quote).join(','),...rows.map(r=>keys.map(k=>quote(r[k])).join(','))].join('\r\n');const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='energy-demand-pronosticos.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
 $('range').onchange=chart;$('season').onchange=evidence;chart();evidence();
 window.addEventListener('resize',chart);

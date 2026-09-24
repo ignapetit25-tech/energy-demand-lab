@@ -3,3 +3,7 @@ __pycache__/
 .venv/
 .browser-temp/
 _site/
+node_modules/
+/node_modules
+work/
+*.inspect.ndjson

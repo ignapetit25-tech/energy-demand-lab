@@ -14,6 +14,7 @@ def rows(path):
 
 def main():
     from build_monthly_reports import build
+    from evaluate_prospective import build as build_evaluation
     sources = ['data/raw/electricity_demand_monthly.csv',
                'results/nested_exploratory/predictions.csv',
                'results/nested_exploratory/metrics.json', 'prospective/forecasts.csv',
@@ -32,6 +33,7 @@ def main():
     destination.write_text('window.ENERGY_DATA = ' + json.dumps(data, ensure_ascii=False) + ';\n')
     print(f'Dashboard: {len(demand)} observations, {len(predictions)} backtest months, {len(forecasts)} frozen forecasts')
     build()
+    build_evaluation()
 
 
 if __name__ == '__main__':

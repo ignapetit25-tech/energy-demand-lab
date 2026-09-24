@@ -10,6 +10,8 @@ const assert = require('assert/strict');
   await page.waitForSelector('#chart svg');
   assert.match(await page.locator('#forecast').innerText(), /10\.578,3/);
   assert.equal(await page.locator('#history tr').count(),128);
+  assert.match(await page.locator('#prospective-summary').innerText(),/1 pronóstico pendiente/);
+  assert.match(await page.locator('#forecasts').innerText(),/Pendiente/);
   await page.selectOption('#season','shoulder');
   assert.equal(await page.locator('#history tr').count(),63);
   assert.match(await page.locator('#bars').innerText(),/645,8/);

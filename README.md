@@ -8,6 +8,8 @@ A reproducible time-series investigation of whether monthly temperature adds pre
 
 The static website is published by `.github/workflows/pages.yml` after the release checks pass on `main`. Build locally with `python3 scripts/build_site.py`. [Publishing instructions](docs/publicar-web.md).
 
+The report also offers an [Excel workbook](dashboard/downloads/energy-demand.xlsx) with an editable reporting month, formula-based sector comparisons, chart and original data. The prospective register is connected to an outcome evaluator that retains archived source snapshots and does not overwrite issued forecasts. [Current status, remaining work and update procedure](docs/estado-y-actualizacion.md).
+
 Open [the dashboard](dashboard/index.html) or [the monthly sector report](dashboard/monthly-report.html) locally in a browser. The report describes year-on-year demand changes, sector contributions and like-for-like year-to-date totals. It supports month selection, Markdown and CSV downloads, and browser printing. Its first report covers August 2026 from the September 20 source snapshot; [the reusable written report](reports/monthly/2026-08.md) includes evidence and limitations. It is descriptive, not climate-adjusted or causal.
 
 Rebuild with `python3 scripts/build_dashboard.py`. No forecast is retrained or changed. See [dashboard instructions](dashboard/README.md) for validation and scope.

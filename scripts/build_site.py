@@ -10,7 +10,8 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / '_site'
 ASSETS = ('index.html', 'monthly-report.html', 'styles.css', 'report.css',
-          'app.js', 'report.js', 'data.js', 'report-data.js', 'favicon.svg')
+          'app.js', 'report.js', 'data.js', 'report-data.js', 'prospective-data.js', 'favicon.svg')
+DOWNLOADS = ('downloads/energy-demand.xlsx','downloads/excel-manifest.json')
 DOCUMENTS = ('prospective/preregistration.md', 'results/nested_exploratory/report.md')
 
 
@@ -48,7 +49,11 @@ def validate_site(site):
 
 def main():
     subprocess.run([sys.executable, str(ROOT/'scripts/build_dashboard.py')], check=True, cwd=ROOT)
-    expected = set(ASSETS) | set(DOCUMENTS) | {'.nojekyll', 'site-manifest.json'}
+    expected = set(ASSETS) | set(DOCUMENTS) | set(DOWNLOADS) | {'.nojekyll', 'site-manifest.json'}
+    excel=json.loads((ROOT/'dashboard/downloads/excel-manifest.json').read_text())
+    source=json.loads((ROOT/'data/sector_source_manifest.json').read_text())
+    if excel['source_sha256']!=source['sha256'] or excel['sha256']!=hashlib.sha256((ROOT/'dashboard/downloads/energy-demand.xlsx').read_bytes()).hexdigest():
+        raise ValueError('Excel is stale or modified; regenerate and verify before publishing')
     if SITE.exists():
         unexpected = [str(p.relative_to(SITE)) for p in SITE.rglob('*')
                       if p.is_file() and str(p.relative_to(SITE)) not in expected]
@@ -65,6 +70,9 @@ def main():
         target = SITE/document
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes((ROOT/document).read_bytes())
+    for download in DOWNLOADS:
+        target=SITE/download;target.parent.mkdir(exist_ok=True)
+        target.write_bytes((ROOT/'dashboard'/download).read_bytes())
     (SITE/'.nojekyll').write_text('')
     validate_site(SITE)
     manifest = {str(p.relative_to(SITE)): hashlib.sha256(p.read_bytes()).hexdigest()

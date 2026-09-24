@@ -12,6 +12,10 @@ const assert=require('assert/strict');
   assert.match(await page.locator('#yoy').innerText(),/\+6,1%/);
   assert.equal(await page.locator('#sector-rows tr').count(),3);
   assert.match(await page.locator('#sector-rows').innerText(),/-21,6/);
+  const excelDownload=page.waitForEvent('download');await page.click('#export-excel');const excel=await excelDownload;
+  assert.equal(excel.suggestedFilename(),'energy-demand.xlsx');
+  const excelStream=await excel.createReadStream();const excelChunks=[];for await(const chunk of excelStream)excelChunks.push(chunk);
+  const excelBytes=Buffer.concat(excelChunks);assert.equal(excelBytes.subarray(0,2).toString(),'PK');assert.ok(excelBytes.length>10000);
   await page.selectOption('#report-period','2025-08-01');
   assert.match(await page.locator('#total').innerText(),/11\.718,8/);
   for(const [id,suffix] of [['export-text','.md'],['export-sectors','.csv']]){
@@ -33,6 +37,6 @@ const assert=require('assert/strict');
   await page.setViewportSize({width:794,height:1123});
   await page.screenshot({path:path.resolve(__dirname,'../dashboard/report-print-preview.png'),fullPage:true});
   assert.deepEqual(errors,[]);
-  console.log('Monthly report checked: latest and historical months, signed contributions, text/CSV downloads, print action and layout, mobile overflow, browser errors.');
+  console.log('Monthly report checked: latest and historical months, signed contributions, XLSX/text/CSV downloads, print action and layout, mobile overflow, browser errors.');
  } finally {await browser.close();}
 })().catch(e=>{console.error(e);process.exit(1);});

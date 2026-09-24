@@ -1,0 +1,33 @@
+{
+  "records": [
+    {
+      "target_period": "2026-10-01",
+      "status": "pending",
+      "actual_gwh": null,
+      "errors": null
+    }
+  ],
+  "metrics": {
+    "overall": {
+      "months": 0,
+      "models": {
+        "primary": null,
+        "benchmark": null,
+        "fixed60": null,
+        "drift": null
+      }
+    },
+    "shoulder": {
+      "months": 0,
+      "models": {
+        "primary": null,
+        "benchmark": null,
+        "fixed60": null,
+        "drift": null
+      }
+    }
+  },
+  "evaluated_months": 0,
+  "pending_months": 1,
+  "interpretation": "Seguimiento descriptivo. Un mes no confirma el modelo. Consulta manual de nuevas publicaciones."
+}
