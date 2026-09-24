@@ -149,6 +149,26 @@ def markdown(r, source, evidence=None, research=None):
                       n['limitation'], f'Fuente: {n["source_url"]}.', '']
         lines += ['', 'Registro de infraestructura de IA: https://ignapetit25-tech.github.io/energy-demand-lab/infrastructure.html',
                   'Registro actual, no contemporáneo a cada mes histórico. Los anuncios, la operación documentada y los litigios se distinguen de las mediciones eléctricas.']
+        lines += ['', 'Historia por ramas y actividades: https://ignapetit25-tech.github.io/energy-demand-lab/sector-history.html']
+        if r['period']==c['period']:
+            h=research['history']
+            lines += ['', '## Persistencia: doce comparaciones publicadas por CAMMESA', '',
+                      '| Mes | Total % | Sin Aluar % | Industrias % | Aluar % |', '| --- | ---: | ---: | ---: | ---: |']
+            for snap in h['monthly_snapshots']:
+                rates={v['id']:v['yoy_percent'] for v in snap['rows']}
+                lines.append('| '+snap['period'][:7]+' | '+' | '.join(number(rates[k],2,True) for k in ('total','without_aluar','industry','aluar'))+' |')
+            lines += ['', h['method'], '', 'Fuentes, páginas y huellas por edición: https://ignapetit25-tech.github.io/energy-demand-lab/downloads/sector_history.json', '',
+                      '## Actividad industrial: doce bloques en julio de 2026', '',
+                      '| Actividad | Capacidad utilizada % | Julio 2025 % | Diferencia pp |', '| --- | ---: | ---: | ---: |']
+            a=h['activity']; now=a['observations'][-1]; before=next(v for v in a['observations'] if v['period']=='2025-07-01')
+            for sector in a['sectors']:
+                key=sector['id']; value=now['values'][key]; previous=before['values'][key]
+                lines.append(f'| {sector["label"]} | {number(value)} | {number(previous)} | {number(value-previous,1,True)} |')
+            lines += ['', a['note'], '', 'Fuente INDEC, páginas 4 y 6: '+a['source_url'], '', '## Infraestructura argentina: parámetros documentados, no GWh medidos', '']
+            for project in research['registry']['projects']:
+                if project['country']=='Argentina':
+                    lines.append('- '+project['name']+': '+project['power_summary']+'. '+project['ai_relation'])
+            lines += ['', 'No se suman capacidades anunciadas, ampliaciones y parámetros de equipos. Las fuentes de cada cifra y sus fechas están en el registro enlazado.']
     if evidence:
         lines += ['', '## IA y electricidad: evidencia y límites', '', ai_diagnosis(r), '',
                   evidence['conclusion'], '',

@@ -52,6 +52,58 @@ Fuente: https://www.indec.gob.ar/Nivel4/Tema/3/6/15.
 Registro de infraestructura de IA: https://ignapetit25-tech.github.io/energy-demand-lab/infrastructure.html
 Registro actual, no contemporáneo a cada mes histórico. Los anuncios, la operación documentada y los litigios se distinguen de las mediciones eléctricas.
 
+Historia por ramas y actividades: https://ignapetit25-tech.github.io/energy-demand-lab/sector-history.html
+
+Persistencia: doce comparaciones publicadas por CAMMESA
+
+Mes · Total % · Sin Aluar % · Industrias % · Aluar %
+2025-09 · +0,10 · -0,30 · -1,60 · +3,70
+2025-10 · +0,30 · -0,80 · -0,50 · +10,60
+2025-11 · -0,77 · -2,13 · -2,80 · +13,20
+2025-12 · +1,40 · +1,40 · +2,20 · +0,80
+2026-01 · +0,60 · -0,20 · +2,60 · +7,90
+2026-02 · -6,20 · -7,00 · -6,90 · +1,80
+2026-03 · +4,50 · +3,50 · +7,80 · +14,20
+2026-04 · +5,20 · +3,60 · +5,50 · +19,60
+2026-05 · +3,90 · -0,40 · +1,90 · +43,20
+2026-06 · +3,90 · +0,70 · +2,20 · +31,10
+2026-07 · +0,90 · -1,50 · -1,50 · +18,10
+2026-08 · +3,40 · -1,20 · -0,70 · +45,60
+
+Cada mes del calendario se reconstruye de una única edición del informe: comparación entre años del mismo mes y de la misma instantánea. No se suman MW de meses distintos ni se presenta un acumulado energético. Los informes hasta julio declaran 98% de cobertura; agosto declara 90%. No se confirmó si es un cambio de muestra o de descripción. No usar la unión como serie homogénea ni atribuir variaciones a IA.
+
+Fuentes, páginas y huellas por edición: https://ignapetit25-tech.github.io/energy-demand-lab/downloads/sector_history.json
+
+Actividad industrial: doce bloques en julio de 2026
+
+Actividad · Capacidad utilizada % · Julio 2025 % · Diferencia pp
+Alimentos y bebidas · 66,0 · 65,2 · +0,8
+Productos del tabaco · 45,2 · 46,5 · -1,3
+Productos textiles · 45,3 · 46,2 · -0,9
+Papel y cartón · 69,6 · 59,7 · +9,9
+Edición e impresión · 54,6 · 53,0 · +1,6
+Refinación del petróleo · 89,9 · 81,7 · +8,2
+Sustancias y productos químicos · 61,4 · 59,9 · +1,5
+Caucho y plástico · 40,2 · 44,1 · -3,9
+Minerales no metálicos · 48,6 · 57,1 · -8,5
+Industrias metálicas básicas · 71,8 · 63,9 · +7,9
+Industria automotriz · 39,0 · 44,1 · -5,1
+Metalmecánica excepto automotores · 38,3 · 49,0 · -10,7
+
+Datos provisorios. Alimentos excluye actividad vitivinícola e ingenios azucareros; químicos excluye industria farmacéutica. No son categorías idénticas a las de CAMMESA. Una diferencia interanual se expresa en puntos porcentuales, no en variación de producción.
+
+Fuente INDEC, páginas 4 y 6: https://www.indec.gob.ar/uploads/informesdeprensa/capacidad_09_26CB3FA5C157.pdf
+
+Infraestructura argentina: parámetros documentados, no GWh medidos
+
+- Stargate Argentina / Sur Energy: Hasta 500 MW · proyecto anunciado. Infraestructura presentada explícitamente para IA por las fuentes incorporadas.
+- Clementina XXI: 233 kW · parámetro eléctrico informado en 2023. Uso compartido: IA, meteorología y otras aplicaciones científicas. No hay porcentaje de carga atribuible a IA.
+- Cirion Buenos Aires · BUE1: Más de 2 MW · ampliación anunciada. El operador vincula la ampliación con cargas intensivas, incluida IA; no publica una cuota de consumo de IA.
+- EdgeConneX Pilar · BUE01: 3,5 MW N+1 · potencial del sitio 10,5 MW. Centro de datos multiusuario para nube, contenido y conectividad. La ficha no acredita qué proporción se dedica a IA.
+- ARSAT · Centro Nacional de Datos: No informa MW · sí dimensiones de infraestructura. La ficha documenta infraestructura digital y nube, no una carga eléctrica exclusiva de IA.
+
+No se suman capacidades anunciadas, ampliaciones y parámetros de equipos. Las fuentes de cada cifra y sus fechas están en el registro enlazado.
+
 IA y electricidad: evidencia y límites
 
 En el mes seleccionado, comercio e industria varió -0,5% y grandes usuarios +12,0%. Estas categorías no separan centros de datos ni cargas de IA. Ni un aumento demuestra un efecto de IA ni una caída descarta que exista carga de IA dentro del agregado.

@@ -26,7 +26,7 @@ Si se conoce la fecha oficial de publicación, añadir `--publication-date AAAA-
 2. **Intervalos predictivos calibrados.** No se usa el MAE como margen de confianza. Requiere diseño y evaluación antes de incorporarlo.
 3. **Clima disponible al pronosticar y referencia profesional de CAMMESA.** Falta verificar archivos de pronósticos con fechas de emisión recuperables. El SMN trimestral no equivale a una temperatura mensual numérica.
 4. **Calendario histórico de feriados.** Falta una colección oficial fechada antes de incorporarlo a otro modelo. No cambia el pronóstico congelado de octubre.
-5. **Historia por ramas y medición de infraestructura.** La nueva apertura CAMMESA y el dato INDEC son instantáneas, no series históricas nuevas. Ampliar meses y ramas, comprobar comparabilidad y buscar medición eléctrica fechada de instalaciones argentinas. Los cuatro casos del registro no son un censo ni una estimación de consumo de IA.
+5. **Comparabilidad por ramas y medición de infraestructura.** Ya hay doce ediciones CAMMESA con historia por mes del calendario y 19 meses de capacidad instalada INDEC. Falta resolver el cambio documental de cobertura CAMMESA (98% a 90%) antes de construir una serie mensual homogénea, extender desagregaciones y encontrar energía medida por instalación. Los siete casos del registro (cinco argentinos) no son un censo ni una estimación de consumo de IA.
 
 ## Mantenimiento del Excel
 

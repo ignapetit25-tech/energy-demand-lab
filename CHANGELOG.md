@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-09-24 — Historical sector explorer and richer Argentine infrastructure
+
+- Added 12 CAMMESA source editions (September 2025–August 2026), their published annual comparisons, and 164 same-calendar-month historical records across four branches.
+- Flagged the documented coverage change from 98% to 90%, twelve unfilled early-period gaps, rounded levels and conflicting source headings. Comparisons across years use one source vintage; no homogeneous monthly series is claimed.
+- Added 19 months of provisional INDEC capacity utilization for twelve activities and the general index, with independent month selection and percentage-point comparisons.
+- Expanded Argentina from two to five documented facilities/projects: Stargate, Clementina, Cirion BUE1, EdgeConneX BUE01 and ARSAT. Added individually sourced technical quantities without converting capacity to measured energy.
+- Added an interactive history page, downloadable source-rich JSON, expanded August TXT report, archived PDFs with hashes, offline extraction and five new regression tests.
+- Preserved the existing visual system, native controls, national CSV/XLSX and frozen forecast. Verified desktop/mobile layouts and all 48 history selector combinations.
+
 ## 2026-09-24 — Argentine branches and documentary infrastructure register
 
 - Added a visually checked CAMMESA August 2026 branch table, preserving its MW units, population, published growth rates and archived source PDF hash.

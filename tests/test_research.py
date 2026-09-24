@@ -26,12 +26,12 @@ class ResearchTests(unittest.TestCase):
 
     def test_unknown_electricity_is_null_and_countries_separate(self):
         projects=self.bundle['registry']['projects']
-        self.assertEqual(sum(p['country']=='Argentina' for p in projects),2)
+        self.assertEqual(sum(p['country']=='Argentina' for p in projects),5)
         self.assertTrue(all(p['measured_energy_gwh'] is None for p in projects))
         self.assertEqual(next(p for p in projects if p['id']=='camellia_us')['announced_power_mw'],3200)
 
     def test_unreferenced_or_undated_measurement_is_rejected(self):
-        for updates in ({'measured_energy_gwh':10},{'announced_power_mw':100},{'status_source_ids':['missing']},{'status_as_of':'2099-01-01'}):
+        for updates in ({'measured_energy_gwh':10},{'announced_power_mw':100,'power_source_id':None},{'status_source_ids':['missing']},{'status_as_of':'2099-01-01'}):
             registry=copy.deepcopy(self.bundle['registry'])
             registry['projects'][0].update(updates)
             with self.assertRaises(ValueError):

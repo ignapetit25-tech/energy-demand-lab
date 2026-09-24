@@ -1,19 +1,425 @@
 {
-  "reviewed_at":"2026-09-24",
-  "scope":"Registro inicial no exhaustivo. Argentina es el foco; los casos de Estados Unidos son referencias documentales, no parte de la demanda argentina.",
-  "rules":"Estado documentado a la fecha de la fuente, no verificación operativa en tiempo real. Potencia en MW no equivale a consumo en GWh. Un valor nulo significa no documentado, nunca cero. No sumar capacidades anunciadas como consumo realizado. Litigios y permisos no son mediciones eléctricas.",
-  "sources":[
-    {"id":"ar_loi","publisher":"OpenAI","date":"2025-10-14","type":"Anuncio del promotor","url":"https://openai.com/global-affairs/argentinas-ai-opportunity/"},
-    {"id":"clementina","publisher":"Secretaría de Innovación, Ciencia y Tecnología","date":"2026-07-03","type":"Comunicación oficial","url":"https://www.argentina.gob.ar/node/506546"},
-    {"id":"camellia","publisher":"OpenAI","date":"2026-07-22","type":"Anuncio del promotor","url":"https://openai.com/index/building-ai-infrastructure-with-the-effingham-county-community/"},
-    {"id":"camellia_suit","publisher":"Southern Environmental Law Center","date":"2026-09-21","type":"Comunicado de abogados demandantes","url":"https://www.selc.org/news/were-suing-over-openais-secret-20b-data-center/"},
-    {"id":"xai_suit","publisher":"NAACP","date":"2026-04-14","type":"Comunicado de parte demandante","url":"https://naacp.org/articles/naacp-sues-xai-illegal-pollution-data-center-power-plant"},
-    {"id":"xai_doj","publisher":"Departamento de Justicia de Estados Unidos","date":"2026-06-16","type":"Posición oficial en el litigio","url":"https://www.justice.gov/opa/pr/justice-department-files-intervene-and-dismiss-lawsuit-would-hamper-americas-ai-innovation"}
+  "reviewed_at": "2026-09-24",
+  "scope": "Siete casos documentados: cinco argentinos y dos referencias estadounidenses. Incluye proyectos de IA, supercómputo compartido e infraestructura digital general; no son categorías equivalentes ni un censo.",
+  "rules": "Estado documentado a la fecha de la fuente, no verificación operativa en tiempo real. Potencia en MW no equivale a consumo en GWh. Un valor nulo significa no documentado, nunca cero. No sumar capacidades anunciadas como consumo realizado. Litigios y permisos no son mediciones eléctricas.",
+  "sources": [
+    {
+      "id": "ar_loi",
+      "publisher": "OpenAI",
+      "date": "2025-10-14",
+      "type": "Anuncio del promotor",
+      "url": "https://openai.com/global-affairs/argentinas-ai-opportunity/"
+    },
+    {
+      "id": "clementina",
+      "publisher": "Secretaría de Innovación, Ciencia y Tecnología",
+      "date": "2026-07-03",
+      "type": "Comunicación oficial",
+      "url": "https://www.argentina.gob.ar/node/506546"
+    },
+    {
+      "id": "camellia",
+      "publisher": "OpenAI",
+      "date": "2026-07-22",
+      "type": "Anuncio del promotor",
+      "url": "https://openai.com/index/building-ai-infrastructure-with-the-effingham-county-community/"
+    },
+    {
+      "id": "camellia_suit",
+      "publisher": "Southern Environmental Law Center",
+      "date": "2026-09-21",
+      "type": "Comunicado de abogados demandantes",
+      "url": "https://www.selc.org/news/were-suing-over-openais-secret-20b-data-center/"
+    },
+    {
+      "id": "xai_suit",
+      "publisher": "NAACP",
+      "date": "2026-04-14",
+      "type": "Comunicado de parte demandante",
+      "url": "https://naacp.org/articles/naacp-sues-xai-illegal-pollution-data-center-power-plant"
+    },
+    {
+      "id": "xai_doj",
+      "publisher": "Departamento de Justicia de Estados Unidos",
+      "date": "2026-06-16",
+      "type": "Posición oficial en el litigio",
+      "url": "https://www.justice.gov/opa/pr/justice-department-files-intervene-and-dismiss-lawsuit-would-hamper-americas-ai-innovation"
+    },
+    {
+      "id": "stargate_gov",
+      "publisher": "Presidencia de la Nación",
+      "date": "2025-10-10",
+      "type": "Anuncio oficial",
+      "url": "https://www.argentina.gob.ar/node/482217"
+    },
+    {
+      "id": "clementina_2023",
+      "publisher": "Ministerio de Ciencia / Argentina.gob.ar",
+      "date": "2023-09-27",
+      "type": "Ficha técnica y anuncio oficial",
+      "url": "https://www.argentina.gob.ar/node/400864"
+    },
+    {
+      "id": "cirion_bue1",
+      "publisher": "Cirion Technologies",
+      "date": "2025-08-21",
+      "type": "Anuncio del operador",
+      "url": "https://press.ciriontechnologies.com/en/2025/08/21/data-center-buenos-aires-digital-transformation-argentina/"
+    },
+    {
+      "id": "edge_spec",
+      "publisher": "EdgeConneX",
+      "date": null,
+      "retrieved_at": "2026-09-24",
+      "type": "Ficha del operador sin fecha editorial verificada",
+      "url": "https://www.edgeconnex.com/wp-content/uploads/2024/09/Buenos-Aires-Data-Sheet.pdf",
+      "local_file": "data/reference/edgeconnex-buenos-aires.pdf",
+      "sha256": "89a7e34f0a802ac3d3a7ff66e9e212feb3ba5907c7279ecf6b791fbf14c93215"
+    },
+    {
+      "id": "edge_open",
+      "publisher": "EdgeConneX",
+      "date": "2019-08-08",
+      "type": "Anuncio de apertura del operador",
+      "url": "https://www.edgeconnex.com/it/news/press-releases/edgeconnex-officially-opens-its-buenos-aires-edge-data-center/"
+    },
+    {
+      "id": "arsat_spec",
+      "publisher": "ARSAT",
+      "date": null,
+      "retrieved_at": "2026-09-24",
+      "type": "Ficha del operador sin fecha editorial",
+      "url": "https://nube.arsat.com.ar/datacenter/"
+    }
   ],
-  "projects":[
-    {"id":"stargate_ar","name":"Stargate Argentina / Sur Energy","country":"Argentina","location":"Ubicación específica no acreditada en la fuente incorporada","category":"Proyecto de centro de datos para IA","status":"anunciado","status_label":"Carta de intención documentada","status_as_of":"2025-10-14","status_source_ids":["ar_loi"],"announced_power_mw":null,"power_source_id":null,"power_scope":"No informada en la fuente incorporada","measured_energy_gwh":null,"energy_period":null,"energy_source_id":null,"ai_share_percent":null,"supply":"El promotor plantea suministro seguro, eficiente y sostenible; no es una verificación del abastecimiento efectivo.","timeline":"La fuente documenta una intención de explorar el proyecto, no una fecha operativa confirmada.","permits":"No verificados en esta revisión.","legal_events":[],"legal_note":"No se incorporó un expediente local. Esto no acredita ausencia de litigios.","next_evidence":"Localización, permisos, conexión eléctrica, avance de obra y lecturas de consumo fechadas."},
-    {"id":"clementina_xxi","name":"Clementina XXI","country":"Argentina","location":"Argentina","category":"Supercómputo compartido, con aplicaciones de IA","status":"operacion_documentada","status_label":"Operación informada por fuente oficial","status_as_of":"2026-07-03","status_source_ids":["clementina"],"announced_power_mw":null,"power_source_id":null,"power_scope":"No se convierte potencia de cálculo (petaFLOPS) en potencia eléctrica (MW).","measured_energy_gwh":null,"energy_period":null,"energy_source_id":null,"ai_share_percent":null,"supply":"La fuente informa adecuaciones de infraestructura y provisión energética; no publica una serie de consumos.","timeline":"La comunicación oficial informa operación a plena capacidad desde 2025 y un convenio de acceso productivo en 2026.","permits":"No relevados en esta revisión.","legal_events":[],"legal_note":"Sin expediente incorporado; no es una certificación de ausencia de controversias.","next_evidence":"Consumo del equipo y del centro, período de medición y fracción de uso para IA frente a otras cargas científicas."},
-    {"id":"camellia_us","name":"Project Camellia","country":"Estados Unidos","location":"Effingham County, Georgia","category":"Proyecto de centro de datos para IA","status":"anunciado","status_label":"Proyecto en diseño y desarrollo según promotor","status_as_of":"2026-07-22","status_source_ids":["camellia"],"announced_power_mw":3200,"power_source_id":"camellia","power_scope":"3,2 GW de potencia de suministro anunciada, con entregas por fases; no carga medida.","measured_energy_gwh":null,"energy_period":null,"energy_source_id":null,"ai_share_percent":null,"supply":"Georgia Power, según anuncio del promotor.","timeline":"Suministro anunciado por fases entre 2028 y 2032; sujeto a ejecución.","permits":"Este registro no certifica el conjunto de autorizaciones del proyecto.","legal_events":[{"date":"2026-09-21","type":"Demanda anunciada","source_id":"camellia_suit","description":"SELC comunica una acción sobre presuntas irregularidades de transparencia y participación en actuaciones de autoridades locales vinculadas al proyecto. Son alegaciones de los demandantes, no hechos judicialmente probados."}],"legal_note":"No se verificó una sentencia definitiva ni un efecto concreto sobre el calendario. No interpretar como condena a OpenAI.","next_evidence":"Permisos, resoluciones judiciales, hitos de conexión y consumo medido por fase."},
-    {"id":"colossus2_us","name":"Colossus 2 / planta de Southaven","country":"Estados Unidos","location":"Planta de suministro en Southaven, Mississippi; centro de datos en área de Memphis","category":"Centro de datos de IA y generación asociada","status":"operacion_documentada","status_label":"Operación descrita en documentos del litigio","status_as_of":"2026-06-16","status_source_ids":["xai_suit","xai_doj"],"announced_power_mw":null,"power_source_id":null,"power_scope":"No se infiere potencia eléctrica a partir del número de turbinas.","measured_energy_gwh":null,"energy_period":null,"energy_source_id":null,"ai_share_percent":null,"supply":"Generación a gas objeto del litigio; no se cuantifica consumo o generación a partir de los comunicados.","timeline":"Operación descrita en fuentes de abril y junio de 2026. No verificada en tiempo real.","permits":"Existencia y alcance de los requisitos discutidos por las partes; no resueltos por este registro.","legal_events":[{"date":"2026-04-14","type":"Demanda presentada según demandante","source_id":"xai_suit","description":"NAACP anuncia demanda contra xAI y MZX Tech por presuntas infracciones de permisos de emisiones en turbinas de suministro."},{"date":"2026-06-16","type":"Solicitud de intervención y desestimación","source_id":"xai_doj","description":"El Departamento de Justicia informa que solicitó intervenir y desestimar la demanda; sostiene que Mississippi consideró innecesario el permiso discutido. Es una posición procesal, no un fallo."}],"legal_note":"No se verificó resolución definitiva. Las alegaciones ambientales no se presentan como sentencia ni como medición eléctrica.","next_evidence":"Expediente actualizado, permisos aplicables, medición de generación y suministro de red con fechas."}
+  "projects": [
+    {
+      "id": "stargate_ar",
+      "name": "Stargate Argentina / Sur Energy",
+      "country": "Argentina",
+      "location": "Ubicación específica no acreditada en la fuente incorporada",
+      "category": "Proyecto de centro de datos para IA",
+      "status": "anunciado",
+      "status_label": "Carta de intención documentada",
+      "status_as_of": "2025-10-14",
+      "status_source_ids": [
+        "ar_loi"
+      ],
+      "announced_power_mw": 500,
+      "power_source_id": "stargate_gov",
+      "power_scope": "Hasta 500 MW anunciados por Presidencia en octubre de 2025; no potencia conectada verificada.",
+      "measured_energy_gwh": null,
+      "energy_period": null,
+      "energy_source_id": null,
+      "ai_share_percent": null,
+      "supply": "El promotor plantea suministro seguro, eficiente y sostenible; no es una verificación del abastecimiento efectivo.",
+      "timeline": "La fuente documenta una intención de explorar el proyecto, no una fecha operativa confirmada.",
+      "permits": "No verificados en esta revisión.",
+      "legal_events": [],
+      "legal_note": "No se incorporó un expediente local. Esto no acredita ausencia de litigios.",
+      "next_evidence": "Localización, permisos, conexión eléctrica, avance de obra y lecturas de consumo fechadas.",
+      "technical_facts": [
+        {
+          "label": "Capacidad objetivo",
+          "value": 500,
+          "unit": "MW",
+          "kind": "anuncio",
+          "source_id": "stargate_gov",
+          "note": "No acredita conexión, carga efectiva ni consumo anual.",
+          "qualifier": "Hasta"
+        },
+        {
+          "label": "Inversión objetivo",
+          "value": 25000,
+          "unit": "millones de USD",
+          "kind": "anuncio",
+          "source_id": "stargate_gov",
+          "note": "Monto anunciado para el proyecto a gran escala, no desembolso verificado.",
+          "qualifier": "Hasta"
+        }
+      ],
+      "ai_relation": "Infraestructura presentada explícitamente para IA por las fuentes incorporadas.",
+      "power_summary": "Hasta 500 MW · proyecto anunciado"
+    },
+    {
+      "id": "clementina_xxi",
+      "name": "Clementina XXI",
+      "country": "Argentina",
+      "location": "Centro de Cómputos del Servicio Meteorológico Nacional, Argentina",
+      "category": "Supercómputo compartido, con aplicaciones de IA",
+      "status": "operacion_documentada",
+      "status_label": "Operación informada por fuente oficial",
+      "status_as_of": "2026-07-03",
+      "status_source_ids": [
+        "clementina"
+      ],
+      "announced_power_mw": null,
+      "power_source_id": null,
+      "power_scope": "No se convierte potencia de cálculo (petaFLOPS) en potencia eléctrica (MW).",
+      "measured_energy_gwh": null,
+      "energy_period": null,
+      "energy_source_id": null,
+      "ai_share_percent": null,
+      "supply": "La fuente informa adecuaciones de infraestructura y provisión energética; no publica una serie de consumos.",
+      "timeline": "La fuente de 2023 anuncia puesta en funcionamiento e inicio de pruebas; la de 2026 informa operación a plena capacidad desde 2025. Son hitos distintos, no fechas intercambiables.",
+      "permits": "No relevados en esta revisión.",
+      "legal_events": [],
+      "legal_note": "Sin expediente incorporado; no es una certificación de ausencia de controversias.",
+      "next_evidence": "Consumo del equipo y del centro, período de medición y fracción de uso para IA frente a otras cargas científicas.",
+      "technical_facts": [
+        {
+          "label": "Potencia eléctrica informada",
+          "value": 233,
+          "unit": "kW",
+          "kind": "parametro_tecnico",
+          "source_id": "clementina_2023",
+          "note": "La fuente la denomina consumo eléctrico, pero publica kW, no energía en kWh. No informa período de medición, carga de trabajo ni consumo total del edificio.",
+          "qualifier": ""
+        },
+        {
+          "label": "Aceleradoras",
+          "value": 296,
+          "unit": "GPU",
+          "kind": "equipamiento",
+          "source_id": "clementina_2023",
+          "note": "Intel Ponte Vecchio; inventario informado en 2023, no auditoría actual.",
+          "qualifier": ""
+        },
+        {
+          "label": "Capacidad de cálculo con GPU",
+          "value": 15.3,
+          "unit": "petaFLOPS",
+          "kind": "equipamiento",
+          "source_id": "clementina_2023",
+          "note": "No convertir potencia de cálculo en potencia eléctrica.",
+          "qualifier": ""
+        }
+      ],
+      "ai_relation": "Uso compartido: IA, meteorología y otras aplicaciones científicas. No hay porcentaje de carga atribuible a IA.",
+      "power_summary": "233 kW · parámetro eléctrico informado en 2023"
+    },
+    {
+      "id": "cirion_bue1",
+      "name": "Cirion Buenos Aires · BUE1",
+      "country": "Argentina",
+      "location": "Buenos Aires, Argentina",
+      "category": "Centro de datos y ampliación orientada a cargas intensivas",
+      "status": "operacion_documentada",
+      "status_label": "Centro existente; ampliación en ejecución según operador",
+      "status_as_of": "2025-08-21",
+      "status_source_ids": [
+        "cirion_bue1"
+      ],
+      "announced_power_mw": null,
+      "power_source_id": null,
+      "power_scope": "Consultar parámetros específicos: no sumar capacidad, ampliación y potencial.",
+      "power_summary": "Más de 2 MW · ampliación anunciada",
+      "measured_energy_gwh": null,
+      "energy_period": null,
+      "energy_source_id": null,
+      "ai_share_percent": null,
+      "technical_facts": [
+        {
+          "label": "Ampliación de capacidad",
+          "value": 2,
+          "unit": "MW",
+          "kind": "ampliacion",
+          "source_id": "cirion_bue1",
+          "note": "Incremento anunciado, no capacidad total del centro ni medición de consumo.",
+          "qualifier": "Más de"
+        },
+        {
+          "label": "Racks adicionales",
+          "value": 160,
+          "unit": "racks",
+          "kind": "ampliacion",
+          "source_id": "cirion_bue1",
+          "note": "No permite deducir consumo: falta ocupación y potencia por rack.",
+          "qualifier": "Aproximadamente"
+        }
+      ],
+      "ai_relation": "El operador vincula la ampliación con cargas intensivas, incluida IA; no publica una cuota de consumo de IA.",
+      "supply": "El operador declara mejoras de eficiencia y redundancia. No se atribuye a BUE1 el suministro renovable de otras instalaciones mencionadas en el comunicado.",
+      "timeline": "En agosto de 2025, Cirion informó una ampliación en ejecución. La fuente no acredita aquí su finalización posterior.",
+      "permits": "No se verificó el expediente completo de habilitaciones.",
+      "legal_events": [],
+      "legal_note": "No se incorporó un litigio local; no certifica su ausencia.",
+      "next_evidence": "Consumo eléctrico por período, alcance del medidor y utilización atribuible a IA."
+    },
+    {
+      "id": "edge_bue01",
+      "name": "EdgeConneX Pilar · BUE01",
+      "country": "Argentina",
+      "location": "Calle del Canal 308, Parque Industrial Pilar, Fátima, Buenos Aires",
+      "category": "Infraestructura digital general",
+      "status": "operacion_documentada",
+      "status_label": "Apertura anunciada; ficha técnica incorporada",
+      "status_as_of": "2019-08-08",
+      "status_source_ids": [
+        "edge_open"
+      ],
+      "announced_power_mw": null,
+      "power_source_id": null,
+      "power_scope": "Consultar parámetros específicos: no sumar capacidad, ampliación y potencial.",
+      "power_summary": "3,5 MW N+1 · potencial del sitio 10,5 MW",
+      "measured_energy_gwh": null,
+      "energy_period": null,
+      "energy_source_id": null,
+      "ai_share_percent": null,
+      "technical_facts": [
+        {
+          "label": "Capacidad N+1",
+          "value": 3.5,
+          "unit": "MW",
+          "kind": "capacidad",
+          "source_id": "edge_spec",
+          "note": "Parámetro de ficha del operador, no potencia observada durante un período.",
+          "qualifier": ""
+        },
+        {
+          "label": "Potencial del sitio",
+          "value": 10.5,
+          "unit": "MW",
+          "kind": "potencial",
+          "source_id": "edge_spec",
+          "note": "No sumar a 3,5 MW: son alcance disponible/configurado y potencial del mismo sitio, no dos instalaciones.",
+          "qualifier": ""
+        }
+      ],
+      "ai_relation": "Centro de datos multiusuario para nube, contenido y conectividad. La ficha no acredita qué proporción se dedica a IA.",
+      "supply": "Ficha: redundancia N+1 en PDU, UPS y generadores; monitoreo de circuitos. No informa mezcla energética ni GWh.",
+      "timeline": "Apertura anunciada en agosto de 2019. La ficha consultada en septiembre de 2026 no tiene fecha editorial verificada; la ruta del archivo no se toma como fecha de publicación.",
+      "permits": "No se verificó el expediente completo de habilitaciones.",
+      "legal_events": [],
+      "legal_note": "No se incorporó un litigio local; no certifica su ausencia.",
+      "next_evidence": "Consumo eléctrico por período, alcance del medidor y utilización atribuible a IA."
+    },
+    {
+      "id": "arsat_benavidez",
+      "name": "ARSAT · Centro Nacional de Datos",
+      "country": "Argentina",
+      "location": "Av. Juan D. Perón 7934, Benavídez, Buenos Aires",
+      "category": "Infraestructura digital general",
+      "status": "operacion_documentada",
+      "status_label": "Servicios ofrecidos en ficha vigente al consultar",
+      "status_as_of": "2026-09-24",
+      "status_source_ids": [
+        "arsat_spec"
+      ],
+      "announced_power_mw": null,
+      "power_source_id": null,
+      "power_scope": "Consultar parámetros específicos: no sumar capacidad, ampliación y potencial.",
+      "power_summary": "No informa MW · sí dimensiones de infraestructura",
+      "measured_energy_gwh": null,
+      "energy_period": null,
+      "energy_source_id": null,
+      "ai_share_percent": null,
+      "technical_facts": [
+        {
+          "label": "Superficie total informada",
+          "value": 4500,
+          "unit": "m²",
+          "kind": "infraestructura",
+          "source_id": "arsat_spec",
+          "note": "Superficie, no potencia eléctrica; no se utiliza para estimar GWh.",
+          "qualifier": ""
+        },
+        {
+          "label": "Salas",
+          "value": 4,
+          "unit": "salas de 365 m²",
+          "kind": "infraestructura",
+          "source_id": "arsat_spec",
+          "note": "La ficha agrega una sala de máxima seguridad de 150 m². Son partes del centro, no instalaciones adicionales.",
+          "qualifier": ""
+        }
+      ],
+      "ai_relation": "La ficha documenta infraestructura digital y nube, no una carga eléctrica exclusiva de IA.",
+      "supply": "ARSAT informa suministro autónomo y redundancia de energía; no publica MW ni GWh en esta ficha.",
+      "timeline": "Fecha de consulta: septiembre de 2026. La página no indica fecha de inauguración ni de actualización editorial.",
+      "permits": "No se verificó el expediente completo de habilitaciones.",
+      "legal_events": [],
+      "legal_note": "No se incorporó un litigio local; no certifica su ausencia.",
+      "next_evidence": "Consumo eléctrico por período, alcance del medidor y utilización atribuible a IA."
+    },
+    {
+      "id": "camellia_us",
+      "name": "Project Camellia",
+      "country": "Estados Unidos",
+      "location": "Effingham County, Georgia",
+      "category": "Proyecto de centro de datos para IA",
+      "status": "anunciado",
+      "status_label": "Proyecto en diseño y desarrollo según promotor",
+      "status_as_of": "2026-07-22",
+      "status_source_ids": [
+        "camellia"
+      ],
+      "announced_power_mw": 3200,
+      "power_source_id": "camellia",
+      "power_scope": "3,2 GW de potencia de suministro anunciada, con entregas por fases; no carga medida.",
+      "measured_energy_gwh": null,
+      "energy_period": null,
+      "energy_source_id": null,
+      "ai_share_percent": null,
+      "supply": "Georgia Power, según anuncio del promotor.",
+      "timeline": "Suministro anunciado por fases entre 2028 y 2032; sujeto a ejecución.",
+      "permits": "Este registro no certifica el conjunto de autorizaciones del proyecto.",
+      "legal_events": [
+        {
+          "date": "2026-09-21",
+          "type": "Demanda anunciada",
+          "source_id": "camellia_suit",
+          "description": "SELC comunica una acción sobre presuntas irregularidades de transparencia y participación en actuaciones de autoridades locales vinculadas al proyecto. Son alegaciones de los demandantes, no hechos judicialmente probados."
+        }
+      ],
+      "legal_note": "No se verificó una sentencia definitiva ni un efecto concreto sobre el calendario. No interpretar como condena a OpenAI.",
+      "next_evidence": "Permisos, resoluciones judiciales, hitos de conexión y consumo medido por fase.",
+      "technical_facts": [],
+      "ai_relation": "Infraestructura presentada explícitamente para IA por las fuentes incorporadas.",
+      "power_summary": "3,2 GW de potencia de suministro anunciada, con entregas por fases; no carga medida."
+    },
+    {
+      "id": "colossus2_us",
+      "name": "Colossus 2 / planta de Southaven",
+      "country": "Estados Unidos",
+      "location": "Planta de suministro en Southaven, Mississippi; centro de datos en área de Memphis",
+      "category": "Centro de datos de IA y generación asociada",
+      "status": "operacion_documentada",
+      "status_label": "Operación descrita en documentos del litigio",
+      "status_as_of": "2026-06-16",
+      "status_source_ids": [
+        "xai_suit",
+        "xai_doj"
+      ],
+      "announced_power_mw": null,
+      "power_source_id": null,
+      "power_scope": "No se infiere potencia eléctrica a partir del número de turbinas.",
+      "measured_energy_gwh": null,
+      "energy_period": null,
+      "energy_source_id": null,
+      "ai_share_percent": null,
+      "supply": "Generación a gas objeto del litigio; no se cuantifica consumo o generación a partir de los comunicados.",
+      "timeline": "Operación descrita en fuentes de abril y junio de 2026. No verificada en tiempo real.",
+      "permits": "Existencia y alcance de los requisitos discutidos por las partes; no resueltos por este registro.",
+      "legal_events": [
+        {
+          "date": "2026-04-14",
+          "type": "Demanda presentada según demandante",
+          "source_id": "xai_suit",
+          "description": "NAACP anuncia demanda contra xAI y MZX Tech por presuntas infracciones de permisos de emisiones en turbinas de suministro."
+        },
+        {
+          "date": "2026-06-16",
+          "type": "Solicitud de intervención y desestimación",
+          "source_id": "xai_doj",
+          "description": "El Departamento de Justicia informa que solicitó intervenir y desestimar la demanda; sostiene que Mississippi consideró innecesario el permiso discutido. Es una posición procesal, no un fallo."
+        }
+      ],
+      "legal_note": "No se verificó resolución definitiva. Las alegaciones ambientales no se presentan como sentencia ni como medición eléctrica.",
+      "next_evidence": "Expediente actualizado, permisos aplicables, medición de generación y suministro de red con fechas.",
+      "technical_facts": [],
+      "ai_relation": "Infraestructura presentada explícitamente para IA por las fuentes incorporadas.",
+      "power_summary": "No se infiere potencia eléctrica a partir del número de turbinas."
+    }
   ]
 }

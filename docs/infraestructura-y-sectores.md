@@ -18,11 +18,39 @@ La apertura CAMMESA muestra +3,4% interanual en el total de su muestra y −1,2%
 
 ## Registro inicial, no censo
 
-Argentina: Stargate / Sur Energy y Clementina XXI. Referencias estadounidenses: Project Camellia y Colossus 2 / planta de Southaven. El filtro inicial muestra Argentina; los indicadores superiores abarcan los cuatro casos. Los casos extranjeros no se incluyen en la demanda argentina.
+Argentina: Stargate / Sur Energy, Clementina XXI, Cirion BUE1, EdgeConneX BUE01 Pilar y ARSAT Benavídez. Referencias estadounidenses: Project Camellia y Colossus 2 / planta de Southaven. El filtro inicial muestra los cinco casos argentinos; el contador general abarca siete casos y el indicador técnico distingue cuatro argentinos con parámetros eléctricos documentados. Los casos extranjeros no se incluyen en la demanda argentina.
 
 El estado está documentado a la fecha de cada fuente, no verificado en tiempo real. Una carta de intención no es obra iniciada, una operación informada no es una lectura de medidor y potencia de cómputo no es potencia eléctrica. Los MW anunciados de suministro tampoco son GWh consumidos. No se convierten usando horas supuestas ni un factor de utilización inventado.
 
-Un valor `null` significa no documentado en las fuentes incorporadas, no cero ni inexistencia universal de datos. Ninguno de los cuatro casos cuenta aquí con GWh medidos y un período. La proporción atribuible específicamente a IA también queda nula. Clementina admite otras aplicaciones de supercómputo: no es una instalación exclusivamente de IA.
+Un valor `null` significa no documentado en las fuentes incorporadas, no cero ni inexistencia universal de datos. Ninguno de los siete casos cuenta aquí con GWh medidos y un período. La proporción atribuible específicamente a IA también queda nula. Clementina admite otras aplicaciones de supercómputo: no es una instalación exclusivamente de IA. Cirion sí menciona cargas de IA en su ampliación; EdgeConneX y ARSAT son contexto de infraestructura digital, sin atribución documentada a IA.
+
+## Historia sectorial incorporada
+
+El explorador usa doce publicaciones de septiembre de 2025 a agosto de 2026. Cada tabla interanual conserva las tasas publicadas; no se reconstruyen a partir de MW enteros redondeados. En diez informes aumenta el total, en cuatro aumenta el subtotal sin Aluar, y en seis crece el total mientras cae ese subtotal. Es un recuento descriptivo de comparaciones internas, no una estimación causal ni una tasa de crecimiento del conjunto de doce meses.
+
+La cobertura declarada cambia de 98% en las once primeras ediciones a 90% en agosto. No se verificó si hubo cambio efectivo de muestra o de descripción. Por ello no se dibuja una línea que empalme los niveles de diferentes ediciones. El gráfico histórico compara un mismo mes del calendario entre años, siempre usando la historia contenida en una sola edición.
+
+Se incorporaron 164 registros de período, cada uno con cuatro ramas (656 valores). Septiembre y octubre cubren 2018–2025; noviembre y diciembre 2012–2025; enero a agosto 2012–2026. Quedan doce huecos explícitos en septiembre/octubre de 2012–2017. No se rellenan ni se presentan como 164 meses consecutivos.
+
+La revisión visual detectó erratas de encabezado: octubre de 2025 dice AGO en el título de la comparación, aunque sus columnas y portada corresponden a octubre. En las tablas históricas de noviembre/diciembre de 2025 y enero de 2026 el título empieza en 2018, pero las columnas empiezan en 2012. Se conservaron las fechas de las columnas, registrando las discrepancias en el manifiesto y en la interfaz.
+
+El informe INDEC de septiembre contiene 19 meses (enero de 2025 a julio de 2026) de doce actividades y del nivel general: 247 valores. Son datos provisorios. Las diferencias se expresan en puntos porcentuales, no crecimiento de producción. Alimentos excluye actividad vitivinícola e ingenios azucareros; químicos excluye industria farmacéutica. Los bloques no se empalman uno a uno con las ramas CAMMESA. Las comparaciones cuyo año anterior no está incorporado quedan sin dato.
+
+## Magnitudes técnicas de infraestructura
+
+- Stargate: hasta 500 MW y hasta USD 25.000 millones, según anuncio oficial del 10/10/2025. No son capacidad instalada verificada ni inversión ejecutada.
+- Clementina: 233 kW como parámetro eléctrico declarado en 2023, 296 GPU y 15,3 petaFLOPS. kW no es kWh; no se supone utilización constante. Las pruebas de puesta en marcha de 2023 y la operación plena desde 2025 informada en 2026 son hitos diferentes.
+- Cirion: ampliación en ejecución anunciada en agosto de 2025, superior a 2 MW y aproximadamente 160 racks adicionales. No se la confunde con la capacidad total del centro ni se afirma su terminación.
+- EdgeConneX: ficha técnica con 3,5 MW N+1 y capacidad potencial del emplazamiento de 10,5 MW. No se suman. El PDF no tiene fecha editorial acreditada: la ruta URL no se usa para inventarla; se registra la consulta y se archivan los bytes.
+- ARSAT: 4.500 m² y cuatro salas de 365 m² documentados por el operador. Superficie y certificación no equivalen a potencia o energía consumida.
+
+Cada cifra tiene referencia individual en `technical_facts`. Las fuentes sin fecha editorial requieren fecha de consulta. Los parámetros de cómputo, superficie, capacidad eléctrica, ampliación y capacidad potencial usan categorías separadas.
+
+## Reproducción y archivo
+
+`data/reference/branch-source-manifest.json` conserva enlaces, captura, fecha editorial, páginas, unidades, cobertura, notas y hashes. Los doce PDF CAMMESA están archivados sin modificar; también el INDEC y la ficha EdgeConneX. La descarga inicial usa `scripts/fetch_branch_history.py`; revisar manualmente su salida antes de modificar el manifiesto curado.
+
+Con Poppler disponible, `python3 scripts/extract_sector_history.py` reproduce `data/sector_history.json` sin red. Valida hashes, rótulos y cantidad de columnas; los subtotales de la comparación se transcribieron y cotejaron visualmente. Después ejecutar `python3 scripts/build_site.py` y `python3 scripts/verify_release.py`. La publicación no requiere Poppler: verifica el JSON versionado y las huellas de los originales.
 
 Los eventos judiciales distinguen quién afirma qué y cuándo. Demanda, intervención solicitada y fallo son etapas diferentes. No se verificó sentencia definitiva en los casos incorporados ni retraso cuantificado atribuible a ellos. Se muestran como contexto regulatorio y de plazos, nunca como medición eléctrica. No incorporar un litigio local tampoco certifica su ausencia.
 
@@ -40,4 +68,4 @@ Los nuevos módulos alimentan web y TXT, con JSON independientes descargables. C
 
 Se mantienen los colores, tarjetas y puntos de adaptación del sitio existente, siguiendo la guía `frontend-designer`. Los filtros usan `select` nativo y el contexto documental usa `details`: conservan navegación por teclado y foco del navegador sin introducir controles personalizados o dependencias nuevas. Se descartaron un framework adicional y un mapa de instalaciones: el primero añade migración sin necesidad; el segundo sugeriría precisión geográfica que no acreditan todas las fuentes.
 
-Las pruebas cubren 390 y 1440 píxeles, meses sin cobertura, cambio de país por teclado, descarga JSON y distinción entre alegaciones y fallos. Se revisaron capturas de pantalla. Se conserva el modo de movimiento reducido existente y no se agregan animaciones. El registro necesita JavaScript para las tarjetas; sin él permanece disponible el enlace al JSON. La tabla por ramas permite desplazamiento horizontal en pantallas estrechas. Estas comprobaciones en Chromium no equivalen a una auditoría completa de accesibilidad o compatibilidad en todos los navegadores.
+Las pruebas cubren 390 y 1440 píxeles, meses sin cobertura, las 48 combinaciones de mes/rama, cambio de país por teclado, descargas JSON y distinción entre alegaciones y fallos. Se revisaron capturas de pantalla. Se conserva el modo de movimiento reducido existente y no se agregan animaciones. Registro y explorador necesitan JavaScript; sin él permanecen disponibles los enlaces al JSON. Tablas y gráfico histórico permiten desplazamiento horizontal en pantallas estrechas, evitando achicar las etiquetas hasta hacerlas ilegibles. Las doce filas mensuales y las doce actividades se muestran sin recorte vertical. Estas comprobaciones en Chromium no equivalen a una auditoría completa de accesibilidad o compatibilidad en todos los navegadores.
