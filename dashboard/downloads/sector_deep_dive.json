@@ -1,0 +1,43 @@
+{
+  "reviewed_at": "2026-09-24",
+  "cammesa": {
+    "period": "2026-08-01",
+    "previous_period": "2025-08-01",
+    "title": "Evolución de la demanda por rama y actividad — agosto 2026",
+    "publisher": "CAMMESA",
+    "source_url": "https://cammesaweb.cammesa.com/gran-demanda/",
+    "download_url": "https://cammesaweb.cammesa.com/download/evolucion-de-la-demanda-por-rama-y-actividad-2026-08/?wpdmdl=53075",
+    "publication_date": "2026-09-16",
+    "captured_at": "2026-09-24T19:27:25-03:00",
+    "local_file": "data/reference/cammesa-ramas-2026-08.pdf",
+    "sha256": "1050ae50b5db918e2fbbf72853b48df7ecf7685be58b143893dafa2d7f0ba89b",
+    "source_pages": [2,4],
+    "unit": "MW",
+    "coverage": "Más de 8.000 empresas GUMA, GUME y GUDI; aproximadamente 90% de la gran demanda mayor, según la introducción del informe.",
+    "method": "Transcripción de la tabla de la página 4, cotejada visualmente. MW es la unidad publicada; no se convierte a GWh ni se interpreta como máximo instantáneo. Tasas interanuales tomadas de la fuente, no recalculadas con niveles redondeados. Subtotales y total no son filas adicionales para sumar.",
+    "boundary": "Esta selección de grandes demandas no coincide necesariamente con la categoría grandes usuarios de Datos Argentina. No empalmar ni sumar ambas fuentes. Las ramas no identifican cargas de IA.",
+    "diagnosis": "El total de esta muestra crece 3,4%, pero sin Aluar cae 1,2%. Aluar aumenta 45,6%, mientras la rama industrias cae 0,7%. El aumento agregado no se extiende a todas las ramas; no demuestra un efecto de IA.",
+    "rows": [
+      {"id":"food_commerce_services","label":"Alimentación, comercios y servicios","kind":"component","current_mw":1554,"previous_mw":1576,"yoy_percent":-1.4},
+      {"id":"industry","label":"Industrias","kind":"component","current_mw":1644,"previous_mw":1655,"yoy_percent":-0.7},
+      {"id":"oil_minerals","label":"Petróleos y minerales","kind":"component","current_mw":202,"previous_mw":209,"yoy_percent":-3.2},
+      {"id":"without_aluar","label":"Total sin Aluar","kind":"subtotal","current_mw":3399,"previous_mw":3440,"yoy_percent":-1.2},
+      {"id":"aluar","label":"Aluar","kind":"component","current_mw":547,"previous_mw":376,"yoy_percent":45.6},
+      {"id":"total","label":"Demanda total de la muestra","kind":"total","current_mw":3947,"previous_mw":3816,"yoy_percent":3.4}
+    ]
+  },
+  "indec": {
+    "indicator": "Utilización de la capacidad instalada en la industria",
+    "period": "2026-07-01",
+    "previous_period": "2025-07-01",
+    "publication_date": "2026-09-15",
+    "current_percent":58.2,
+    "previous_percent":58.4,
+    "unit":"% de capacidad instalada utilizada",
+    "source_url":"https://www.indec.gob.ar/Nivel4/Tema/3/6/15",
+    "publisher":"INDEC",
+    "next_release_announced":"2026-10-15",
+    "next_period":"2026-08-01",
+    "limitation":"Es otro universo estadístico: no es demanda eléctrica ni se cruza causalmente con CAMMESA. El dato incorporado es julio, no agosto. No representa una serie histórica de versiones de publicación."
+  }
+}

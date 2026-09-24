@@ -6,6 +6,10 @@ import math
 import io
 from datetime import date
 from pathlib import Path
+try:
+    from .build_research import build as build_research
+except ImportError:
+    from build_research import build as build_research
 
 ROOT = Path(__file__).resolve().parents[1]
 SECTORS = [('residential_gwh', 'Residencial'),
@@ -110,7 +114,7 @@ def monthly_csv(r, source):
     return out.getvalue()
 
 
-def markdown(r, source, evidence=None):
+def markdown(r, source, evidence=None, research=None):
     t=r['total']
     lines=[f'# Informe mensual de demanda eléctrica — {r["title"]}', '',
            f'Argentina · Diagnóstico descriptivo · Datos descargados el {source["downloaded_at"]}', '',
@@ -129,6 +133,22 @@ def markdown(r, source, evidence=None):
             lines.append(f'- {s["label"]}: {rate} acumulado interanual.')
     else:
         lines += ['No disponible: faltan meses para construir dos acumulados comparables.']
+    if research:
+        c=research['sector']['cammesa']
+        if r['period']==c['period']:
+            lines += ['', '## Apertura por ramas: muestra de grandes demandas de CAMMESA', '', c['coverage'], '', c['diagnosis'], '',
+                      '| Rama | Actual MW | Anterior MW | Interanual publicado |', '| --- | ---: | ---: | ---: |']
+            lines += [f'| {s["label"]} | {number(s["current_mw"],0)} | {number(s["previous_mw"],0)} | {number(s["yoy_percent"],1,True)}% |' for s in c['rows']]
+            lines += ['', c['method'], '', c['boundary'], '', f'Fuente: {c["source_url"]}. Publicación: {c["publication_date"]}. Páginas 2 y 4. SHA-256: {c["sha256"]}.']
+        else:
+            lines += ['', '## Apertura por ramas de CAMMESA', '', 'No se incorporó una tabla por ramas para este mes. La apertura documental disponible corresponde a agosto de 2026 y no se traslada a otras fechas.']
+        n=research['sector']['indec']
+        if r['period'] in (n['period'],n['next_period']):
+            lines += ['', '## Actividad industrial: contexto con fecha propia', '',
+                      f'INDEC, {month_name(n["period"])}: utilización de capacidad instalada {number(n["current_percent"])}%, frente a {number(n["previous_percent"])}% un año antes. Publicado el {n["publication_date"]}.', '',
+                      n['limitation'], f'Fuente: {n["source_url"]}.', '']
+        lines += ['', 'Registro de infraestructura de IA: https://ignapetit25-tech.github.io/energy-demand-lab/infrastructure.html',
+                  'Registro actual, no contemporáneo a cada mes histórico. Los anuncios, la operación documentada y los litigios se distinguen de las mediciones eléctricas.']
     if evidence:
         lines += ['', '## IA y electricidad: evidencia y límites', '', ai_diagnosis(r), '',
                   evidence['conclusion'], '',
@@ -161,9 +181,10 @@ def build():
     periods={r['period'] for r in rows}
     reports=[make_report(rows,r['period']) for r in rows if f'{int(r["period"][:4])-1:04d}{r["period"][4:]}' in periods]
     evidence=json.loads((ROOT/'data/ai_energy_evidence.json').read_text())
+    research=build_research()
     for report in reports:
         report['ai_diagnosis']=ai_diagnosis(report)
-        report['markdown']=markdown(report,source,evidence)
+        report['markdown']=markdown(report,source,evidence,research)
         report['csv']=monthly_csv(report,source)
         # Plain text preserves source URLs and a readable aligned sector listing.
         text_lines=[]

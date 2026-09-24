@@ -4,6 +4,7 @@
 
 - Web pública y publicación automática al enviar cambios a `main`.
 - Informe sectorial mensual con comparación interanual, aportes y acumulado.
+- Apertura CAMMESA por ramas para agosto de 2026, con PDF archivado y tasas de la fuente, y capacidad instalada INDEC de julio como contexto de otro período. Registro documental de infraestructura de IA con filtro por país y descargas JSON. [Alcance y mantenimiento](infraestructura-y-sectores.md). No se mezclan estos MW con la serie nacional en GWh; CSV y Excel conservan su alcance anterior.
 - Excel con `Informe` (mes editable en B4, fórmulas y gráfico), `Datos` (260 registros y fuente) e `IA y energía` (evidencia internacional y límites de atribución local). El archivo es histórico completo; no cambia el mes inicial según el selector web. La interfaz explica esa diferencia. El CSV exporta el mes seleccionado, tres sectores y total, acumulados y trazabilidad. El TXT incluye el diagnóstico y las fuentes de IA.
 - Evaluador prospectivo conectado al tablero y a la descarga del registro. Calcula error firmado, absoluto y porcentual de los cuatro modelos; agrega MAE, RMSE, MAPE y sesgo, general y otoño/primavera. Sin observaciones, las métricas son nulas, no cero.
 
@@ -25,6 +26,7 @@ Si se conoce la fecha oficial de publicación, añadir `--publication-date AAAA-
 2. **Intervalos predictivos calibrados.** No se usa el MAE como margen de confianza. Requiere diseño y evaluación antes de incorporarlo.
 3. **Clima disponible al pronosticar y referencia profesional de CAMMESA.** Falta verificar archivos de pronósticos con fechas de emisión recuperables. El SMN trimestral no equivale a una temperatura mensual numérica.
 4. **Calendario histórico de feriados.** Falta una colección oficial fechada antes de incorporarlo a otro modelo. No cambia el pronóstico congelado de octubre.
+5. **Historia por ramas y medición de infraestructura.** La nueva apertura CAMMESA y el dato INDEC son instantáneas, no series históricas nuevas. Ampliar meses y ramas, comprobar comparabilidad y buscar medición eléctrica fechada de instalaciones argentinas. Los cuatro casos del registro no son un censo ni una estimación de consumo de IA.
 
 ## Mantenimiento del Excel
 

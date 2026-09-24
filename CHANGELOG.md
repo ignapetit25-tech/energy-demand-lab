@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-09-24 — Argentine branches and documentary infrastructure register
+
+- Added a visually checked CAMMESA August 2026 branch table, preserving its MW units, population, published growth rates and archived source PDF hash.
+- Added July 2026 INDEC capacity utilization as separately dated context, not an August observation or electricity measurement.
+- Added a filterable four-case infrastructure register, initially showing its two Argentine cases. Announced capacity, operating-status evidence, measured consumption, permits and legal events remain distinct.
+- Added downloadable JSON, selected-month TXT context, source validation and five regression tests; verified mobile layout, keyboard filtering and downloads.
+- Kept national-series CSV, Excel, research models and the frozen October forecast unchanged.
+
 ## 2026-09-24 — AI evidence and richer monthly exports
 
 - Added a sourced AI/electricity evidence register separating international historical estimates, projections and an Argentine investment announcement.

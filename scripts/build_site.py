@@ -10,8 +10,10 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / '_site'
 ASSETS = ('index.html', 'monthly-report.html', 'styles.css', 'report.css',
-          'app.js', 'report.js', 'data.js', 'report-data.js', 'prospective-data.js', 'favicon.svg')
-DOWNLOADS = ('downloads/energy-demand.xlsx','downloads/excel-manifest.json')
+          'app.js', 'report.js', 'data.js', 'report-data.js', 'prospective-data.js', 'favicon.svg',
+          'research-data.js','research-report.js','infrastructure.html','infrastructure.js','infrastructure.css')
+DOWNLOADS = ('downloads/energy-demand.xlsx','downloads/excel-manifest.json',
+             'downloads/infrastructure_registry.json','downloads/sector_deep_dive.json')
 DOCUMENTS = ('prospective/preregistration.md', 'results/nested_exploratory/report.md')
 
 
