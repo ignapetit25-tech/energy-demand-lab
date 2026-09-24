@@ -3,6 +3,7 @@ import csv
 import hashlib
 import json
 import math
+import io
 from datetime import date
 from pathlib import Path
 
@@ -85,7 +86,31 @@ def make_report(rows, period):
                 total=total, sectors=sectors, ytd=ytd, headline=headline, summary=summary)
 
 
-def markdown(r, source):
+def ai_diagnosis(r):
+    c, g = r['sectors'][1:]
+    return (f'En el mes seleccionado, comercio e industria varió {number(c["yoy_percent"],signed=True)}% '
+            f'y grandes usuarios {number(g["yoy_percent"],signed=True)}%. '
+            'Estas categorías no separan centros de datos ni cargas de IA. '
+            'Ni un aumento demuestra un efecto de IA ni una caída descarta que exista carga de IA dentro del agregado.')
+
+
+def monthly_csv(r, source):
+    """Excel-friendly Spanish CSV: semicolon, decimal comma, UTF-8, no missing-as-zero."""
+    out=io.StringIO(newline='')
+    writer=csv.writer(out, delimiter=';', lineterminator='\r\n')
+    writer.writerow(['mes','mes_comparacion','sector','actual_gwh','anterior_gwh','cambio_gwh',
+                     'interanual_pct','aporte_pp','peso_pct','acumulado_actual_gwh',
+                     'acumulado_anterior_gwh','acumulado_interanual_pct','meses_acumulados',
+                     'atribucion_ia','ia_gwh','fecha_descarga','fuente_url','sha256'])
+    entries=r['sectors']+[dict(label='Total',key='total',**r['total'],contribution_pp=r['total']['yoy_percent'],share_percent=100)]
+    for s in entries:
+        y=(r['ytd'] if s['key']=='total' else next(v for v in r['ytd']['sectors'] if v['key']==s['key'])) if r['ytd'] else {}
+        values=[r['period'],r['previous_period'],s['label'],s['current_gwh'],s['previous_gwh'],s['delta_gwh'],s['yoy_percent'],s['contribution_pp'],s['share_percent'],y.get('current_gwh'),y.get('previous_gwh'),y.get('yoy_percent'),r['ytd']['months'] if r['ytd'] else None,'No identificable',None,source['downloaded_at'],source['api_query'],source['sha256']]
+        writer.writerow(['' if v is None else f'{v:.6f}'.replace('.',',') if isinstance(v,float) else v for v in values])
+    return out.getvalue()
+
+
+def markdown(r, source, evidence=None):
     t=r['total']
     lines=[f'# Informe mensual de demanda eléctrica — {r["title"]}', '',
            f'Argentina · Diagnóstico descriptivo · Datos descargados el {source["downloaded_at"]}', '',
@@ -104,6 +129,15 @@ def markdown(r, source):
             lines.append(f'- {s["label"]}: {rate} acumulado interanual.')
     else:
         lines += ['No disponible: faltan meses para construir dos acumulados comparables.']
+    if evidence:
+        lines += ['', '## IA y electricidad: evidencia y límites', '', ai_diagnosis(r), '',
+                  evidence['conclusion'], '',
+                  f'Contexto internacional revisado el {evidence["reviewed_at"]}. Es una revisión actual: no representa información necesariamente disponible en el mes histórico seleccionado.', '']
+        for e in evidence['indicators']:
+            value=number(e['value'])+' '+e['unit'] if e['value'] is not None else e['unit']
+            lines.append(f'- {e["geography"]} · {e["period"]} · {e["metric"]}: {value}. {e["status"]}. [{e["source_id"]}]. {e["limitation"]}')
+        lines += ['', evidence['interpretation'], '', 'Siguiente investigación: '+evidence['next_data'], '', 'Fuentes de la revisión de IA:', '']
+        lines += [f'- [{s["id"]}] {s["publisher"]}: {s["title"]}. {s["url"]}' for s in evidence['sources']]
     lines += ['', '## Preguntas para investigar', '',
               '- ¿Qué parte de los cambios coincide con diferencias de temperatura y calendario? Requiere controles adicionales.',
               '- ¿El patrón sectorial persiste en los próximos meses? Un solo mes no establece una tendencia.',
@@ -126,14 +160,30 @@ def build():
     validate(rows)
     periods={r['period'] for r in rows}
     reports=[make_report(rows,r['period']) for r in rows if f'{int(r["period"][:4])-1:04d}{r["period"][4:]}' in periods]
+    evidence=json.loads((ROOT/'data/ai_energy_evidence.json').read_text())
     for report in reports:
-        report['markdown']=markdown(report,source)
-    bundle=dict(source=source, reports=reports, latest_period=reports[-1]['period'])
-    (ROOT/'dashboard/report-data.js').write_text('window.MONTHLY_REPORTS = '+json.dumps(bundle,ensure_ascii=False,allow_nan=False)+';\n')
+        report['ai_diagnosis']=ai_diagnosis(report)
+        report['markdown']=markdown(report,source,evidence)
+        report['csv']=monthly_csv(report,source)
+        # Plain text preserves source URLs and a readable aligned sector listing.
+        text_lines=[]
+        for line in report['markdown'].splitlines():
+            if line.startswith('| ---'):
+                continue
+            if line.startswith('|'):
+                line=' · '.join(v.strip() for v in line.strip('|').split('|'))
+            text_lines.append(line.lstrip('# ').replace('`',''))
+        report['text']='\n'.join(text_lines)+'\n'
+    bundle=dict(source=source, evidence=evidence, reports=reports, latest_period=reports[-1]['period'])
+    # The browser downloads plain text; do not ship a duplicate Markdown version per month.
+    web_bundle=dict(bundle,reports=[{k:v for k,v in r.items() if k!='markdown'} for r in reports])
+    (ROOT/'dashboard/report-data.js').write_text('window.MONTHLY_REPORTS = '+json.dumps(web_bundle,ensure_ascii=False,allow_nan=False,separators=(',',':'))+';\n')
     output=ROOT/'reports/monthly'
     output.mkdir(parents=True,exist_ok=True)
     latest=reports[-1]
     (output/f'{latest["period"][:7]}.md').write_text(latest['markdown'])
+    (output/f'{latest["period"][:7]}.txt').write_text(latest['text'])
+    (output/f'{latest["period"][:7]}.csv').write_text('\ufeff'+latest['csv'],newline='')
     (output/f'{latest["period"][:7]}.json').write_text(json.dumps(latest,ensure_ascii=False,indent=2,allow_nan=False)+'\n')
     print(f'Monthly reports: {len(reports)} comparable months; latest {latest["title"]}')
     return bundle

@@ -10,9 +10,16 @@ if (B.reports.some(r=>r.period===requested)) el('report-period').value=requested
 el('vintage').textContent=`Descarga: ${B.source.downloaded_at}`;
 el('sector-source').href=B.source.api_query;
 el('sector-hash').textContent=B.source.sha256;
+el('ai-conclusion').textContent=B.evidence.conclusion;
+el('ai-vintage').textContent=`Revisión de fuentes: ${B.evidence.reviewed_at}. Contexto actual, no información necesariamente disponible en cada mes histórico.`;
+el('ai-interpretation').textContent=B.evidence.interpretation;
+el('ai-next').textContent=B.evidence.next_data;
+const esc = value => String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+el('ai-evidence').innerHTML=B.evidence.indicators.map(e=>`<tr><th scope="row">${esc(e.metric)}<small>${esc(e.geography)} · ${esc(e.period)}</small></th><td>${e.value===null?'No informado':fmt(e.value,0)+' '+esc(e.unit)}</td><td>${esc(e.status)}</td><td>${esc(e.limitation)} <a href="${esc(B.evidence.sources.find(s=>s.id===e.source_id).url)}" target="_blank" rel="noopener">Fuente ↗</a></td></tr>`).join('');
 let selected;
 function render(){
   const r=B.reports.find(r=>r.period===el('report-period').value);selected=r;
+  el('ai-local').textContent=r.ai_diagnosis;
   document.title=`Informe ${r.title} · Energy Demand Lab`;
   el('report-month').textContent=r.title;
   el('headline').textContent=r.headline;
@@ -37,6 +44,6 @@ function render(){
 function download(content, type, filename){const url=URL.createObjectURL(new Blob(['\ufeff',content],{type}));const a=document.createElement('a');a.href=url;a.download=filename;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
 el('report-period').onchange=()=>{location.hash=el('report-period').value;render();};
 window.addEventListener('hashchange',()=>{if(B.reports.some(r=>r.period===location.hash.slice(1))){el('report-period').value=location.hash.slice(1);render();}});
-el('export-text').onclick=()=>download(selected.markdown,'text/markdown;charset=utf-8',`informe-energia-${selected.period.slice(0,7)}.md`);
-el('export-sectors').onclick=()=>{const keys=['key','label','current_gwh','previous_gwh','yoy_percent','delta_gwh','contribution_pp','share_percent','share_change_pp'];const lines=[['period','source_downloaded_at',...keys].join(','),...selected.sectors.map(s=>[selected.period,B.source.downloaded_at,...keys.map(k=>s[k]??'')].join(','))];download(lines.join('\r\n'),'text/csv;charset=utf-8',`sectores-${selected.period.slice(0,7)}.csv`);};
+el('export-text').onclick=()=>download(selected.text,'text/plain;charset=utf-8',`informe-energia-${selected.period.slice(0,7)}.txt`);
+el('export-sectors').onclick=()=>download(selected.csv,'text/csv;charset=utf-8',`sectores-${selected.period.slice(0,7)}.csv`);
 el('print-report').onclick=()=>window.print();render();

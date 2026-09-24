@@ -4,7 +4,7 @@
 
 - Web pública y publicación automática al enviar cambios a `main`.
 - Informe sectorial mensual con comparación interanual, aportes y acumulado.
-- Excel real con dos hojas: `Informe` (mes editable en B4, fórmulas y gráfico) y `Datos` (260 registros y fuente). El archivo es histórico completo; no cambia el mes inicial según el selector web. La interfaz explica esa diferencia. El CSV sigue exportando el mes seleccionado.
+- Excel con `Informe` (mes editable en B4, fórmulas y gráfico), `Datos` (260 registros y fuente) e `IA y energía` (evidencia internacional y límites de atribución local). El archivo es histórico completo; no cambia el mes inicial según el selector web. La interfaz explica esa diferencia. El CSV exporta el mes seleccionado, tres sectores y total, acumulados y trazabilidad. El TXT incluye el diagnóstico y las fuentes de IA.
 - Evaluador prospectivo conectado al tablero y a la descarga del registro. Calcula error firmado, absoluto y porcentual de los cuatro modelos; agrega MAE, RMSE, MAPE y sesgo, general y otoño/primavera. Sin observaciones, las métricas son nulas, no cero.
 
 ## Dependiente de una publicación futura
@@ -28,6 +28,6 @@ Si se conoce la fecha oficial de publicación, añadir `--publication-date AAAA-
 
 ## Mantenimiento del Excel
 
-El archivo está versionado y se copia a la web. Su manifiesto vincula la huella del XLSX con la huella de los datos sectoriales. El constructor del sitio rechaza un Excel desactualizado o alterado. La creación usa `@oai/artifact-tool` del entorno de autoría; GitHub Actions no necesita ese paquete para publicar el archivo ya verificado.
+El archivo está versionado y se copia a la web. Su manifiesto vincula la huella del XLSX con las huellas de los datos sectoriales y de `data/ai_energy_evidence.json`. El constructor del sitio rechaza un Excel desactualizado o alterado. La creación usa `@oai/artifact-tool` del entorno de autoría; GitHub Actions no necesita ese paquete para publicar el archivo ya verificado.
 
-Para regenerar en el entorno de autoría, usar `scripts/build_excel.mjs` con las dependencias de escritorio instaladas y luego `python3 scripts/build_site.py`. Se verificaron recálculo con cambios de mes y mes fuera de cobertura, fórmulas, valores guardados, hojas y gráfico. Se revisaron ambas hojas visualmente. La prueba nativa con LibreOffice no pudo ejecutarse en este entorno; no se afirma una prueba en Microsoft Excel.
+Para regenerar en el entorno de autoría, ejecutar `python3 scripts/build_monthly_reports.py`, usar `scripts/build_excel.mjs` con las dependencias de escritorio instaladas y luego `python3 scripts/build_site.py`. Se verificaron recálculo con cambios de mes y mes fuera de cobertura, fórmulas, valores guardados, hojas y gráfico. Se revisaron las hojas visualmente. La prueba nativa con LibreOffice no pudo ejecutarse en este entorno; no se afirma una prueba en Microsoft Excel. El alcance de la investigación está en [IA y electricidad](ia-electricidad.md).

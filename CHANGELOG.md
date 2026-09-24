@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-09-24 — AI evidence and richer monthly exports
+
+- Added a sourced AI/electricity evidence register separating international historical estimates, projections and an Argentine investment announcement.
+- Added the AI research section to the web report and selected-month plain-text download; historical views explicitly label the current research vintage.
+- Expanded Spanish CSV exports to include total, matched YTD, comparison dates, source URL/hash and unknown AI consumption as blank, never zero. Format: UTF-8 BOM, semicolon separator, decimal comma.
+- Added the Excel sheet `IA y energía`, linked to the reporting-month control, with numerical evidence, sources and a formula-based global data-center contribution calculation. This is not an AI-only or Argentine attribution.
+- Added evidence freshness validation and tests across all 248 month exports. Retained forecast code, source data and the frozen prospective forecast unchanged.
+
 ## 2026-09-24 — Excel download and prospective evaluator
 
 - Added a formula-based XLSX with an editable reporting month, matched year-to-date comparisons, chart and original sector data.

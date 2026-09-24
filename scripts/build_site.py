@@ -54,6 +54,8 @@ def main():
     source=json.loads((ROOT/'data/sector_source_manifest.json').read_text())
     if excel['source_sha256']!=source['sha256'] or excel['sha256']!=hashlib.sha256((ROOT/'dashboard/downloads/energy-demand.xlsx').read_bytes()).hexdigest():
         raise ValueError('Excel is stale or modified; regenerate and verify before publishing')
+    if excel.get('evidence_sha256')!=hashlib.sha256((ROOT/'data/ai_energy_evidence.json').read_bytes()).hexdigest():
+        raise ValueError('Excel AI evidence is stale; regenerate before publishing')
     if SITE.exists():
         unexpected = [str(p.relative_to(SITE)) for p in SITE.rglob('*')
                       if p.is_file() and str(p.relative_to(SITE)) not in expected]

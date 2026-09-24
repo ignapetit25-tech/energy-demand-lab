@@ -1,9 +1,10 @@
 {
   "file": "energy-demand.xlsx",
   "source_sha256": "31d390ba985e387f964c213c854979ac39e1d382ee40d7b8b45fbfb7aa90f04b",
+  "evidence_sha256": "06b64b4a5aa0aba7d60786693acb3aaee33bcaae7ace05391e13d3f4404f092d",
   "latest_period": "2026-08-01",
   "downloaded_at": "2026-09-20",
-  "sha256": "bc4a6e1f95dd1184be9da5f293b655d8c8ab2629668fa503c195eba57023954f",
+  "sha256": "0b6bd0297cce53e2814095d6c2de16ea1f9271aa40755f7eb5a58242a8bc7b3e",
   "default_month": "2026-08-01",
   "month_selector": "Informe!B4"
 }

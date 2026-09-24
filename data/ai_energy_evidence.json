@@ -1,0 +1,20 @@
+{
+  "reviewed_at": "2026-09-24",
+  "conclusion": "Hay evidencia internacional de crecimiento eléctrico en centros de datos orientados a IA. Las series argentinas incorporadas no permiten medir qué parte del consumo sectorial corresponde a IA; no identificable no significa cero.",
+  "interpretation": "Centros de datos no equivale a industria ni todo centro de datos se dedica a IA. El cómputo contratado por una empresa argentina puede ejecutarse fuera del país. Adoptar IA tampoco implica necesariamente mayor consumo neto de la fábrica: deben medirse tanto el cómputo como los cambios de eficiencia y producción.",
+  "next_data": "Para estimar una relación local hacen falta consumos mensuales por establecimiento, ubicación del cómputo, fecha de adopción de IA y proporción de carga dedicada a IA. Comparar establecimientos semejantes antes y después, controlando producción, clima, calendario y tarifas; verificar tendencias previas antes de interpretar causalmente.",
+  "sources": [
+    {"id":"IEA_AI_2026","publisher":"AIE / IEA","title":"Key Questions on Energy and AI (2026)","url":"https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary"},
+    {"id":"IEA_GER_2026","publisher":"AIE / IEA","title":"Global Energy Review 2026 — Electricity demand","url":"https://www.iea.org/reports/global-energy-review-2026/electricity-demand"},
+    {"id":"OPENAI_AR_2025","publisher":"OpenAI","title":"Argentina’s AI opportunity — 14 octubre 2025","url":"https://openai.com/global-affairs/argentinas-ai-opportunity/"}
+  ],
+  "indicators": [
+    {"id":"dc_total","geography":"Mundo","period":"2025","metric":"Electricidad de todos los centros de datos","value":485,"unit":"TWh","status":"Estimación histórica","source_id":"IEA_AI_2026","limitation":"Incluye usos distintos de IA; no es una medición argentina."},
+    {"id":"dc_growth","geography":"Mundo","period":"2025 vs 2024","metric":"Crecimiento eléctrico de todos los centros de datos","value":17,"unit":"%","status":"Estimación histórica","source_id":"IEA_AI_2026","limitation":"No equivale al crecimiento atribuible exclusivamente a IA."},
+    {"id":"ai_dc_growth","geography":"Mundo","period":"2025 vs 2024","metric":"Crecimiento eléctrico de centros de datos orientados a IA","value":50,"unit":"%","status":"Estimación histórica","source_id":"IEA_AI_2026","limitation":"Tasa de crecimiento, no participación de IA en los 485 TWh."},
+    {"id":"dc_delta","geography":"Mundo","period":"2025 vs 2024","metric":"Incremento eléctrico de todos los centros de datos","value":70,"unit":"TWh","status":"Estimación histórica aproximada","source_id":"IEA_GER_2026","limitation":"Todos los centros de datos; no solo IA."},
+    {"id":"electricity_delta","geography":"Mundo","period":"2025 vs 2024","metric":"Incremento de la demanda eléctrica total","value":800,"unit":"TWh","status":"Estimación histórica aproximada","source_id":"IEA_GER_2026","limitation":"Denominador mundial; no comparable directamente con un mes argentino."},
+    {"id":"dc_projection","geography":"Mundo","period":"2030","metric":"Electricidad de todos los centros de datos","value":950,"unit":"TWh","status":"Proyección, no observado","source_id":"IEA_AI_2026","limitation":"Escenario de la AIE; no dato realizado ni pronóstico propio."},
+    {"id":"argentina_loi","geography":"Argentina","period":"2025-10-14","metric":"Carta de intención OpenAI / Sur Energy para explorar un proyecto","value":null,"unit":"Sin GWh informados","status":"Anuncio empresarial","source_id":"OPENAI_AR_2025","limitation":"Esta fuente acredita una intención; no aporta consumo medido ni acredita puesta en servicio."}
+  ]
+}

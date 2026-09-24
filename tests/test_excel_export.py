@@ -16,6 +16,7 @@ class ExcelExportTests(unittest.TestCase):
         self.assertEqual(hashlib.sha256(data).hexdigest(),manifest['sha256'])
         source=json.loads((ROOT/'data/sector_source_manifest.json').read_text())
         self.assertEqual(manifest['source_sha256'],source['sha256'])
+        self.assertEqual(manifest['evidence_sha256'],hashlib.sha256((ROOT/'data/ai_energy_evidence.json').read_bytes()).hexdigest())
         self.assertEqual(manifest['latest_period'],source['coverage']['end'])
         expected=json.loads((ROOT/'reports/monthly'/f'{manifest["latest_period"][:7]}.json').read_text())
         with ZipFile(folder/manifest['file']) as archive:
@@ -25,6 +26,9 @@ class ExcelExportTests(unittest.TestCase):
                 self.assertIsNotNone(cell.find('s:f',NS))
                 self.assertAlmostEqual(float(cell.find('s:v',NS).text),value,places=5)
             self.assertIsNotNone(sheet.find('.//s:dataValidation[@sqref="B4"]',NS))
+            ai=ET.fromstring(archive.read('xl/worksheets/sheet3.xml'))
+            self.assertAlmostEqual(float(ai.find('.//s:c[@r="B23"]/s:v',NS).text),70/800)
+            self.assertIsNotNone(ai.find('.//s:c[@r="B8"]/s:f',NS))
             content_types=ET.fromstring(archive.read('[Content_Types].xml'))
             chart_parts=[p.attrib['PartName'].lstrip('/') for p in content_types if p.attrib.get('ContentType')=='application/vnd.openxmlformats-officedocument.drawingml.chart+xml']
             self.assertEqual(len(chart_parts),1)

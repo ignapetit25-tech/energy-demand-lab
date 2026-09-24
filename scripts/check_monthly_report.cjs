@@ -18,16 +18,27 @@ const assert=require('assert/strict');
   const excelBytes=Buffer.concat(excelChunks);assert.equal(excelBytes.subarray(0,2).toString(),'PK');assert.ok(excelBytes.length>10000);
   await page.selectOption('#report-period','2025-08-01');
   assert.match(await page.locator('#total').innerText(),/11\.718,8/);
-  for(const [id,suffix] of [['export-text','.md'],['export-sectors','.csv']]){
+  assert.equal(await page.locator('#ai-evidence tr').count(),7);
+  assert.match(await page.locator('#ai-conclusion').innerText(),/no permiten medir/);
+  for(const [id,suffix] of [['export-text','.txt'],['export-sectors','.csv']]){
    const pending=page.waitForEvent('download');await page.click('#'+id);const file=await pending;
    assert.ok(file.suggestedFilename().includes('2025-08')&&file.suggestedFilename().endsWith(suffix));
    const stream=await file.createReadStream();let content='';for await(const chunk of stream)content+=chunk;
    assert.ok(content.includes('2025-08')||content.includes('agosto de 2025'));
+   if(suffix==='.csv'){
+    assert.equal(content.trim().split('\n').length,5);
+    assert.ok(content.includes('acumulado_actual_gwh')&&content.includes(';Total;'));
+    assert.ok(content.includes(';No identificable;;'));
+   }else{
+    assert.ok(content.includes('IA y electricidad')&&content.includes('https://www.iea.org/'));
+    assert.ok(content.includes('Proyección, no observado'));
+   }
   }
   await page.selectOption('#report-period','2026-08-01');
   await page.evaluate(()=>{window.print=()=>{window.printWasCalled=true;};});
   await page.click('#print-report');assert.equal(await page.evaluate(()=>window.printWasCalled),true);
   await page.screenshot({path:path.resolve(__dirname,'../dashboard/report-desktop.png'),fullPage:true});
+  await page.locator('#ai-energy').screenshot({path:path.resolve(__dirname,'../work/ai-web.png')});
   await page.setViewportSize({width:390,height:844});
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
   await page.screenshot({path:path.resolve(__dirname,'../dashboard/report-mobile.png'),fullPage:true});
