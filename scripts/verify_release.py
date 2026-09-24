@@ -100,7 +100,7 @@ def main() -> None:
             raise SystemExit("Unexpected prospective forecast ledger")
         if forecasts[0]["primary_adaptive_annual_change_gwh"] != "10578.252":
             raise SystemExit("Prospective October forecast changed")
-    print("Release verification passed: source, 15 tests, outputs, and frozen results.")
+    print("Release verification passed: source, test suite, outputs, and frozen results.")
 
 
 if __name__ == "__main__":

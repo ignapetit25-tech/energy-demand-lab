@@ -1,0 +1,82 @@
+{
+  "period": "2026-08-01",
+  "previous_period": "2025-08-01",
+  "title": "agosto de 2026",
+  "total": {
+    "current_gwh": 12432.027715,
+    "previous_gwh": 11718.756339,
+    "delta_gwh": 713.2713760000006,
+    "yoy_percent": 6.086579116132262
+  },
+  "sectors": [
+    {
+      "key": "residential_gwh",
+      "label": "Residencial",
+      "current_gwh": 6093.065132,
+      "previous_gwh": 5598.129769,
+      "delta_gwh": 494.9353629999996,
+      "yoy_percent": 8.841084137433452,
+      "share_percent": 49.01103240502226,
+      "share_change_pp": 1.240350883388139,
+      "contribution_pp": 4.223446146353053
+    },
+    {
+      "key": "commerce_industry_gwh",
+      "label": "Comercio e industria",
+      "current_gwh": 4100.504724,
+      "previous_gwh": 4122.105814,
+      "delta_gwh": -21.601089999999203,
+      "yoy_percent": -0.5240304585737432,
+      "share_percent": 32.98339432635346,
+      "share_change_pp": -2.1918895924838893,
+      "contribution_pp": -0.18432920162450017
+    },
+    {
+      "key": "large_users_gwh",
+      "label": "Grandes usuarios",
+      "current_gwh": 2238.457859,
+      "previous_gwh": 1998.520756,
+      "delta_gwh": 239.9371030000002,
+      "yoy_percent": 12.005734855625395,
+      "share_percent": 18.005573268624264,
+      "share_change_pp": 0.9515387090957397,
+      "contribution_pp": 2.047462171403718
+    }
+  ],
+  "ytd": {
+    "months": 8,
+    "current_gwh": 97738.313677,
+    "previous_gwh": 96239.645943,
+    "delta_gwh": 1498.6677340000024,
+    "yoy_percent": 1.5572249038484864,
+    "sectors": [
+      {
+        "key": "residential_gwh",
+        "label": "Residencial",
+        "current_gwh": 46747.008008,
+        "previous_gwh": 46030.252918,
+        "delta_gwh": 716.7550899999987,
+        "yoy_percent": 1.55713915210689
+      },
+      {
+        "key": "commerce_industry_gwh",
+        "label": "Comercio e industria",
+        "current_gwh": 33774.116766,
+        "previous_gwh": 34488.125382,
+        "delta_gwh": -714.0086159999992,
+        "yoy_percent": -2.0703027725961998
+      },
+      {
+        "key": "large_users_gwh",
+        "label": "Grandes usuarios",
+        "current_gwh": 17217.188903000002,
+        "previous_gwh": 15721.267643,
+        "delta_gwh": 1495.9212600000028,
+        "yoy_percent": 9.51527124891911
+      }
+    ]
+  },
+  "headline": "El cambio combina aumentos y caídas sectoriales.",
+  "summary": "En agosto de 2026, la demanda fue de 12.432,0 GWh: +6,1% frente a agosto de 2025 (+713,3 GWh). El cambio combina aumentos y caídas sectoriales. Residencial registró el mayor cambio absoluto: +494,9 GWh y +4,22 puntos porcentuales del cambio total.",
+  "markdown": "# Informe mensual de demanda eléctrica — agosto de 2026\n\nArgentina · Diagnóstico descriptivo · Datos descargados el 2026-09-20\n\nEn agosto de 2026, la demanda fue de 12.432,0 GWh: +6,1% frente a agosto de 2025 (+713,3 GWh). El cambio combina aumentos y caídas sectoriales. Residencial registró el mayor cambio absoluto: +494,9 GWh y +4,22 puntos porcentuales del cambio total.\n\n## Diagnóstico sectorial\n\n| Sector | GWh | Interanual | Cambio GWh | Aporte al cambio total (pp) | Peso actual |\n| --- | ---: | ---: | ---: | ---: | ---: |\n| Residencial | 6.093,1 | +8,8% | +494,9 | +4,22 | 49,0% |\n| Comercio e industria | 4.100,5 | -0,5% | -21,6 | -0,18 | 33,0% |\n| Grandes usuarios | 2.238,5 | +12,0% | +239,9 | +2,05 | 18,0% |\n\nEl cambio total es +6,09%. Los aportes sectoriales se calculan como cambio de cada sector dividido por la demanda total del mismo mes del año anterior, por 100. Suman el cambio porcentual total, salvo redondeo.\n\n## Acumulado comparable\n\nEnero–agosto: 97.738,3 GWh, +1,6% frente a los mismos meses del año anterior.\n\n- Residencial: +1,6% acumulado interanual.\n- Comercio e industria: -2,1% acumulado interanual.\n- Grandes usuarios: +9,5% acumulado interanual.\n\n## Preguntas para investigar\n\n- ¿Qué parte de los cambios coincide con diferencias de temperatura y calendario? Requiere controles adicionales.\n- ¿El patrón sectorial persiste en los próximos meses? Un solo mes no establece una tendencia.\n- ¿Cómo se relaciona con tarifas y actividad? Esta descomposición no identifica sus efectos.\n\n## Alcance y trazabilidad\n\nSe comparan meses iguales y acumulados de igual duración. Las series no están ajustadas por clima ni días hábiles. Las categorías se conservan tal como aparecen en la fuente: comercio e industria es una categoría conjunta y no se interpreta como industria pura; grandes usuarios no equivale exclusivamente a industria.\n\nLos aportes son una descomposición contable, no causas. No se estima consumo de IA o centros de datos. Este informe de observaciones no evalúa un pronóstico prospectivo. El histórico corresponde a esta descarga y puede contener revisiones; no representa la información disponible en cada fecha pasada.\n\nFuente: Datos Argentina / CAMMESA. [Consulta de las series](https://apis.datos.gob.ar/series/api/series/?ids=367.3_DEMANDA_TOTAL__13,367.3_DEMANDA_REIAL__19,367.3_COMERCIO_ERIA__20,367.3_GRANDES_USIOS__16&format=json&limit=5000).\n\nSHA-256 del archivo sectorial: `31d390ba985e387f964c213c854979ac39e1d382ee40d7b8b45fbfb7aa90f04b`.\n"
+}

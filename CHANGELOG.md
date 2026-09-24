@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026-09-24 — GitHub Pages website
+
+- Added an explicit public site build with portable relative links and internal-link verification.
+- Added GitHub Pages deployment after reproducibility checks pass on main.
+- Added page metadata, site icon, publication instructions and a public-artifact hash manifest.
+- Excluded local browser runtimes, screenshots and research source code from the web artifact.
+
+## 2026-09-24 — Monthly sector diagnosis
+
+- Added a monthly report integrated into the local dashboard, using the archived official sector dataset.
+- Added year-on-year sector changes, additive percentage-point contributions, shares, and matched year-to-date comparisons.
+- Added 248 selectable descriptive historical reports, Markdown/CSV exports, and print styles.
+- Saved the August 2026 written report and numerical output with source provenance.
+- Verified reconciliation, missing-month behavior, zero bases, cancelling sector changes, and browser interactions.
+- Kept frozen forecast artifacts intact; no prospective performance claims or causal attribution are made by this module.
+
 ## 2026-09-20 — Prospective boundary frozen
 
 - Declared all outcomes through August 2026 previously examined.

@@ -1,0 +1,42 @@
+'use strict';
+const B = window.MONTHLY_REPORTS;
+const el = id => document.getElementById(id);
+const fmt = (v, digits=1, signed=false) => v===null ? 'No disponible' : new Intl.NumberFormat('es-AR',{minimumFractionDigits:digits,maximumFractionDigits:digits,signDisplay:signed?'exceptZero':'auto'}).format(Math.abs(v)<.5*10**-digits?0:v);
+const rate = v => v===null ? 'No disponible' : `${fmt(v,1,true)}%`;
+const monthName = p => new Date(p+'T12:00:00Z').toLocaleDateString('es-AR',{month:'long',year:'numeric',timeZone:'UTC'});
+el('report-period').innerHTML=B.reports.slice().reverse().map(r=>`<option value="${r.period}">${r.title}</option>`).join('');
+const requested = location.hash.slice(1);
+if (B.reports.some(r=>r.period===requested)) el('report-period').value=requested;
+el('vintage').textContent=`Descarga: ${B.source.downloaded_at}`;
+el('sector-source').href=B.source.api_query;
+el('sector-hash').textContent=B.source.sha256;
+let selected;
+function render(){
+  const r=B.reports.find(r=>r.period===el('report-period').value);selected=r;
+  document.title=`Informe ${r.title} · Energy Demand Lab`;
+  el('report-month').textContent=r.title;
+  el('headline').textContent=r.headline;
+  el('summary').textContent=r.summary;
+  el('total').innerHTML=`${fmt(r.total.current_gwh)} <small>GWh</small>`;
+  el('previous').textContent=`${fmt(r.total.previous_gwh)} GWh en ${monthName(r.previous_period)}`;
+  el('yoy').textContent=rate(r.total.yoy_percent);
+  el('delta-total').textContent=`${fmt(r.total.delta_gwh,1,true)} GWh frente al mismo mes del año anterior`;
+  const y=r.ytd;
+  el('ytd-rate').textContent=y?rate(y.yoy_percent):'No disponible';
+  const through=new Date(r.period+'T12:00:00Z').toLocaleDateString('es-AR',{month:'long',timeZone:'UTC'});
+  el('ytd-label').textContent=y?`Enero–${through} · ${fmt(y.current_gwh)} GWh`:'Faltan meses para comparar acumulados completos';
+  const scale=Math.max(...r.sectors.map(s=>Math.abs(s.delta_gwh)),1);
+  el('sector-bars').innerHTML=r.sectors.map(s=>`<div class="sector-row"><span>${s.label}</span><div class="sector-track" aria-hidden="true"><div class="sector-fill ${s.delta_gwh<0?'negative':''}" style="width:${Math.abs(s.delta_gwh)/scale*100}%"></div></div><strong>${fmt(s.delta_gwh,1,true)} GWh</strong></div>`).join('');
+  el('sector-caption').textContent=`${r.title} frente a ${monthName(r.previous_period)} · cifras redondeadas`;
+  el('sector-rows').innerHTML=r.sectors.map(s=>`<tr><th scope="row">${s.label}</th><td>${fmt(s.current_gwh)}</td><td>${rate(s.yoy_percent)}</td><td>${fmt(s.delta_gwh,1,true)}</td><td>${fmt(s.contribution_pp,2,true)}</td><td>${fmt(s.share_percent)}%</td></tr>`).join('');
+  el('sector-total').innerHTML=`<tr><th scope="row">Total</th><td>${fmt(r.total.current_gwh)}</td><td>${rate(r.total.yoy_percent)}</td><td>${fmt(r.total.delta_gwh,1,true)}</td><td>${fmt(r.total.yoy_percent,2,true)}</td><td>100,0%</td></tr>`;
+  el('ytd-summary').textContent=y?`Entre enero y ${through} de ${r.period.slice(0,4)} se acumularon ${fmt(y.current_gwh)} GWh, frente a ${fmt(y.previous_gwh)} GWh en los mismos meses del año anterior (${rate(y.yoy_percent)}).`:'No se calcula un acumulado cuando faltan meses en cualquiera de los dos años.';
+  el('ytd-sectors').innerHTML=y?y.sectors.map(s=>`<div class="ytd-sector"><span>${s.label}</span><strong>${rate(s.yoy_percent)}</strong><small>${fmt(s.current_gwh)} GWh acumulados</small></div>`).join(''):'';
+  el('report-source-note').textContent=`Mes analizado: ${r.title}. Fuente descargada el ${B.source.downloaded_at}. Serie sectorial: ${B.source.coverage.start.slice(0,7)} a ${B.source.coverage.end.slice(0,7)}. Actualización manual.`;
+}
+function download(content, type, filename){const url=URL.createObjectURL(new Blob(['\ufeff',content],{type}));const a=document.createElement('a');a.href=url;a.download=filename;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+el('report-period').onchange=()=>{location.hash=el('report-period').value;render();};
+window.addEventListener('hashchange',()=>{if(B.reports.some(r=>r.period===location.hash.slice(1))){el('report-period').value=location.hash.slice(1);render();}});
+el('export-text').onclick=()=>download(selected.markdown,'text/markdown;charset=utf-8',`informe-energia-${selected.period.slice(0,7)}.md`);
+el('export-sectors').onclick=()=>{const keys=['key','label','current_gwh','previous_gwh','yoy_percent','delta_gwh','contribution_pp','share_percent','share_change_pp'];const lines=[['period','source_downloaded_at',...keys].join(','),...selected.sectors.map(s=>[selected.period,B.source.downloaded_at,...keys.map(k=>s[k]??'')].join(','))];download(lines.join('\r\n'),'text/csv;charset=utf-8',`sectores-${selected.period.slice(0,7)}.csv`);};
+el('print-report').onclick=()=>window.print();render();
