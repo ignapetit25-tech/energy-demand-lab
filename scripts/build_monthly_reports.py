@@ -8,8 +8,10 @@ from datetime import date
 from pathlib import Path
 try:
     from .build_research import build as build_research
+    from .build_concentration import build as build_concentration
 except ImportError:
     from build_research import build as build_research
+    from build_concentration import build as build_concentration
 
 ROOT = Path(__file__).resolve().parents[1]
 SECTORS = [('residential_gwh', 'Residencial'),
@@ -169,6 +171,29 @@ def markdown(r, source, evidence=None, research=None):
                 if project['country']=='Argentina':
                     lines.append('- '+project['name']+': '+project['power_summary']+'. '+project['ai_relation'])
             lines += ['', 'No se suman capacidades anunciadas, ampliaciones y parámetros de equipos. Las fuentes de cada cifra y sus fechas están en el registro enlazado.']
+            if 'concentration' in research:
+                z=research['concentration']; e=z['evidence']
+                lines += ['', '## Aportes al crecimiento y abastecimiento de Aluar', '',
+                          'Revisión documental del '+e['reviewed_at']+'. El aporte al aumento neto no es participación en consumo ni atribución causal.', '',
+                          '| Sector nacional | % del aumento neto de agosto | % del aumento neto enero–agosto |', '| --- | ---: | ---: |']
+                for monthly, accumulated in zip(z['national']['comparisons']['month']['rows'],z['national']['comparisons']['ytd']['rows']):
+                    lines.append(f'| {monthly["label"]} | {number(monthly["net_growth_share_percent"])}% | {number(accumulated["net_growth_share_percent"])}% |')
+                lines += ['', 'En la muestra mensual de grandes demandas, Aluar aporta +171 MW al cambio total de +131 MW: aproximadamente 130,5% del aumento neto. Las otras ramas caen; no significa que Aluar represente 130,5% del consumo.', '',
+                          'Aluar, Planta Puerto Madryn / División Primario. Ejercicios julio–junio; no datos de agosto:', '',
+                          '| Indicador | Unidad | 2024–2025 | 2025–2026 | Cambio |', '| --- | --- | ---: | ---: | ---: |']
+                for row in z['aluar_annual_comparison']:
+                    lines.append(f'| {row["label"]} | {row["unit"]} | {number(row["previous"],0)} | {number(row["current"],0)} | {number(row["change_percent"],2,True)}% |')
+                lines += ['', e['aluar']['net_demand_note'], '', e['aluar']['reconciliation_note'], '', e['aluar']['monthly_attribution']['reason'], '',
+                          'Ampliación eólica: '+e['aluar']['wind_milestone']['status'], '',
+                          '## Apertura operativa: 14 actividades eléctricas', '', e['gumas']['scope'], '',
+                          '| Actividad | Agosto 2026, MW medios |', '| --- | ---: |']
+                for row in e['gumas']['activities']:
+                    lines.append(f'| {row["label"]} | {number(row["values"]["2026-08"])} |')
+                lines += ['', e['gumas']['membership_note'], '', e['gumas']['comparison_warning'], '',
+                          'Señal posterior, separada del cierre de agosto: del 1 al 16 de septiembre, frente a los mismos días de 2025, el total GUMAs + AUTO sube 6,8% y sin Aluar 5,8%. Crecen los cuatro bloques. Son datos operativos sujetos a confirmación, no un cierre mensual ni un panel fijo garantizado.', '',
+                          'No se identifican establecimientos individuales adicionales ni consumo de IA. No se atribuyen causas al cambio de agosto.', '',
+                          'Análisis interactivo y descarga con cálculos: https://ignapetit25-tech.github.io/energy-demand-lab/concentration.html', '', 'Fuentes nuevas (paginación del PDF):']
+                lines += [f'- {s["publisher"]}, documento {s["document_date"]}, páginas {s["pages"]}: {s["url"]}. SHA-256 {s["sha256"]}.' for s in e['sources']]
     if evidence:
         lines += ['', '## IA y electricidad: evidencia y límites', '', ai_diagnosis(r), '',
                   evidence['conclusion'], '',
@@ -202,6 +227,7 @@ def build():
     reports=[make_report(rows,r['period']) for r in rows if f'{int(r["period"][:4])-1:04d}{r["period"][4:]}' in periods]
     evidence=json.loads((ROOT/'data/ai_energy_evidence.json').read_text())
     research=build_research()
+    research['concentration']=build_concentration(reports,source,research['history'])
     for report in reports:
         report['ai_diagnosis']=ai_diagnosis(report)
         report['markdown']=markdown(report,source,evidence,research)

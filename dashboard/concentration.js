@@ -1,0 +1,53 @@
+'use strict';
+(()=>{
+ const d=window.CONCENTRATION_DATA,e=d.evidence,g=e.gumas,get=id=>document.getElementById(id);
+ const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const n=(v,k=1)=>v===null?'No aplicable':new Intl.NumberFormat('es-AR',{minimumFractionDigits:k,maximumFractionDigits:k}).format(v);
+ const signed=(v,k=1)=>v===null?'No aplicable':(v>0?'+':'')+n(v,k);
+ const dateLabel=p=>new Intl.DateTimeFormat('es-AR',{month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(p+'T00:00:00Z'));
+ const labels=Object.fromEntries(d.branch_labels.map(b=>[b.id,b.label]));
+ const sources=Object.fromEntries(e.sources.map(s=>[s.id,s]));
+ const link=(s,page)=>'<a href="'+esc(s.url)+'#page='+page+'" target="_blank" rel="noopener">'+esc(s.publisher)+' · '+esc(s.document_date)+' · PDF p. '+page+' ↗</a>';
+ const td=v=>'<td class="'+(v<0?'negative':'positive')+'">'+signed(v)+'</td>';
+ const latest=d.branch_comparisons.at(-1),aluar=latest.rows.find(r=>r.id==='aluar');
+ get('national-kpi').textContent=n(d.national.comparisons.month.rows[0].net_growth_share_percent)+'%';get('aluar-kpi').textContent=n(aluar.net_growth_share_percent)+'%';
+ function national(){const x=d.national.comparisons[get('national-window').value];
+  get('national-finding').textContent='Cambio total: '+signed(x.total.delta_gwh)+' GWh ('+signed(x.total.yoy_percent)+'%). '+(get('national-window').value==='ytd'?'El aporte de grandes usuarios casi iguala el aumento neto: la suba residencial se compensa casi completamente con la caída de comercio e industria.':'El residencial es el mayor aporte positivo. Comercio e industria registra una caída.');
+  get('national-rows').innerHTML=x.rows.map(r=>'<tr><th scope="row">'+esc(r.label)+'</th>'+td(r.delta_gwh)+'<td>'+signed(r.contribution_pp,2)+'</td><td>'+signed(r.net_growth_share_percent)+'%</td></tr>').join('');
+ }
+ get('national-source').innerHTML='<a href="'+esc(d.national.source.api_query)+'" target="_blank" rel="noopener">Datos Argentina / CAMMESA · consulta de origen ↗</a>';
+ get('branch-period').innerHTML=d.branch_comparisons.slice().reverse().map(r=>'<option value="'+r.period+'">'+dateLabel(r.period)+'</option>').join('');
+ function branches(){const x=d.branch_comparisons.find(r=>r.period===get('branch-period').value),a=x.rows.find(r=>r.id==='aluar'),s=d.branch_sources.find(s=>s.period===x.period);
+  get('branch-finding').textContent=x.positive_branches+' de 4 bloques crecen. Total publicado: '+signed(x.total.yoy_percent)+'%; sin Aluar: '+signed(x.without_aluar_yoy_percent)+'%. Aluar: '+signed(a.delta_mw,0)+' MW frente a '+signed(x.total_delta_mw,0)+' MW de cambio neto total.';
+  get('contribution-rows').innerHTML=x.rows.map(r=>'<tr><th scope="row">'+esc(labels[r.id])+'</th>'+td(r.delta_mw)+'<td>'+signed(r.contribution_pp,2)+'</td><td>'+(r.net_growth_share_percent===null?'No aplicable':signed(r.net_growth_share_percent)+'%')+'</td><td>'+n(r.current_share_percent)+'%</td></tr>').join('');
+  get('branch-rounding').textContent='Residuo de redondeo: '+signed(x.rounding_residual_mw,0)+' MW entre la suma de cambios de componentes y el cambio total. Las tasas publicadas no se recalculan con niveles redondeados. Si el total no crece, no se muestra participación en un aumento neto.';
+  get('branch-source').innerHTML='<a href="'+esc(s.download_url)+'#page='+s.comparison_page+'" target="_blank" rel="noopener">CAMMESA · '+esc(s.publication_date)+' · PDF p. '+s.comparison_page+' ↗</a> · cobertura declarada '+s.coverage_percent+'%.';
+ }
+ const frequencies=d.branch_labels.map(b=>b.label+': '+d.branch_comparisons.filter(s=>s.rows.find(r=>r.id===b.id).yoy_percent>0).length+'/12 meses con suba');
+ get('branch-persistence').textContent=frequencies.join('; ')+'. El total crece con caída del subtotal sin Aluar en '+d.branch_comparisons.filter(s=>s.total.yoy_percent>0&&s.without_aluar_yoy_percent<0).length+' de 12 informes; excluyendo agosto, en '+d.branch_comparisons.slice(0,-1).filter(s=>s.total.yoy_percent>0&&s.without_aluar_yoy_percent<0).length+' de 11.';
+ const a=d.aluar_annual_comparison,by=Object.fromEntries(a.map(r=>[r.id,r]));
+ get('annual-finding').textContent='Entre los ejercicios 2024–2025 y 2025–2026, producción '+signed(by.production_tonnes.change_percent)+'%, consumo eléctrico total '+signed(by.electricity_mwh.change_percent)+'% y abastecimiento del sistema nacional '+signed(by.grid_contract_mwh.change_percent)+'%. No son magnitudes ni períodos intercambiables con el +45,6% de agosto en la muestra CAMMESA.';
+ get('annual-rows').innerHTML=a.map(r=>'<tr><th scope="row">'+esc(r.label)+'</th><td>'+r.unit+'</td><td>'+n(r.previous,0)+'</td><td>'+n(r.current,0)+'</td><td>'+signed(r.change_percent,2)+'%</td></tr>').join('');
+ get('annual-sources').innerHTML=link(sources.aluar_2025,4)+' · '+link(sources.aluar_2026,5);
+ get('annual-reconciliation').textContent=e.aluar.reconciliation_note;
+ const residualChange=e.aluar.observations[1].unreconciled_mwh-e.aluar.observations[0].unreconciled_mwh;
+ get('energy-bridge').textContent='Sistema nacional '+signed(by.grid_contract_mwh.delta/1000,3)+' GWh; térmica propia '+signed(by.thermal_self_supply_mwh.delta/1000,3)+' GWh; eólica propia '+signed(by.wind_self_supply_mwh.delta/1000,3)+' GWh; cambio del residuo documental '+signed(residualChange/1000,3)+' GWh. Resultado: '+signed(by.electricity_mwh.delta/1000,3)+' GWh de consumo total. Conversión exacta: 1 GWh = 1.000 MWh.';
+ get('net-definition').textContent=e.aluar.net_demand_note;get('wind-milestone').textContent=e.aluar.wind_milestone.status+' Añade 336 MW nominales y lleva el máximo nominal a 582 MW; no son MWh producidos.';get('monthly-gap').textContent=e.aluar.monthly_attribution.reason;
+ get('activity-window').innerHTML=g.periods.map(p=>'<option value="'+p.id+'">'+esc(p.label)+'</option>').join('');
+ function activities(){const p=g.periods.find(p=>p.id===get('activity-window').value),branch=get('activity-branch').value,rows=g.activities.filter(a=>branch==='all'||a.branch===branch).sort((a,b)=>b.values[p.id]-a.values[p.id]);
+  const industry=g.activities.filter(a=>a.branch==='industry').sort((a,b)=>b.values[p.id]-a.values[p.id]);const top=industry.slice(0,3),share=100*top.reduce((s,r)=>s+r.values[p.id],0)/p.branches.industry;
+  get('granular-finding').textContent=rows.length+' actividades visibles. En industrias, las tres mayores por nivel son '+top.map(a=>a.label).join(', ')+': reúnen aproximadamente '+n(share)+'% de esa rama. Es concentración por actividad, no por empresa ni del crecimiento.';
+  get('granular-caption').textContent=p.label+' · MW medios · valores operativos sujetos a confirmación';
+  get('granular-rows').innerHTML=rows.map(a=>'<tr><th scope="row">'+esc(a.label)+'</th><td>'+esc(labels[a.branch])+'</td><td>'+n(a.values[p.id])+'</td><td>'+n(100*a.values[p.id]/p.branches[a.branch])+'%</td></tr>').join('');
+  get('granular-totals').textContent='Total del universo: '+n(p.total_mw)+' MW medios. Sin Aluar: '+n(p.without_aluar_mw)+'; Aluar, por separado: '+n(p.aluar_mw)+'. No sumar otra vez los subtotales.';
+  get('granular-warning').textContent=(p.complete_month?'Mes completo; no se incorporó agosto de 2025 para estas 14 actividades. ':'Mes parcial: solo 16 días; no es el cierre de septiembre. ')+g.comparison_warning;
+ }
+ get('membership-note').textContent=g.membership_note;get('granular-source').innerHTML=link(sources[g.source_id],7);
+ const pulse=g.matched_september;
+ get('pulse-finding').textContent='En la ventana comparable, GUMAs + AUTO aumenta '+signed(pulse.published_yoy_percent)+'%; sin Aluar, '+signed(pulse.without_aluar_yoy_percent)+'%. Los cuatro bloques publicados crecen. No hay todavía apertura de igual ventana para las 14 actividades.';
+ get('pulse-rows').innerHTML=pulse.rows.map(r=>'<tr><th scope="row">'+esc(labels[r.id])+'</th>'+td(r.published_delta_mw)+'<td>'+signed(r.published_yoy_percent)+'%</td></tr>').join('');get('pulse-source').innerHTML=link(sources[g.source_id],11);
+ get('persistence-rows').innerHTML=d.indec_persistence.slice().sort((a,b)=>b.up-a.up).map(r=>'<tr><th scope="row">'+esc(r.label)+'</th><td>'+r.up+' / '+r.comparisons+'</td><td>'+r.down+' / '+r.comparisons+'</td><td>'+r.flat+'</td></tr>').join('');
+ get('indec-notes').textContent=d.indec_source.note+' Las categorías no se cruzan automáticamente con las actividades eléctricas.';get('indec-source').innerHTML='<a href="'+esc(d.indec_source.source_url)+'#page=6" target="_blank" rel="noopener">INDEC · '+d.indec_source.publication_date+' · cuadro 2, PDF p. 6 ↗</a>';
+ get('concentration-sources').innerHTML=e.sources.map(s=>'<li>'+link(s,s.pages[0])+' · páginas '+s.pages.join(', ')+' · consulta '+s.retrieved_at+' · SHA-256 '+s.sha256+'</li>').join('');
+ get('national-window').addEventListener('change',national);get('branch-period').addEventListener('change',branches);get('activity-window').addEventListener('change',activities);get('activity-branch').addEventListener('change',activities);national();branches();activities();
+})();

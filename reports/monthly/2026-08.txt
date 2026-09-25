@@ -104,6 +104,69 @@ Infraestructura argentina: parámetros documentados, no GWh medidos
 
 No se suman capacidades anunciadas, ampliaciones y parámetros de equipos. Las fuentes de cada cifra y sus fechas están en el registro enlazado.
 
+Aportes al crecimiento y abastecimiento de Aluar
+
+Revisión documental del 2026-09-24. El aporte al aumento neto no es participación en consumo ni atribución causal.
+
+Sector nacional · % del aumento neto de agosto · % del aumento neto enero–agosto
+Residencial · 69,4% · 47,8%
+Comercio e industria · -3,0% · -47,6%
+Grandes usuarios · 33,6% · 99,8%
+
+En la muestra mensual de grandes demandas, Aluar aporta +171 MW al cambio total de +131 MW: aproximadamente 130,5% del aumento neto. Las otras ramas caen; no significa que Aluar represente 130,5% del consumo.
+
+Aluar, Planta Puerto Madryn / División Primario. Ejercicios julio–junio; no datos de agosto:
+
+Indicador · Unidad · 2024–2025 · 2025–2026 · Cambio
+Producción de aluminio líquido · t · 445.327 · 450.677 · +1,20%
+Consumo total de la planta · MWh · 6.706.909 · 6.819.827 · +1,68%
+Sistema nacional / contrato Futaleufú · MWh · 2.716.304 · 2.946.785 · +8,49%
+Abastecimiento térmico propio · MWh · 3.198.634 · 3.048.718 · -4,69%
+Abastecimiento eólico propio · MWh · 791.586 · 824.324 · +4,14%
+
+CAMMESA aclara en la página 7 que Aluar representa demanda neta tomada de la red: depende tanto de producción como de autogeneración disponible. Un aumento de esa fila no es automáticamente un aumento equivalente de consumo bruto o de producción.
+
+En la memoria 2025, las tres fuentes de abastecimiento suman 6.706.524 MWh, frente a un consumo total declarado de 6.706.909 MWh: diferencia no explicada de 385 MWh. Se conserva como residuo documental; no se imputa a ninguna tecnología ni se corrige el original.
+
+No se incorporó un balance mensual comparable de agosto 2025 y agosto 2026 que reúna producción, consumo bruto, demanda neta a la red y generación propia efectivamente utilizada. Los balances anuales terminan en junio.
+
+Ampliación eólica: La memoria fechada el 04/09/2026 informa que la construcción, implementación y puesta en marcha de la ampliación eólica terminó durante agosto. Es una declaración empresarial posterior al cierre del ejercicio, no una serie de generación efectiva ni una habilitación independiente verificada aquí.
+
+Apertura operativa: 14 actividades eléctricas
+
+GUMAs + autogeneradores + Aluar. No equivale a la muestra mensual GUMA/GUME/GUDI ni a la categoría nacional de grandes usuarios.
+
+Actividad · Agosto 2026, MW medios
+Cargas y puertos · 9,6
+Comercio y servicios: principalmente supermercados y centros comerciales · 50,9
+Alimentación y artículos de consumo masivo · 331,9
+Servicios públicos y transporte: agua y transporte en GBA · 69,5
+Industria automotriz · 45,1
+Derivados de petróleo · 158,6
+Construcción: elaboración de cemento y canteras · 90,2
+Madera y papel · 105,3
+Productos metálicos no automotores · 36,4
+Gran siderurgia · 286,7
+Industria textil · 40,6
+Químicas, caucho, plástico y otros minerales no metálicos · 330,3
+Extracción de minerales · 36,2
+Extracción de petróleo · 154,6
+
+Página 5: las altas y bajas modifican el conjunto de usuarios vigentes; las comparaciones no garantizan un panel fijo. No equivale al cambio 98%/90% de cobertura del otro informe, cuya causa sigue sin resolver.
+
+La página 7 compara 16 días de septiembre 2026 con septiembre 2025 completo y agosto 2026 completo. No se presentan esas tasas como interanuales de igual ventana, ni se inventa agosto 2025. Para igual ventana se usa exclusivamente la página 11, disponible por rama, no por estas 14 actividades.
+
+Señal posterior, separada del cierre de agosto: del 1 al 16 de septiembre, frente a los mismos días de 2025, el total GUMAs + AUTO sube 6,8% y sin Aluar 5,8%. Crecen los cuatro bloques. Son datos operativos sujetos a confirmación, no un cierre mensual ni un panel fijo garantizado.
+
+No se identifican establecimientos individuales adicionales ni consumo de IA. No se atribuyen causas al cambio de agosto.
+
+Análisis interactivo y descarga con cálculos: https://ignapetit25-tech.github.io/energy-demand-lab/concentration.html
+
+Fuentes nuevas (paginación del PDF):
+- Aluar, documento 2025-09-04, páginas [4]: https://cdn.aluar.com.ar/assets/uploads/EEFF_Aluar_Ejercicio_2024_2025_4_T_7869bb3511.pdf. SHA-256 3ee6b54bf52a0a4e543e8be2d0c23d7399425b274971ae097867aee312233901.
+- Aluar, documento 2026-09-04, páginas [5, 8]: https://cdn.aluar.com.ar/assets/uploads/EEFF_Aluar_Ejercicio_2025_2026_4_T_c41c605c28.pdf. SHA-256 30499fa9d6ff97cca836715de0efc04f6f7f45899bcbc4beb5ed566be6620da9.
+- CAMMESA, documento 2026-09-17, páginas [1, 5, 7, 11]: https://cammesaweb.cammesa.com/download/analisis-demanda-grandes-usuarios-al-j25-de-febrero-21/?wpdmdl=39430. SHA-256 a681b72a0d000be76d17ea21826037f96c8d20859c89b68a877f7476513f49ff.
+
 IA y electricidad: evidencia y límites
 
 En el mes seleccionado, comercio e industria varió -0,5% y grandes usuarios +12,0%. Estas categorías no separan centros de datos ni cargas de IA. Ni un aumento demuestra un efecto de IA ni una caída descarta que exista carga de IA dentro del agregado.

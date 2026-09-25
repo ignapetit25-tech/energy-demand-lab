@@ -1,0 +1,49 @@
+{
+  "reviewed_at": "2026-09-24",
+  "sources": [
+    {"id":"aluar_2025","publisher":"Aluar","title":"Memoria 2025 · Planta Puerto Madryn, División Primario","url":"https://cdn.aluar.com.ar/assets/uploads/EEFF_Aluar_Ejercicio_2024_2025_4_T_7869bb3511.pdf","document_date":"2025-09-04","retrieved_at":"2026-09-24","local_file":"data/reference/aluar-eeff-2024-2025.pdf","sha256":"3ee6b54bf52a0a4e543e8be2d0c23d7399425b274971ae097867aee312233901","pages":[4]},
+    {"id":"aluar_2026","publisher":"Aluar","title":"Memoria 2026 · Producción, energía y proyectos","url":"https://cdn.aluar.com.ar/assets/uploads/EEFF_Aluar_Ejercicio_2025_2026_4_T_c41c605c28.pdf","document_date":"2026-09-04","retrieved_at":"2026-09-24","local_file":"data/reference/aluar-eeff-2025-2026.pdf","sha256":"30499fa9d6ff97cca836715de0efc04f6f7f45899bcbc4beb5ed566be6620da9","pages":[5,8]},
+    {"id":"gumas_20260917","publisher":"CAMMESA","title":"Evolución de la demanda del MEM · actualización 17/09/2026","url":"https://cammesaweb.cammesa.com/download/analisis-demanda-grandes-usuarios-al-j25-de-febrero-21/?wpdmdl=39430","document_date":"2026-09-17","retrieved_at":"2026-09-24","local_file":"data/reference/cammesa-gumas-2026-09-17.pdf","sha256":"a681b72a0d000be76d17ea21826037f96c8d20859c89b68a877f7476513f49ff","pages":[1,5,7,11]}
+  ],
+  "aluar": {
+    "scope":"Planta Puerto Madryn, División Primario. Información anual declarada por la empresa en sus memorias; no medición mensual independiente del proyecto.",
+    "observations":[
+      {"start":"2024-07-01","end":"2025-06-30","source_id":"aluar_2025","production_tonnes":445327,"capacity_utilization_percent":96.8,"electricity_mwh":6706909,"electrolysis_mwh":6324443,"other_plant_mwh":382466,"grid_contract_mwh":2716304,"thermal_self_supply_mwh":3198634,"wind_self_supply_mwh":791586,"unreconciled_mwh":385},
+      {"start":"2025-07-01","end":"2026-06-30","source_id":"aluar_2026","production_tonnes":450677,"capacity_utilization_percent":97.9,"electricity_mwh":6819827,"electrolysis_mwh":6430225,"other_plant_mwh":389602,"grid_contract_mwh":2946785,"thermal_self_supply_mwh":3048718,"wind_self_supply_mwh":824324,"unreconciled_mwh":0}
+    ],
+    "reconciliation_note":"En la memoria 2025, las tres fuentes de abastecimiento suman 6.706.524 MWh, frente a un consumo total declarado de 6.706.909 MWh: diferencia no explicada de 385 MWh. Se conserva como residuo documental; no se imputa a ninguna tecnología ni se corrige el original.",
+    "wind_milestone":{"source_id":"aluar_2026","source_page":8,"event_period":"2026-08","added_nameplate_mw":336,"total_nameplate_mw":582,"status":"La memoria fechada el 04/09/2026 informa que la construcción, implementación y puesta en marcha de la ampliación eólica terminó durante agosto. Es una declaración empresarial posterior al cierre del ejercicio, no una serie de generación efectiva ni una habilitación independiente verificada aquí."},
+    "monthly_attribution":{"production_share_percent":null,"self_generation_share_percent":null,"ai_share_percent":null,"reason":"No se incorporó un balance mensual comparable de agosto 2025 y agosto 2026 que reúna producción, consumo bruto, demanda neta a la red y generación propia efectivamente utilizada. Los balances anuales terminan en junio."},
+    "net_demand_note":"CAMMESA aclara en la página 7 que Aluar representa demanda neta tomada de la red: depende tanto de producción como de autogeneración disponible. Un aumento de esa fila no es automáticamente un aumento equivalente de consumo bruto o de producción."
+  },
+  "gumas": {
+    "source_id":"gumas_20260917",
+    "unit":"MW medios",
+    "scope":"GUMAs + autogeneradores + Aluar. No equivale a la muestra mensual GUMA/GUME/GUDI ni a la categoría nacional de grandes usuarios.",
+    "method":"Valores de página 7 cotejados visualmente. Solo actividades mutuamente excluyentes; Aluar y subtotales se conservan por separado. No se infieren instalaciones individuales a partir del nombre de una actividad.",
+    "provisional":true,
+    "membership_note":"Página 5: las altas y bajas modifican el conjunto de usuarios vigentes; las comparaciones no garantizan un panel fijo. No equivale al cambio 98%/90% de cobertura del otro informe, cuya causa sigue sin resolver.",
+    "periods":[
+      {"id":"2026-08","start":"2026-08-01","end":"2026-08-31","days":31,"complete_month":true,"label":"Agosto 2026 · 31 días","total_mw":2293.1,"without_aluar_mw":1745.9,"aluar_mw":547.2,"branches":{"food_commerce_services":462.0,"industry":1093.1,"oil_minerals":190.8}},
+      {"id":"2026-09-partial","start":"2026-09-01","end":"2026-09-16","days":16,"complete_month":false,"label":"1–16 septiembre 2026 · parcial","total_mw":2410.0,"without_aluar_mw":1867.2,"aluar_mw":542.8,"branches":{"food_commerce_services":474.0,"industry":1203.6,"oil_minerals":189.6}}
+    ],
+    "activities":[
+      {"id":"ports","branch":"food_commerce_services","label":"Cargas y puertos","values":{"2026-08":9.6,"2026-09-partial":9.5}},
+      {"id":"commerce","branch":"food_commerce_services","label":"Comercio y servicios: principalmente supermercados y centros comerciales","values":{"2026-08":50.9,"2026-09-partial":51.8}},
+      {"id":"food","branch":"food_commerce_services","label":"Alimentación y artículos de consumo masivo","values":{"2026-08":331.9,"2026-09-partial":345.5}},
+      {"id":"public_services","branch":"food_commerce_services","label":"Servicios públicos y transporte: agua y transporte en GBA","values":{"2026-08":69.5,"2026-09-partial":67.2}},
+      {"id":"automotive","branch":"industry","label":"Industria automotriz","values":{"2026-08":45.1,"2026-09-partial":45.3}},
+      {"id":"petroleum_products","branch":"industry","label":"Derivados de petróleo","values":{"2026-08":158.6,"2026-09-partial":150.5}},
+      {"id":"construction","branch":"industry","label":"Construcción: elaboración de cemento y canteras","values":{"2026-08":90.2,"2026-09-partial":137.9}},
+      {"id":"wood_paper","branch":"industry","label":"Madera y papel","values":{"2026-08":105.3,"2026-09-partial":102.8}},
+      {"id":"metals","branch":"industry","label":"Productos metálicos no automotores","values":{"2026-08":36.4,"2026-09-partial":38.8}},
+      {"id":"steel","branch":"industry","label":"Gran siderurgia","values":{"2026-08":286.7,"2026-09-partial":347.3}},
+      {"id":"textiles","branch":"industry","label":"Industria textil","values":{"2026-08":40.6,"2026-09-partial":41.4}},
+      {"id":"chemicals","branch":"industry","label":"Químicas, caucho, plástico y otros minerales no metálicos","values":{"2026-08":330.3,"2026-09-partial":339.6}},
+      {"id":"mining","branch":"oil_minerals","label":"Extracción de minerales","values":{"2026-08":36.2,"2026-09-partial":38.1}},
+      {"id":"oil_extraction","branch":"oil_minerals","label":"Extracción de petróleo","values":{"2026-08":154.6,"2026-09-partial":151.4}}
+    ],
+    "comparison_warning":"La página 7 compara 16 días de septiembre 2026 con septiembre 2025 completo y agosto 2026 completo. No se presentan esas tasas como interanuales de igual ventana, ni se inventa agosto 2025. Para igual ventana se usa exclusivamente la página 11, disponible por rama, no por estas 14 actividades.",
+    "matched_september":{"source_page":11,"current_start":"2026-09-01","current_end":"2026-09-16","previous_start":"2025-09-01","previous_end":"2025-09-16","days_each":16,"working_days_each":12,"total_current_mw":2410,"total_previous_mw":2257,"published_delta_mw":153,"published_yoy_percent":6.8,"without_aluar_current_mw":1867,"without_aluar_previous_mw":1764,"without_aluar_yoy_percent":5.8,"rows":[{"id":"food_commerce_services","current_mw":474,"previous_mw":419,"published_delta_mw":54.7,"published_yoy_percent":13.0},{"id":"industry","current_mw":1204,"previous_mw":1166,"published_delta_mw":37,"published_yoy_percent":3.2},{"id":"oil_minerals","current_mw":190,"previous_mw":179,"published_delta_mw":11,"published_yoy_percent":6.1},{"id":"aluar","current_mw":543,"previous_mw":493,"published_delta_mw":50,"published_yoy_percent":10.1}]}
+  }
+}

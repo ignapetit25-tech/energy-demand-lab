@@ -6,6 +6,8 @@ A reproducible time-series investigation of whether monthly temperature adds pre
 
 ## Monthly reporting tool
 
+The [concentration analysis](https://ignapetit25-tech.github.io/energy-demand-lab/concentration.html) separates national growth contributions, Aluar's annual production/energy balance, and 14 operational electricity activities. Partial September observations retain their own population and dates; no monthly causal attribution or AI electricity estimate is inferred. [Evidence, reconciliation and limitations](docs/concentracion-y-aluar.md).
+
 The static website is published by `.github/workflows/pages.yml` after the release checks pass on `main`. Build locally with `python3 scripts/build_site.py`. [Publishing instructions](docs/publicar-web.md).
 
 The report also offers an [Excel workbook](dashboard/downloads/energy-demand.xlsx) with an editable reporting month, formula-based sector comparisons, chart and original data. The prospective register is connected to an outcome evaluator that retains archived source snapshots and does not overwrite issued forecasts. [Current status, remaining work and update procedure](docs/estado-y-actualizacion.md).

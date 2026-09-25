@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-09-24 — Growth concentration and Aluar supply evidence
+
+- Added interactive monthly/YTD national contributions and twelve monthly branch decompositions, separating shares of net growth from shares of consumption.
+- Archived two Aluar annual reports: production, total electricity and supply mix remain separate. Preserved a 385 MWh source discrepancy; annual evidence is not attributed to August's monthly change.
+- Added fourteen GUMA activities, complete August and partial September windows, and a separately matched 1–16 September comparison. Flagged membership changes, provisional status and the lack of individual-establishment or AI consumption identification.
+- Added source-rich JSON, August TXT/Markdown evidence, validators and browser checks while retaining existing national CSV/XLSX and frozen forecasts.
+
 ## 2026-09-24 — Historical sector explorer and richer Argentine infrastructure
 
 - Added 12 CAMMESA source editions (September 2025–August 2026), their published annual comparisons, and 164 same-calendar-month historical records across four branches.
