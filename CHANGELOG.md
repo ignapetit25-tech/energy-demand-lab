@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-26 — Operational sector registry and integrated report
+
+- Implemented a separate append-only ledger with actual-clock issuance, archived originals and hashes, conservative public-commit verification, first-result evaluation and non-overwriting revisions. The frozen protocol and classifier are unchanged; the registry contains no observations yet.
+- Investigated all 43 metal-products comparisons: 15 opposite-sign months, 14 outside the neutral band; opposition remains in 13 with daily medians and 14 with working-day means. Archived April INDEC detail and preserved the original/revised rate difference. Cause and AI attribution remain unidentified.
+- Integrated month-aligned alerts and production into web and TXT reports, with explicit missing August IPI and separately labeled current registry/research context. Added audit downloads, operating instructions and synthetic regression tests. National CSV, Excel and frozen forecasts preserved; no automation or data-request submission.
+
 ## 2026-09-26 — Historical production, Excel alerts and prospective design
 
 - Archived INDEC's historical XLS and extracted 381 observations with source-cell addresses. Added 129 matched electricity/production comparisons across 43 months, retaining original-series units, revisable vintage and non-equivalent populations.

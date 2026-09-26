@@ -1,0 +1,130 @@
+{
+  "protocol_version": "sector-validation-1",
+  "window": [
+    "2026-10",
+    "2027-09"
+  ],
+  "months": [
+    {
+      "period": "2026-10",
+      "status": "pendiente_de_emision",
+      "issued": false,
+      "outcome": false,
+      "exclusion": null,
+      "revisions": 0
+    },
+    {
+      "period": "2026-11",
+      "status": "pendiente_de_emision",
+      "issued": false,
+      "outcome": false,
+      "exclusion": null,
+      "revisions": 0
+    },
+    {
+      "period": "2026-12",
+      "status": "pendiente_de_emision",
+      "issued": false,
+      "outcome": false,
+      "exclusion": null,
+      "revisions": 0
+    },
+    {
+      "period": "2027-01",
+      "status": "pendiente_de_emision",
+      "issued": false,
+      "outcome": false,
+      "exclusion": null,
+      "revisions": 0
+    },
+    {
+      "period": "2027-02",
+      "status": "pendiente_de_emision",
+      "issued": false,
+      "outcome": false,
+      "exclusion": null,
+      "revisions": 0
+    },
+    {
+      "period": "2027-03",
+      "status": "pendiente_de_emision",
+      "issued": false,
+      "outcome": false,
+      "exclusion": null,
+      "revisions": 0
+    },
+    {
+      "period": "2027-04",
+      "status": "pendiente_de_emision",
+      "issued": false,
+      "outcome": false,
+      "exclusion": null,
+      "revisions": 0
+    },
+    {
+      "period": "2027-05",
+      "status": "pendiente_de_emision",
+      "issued": false,
+      "outcome": false,
+      "exclusion": null,
+      "revisions": 0
+    },
+    {
+      "period": "2027-06",
+      "status": "pendiente_de_emision",
+      "issued": false,
+      "outcome": false,
+      "exclusion": null,
+      "revisions": 0
+    },
+    {
+      "period": "2027-07",
+      "status": "pendiente_de_emision",
+      "issued": false,
+      "outcome": false,
+      "exclusion": null,
+      "revisions": 0
+    },
+    {
+      "period": "2027-08",
+      "status": "pendiente_de_emision",
+      "issued": false,
+      "outcome": false,
+      "exclusion": null,
+      "revisions": 0
+    },
+    {
+      "period": "2027-09",
+      "status": "pendiente_de_emision",
+      "issued": false,
+      "outcome": false,
+      "exclusion": null,
+      "revisions": 0
+    }
+  ],
+  "rows": [],
+  "primary_metrics": null,
+  "secondary_metrics": null,
+  "category_metrics": {
+    "construction": null,
+    "metals": null,
+    "textiles": null
+  },
+  "eligible_pairs": 0,
+  "possible_pairs": 36,
+  "priority_pairs": 0,
+  "interval_95_pp": null,
+  "bootstrap_empty_fraction": null,
+  "closed": false,
+  "decision": "pendiente",
+  "issued_months": 0,
+  "outcome_months": 0,
+  "automatic_refresh": false,
+  "notifications": false,
+  "ledger": {
+    "schema_version": 1,
+    "protocol_sha256": "db231d3cb8fe184561cb0520a7ce07f5a4660b6536951987b52c3b916dbae6ba",
+    "events": []
+  },
+  "method_url": "https://github.com/ignapetit25-tech/energy-demand-lab/blob/main/docs/registro-sectorial.md"
+}

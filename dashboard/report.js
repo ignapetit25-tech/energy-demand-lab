@@ -19,6 +19,15 @@ el('ai-evidence').innerHTML=B.evidence.indicators.map(e=>`<tr><th scope="row">${
 let selected;
 function render(){
   const r=B.reports.find(r=>r.period===el('report-period').value);selected=r;
+  const v=r.sector_review;
+  el('monthly-alert-note').textContent=v.alert_note;
+  el('monthly-alert-scope').textContent=v.scope;
+  el('monthly-production-note').textContent=v.production_note;
+  el('monthly-registry-note').textContent=v.registry_note;
+  el('monthly-alert-rows').innerHTML=v.rows.map(x=>`<tr><th scope="row">${esc(x.label)}</th><td>${rate(x.yoy_percent)}</td><td>${esc(x.status.replaceAll('_',' '))}</td></tr>`).join('');
+  el('monthly-production-rows').innerHTML=v.production.map(x=>`<tr><th scope="row">${esc(x.label)}</th><td>${rate(x.electricity_yoy_percent)}</td><td>${rate(x.yoy_percent)}</td></tr>`).join('');
+  el('monthly-alert-rows').closest('.table-wrap').hidden=!v.rows.length;
+  el('monthly-production-rows').closest('.table-wrap').hidden=!v.production.length;
   el('ai-local').textContent=r.ai_diagnosis;
   document.title=`Informe ${r.title} · Energy Demand Lab`;
   el('report-month').textContent=r.title;

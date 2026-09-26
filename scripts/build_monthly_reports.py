@@ -9,9 +9,11 @@ from pathlib import Path
 try:
     from .build_research import build as build_research
     from .build_concentration import build as build_concentration
+    from .monthly_sector_review import inputs, review, markdown_section
 except ImportError:
     from build_research import build as build_research
     from build_concentration import build as build_concentration
+    from monthly_sector_review import inputs, review, markdown_section
 
 ROOT = Path(__file__).resolve().parents[1]
 SECTORS = [('residential_gwh', 'Residencial'),
@@ -207,6 +209,14 @@ def markdown(r, source, evidence=None, research=None):
                               'Excel ampliado: hojas Concentración, Aluar y Actividades. Datos nacionales y pronósticos originales conservados.',
                               'Historia mensual, fuentes y vacíos: https://ignapetit25-tech.github.io/energy-demand-lab/downloads/activity_monthly_history.json',
                               'Fuente diaria: '+history['source']['url']]
+    lines += markdown_section(r)
+    if research and 'metals' in research and r['period']==research['sector']['cammesa']['period']:
+        m=research['metals'];s=m['summary']
+        lines += ['', '## Productos de metal: investigación histórica, no atribución causal', '',
+                  f'Revisión {m["reviewed_at"]}. {s["opposite"]} de {s["pairs"]} meses tienen signos opuestos; {s["material_opposite"]} fuera de la banda ±0,5%. La oposición persiste en {s["opposite_after_median"]} al usar mediana diaria y en {s["opposite_after_working_mean"]} al usar media de días hábiles.',
+                  m['conclusion'], m['caveat'],
+                  'Abril de 2026: IPI original −1,4%; captura revisada aproximadamente −1,48%. No se reemplaza una edición con otra. El IPI combina subramas heterogéneas y ponderaciones distintas de la electricidad.',
+                  'Informe, tabla de divergencias y fuentes: https://ignapetit25-tech.github.io/energy-demand-lab/reports/research/divergencias-metales.md']
     if evidence:
         lines += ['', '## IA y electricidad: evidencia y límites', '', ai_diagnosis(r), '',
                   evidence['conclusion'], '',
@@ -242,7 +252,10 @@ def build():
     research=build_research()
     research['concentration']=build_concentration(reports,source,research['history'])
     research['daily_activity']=json.loads((ROOT/'data/activity_monthly_history.json').read_text())
+    sector_inputs=inputs()
+    research['metals']=sector_inputs['metals']
     for report in reports:
+        report['sector_review']=review(report['period'],sector_inputs)
         report['ai_diagnosis']=ai_diagnosis(report)
         report['markdown']=markdown(report,source,evidence,research)
         report['csv']=monthly_csv(report,source)

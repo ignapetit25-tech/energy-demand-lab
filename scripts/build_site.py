@@ -19,9 +19,10 @@ ASSETS = ('index.html', 'monthly-report.html', 'styles.css', 'report.css',
 DOWNLOADS = ('downloads/energy-demand.xlsx','downloads/excel-manifest.json',
              'downloads/infrastructure_registry.json','downloads/sector_deep_dive.json','downloads/sector_history.json',
              'downloads/concentration_analysis.json','downloads/activity_monthly_history.json',
-             'downloads/sector_alerts.json')
+             'downloads/sector_alerts.json','downloads/sector_prospective_registry.json')
 DOCUMENTS = ('prospective/preregistration.md', 'results/nested_exploratory/report.md',
-             'reports/research/produccion-y-sensibilidad.md')
+             'reports/research/produccion-y-sensibilidad.md',
+             'reports/research/divergencias-metales.md','reports/research/divergencias-metales.json')
 
 
 class Links(HTMLParser):
@@ -60,6 +61,8 @@ def main():
     subprocess.run([sys.executable,str(ROOT/'scripts/build_activity_history.py')],check=True,cwd=ROOT)
     subprocess.run([sys.executable,str(ROOT/'scripts/build_production_history.py')],check=True,cwd=ROOT)
     subprocess.run([sys.executable,str(ROOT/'scripts/build_sector_alerts.py')],check=True,cwd=ROOT)
+    subprocess.run([sys.executable,'-m','scripts.investigate_metals'],check=True,cwd=ROOT)
+    subprocess.run([sys.executable,'-m','scripts.build_sector_registry'],check=True,cwd=ROOT)
     subprocess.run([sys.executable, str(ROOT/'scripts/build_dashboard.py')], check=True, cwd=ROOT)
     expected = set(ASSETS) | set(DOCUMENTS) | set(DOWNLOADS) | {'.nojekyll', 'site-manifest.json'}
     excel=json.loads((ROOT/'dashboard/downloads/excel-manifest.json').read_text())

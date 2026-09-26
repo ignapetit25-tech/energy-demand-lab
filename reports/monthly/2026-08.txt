@@ -182,6 +182,49 @@ Excel ampliado: hojas Concentración, Aluar y Actividades. Datos nacionales y pr
 Historia mensual, fuentes y vacíos: https://ignapetit25-tech.github.io/energy-demand-lab/downloads/activity_monthly_history.json
 Fuente diaria: https://cammesaweb.cammesa.com/download/base-de-datos-2/?wpdmdl=39428
 
+Alertas y producción: mes seleccionado
+
+6 prioridades entre 14 actividades en 2026-08. Regla propuesta, reconstrucción histórica; no señal emitida en aquella fecha.
+
+GUMAs + AUTO, Aluar separado. Usuarios vigentes: no panel fijo de establecimientos. No equivale a GUMA/GUME/GUDI ni a demanda nacional.
+
+Actividad · Electricidad interanual · Estado
+Cargas y puertos · +3,34% · sin_umbral
+Comercio y servicios: principalmente supermercados y centros comerciales · +12,13% · prioridad
+Alimentación y artículos de consumo masivo · +15,88% · prioridad
+Servicios públicos y transporte: agua y transporte en GBA · -4,46% · sin_umbral
+Industria automotriz · +10,20% · sin_umbral
+Derivados de petróleo · +9,52% · sin_umbral
+Construcción: elaboración de cemento y canteras · -26,41% · prioridad
+Madera y papel · +0,55% · sin_umbral
+Productos metálicos no automotores · -23,70% · prioridad
+Gran siderurgia · +4,33% · sin_umbral
+Industria textil · -18,80% · prioridad
+Químicas, caucho, plástico y otros minerales no metálicos · +4,05% · sin_umbral
+Extracción de minerales · +42,76% · prioridad
+Extracción de petróleo · +6,62% · sin_umbral
+
+La persistencia necesita tres comparaciones completas: enero y febrero de 2023 tienen historia insuficiente para ese criterio. No se interpreta ausencia de umbral como ausencia de riesgo.
+
+Sin contraste IPI del mes 2026-08 en esta captura. Historia disponible: 2023-01 a 2026-07; no se traslada julio a agosto.
+
+
+Fuentes y correspondencias: https://ignapetit25-tech.github.io/energy-demand-lab/sector-alerts.html#production
+
+Registro prospectivo: estado actual
+
+Registro prospectivo actual, independiente del mes seleccionado: 2026-10 a 2027-09. 0 meses emitidos, 0 con resultado; 0 pares elegibles. Decisión: pendiente. Actualización manual, sin notificaciones.
+Sin resultados elegibles, las métricas permanecen no disponibles: no son cero ni evidencia de éxito.
+Registro y huellas: https://ignapetit25-tech.github.io/energy-demand-lab/downloads/sector_prospective_registry.json
+
+Productos de metal: investigación histórica, no atribución causal
+
+Revisión 2026-09-26. 15 de 43 meses tienen signos opuestos; 14 fuera de la banda ±0,5%. La oposición persiste en 13 al usar mediana diaria y en 14 al usar media de días hábiles.
+La divergencia es recurrente y la causa no está identificada. Diferentes poblaciones y ponderaciones son limitaciones documentadas, no una explicación causal demostrada.
+Mediana diaria y promedio de días hábiles son controles exploratorios, no sustituyen el promedio mensual publicado ni constituyen ajuste climático/estacional.
+Abril de 2026: IPI original −1,4%; captura revisada aproximadamente −1,48%. No se reemplaza una edición con otra. El IPI combina subramas heterogéneas y ponderaciones distintas de la electricidad.
+Informe, tabla de divergencias y fuentes: https://ignapetit25-tech.github.io/energy-demand-lab/reports/research/divergencias-metales.md
+
 IA y electricidad: evidencia y límites
 
 En el mes seleccionado, comercio e industria varió -0,5% y grandes usuarios +12,0%. Estas categorías no separan centros de datos ni cargas de IA. Ni un aumento demuestra un efecto de IA ni una caída descarta que exista carga de IA dentro del agregado.
