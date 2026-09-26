@@ -1,0 +1,3104 @@
+{
+  "source": {
+    "url": "https://www.indec.gob.ar/ftp/cuadros/economia/sh_ipi_manufacturero_2026.xls",
+    "archive": "data/reference/indec-ipi-history-2026-09-26.xls",
+    "sha256": "aec17aa46fced8d9ca905a56c0a24b2552539f143e498313aa13714264bfc48b",
+    "retrieved_at": "2026-09-26",
+    "publication_date": null,
+    "associated_report_publication": "2026-09-08",
+    "vintage_note": "Captura revisada del 26/09/2026. No se verificó fecha de publicación propia del XLS ni versiones disponibles en cada mes histórico.",
+    "original_index_base": 2004,
+    "yoy_unit": "percent",
+    "tables": [
+      "Cuadro 2",
+      "Cuadro 3"
+    ],
+    "method": "IPI: volumen y otras aproximaciones. No toneladas para todas las ramas. Serie original, no desestacionalizada.",
+    "extraction_reader": "xlrd 2.0.2"
+  },
+  "mapping": [
+    {
+      "electricity_activity_id": "construction",
+      "production_label": "IPI Cemento",
+      "code": "26941",
+      "page": 15,
+      "table": "2.9",
+      "original_index_base_2004": 156.0,
+      "yoy_percent": -6.9,
+      "mapping": "Parcial: cemento es un componente relacionado; la categoría eléctrica incluye cemento y canteras. No representa a toda la construcción ni sustituye al ISAC.",
+      "comparison_scope": "proxy_parcial"
+    },
+    {
+      "electricity_activity_id": "metals",
+      "production_label": "IPI Productos de metal",
+      "code": "28",
+      "page": 17,
+      "table": "2.11",
+      "original_index_base_2004": 84.8,
+      "yoy_percent": -8.4,
+      "mapping": "Categorías relacionadas, sin correspondencia de establecimientos validada. No confundir productos de metal con industrias metálicas básicas ni con producción de Aluar.",
+      "comparison_scope": "categorias_relacionadas"
+    },
+    {
+      "electricity_activity_id": "textiles",
+      "production_label": "IPI Productos textiles",
+      "code": "17",
+      "page": 9,
+      "table": "2.3",
+      "original_index_base_2004": 73.3,
+      "yoy_percent": -13.0,
+      "mapping": "Categorías relacionadas, sin panel común de establecimientos. No extender a prendas de vestir, cuero o calzado.",
+      "comparison_scope": "categorias_relacionadas"
+    }
+  ],
+  "observations": [
+    {
+      "period": "2016-01",
+      "activity_id": "construction",
+      "original_index": 165.7901540837839,
+      "original_index_cell": "Cuadro 2!BE7",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!BE6"
+    },
+    {
+      "period": "2016-01",
+      "activity_id": "metals",
+      "original_index": 109.0918228586668,
+      "original_index_cell": "Cuadro 2!BM7",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!BM6"
+    },
+    {
+      "period": "2016-01",
+      "activity_id": "textiles",
+      "original_index": 84.2676481531378,
+      "original_index_cell": "Cuadro 2!V7",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!V6"
+    },
+    {
+      "period": "2016-02",
+      "activity_id": "construction",
+      "original_index": 155.1416558670241,
+      "original_index_cell": "Cuadro 2!BE8",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!BE7"
+    },
+    {
+      "period": "2016-02",
+      "activity_id": "metals",
+      "original_index": 105.93590527958594,
+      "original_index_cell": "Cuadro 2!BM8",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!BM7"
+    },
+    {
+      "period": "2016-02",
+      "activity_id": "textiles",
+      "original_index": 96.96522817278039,
+      "original_index_cell": "Cuadro 2!V8",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!V7"
+    },
+    {
+      "period": "2016-03",
+      "activity_id": "construction",
+      "original_index": 167.42953582989622,
+      "original_index_cell": "Cuadro 2!BE9",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!BE8"
+    },
+    {
+      "period": "2016-03",
+      "activity_id": "metals",
+      "original_index": 124.94458309102679,
+      "original_index_cell": "Cuadro 2!BM9",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!BM8"
+    },
+    {
+      "period": "2016-03",
+      "activity_id": "textiles",
+      "original_index": 119.3409024118058,
+      "original_index_cell": "Cuadro 2!V9",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!V8"
+    },
+    {
+      "period": "2016-04",
+      "activity_id": "construction",
+      "original_index": 146.3885009190023,
+      "original_index_cell": "Cuadro 2!BE10",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!BE9"
+    },
+    {
+      "period": "2016-04",
+      "activity_id": "metals",
+      "original_index": 113.97378747830409,
+      "original_index_cell": "Cuadro 2!BM10",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!BM9"
+    },
+    {
+      "period": "2016-04",
+      "activity_id": "textiles",
+      "original_index": 123.19031910088518,
+      "original_index_cell": "Cuadro 2!V10",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!V9"
+    },
+    {
+      "period": "2016-05",
+      "activity_id": "construction",
+      "original_index": 173.30916771731665,
+      "original_index_cell": "Cuadro 2!BE11",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!BE10"
+    },
+    {
+      "period": "2016-05",
+      "activity_id": "metals",
+      "original_index": 115.33640085672624,
+      "original_index_cell": "Cuadro 2!BM11",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!BM10"
+    },
+    {
+      "period": "2016-05",
+      "activity_id": "textiles",
+      "original_index": 134.89200489029912,
+      "original_index_cell": "Cuadro 2!V11",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!V10"
+    },
+    {
+      "period": "2016-06",
+      "activity_id": "construction",
+      "original_index": 166.79538827946305,
+      "original_index_cell": "Cuadro 2!BE12",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!BE11"
+    },
+    {
+      "period": "2016-06",
+      "activity_id": "metals",
+      "original_index": 111.5046359986854,
+      "original_index_cell": "Cuadro 2!BM12",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!BM11"
+    },
+    {
+      "period": "2016-06",
+      "activity_id": "textiles",
+      "original_index": 130.64792456729958,
+      "original_index_cell": "Cuadro 2!V12",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!V11"
+    },
+    {
+      "period": "2016-07",
+      "activity_id": "construction",
+      "original_index": 166.82512893613995,
+      "original_index_cell": "Cuadro 2!BE13",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!BE12"
+    },
+    {
+      "period": "2016-07",
+      "activity_id": "metals",
+      "original_index": 113.57456180127978,
+      "original_index_cell": "Cuadro 2!BM13",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!BM12"
+    },
+    {
+      "period": "2016-07",
+      "activity_id": "textiles",
+      "original_index": 124.1517381027138,
+      "original_index_cell": "Cuadro 2!V13",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!V12"
+    },
+    {
+      "period": "2016-08",
+      "activity_id": "construction",
+      "original_index": 196.10720387459997,
+      "original_index_cell": "Cuadro 2!BE14",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!BE13"
+    },
+    {
+      "period": "2016-08",
+      "activity_id": "metals",
+      "original_index": 118.71793865872334,
+      "original_index_cell": "Cuadro 2!BM14",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!BM13"
+    },
+    {
+      "period": "2016-08",
+      "activity_id": "textiles",
+      "original_index": 121.54443748097623,
+      "original_index_cell": "Cuadro 2!V14",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!V13"
+    },
+    {
+      "period": "2016-09",
+      "activity_id": "construction",
+      "original_index": 193.4376441562408,
+      "original_index_cell": "Cuadro 2!BE15",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!BE14"
+    },
+    {
+      "period": "2016-09",
+      "activity_id": "metals",
+      "original_index": 121.44157684825966,
+      "original_index_cell": "Cuadro 2!BM15",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!BM14"
+    },
+    {
+      "period": "2016-09",
+      "activity_id": "textiles",
+      "original_index": 107.79925009361489,
+      "original_index_cell": "Cuadro 2!V15",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!V14"
+    },
+    {
+      "period": "2016-10",
+      "activity_id": "construction",
+      "original_index": 183.69748315695475,
+      "original_index_cell": "Cuadro 2!BE16",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!BE15"
+    },
+    {
+      "period": "2016-10",
+      "activity_id": "metals",
+      "original_index": 114.80700557723982,
+      "original_index_cell": "Cuadro 2!BM16",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!BM15"
+    },
+    {
+      "period": "2016-10",
+      "activity_id": "textiles",
+      "original_index": 92.94356910066078,
+      "original_index_cell": "Cuadro 2!V16",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!V15"
+    },
+    {
+      "period": "2016-11",
+      "activity_id": "construction",
+      "original_index": 191.624999100585,
+      "original_index_cell": "Cuadro 2!BE17",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!BE16"
+    },
+    {
+      "period": "2016-11",
+      "activity_id": "metals",
+      "original_index": 120.91649425678182,
+      "original_index_cell": "Cuadro 2!BM17",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!BM16"
+    },
+    {
+      "period": "2016-11",
+      "activity_id": "textiles",
+      "original_index": 97.18696854272876,
+      "original_index_cell": "Cuadro 2!V17",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!V16"
+    },
+    {
+      "period": "2016-12",
+      "activity_id": "construction",
+      "original_index": 184.62059476516475,
+      "original_index_cell": "Cuadro 2!BE18",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!BE17"
+    },
+    {
+      "period": "2016-12",
+      "activity_id": "metals",
+      "original_index": 113.50960482383616,
+      "original_index_cell": "Cuadro 2!BM18",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!BM17"
+    },
+    {
+      "period": "2016-12",
+      "activity_id": "textiles",
+      "original_index": 75.1246712944583,
+      "original_index_cell": "Cuadro 2!V18",
+      "yoy_percent": null,
+      "yoy_percent_cell": "Cuadro 3!V17"
+    },
+    {
+      "period": "2017-01",
+      "activity_id": "construction",
+      "original_index": 164.95396194315217,
+      "original_index_cell": "Cuadro 2!BE19",
+      "yoy_percent": -0.5043677926791474,
+      "yoy_percent_cell": "Cuadro 3!BE18"
+    },
+    {
+      "period": "2017-01",
+      "activity_id": "metals",
+      "original_index": 103.36714805096747,
+      "original_index_cell": "Cuadro 2!BM19",
+      "yoy_percent": -5.247574618966539,
+      "yoy_percent_cell": "Cuadro 3!BM18"
+    },
+    {
+      "period": "2017-01",
+      "activity_id": "textiles",
+      "original_index": 72.9365983299538,
+      "original_index_cell": "Cuadro 2!V19",
+      "yoy_percent": -13.446500610284417,
+      "yoy_percent_cell": "Cuadro 3!V18"
+    },
+    {
+      "period": "2017-02",
+      "activity_id": "construction",
+      "original_index": 156.7603150910648,
+      "original_index_cell": "Cuadro 2!BE20",
+      "yoy_percent": 1.0433427534305224,
+      "yoy_percent_cell": "Cuadro 3!BE19"
+    },
+    {
+      "period": "2017-02",
+      "activity_id": "metals",
+      "original_index": 95.57367605238925,
+      "original_index_cell": "Cuadro 2!BM20",
+      "yoy_percent": -9.781602564162455,
+      "yoy_percent_cell": "Cuadro 3!BM19"
+    },
+    {
+      "period": "2017-02",
+      "activity_id": "textiles",
+      "original_index": 81.06162190927269,
+      "original_index_cell": "Cuadro 2!V20",
+      "yoy_percent": -16.401349806725946,
+      "yoy_percent_cell": "Cuadro 3!V19"
+    },
+    {
+      "period": "2017-03",
+      "activity_id": "construction",
+      "original_index": 195.30516552034558,
+      "original_index_cell": "Cuadro 2!BE21",
+      "yoy_percent": 16.64917097946818,
+      "yoy_percent_cell": "Cuadro 3!BE20"
+    },
+    {
+      "period": "2017-03",
+      "activity_id": "metals",
+      "original_index": 122.32826712082235,
+      "original_index_cell": "Cuadro 2!BM21",
+      "yoy_percent": -2.0939811118488905,
+      "yoy_percent_cell": "Cuadro 3!BM20"
+    },
+    {
+      "period": "2017-03",
+      "activity_id": "textiles",
+      "original_index": 100.960958520188,
+      "original_index_cell": "Cuadro 2!V21",
+      "yoy_percent": -15.401210750187488,
+      "yoy_percent_cell": "Cuadro 3!V20"
+    },
+    {
+      "period": "2017-04",
+      "activity_id": "construction",
+      "original_index": 166.0910144042315,
+      "original_index_cell": "Cuadro 2!BE22",
+      "yoy_percent": 13.459058164773978,
+      "yoy_percent_cell": "Cuadro 3!BE21"
+    },
+    {
+      "period": "2017-04",
+      "activity_id": "metals",
+      "original_index": 111.41916907872479,
+      "original_index_cell": "Cuadro 2!BM22",
+      "yoy_percent": -2.2414087099330544,
+      "yoy_percent_cell": "Cuadro 3!BM21"
+    },
+    {
+      "period": "2017-04",
+      "activity_id": "textiles",
+      "original_index": 99.13980270321115,
+      "original_index_cell": "Cuadro 2!V22",
+      "yoy_percent": -19.523057147029675,
+      "yoy_percent_cell": "Cuadro 3!V21"
+    },
+    {
+      "period": "2017-05",
+      "activity_id": "construction",
+      "original_index": 183.82220203979332,
+      "original_index_cell": "Cuadro 2!BE23",
+      "yoy_percent": 6.066057820798278,
+      "yoy_percent_cell": "Cuadro 3!BE22"
+    },
+    {
+      "period": "2017-05",
+      "activity_id": "metals",
+      "original_index": 125.3104153652006,
+      "original_index_cell": "Cuadro 2!BM23",
+      "yoy_percent": 8.647759453552169,
+      "yoy_percent_cell": "Cuadro 3!BM22"
+    },
+    {
+      "period": "2017-05",
+      "activity_id": "textiles",
+      "original_index": 120.86415518263202,
+      "original_index_cell": "Cuadro 2!V23",
+      "yoy_percent": -10.399318861837102,
+      "yoy_percent_cell": "Cuadro 3!V22"
+    },
+    {
+      "period": "2017-06",
+      "activity_id": "construction",
+      "original_index": 189.73119083348192,
+      "original_index_cell": "Cuadro 2!BE24",
+      "yoy_percent": 13.750861334121709,
+      "yoy_percent_cell": "Cuadro 3!BE23"
+    },
+    {
+      "period": "2017-06",
+      "activity_id": "metals",
+      "original_index": 118.23802546833608,
+      "original_index_cell": "Cuadro 2!BM24",
+      "yoy_percent": 6.038663244217091,
+      "yoy_percent_cell": "Cuadro 3!BM23"
+    },
+    {
+      "period": "2017-06",
+      "activity_id": "textiles",
+      "original_index": 125.63076691577835,
+      "original_index_cell": "Cuadro 2!V24",
+      "yoy_percent": -3.8402122866764614,
+      "yoy_percent_cell": "Cuadro 3!V23"
+    },
+    {
+      "period": "2017-07",
+      "activity_id": "construction",
+      "original_index": 190.9593840166356,
+      "original_index_cell": "Cuadro 2!BE25",
+      "yoy_percent": 14.466798398060376,
+      "yoy_percent_cell": "Cuadro 3!BE24"
+    },
+    {
+      "period": "2017-07",
+      "activity_id": "metals",
+      "original_index": 125.46274200434135,
+      "original_index_cell": "Cuadro 2!BM25",
+      "yoy_percent": 10.467291279417125,
+      "yoy_percent_cell": "Cuadro 3!BM24"
+    },
+    {
+      "period": "2017-07",
+      "activity_id": "textiles",
+      "original_index": 120.19038784208007,
+      "original_index_cell": "Cuadro 2!V25",
+      "yoy_percent": -3.1907328251469096,
+      "yoy_percent_cell": "Cuadro 3!V24"
+    },
+    {
+      "period": "2017-08",
+      "activity_id": "construction",
+      "original_index": 211.8946956899233,
+      "original_index_cell": "Cuadro 2!BE26",
+      "yoy_percent": 8.050439506250157,
+      "yoy_percent_cell": "Cuadro 3!BE25"
+    },
+    {
+      "period": "2017-08",
+      "activity_id": "metals",
+      "original_index": 138.07492995139881,
+      "original_index_cell": "Cuadro 2!BM26",
+      "yoy_percent": 16.305026444504506,
+      "yoy_percent_cell": "Cuadro 3!BM25"
+    },
+    {
+      "period": "2017-08",
+      "activity_id": "textiles",
+      "original_index": 117.08425156975498,
+      "original_index_cell": "Cuadro 2!V26",
+      "yoy_percent": -3.6695927873452376,
+      "yoy_percent_cell": "Cuadro 3!V25"
+    },
+    {
+      "period": "2017-09",
+      "activity_id": "construction",
+      "original_index": 209.5077681475968,
+      "original_index_cell": "Cuadro 2!BE27",
+      "yoy_percent": 8.307650799539346,
+      "yoy_percent_cell": "Cuadro 3!BE26"
+    },
+    {
+      "period": "2017-09",
+      "activity_id": "metals",
+      "original_index": 134.78279413198172,
+      "original_index_cell": "Cuadro 2!BM27",
+      "yoy_percent": 10.985708214569541,
+      "yoy_percent_cell": "Cuadro 3!BM26"
+    },
+    {
+      "period": "2017-09",
+      "activity_id": "textiles",
+      "original_index": 107.14552460144967,
+      "original_index_cell": "Cuadro 2!V27",
+      "yoy_percent": -0.6064286083600052,
+      "yoy_percent_cell": "Cuadro 3!V26"
+    },
+    {
+      "period": "2017-10",
+      "activity_id": "construction",
+      "original_index": 216.88632913153288,
+      "original_index_cell": "Cuadro 2!BE28",
+      "yoy_percent": 18.06712068353214,
+      "yoy_percent_cell": "Cuadro 3!BE27"
+    },
+    {
+      "period": "2017-10",
+      "activity_id": "metals",
+      "original_index": 137.90847680163898,
+      "original_index_cell": "Cuadro 2!BM28",
+      "yoy_percent": 20.122004844780108,
+      "yoy_percent_cell": "Cuadro 3!BM27"
+    },
+    {
+      "period": "2017-10",
+      "activity_id": "textiles",
+      "original_index": 103.67807946143984,
+      "original_index_cell": "Cuadro 2!V28",
+      "yoy_percent": 11.549492304468359,
+      "yoy_percent_cell": "Cuadro 3!V27"
+    },
+    {
+      "period": "2017-11",
+      "activity_id": "construction",
+      "original_index": 218.38890385693145,
+      "original_index_cell": "Cuadro 2!BE29",
+      "yoy_percent": 13.966812723791804,
+      "yoy_percent_cell": "Cuadro 3!BE28"
+    },
+    {
+      "period": "2017-11",
+      "activity_id": "metals",
+      "original_index": 146.62210422484574,
+      "original_index_cell": "Cuadro 2!BM29",
+      "yoy_percent": 21.258977219001025,
+      "yoy_percent_cell": "Cuadro 3!BM28"
+    },
+    {
+      "period": "2017-11",
+      "activity_id": "textiles",
+      "original_index": 101.88570476598697,
+      "original_index_cell": "Cuadro 2!V29",
+      "yoy_percent": 4.834738950821759,
+      "yoy_percent_cell": "Cuadro 3!V28"
+    },
+    {
+      "period": "2017-12",
+      "activity_id": "construction",
+      "original_index": 190.55548671144288,
+      "original_index_cell": "Cuadro 2!BE30",
+      "yoy_percent": 3.214642415071438,
+      "yoy_percent_cell": "Cuadro 3!BE29"
+    },
+    {
+      "period": "2017-12",
+      "activity_id": "metals",
+      "original_index": 127.84819192612093,
+      "original_index_cell": "Cuadro 2!BM30",
+      "yoy_percent": 12.63204741531598,
+      "yoy_percent_cell": "Cuadro 3!BM29"
+    },
+    {
+      "period": "2017-12",
+      "activity_id": "textiles",
+      "original_index": 88.00604741515788,
+      "original_index_cell": "Cuadro 2!V30",
+      "yoy_percent": 17.146665534428493,
+      "yoy_percent_cell": "Cuadro 3!V29"
+    },
+    {
+      "period": "2018-01",
+      "activity_id": "construction",
+      "original_index": 193.69571630611452,
+      "original_index_cell": "Cuadro 2!BE31",
+      "yoy_percent": 17.424106717041198,
+      "yoy_percent_cell": "Cuadro 3!BE30"
+    },
+    {
+      "period": "2018-01",
+      "activity_id": "metals",
+      "original_index": 117.85896607513635,
+      "original_index_cell": "Cuadro 2!BM31",
+      "yoy_percent": 14.01975221085074,
+      "yoy_percent_cell": "Cuadro 3!BM30"
+    },
+    {
+      "period": "2018-01",
+      "activity_id": "textiles",
+      "original_index": 76.50418925165903,
+      "original_index_cell": "Cuadro 2!V31",
+      "yoy_percent": 4.891359075406854,
+      "yoy_percent_cell": "Cuadro 3!V30"
+    },
+    {
+      "period": "2018-02",
+      "activity_id": "construction",
+      "original_index": 171.53240332487752,
+      "original_index_cell": "Cuadro 2!BE32",
+      "yoy_percent": 9.423359620852608,
+      "yoy_percent_cell": "Cuadro 3!BE31"
+    },
+    {
+      "period": "2018-02",
+      "activity_id": "metals",
+      "original_index": 105.02542387455516,
+      "original_index_cell": "Cuadro 2!BM32",
+      "yoy_percent": 9.889488625492334,
+      "yoy_percent_cell": "Cuadro 3!BM31"
+    },
+    {
+      "period": "2018-02",
+      "activity_id": "textiles",
+      "original_index": 72.87440264110502,
+      "original_index_cell": "Cuadro 2!V32",
+      "yoy_percent": -10.099994393562866,
+      "yoy_percent_cell": "Cuadro 3!V31"
+    },
+    {
+      "period": "2018-03",
+      "activity_id": "construction",
+      "original_index": 211.7436899040864,
+      "original_index_cell": "Cuadro 2!BE33",
+      "yoy_percent": 8.416840558181946,
+      "yoy_percent_cell": "Cuadro 3!BE32"
+    },
+    {
+      "period": "2018-03",
+      "activity_id": "metals",
+      "original_index": 127.46848143453632,
+      "original_index_cell": "Cuadro 2!BM33",
+      "yoy_percent": 4.201984083234848,
+      "yoy_percent_cell": "Cuadro 3!BM32"
+    },
+    {
+      "period": "2018-03",
+      "activity_id": "textiles",
+      "original_index": 101.73236614819174,
+      "original_index_cell": "Cuadro 2!V33",
+      "yoy_percent": 0.7640652776186698,
+      "yoy_percent_cell": "Cuadro 3!V32"
+    },
+    {
+      "period": "2018-04",
+      "activity_id": "construction",
+      "original_index": 186.64468629603306,
+      "original_index_cell": "Cuadro 2!BE34",
+      "yoy_percent": 12.374945126036835,
+      "yoy_percent_cell": "Cuadro 3!BE33"
+    },
+    {
+      "period": "2018-04",
+      "activity_id": "metals",
+      "original_index": 124.53274756986379,
+      "original_index_cell": "Cuadro 2!BM34",
+      "yoy_percent": 11.769589200466399,
+      "yoy_percent_cell": "Cuadro 3!BM33"
+    },
+    {
+      "period": "2018-04",
+      "activity_id": "textiles",
+      "original_index": 109.58534964807154,
+      "original_index_cell": "Cuadro 2!V34",
+      "yoy_percent": 10.536178870690918,
+      "yoy_percent_cell": "Cuadro 3!V33"
+    },
+    {
+      "period": "2018-05",
+      "activity_id": "construction",
+      "original_index": 174.20081179201048,
+      "original_index_cell": "Cuadro 2!BE35",
+      "yoy_percent": -5.234074089537913,
+      "yoy_percent_cell": "Cuadro 3!BE34"
+    },
+    {
+      "period": "2018-05",
+      "activity_id": "metals",
+      "original_index": 130.21777964027754,
+      "original_index_cell": "Cuadro 2!BM35",
+      "yoy_percent": 3.916166314487967,
+      "yoy_percent_cell": "Cuadro 3!BM34"
+    },
+    {
+      "period": "2018-05",
+      "activity_id": "textiles",
+      "original_index": 118.37873292595246,
+      "original_index_cell": "Cuadro 2!V35",
+      "yoy_percent": -2.0563766427887202,
+      "yoy_percent_cell": "Cuadro 3!V34"
+    },
+    {
+      "period": "2018-06",
+      "activity_id": "construction",
+      "original_index": 189.56944003620046,
+      "original_index_cell": "Cuadro 2!BE36",
+      "yoy_percent": -0.08525261269424789,
+      "yoy_percent_cell": "Cuadro 3!BE35"
+    },
+    {
+      "period": "2018-06",
+      "activity_id": "metals",
+      "original_index": 122.05101055049299,
+      "original_index_cell": "Cuadro 2!BM36",
+      "yoy_percent": 3.224838259141947,
+      "yoy_percent_cell": "Cuadro 3!BM35"
+    },
+    {
+      "period": "2018-06",
+      "activity_id": "textiles",
+      "original_index": 120.95976402778784,
+      "original_index_cell": "Cuadro 2!V36",
+      "yoy_percent": -3.7180405745050535,
+      "yoy_percent_cell": "Cuadro 3!V35"
+    },
+    {
+      "period": "2018-07",
+      "activity_id": "construction",
+      "original_index": 180.7665894102476,
+      "original_index_cell": "Cuadro 2!BE37",
+      "yoy_percent": -5.337676731037234,
+      "yoy_percent_cell": "Cuadro 3!BE36"
+    },
+    {
+      "period": "2018-07",
+      "activity_id": "metals",
+      "original_index": 124.45613199281595,
+      "original_index_cell": "Cuadro 2!BM37",
+      "yoy_percent": -0.8023178797499639,
+      "yoy_percent_cell": "Cuadro 3!BM36"
+    },
+    {
+      "period": "2018-07",
+      "activity_id": "textiles",
+      "original_index": 115.29648964969286,
+      "original_index_cell": "Cuadro 2!V37",
+      "yoy_percent": -4.07178833536787,
+      "yoy_percent_cell": "Cuadro 3!V36"
+    },
+    {
+      "period": "2018-08",
+      "activity_id": "construction",
+      "original_index": 210.0189236920307,
+      "original_index_cell": "Cuadro 2!BE38",
+      "yoy_percent": -0.8852378261688614,
+      "yoy_percent_cell": "Cuadro 3!BE37"
+    },
+    {
+      "period": "2018-08",
+      "activity_id": "metals",
+      "original_index": 129.72992679250933,
+      "original_index_cell": "Cuadro 2!BM38",
+      "yoy_percent": -6.04382212022621,
+      "yoy_percent_cell": "Cuadro 3!BM37"
+    },
+    {
+      "period": "2018-08",
+      "activity_id": "textiles",
+      "original_index": 102.7288805149471,
+      "original_index_cell": "Cuadro 2!V38",
+      "yoy_percent": -12.260718980003404,
+      "yoy_percent_cell": "Cuadro 3!V37"
+    },
+    {
+      "period": "2018-09",
+      "activity_id": "construction",
+      "original_index": 202.8842360928452,
+      "original_index_cell": "Cuadro 2!BE39",
+      "yoy_percent": -3.161473253863008,
+      "yoy_percent_cell": "Cuadro 3!BE38"
+    },
+    {
+      "period": "2018-09",
+      "activity_id": "metals",
+      "original_index": 120.50238311202683,
+      "original_index_cell": "Cuadro 2!BM39",
+      "yoy_percent": -10.595129082997971,
+      "yoy_percent_cell": "Cuadro 3!BM38"
+    },
+    {
+      "period": "2018-09",
+      "activity_id": "textiles",
+      "original_index": 80.57535795757788,
+      "original_index_cell": "Cuadro 2!V39",
+      "yoy_percent": -24.798204817891474,
+      "yoy_percent_cell": "Cuadro 3!V38"
+    },
+    {
+      "period": "2018-10",
+      "activity_id": "construction",
+      "original_index": 197.6201398610344,
+      "original_index_cell": "Cuadro 2!BE40",
+      "yoy_percent": -8.883081449921306,
+      "yoy_percent_cell": "Cuadro 3!BE39"
+    },
+    {
+      "period": "2018-10",
+      "activity_id": "metals",
+      "original_index": 127.70112869026985,
+      "original_index_cell": "Cuadro 2!BM40",
+      "yoy_percent": -7.401537851839876,
+      "yoy_percent_cell": "Cuadro 3!BM39"
+    },
+    {
+      "period": "2018-10",
+      "activity_id": "textiles",
+      "original_index": 81.59808767906955,
+      "original_index_cell": "Cuadro 2!V40",
+      "yoy_percent": -21.29668286398217,
+      "yoy_percent_cell": "Cuadro 3!V39"
+    },
+    {
+      "period": "2018-11",
+      "activity_id": "construction",
+      "original_index": 188.0135240039878,
+      "original_index_cell": "Cuadro 2!BE41",
+      "yoy_percent": -13.908847618394944,
+      "yoy_percent_cell": "Cuadro 3!BE40"
+    },
+    {
+      "period": "2018-11",
+      "activity_id": "metals",
+      "original_index": 125.39977263059299,
+      "original_index_cell": "Cuadro 2!BM41",
+      "yoy_percent": -14.47416929831276,
+      "yoy_percent_cell": "Cuadro 3!BM40"
+    },
+    {
+      "period": "2018-11",
+      "activity_id": "textiles",
+      "original_index": 70.15147649126534,
+      "original_index_cell": "Cuadro 2!V41",
+      "yoy_percent": -31.146889887653444,
+      "yoy_percent_cell": "Cuadro 3!V40"
+    },
+    {
+      "period": "2018-12",
+      "activity_id": "construction",
+      "original_index": 165.39987991810128,
+      "original_index_cell": "Cuadro 2!BE42",
+      "yoy_percent": -13.201197838734814,
+      "yoy_percent_cell": "Cuadro 3!BE41"
+    },
+    {
+      "period": "2018-12",
+      "activity_id": "metals",
+      "original_index": 110.37627214054775,
+      "original_index_cell": "Cuadro 2!BM42",
+      "yoy_percent": -13.666145388797986,
+      "yoy_percent_cell": "Cuadro 3!BM41"
+    },
+    {
+      "period": "2018-12",
+      "activity_id": "textiles",
+      "original_index": 55.670799348338996,
+      "original_index_cell": "Cuadro 2!V42",
+      "yoy_percent": -36.74207513749739,
+      "yoy_percent_cell": "Cuadro 3!V41"
+    },
+    {
+      "period": "2019-01",
+      "activity_id": "construction",
+      "original_index": 161.78207293975998,
+      "original_index_cell": "Cuadro 2!BE43",
+      "yoy_percent": -16.47617406051384,
+      "yoy_percent_cell": "Cuadro 3!BE42"
+    },
+    {
+      "period": "2019-01",
+      "activity_id": "metals",
+      "original_index": 112.43607023742975,
+      "original_index_cell": "Cuadro 2!BM43",
+      "yoy_percent": -4.601173774296868,
+      "yoy_percent_cell": "Cuadro 3!BM42"
+    },
+    {
+      "period": "2019-01",
+      "activity_id": "textiles",
+      "original_index": 53.52610869134269,
+      "original_index_cell": "Cuadro 2!V43",
+      "yoy_percent": -30.0350618509666,
+      "yoy_percent_cell": "Cuadro 3!V42"
+    },
+    {
+      "period": "2019-02",
+      "activity_id": "construction",
+      "original_index": 177.912829495696,
+      "original_index_cell": "Cuadro 2!BE44",
+      "yoy_percent": 3.7196623186898137,
+      "yoy_percent_cell": "Cuadro 3!BE43"
+    },
+    {
+      "period": "2019-02",
+      "activity_id": "metals",
+      "original_index": 102.65395863155706,
+      "original_index_cell": "Cuadro 2!BM44",
+      "yoy_percent": -2.2579915943311306,
+      "yoy_percent_cell": "Cuadro 3!BM43"
+    },
+    {
+      "period": "2019-02",
+      "activity_id": "textiles",
+      "original_index": 66.2192258467196,
+      "original_index_cell": "Cuadro 2!V44",
+      "yoy_percent": -9.132392929738472,
+      "yoy_percent_cell": "Cuadro 3!V43"
+    },
+    {
+      "period": "2019-03",
+      "activity_id": "construction",
+      "original_index": 186.59153686442338,
+      "original_index_cell": "Cuadro 2!BE45",
+      "yoy_percent": -11.87858445796246,
+      "yoy_percent_cell": "Cuadro 3!BE44"
+    },
+    {
+      "period": "2019-03",
+      "activity_id": "metals",
+      "original_index": 115.42589579414081,
+      "original_index_cell": "Cuadro 2!BM45",
+      "yoy_percent": -9.447500672219249,
+      "yoy_percent_cell": "Cuadro 3!BM44"
+    },
+    {
+      "period": "2019-03",
+      "activity_id": "textiles",
+      "original_index": 81.9397965596496,
+      "original_index_cell": "Cuadro 2!V45",
+      "yoy_percent": -19.45552859717297,
+      "yoy_percent_cell": "Cuadro 3!V44"
+    },
+    {
+      "period": "2019-04",
+      "activity_id": "construction",
+      "original_index": 175.78512535446947,
+      "original_index_cell": "Cuadro 2!BE46",
+      "yoy_percent": -5.818307050188125,
+      "yoy_percent_cell": "Cuadro 3!BE45"
+    },
+    {
+      "period": "2019-04",
+      "activity_id": "metals",
+      "original_index": 116.25908819649636,
+      "original_index_cell": "Cuadro 2!BM46",
+      "yoy_percent": -6.643762010250228,
+      "yoy_percent_cell": "Cuadro 3!BM45"
+    },
+    {
+      "period": "2019-04",
+      "activity_id": "textiles",
+      "original_index": 90.11803863275419,
+      "original_index_cell": "Cuadro 2!V46",
+      "yoy_percent": -17.764519689753925,
+      "yoy_percent_cell": "Cuadro 3!V45"
+    },
+    {
+      "period": "2019-05",
+      "activity_id": "construction",
+      "original_index": 181.29712435032255,
+      "original_index_cell": "Cuadro 2!BE47",
+      "yoy_percent": 4.073639201397512,
+      "yoy_percent_cell": "Cuadro 3!BE46"
+    },
+    {
+      "period": "2019-05",
+      "activity_id": "metals",
+      "original_index": 123.36120025182343,
+      "original_index_cell": "Cuadro 2!BM47",
+      "yoy_percent": -5.2654709728542315,
+      "yoy_percent_cell": "Cuadro 3!BM46"
+    },
+    {
+      "period": "2019-05",
+      "activity_id": "textiles",
+      "original_index": 95.16759320219458,
+      "original_index_cell": "Cuadro 2!V47",
+      "yoy_percent": -19.607525059654733,
+      "yoy_percent_cell": "Cuadro 3!V46"
+    },
+    {
+      "period": "2019-06",
+      "activity_id": "construction",
+      "original_index": 173.46247600560596,
+      "original_index_cell": "Cuadro 2!BE48",
+      "yoy_percent": -8.496603686500677,
+      "yoy_percent_cell": "Cuadro 3!BE47"
+    },
+    {
+      "period": "2019-06",
+      "activity_id": "metals",
+      "original_index": 107.36160801056036,
+      "original_index_cell": "Cuadro 2!BM48",
+      "yoy_percent": -12.035461626805272,
+      "yoy_percent_cell": "Cuadro 3!BM47"
+    },
+    {
+      "period": "2019-06",
+      "activity_id": "textiles",
+      "original_index": 98.94776387906182,
+      "original_index_cell": "Cuadro 2!V48",
+      "yoy_percent": -18.197786946466962,
+      "yoy_percent_cell": "Cuadro 3!V47"
+    },
+    {
+      "period": "2019-07",
+      "activity_id": "construction",
+      "original_index": 185.74901284204753,
+      "original_index_cell": "Cuadro 2!BE49",
+      "yoy_percent": 2.7562745129258133,
+      "yoy_percent_cell": "Cuadro 3!BE48"
+    },
+    {
+      "period": "2019-07",
+      "activity_id": "metals",
+      "original_index": 114.94630550072793,
+      "original_index_cell": "Cuadro 2!BM49",
+      "yoy_percent": -7.641107223738047,
+      "yoy_percent_cell": "Cuadro 3!BM48"
+    },
+    {
+      "period": "2019-07",
+      "activity_id": "textiles",
+      "original_index": 117.4306444011098,
+      "original_index_cell": "Cuadro 2!V49",
+      "yoy_percent": 1.8510145086820842,
+      "yoy_percent_cell": "Cuadro 3!V48"
+    },
+    {
+      "period": "2019-08",
+      "activity_id": "construction",
+      "original_index": 200.20834449274193,
+      "original_index_cell": "Cuadro 2!BE50",
+      "yoy_percent": -4.6712834380938375,
+      "yoy_percent_cell": "Cuadro 3!BE49"
+    },
+    {
+      "period": "2019-08",
+      "activity_id": "metals",
+      "original_index": 114.33157915482629,
+      "original_index_cell": "Cuadro 2!BM50",
+      "yoy_percent": -11.869541607243207,
+      "yoy_percent_cell": "Cuadro 3!BM49"
+    },
+    {
+      "period": "2019-08",
+      "activity_id": "textiles",
+      "original_index": 104.2608889311598,
+      "original_index_cell": "Cuadro 2!V50",
+      "yoy_percent": 1.491312285827732,
+      "yoy_percent_cell": "Cuadro 3!V49"
+    },
+    {
+      "period": "2019-09",
+      "activity_id": "construction",
+      "original_index": 185.26126607254642,
+      "original_index_cell": "Cuadro 2!BE51",
+      "yoy_percent": -8.68621947159761,
+      "yoy_percent_cell": "Cuadro 3!BE50"
+    },
+    {
+      "period": "2019-09",
+      "activity_id": "metals",
+      "original_index": 109.06020871304055,
+      "original_index_cell": "Cuadro 2!BM51",
+      "yoy_percent": -9.495392625014645,
+      "yoy_percent_cell": "Cuadro 3!BM50"
+    },
+    {
+      "period": "2019-09",
+      "activity_id": "textiles",
+      "original_index": 99.42091039562497,
+      "original_index_cell": "Cuadro 2!V51",
+      "yoy_percent": 23.388729402814562,
+      "yoy_percent_cell": "Cuadro 3!V50"
+    },
+    {
+      "period": "2019-10",
+      "activity_id": "construction",
+      "original_index": 180.54228729634247,
+      "original_index_cell": "Cuadro 2!BE52",
+      "yoy_percent": -8.641757149195925,
+      "yoy_percent_cell": "Cuadro 3!BE51"
+    },
+    {
+      "period": "2019-10",
+      "activity_id": "metals",
+      "original_index": 116.77533974611198,
+      "original_index_cell": "Cuadro 2!BM52",
+      "yoy_percent": -8.555749707316679,
+      "yoy_percent_cell": "Cuadro 3!BM51"
+    },
+    {
+      "period": "2019-10",
+      "activity_id": "textiles",
+      "original_index": 94.27240989384812,
+      "original_index_cell": "Cuadro 2!V52",
+      "yoy_percent": 15.532621627883586,
+      "yoy_percent_cell": "Cuadro 3!V51"
+    },
+    {
+      "period": "2019-11",
+      "activity_id": "construction",
+      "original_index": 172.59366508023183,
+      "original_index_cell": "Cuadro 2!BE53",
+      "yoy_percent": -8.201462637032918,
+      "yoy_percent_cell": "Cuadro 3!BE52"
+    },
+    {
+      "period": "2019-11",
+      "activity_id": "metals",
+      "original_index": 106.70787828646989,
+      "original_index_cell": "Cuadro 2!BM53",
+      "yoy_percent": -14.905843887920227,
+      "yoy_percent_cell": "Cuadro 3!BM52"
+    },
+    {
+      "period": "2019-11",
+      "activity_id": "textiles",
+      "original_index": 77.82030618931536,
+      "original_index_cell": "Cuadro 2!V53",
+      "yoy_percent": 10.931815097298596,
+      "yoy_percent_cell": "Cuadro 3!V52"
+    },
+    {
+      "period": "2019-12",
+      "activity_id": "construction",
+      "original_index": 145.12346769661013,
+      "original_index_cell": "Cuadro 2!BE54",
+      "yoy_percent": -12.259024753543429,
+      "yoy_percent_cell": "Cuadro 3!BE53"
+    },
+    {
+      "period": "2019-12",
+      "activity_id": "metals",
+      "original_index": 92.82916789654361,
+      "original_index_cell": "Cuadro 2!BM54",
+      "yoy_percent": -15.897532960399786,
+      "yoy_percent_cell": "Cuadro 3!BM53"
+    },
+    {
+      "period": "2019-12",
+      "activity_id": "textiles",
+      "original_index": 61.347927875649724,
+      "original_index_cell": "Cuadro 2!V54",
+      "yoy_percent": 10.197677406764427,
+      "yoy_percent_cell": "Cuadro 3!V53"
+    },
+    {
+      "period": "2020-01",
+      "activity_id": "construction",
+      "original_index": 140.02457601575935,
+      "original_index_cell": "Cuadro 2!BE55",
+      "yoy_percent": -13.448645161137293,
+      "yoy_percent_cell": "Cuadro 3!BE54"
+    },
+    {
+      "period": "2020-01",
+      "activity_id": "metals",
+      "original_index": 89.89200219406,
+      "original_index_cell": "Cuadro 2!BM55",
+      "yoy_percent": -20.050565619879578,
+      "yoy_percent_cell": "Cuadro 3!BM54"
+    },
+    {
+      "period": "2020-01",
+      "activity_id": "textiles",
+      "original_index": 53.68555751010089,
+      "original_index_cell": "Cuadro 2!V55",
+      "yoy_percent": 0.2978898011765807,
+      "yoy_percent_cell": "Cuadro 3!V54"
+    },
+    {
+      "period": "2020-02",
+      "activity_id": "construction",
+      "original_index": 135.6342794646362,
+      "original_index_cell": "Cuadro 2!BE56",
+      "yoy_percent": -23.763631971286586,
+      "yoy_percent_cell": "Cuadro 3!BE55"
+    },
+    {
+      "period": "2020-02",
+      "activity_id": "metals",
+      "original_index": 89.44186103816196,
+      "original_index_cell": "Cuadro 2!BM56",
+      "yoy_percent": -12.870519334588565,
+      "yoy_percent_cell": "Cuadro 3!BM55"
+    },
+    {
+      "period": "2020-02",
+      "activity_id": "textiles",
+      "original_index": 61.23837725310526,
+      "original_index_cell": "Cuadro 2!V56",
+      "yoy_percent": -7.521756000506116,
+      "yoy_percent_cell": "Cuadro 3!V55"
+    },
+    {
+      "period": "2020-03",
+      "activity_id": "construction",
+      "original_index": 99.39768774389137,
+      "original_index_cell": "Cuadro 2!BE57",
+      "yoy_percent": -46.72979846019849,
+      "yoy_percent_cell": "Cuadro 3!BE56"
+    },
+    {
+      "period": "2020-03",
+      "activity_id": "metals",
+      "original_index": 76.25370913534822,
+      "original_index_cell": "Cuadro 2!BM57",
+      "yoy_percent": -33.93708698493032,
+      "yoy_percent_cell": "Cuadro 3!BM56"
+    },
+    {
+      "period": "2020-03",
+      "activity_id": "textiles",
+      "original_index": 56.467679177743754,
+      "original_index_cell": "Cuadro 2!V57",
+      "yoy_percent": -31.086381039966255,
+      "yoy_percent_cell": "Cuadro 3!V56"
+    },
+    {
+      "period": "2020-04",
+      "activity_id": "construction",
+      "original_index": 77.85010229346832,
+      "original_index_cell": "Cuadro 2!BE58",
+      "yoy_percent": -55.712918179803815,
+      "yoy_percent_cell": "Cuadro 3!BE57"
+    },
+    {
+      "period": "2020-04",
+      "activity_id": "metals",
+      "original_index": 44.164379847481875,
+      "original_index_cell": "Cuadro 2!BM58",
+      "yoy_percent": -62.01210543399666,
+      "yoy_percent_cell": "Cuadro 3!BM57"
+    },
+    {
+      "period": "2020-04",
+      "activity_id": "textiles",
+      "original_index": 39.16481501252022,
+      "original_index_cell": "Cuadro 2!V58",
+      "yoy_percent": -56.5405377139606,
+      "yoy_percent_cell": "Cuadro 3!V57"
+    },
+    {
+      "period": "2020-05",
+      "activity_id": "construction",
+      "original_index": 127.25336241308653,
+      "original_index_cell": "Cuadro 2!BE59",
+      "yoy_percent": -29.809497602844843,
+      "yoy_percent_cell": "Cuadro 3!BE58"
+    },
+    {
+      "period": "2020-05",
+      "activity_id": "metals",
+      "original_index": 69.05918160547024,
+      "original_index_cell": "Cuadro 2!BM59",
+      "yoy_percent": -44.01871782659681,
+      "yoy_percent_cell": "Cuadro 3!BM58"
+    },
+    {
+      "period": "2020-05",
+      "activity_id": "textiles",
+      "original_index": 58.25419190672306,
+      "original_index_cell": "Cuadro 2!V59",
+      "yoy_percent": -38.787784847143,
+      "yoy_percent_cell": "Cuadro 3!V58"
+    },
+    {
+      "period": "2020-06",
+      "activity_id": "construction",
+      "original_index": 151.31259428867466,
+      "original_index_cell": "Cuadro 2!BE60",
+      "yoy_percent": -12.76926412385319,
+      "yoy_percent_cell": "Cuadro 3!BE59"
+    },
+    {
+      "period": "2020-06",
+      "activity_id": "metals",
+      "original_index": 89.22818390692613,
+      "original_index_cell": "Cuadro 2!BM60",
+      "yoy_percent": -16.890045184355458,
+      "yoy_percent_cell": "Cuadro 3!BM59"
+    },
+    {
+      "period": "2020-06",
+      "activity_id": "textiles",
+      "original_index": 85.65035376637552,
+      "original_index_cell": "Cuadro 2!V60",
+      "yoy_percent": -13.438818212141683,
+      "yoy_percent_cell": "Cuadro 3!V59"
+    },
+    {
+      "period": "2020-07",
+      "activity_id": "construction",
+      "original_index": 165.16387341672976,
+      "original_index_cell": "Cuadro 2!BE61",
+      "yoy_percent": -11.082233552876232,
+      "yoy_percent_cell": "Cuadro 3!BE60"
+    },
+    {
+      "period": "2020-07",
+      "activity_id": "metals",
+      "original_index": 96.8194212319777,
+      "original_index_cell": "Cuadro 2!BM61",
+      "yoy_percent": -15.769871149652076,
+      "yoy_percent_cell": "Cuadro 3!BM60"
+    },
+    {
+      "period": "2020-07",
+      "activity_id": "textiles",
+      "original_index": 90.08802779247839,
+      "original_index_cell": "Cuadro 2!V61",
+      "yoy_percent": -23.284055663730157,
+      "yoy_percent_cell": "Cuadro 3!V60"
+    },
+    {
+      "period": "2020-08",
+      "activity_id": "construction",
+      "original_index": 178.99845940200493,
+      "original_index_cell": "Cuadro 2!BE62",
+      "yoy_percent": -10.593906634848537,
+      "yoy_percent_cell": "Cuadro 3!BE61"
+    },
+    {
+      "period": "2020-08",
+      "activity_id": "metals",
+      "original_index": 101.28824610119862,
+      "original_index_cell": "Cuadro 2!BM62",
+      "yoy_percent": -11.408338055022014,
+      "yoy_percent_cell": "Cuadro 3!BM61"
+    },
+    {
+      "period": "2020-08",
+      "activity_id": "textiles",
+      "original_index": 84.86349820560908,
+      "original_index_cell": "Cuadro 2!V62",
+      "yoy_percent": -18.604666547930748,
+      "yoy_percent_cell": "Cuadro 3!V61"
+    },
+    {
+      "period": "2020-09",
+      "activity_id": "construction",
+      "original_index": 199.01257821912628,
+      "original_index_cell": "Cuadro 2!BE63",
+      "yoy_percent": 7.422659057719599,
+      "yoy_percent_cell": "Cuadro 3!BE62"
+    },
+    {
+      "period": "2020-09",
+      "activity_id": "metals",
+      "original_index": 103.83194075108943,
+      "original_index_cell": "Cuadro 2!BM63",
+      "yoy_percent": -4.793928072985594,
+      "yoy_percent_cell": "Cuadro 3!BM62"
+    },
+    {
+      "period": "2020-09",
+      "activity_id": "textiles",
+      "original_index": 80.61430598466445,
+      "original_index_cell": "Cuadro 2!V63",
+      "yoy_percent": -18.9161458450979,
+      "yoy_percent_cell": "Cuadro 3!V62"
+    },
+    {
+      "period": "2020-10",
+      "activity_id": "construction",
+      "original_index": 211.03048976945396,
+      "original_index_cell": "Cuadro 2!BE64",
+      "yoy_percent": 16.887014632238532,
+      "yoy_percent_cell": "Cuadro 3!BE63"
+    },
+    {
+      "period": "2020-10",
+      "activity_id": "metals",
+      "original_index": 101.79164210496367,
+      "original_index_cell": "Cuadro 2!BM64",
+      "yoy_percent": -12.831217338973474,
+      "yoy_percent_cell": "Cuadro 3!BM63"
+    },
+    {
+      "period": "2020-10",
+      "activity_id": "textiles",
+      "original_index": 82.72380393484559,
+      "original_index_cell": "Cuadro 2!V64",
+      "yoy_percent": -12.250250069990159,
+      "yoy_percent_cell": "Cuadro 3!V63"
+    },
+    {
+      "period": "2020-11",
+      "activity_id": "construction",
+      "original_index": 216.9897498666867,
+      "original_index_cell": "Cuadro 2!BE65",
+      "yoy_percent": 25.72289357539104,
+      "yoy_percent_cell": "Cuadro 3!BE64"
+    },
+    {
+      "period": "2020-11",
+      "activity_id": "metals",
+      "original_index": 101.58558684981567,
+      "original_index_cell": "Cuadro 2!BM65",
+      "yoy_percent": -4.800293585542789,
+      "yoy_percent_cell": "Cuadro 3!BM64"
+    },
+    {
+      "period": "2020-11",
+      "activity_id": "textiles",
+      "original_index": 76.18492656078759,
+      "original_index_cell": "Cuadro 2!V65",
+      "yoy_percent": -2.101481873573391,
+      "yoy_percent_cell": "Cuadro 3!V64"
+    },
+    {
+      "period": "2020-12",
+      "activity_id": "construction",
+      "original_index": 191.3235631545243,
+      "original_index_cell": "Cuadro 2!BE66",
+      "yoy_percent": 31.835027229709254,
+      "yoy_percent_cell": "Cuadro 3!BE65"
+    },
+    {
+      "period": "2020-12",
+      "activity_id": "metals",
+      "original_index": 91.97090822488188,
+      "original_index_cell": "Cuadro 2!BM66",
+      "yoy_percent": -0.9245581869464132,
+      "yoy_percent_cell": "Cuadro 3!BM65"
+    },
+    {
+      "period": "2020-12",
+      "activity_id": "textiles",
+      "original_index": 66.08307441906088,
+      "original_index_cell": "Cuadro 2!V66",
+      "yoy_percent": 7.7185109707521775,
+      "yoy_percent_cell": "Cuadro 3!V65"
+    },
+    {
+      "period": "2021-01",
+      "activity_id": "construction",
+      "original_index": 174.39844325250857,
+      "original_index_cell": "Cuadro 2!BE67",
+      "yoy_percent": 24.548453003621688,
+      "yoy_percent_cell": "Cuadro 3!BE66"
+    },
+    {
+      "period": "2021-01",
+      "activity_id": "metals",
+      "original_index": 93.03168179402614,
+      "original_index_cell": "Cuadro 2!BM67",
+      "yoy_percent": 3.4927240725912014,
+      "yoy_percent_cell": "Cuadro 3!BM66"
+    },
+    {
+      "period": "2021-01",
+      "activity_id": "textiles",
+      "original_index": 55.6758219020745,
+      "original_index_cell": "Cuadro 2!V67",
+      "yoy_percent": 3.707262221499974,
+      "yoy_percent_cell": "Cuadro 3!V66"
+    },
+    {
+      "period": "2021-02",
+      "activity_id": "construction",
+      "original_index": 156.76741447362636,
+      "original_index_cell": "Cuadro 2!BE68",
+      "yoy_percent": 15.580968979527185,
+      "yoy_percent_cell": "Cuadro 3!BE67"
+    },
+    {
+      "period": "2021-02",
+      "activity_id": "metals",
+      "original_index": 91.98280600443759,
+      "original_index_cell": "Cuadro 2!BM68",
+      "yoy_percent": 2.840890089699144,
+      "yoy_percent_cell": "Cuadro 3!BM67"
+    },
+    {
+      "period": "2021-02",
+      "activity_id": "textiles",
+      "original_index": 67.01837638169499,
+      "original_index_cell": "Cuadro 2!V68",
+      "yoy_percent": 9.438524317357945,
+      "yoy_percent_cell": "Cuadro 3!V67"
+    },
+    {
+      "period": "2021-03",
+      "activity_id": "construction",
+      "original_index": 186.42575668785022,
+      "original_index_cell": "Cuadro 2!BE69",
+      "yoy_percent": 87.55542600567918,
+      "yoy_percent_cell": "Cuadro 3!BE68"
+    },
+    {
+      "period": "2021-03",
+      "activity_id": "metals",
+      "original_index": 111.2409956227771,
+      "original_index_cell": "Cuadro 2!BM69",
+      "yoy_percent": 45.88273394718075,
+      "yoy_percent_cell": "Cuadro 3!BM68"
+    },
+    {
+      "period": "2021-03",
+      "activity_id": "textiles",
+      "original_index": 86.16107749605183,
+      "original_index_cell": "Cuadro 2!V69",
+      "yoy_percent": 52.5847684032523,
+      "yoy_percent_cell": "Cuadro 3!V68"
+    },
+    {
+      "period": "2021-04",
+      "activity_id": "construction",
+      "original_index": 180.03209112793039,
+      "original_index_cell": "Cuadro 2!BE70",
+      "yoy_percent": 131.25479071211856,
+      "yoy_percent_cell": "Cuadro 3!BE69"
+    },
+    {
+      "period": "2021-04",
+      "activity_id": "metals",
+      "original_index": 111.5722887711409,
+      "original_index_cell": "Cuadro 2!BM70",
+      "yoy_percent": 152.62958328962574,
+      "yoy_percent_cell": "Cuadro 3!BM69"
+    },
+    {
+      "period": "2021-04",
+      "activity_id": "textiles",
+      "original_index": 92.55183099602972,
+      "original_index_cell": "Cuadro 2!V70",
+      "yoy_percent": 136.3137192565386,
+      "yoy_percent_cell": "Cuadro 3!V69"
+    },
+    {
+      "period": "2021-05",
+      "activity_id": "construction",
+      "original_index": 172.47623745515915,
+      "original_index_cell": "Cuadro 2!BE71",
+      "yoy_percent": 35.537666105254885,
+      "yoy_percent_cell": "Cuadro 3!BE70"
+    },
+    {
+      "period": "2021-05",
+      "activity_id": "metals",
+      "original_index": 105.2016755549947,
+      "original_index_cell": "Cuadro 2!BM71",
+      "yoy_percent": 52.335537591516385,
+      "yoy_percent_cell": "Cuadro 3!BM70"
+    },
+    {
+      "period": "2021-05",
+      "activity_id": "textiles",
+      "original_index": 95.73829037844436,
+      "original_index_cell": "Cuadro 2!V71",
+      "yoy_percent": 64.34575306055407,
+      "yoy_percent_cell": "Cuadro 3!V70"
+    },
+    {
+      "period": "2021-06",
+      "activity_id": "construction",
+      "original_index": 184.04170727358925,
+      "original_index_cell": "Cuadro 2!BE72",
+      "yoy_percent": 21.63013141026046,
+      "yoy_percent_cell": "Cuadro 3!BE71"
+    },
+    {
+      "period": "2021-06",
+      "activity_id": "metals",
+      "original_index": 116.04364893983146,
+      "original_index_cell": "Cuadro 2!BM72",
+      "yoy_percent": 30.052684991186794,
+      "yoy_percent_cell": "Cuadro 3!BM71"
+    },
+    {
+      "period": "2021-06",
+      "activity_id": "textiles",
+      "original_index": 106.00555077525306,
+      "original_index_cell": "Cuadro 2!V72",
+      "yoy_percent": 23.765455849020142,
+      "yoy_percent_cell": "Cuadro 3!V71"
+    },
+    {
+      "period": "2021-07",
+      "activity_id": "construction",
+      "original_index": 203.85378150051204,
+      "original_index_cell": "Cuadro 2!BE73",
+      "yoy_percent": 23.425163919571347,
+      "yoy_percent_cell": "Cuadro 3!BE72"
+    },
+    {
+      "period": "2021-07",
+      "activity_id": "metals",
+      "original_index": 112.9671896563531,
+      "original_index_cell": "Cuadro 2!BM73",
+      "yoy_percent": 16.678232754238024,
+      "yoy_percent_cell": "Cuadro 3!BM72"
+    },
+    {
+      "period": "2021-07",
+      "activity_id": "textiles",
+      "original_index": 106.57792690437904,
+      "original_index_cell": "Cuadro 2!V73",
+      "yoy_percent": 18.30420702502873,
+      "yoy_percent_cell": "Cuadro 3!V72"
+    },
+    {
+      "period": "2021-08",
+      "activity_id": "construction",
+      "original_index": 209.3295160827398,
+      "original_index_cell": "Cuadro 2!BE74",
+      "yoy_percent": 16.944870241936357,
+      "yoy_percent_cell": "Cuadro 3!BE73"
+    },
+    {
+      "period": "2021-08",
+      "activity_id": "metals",
+      "original_index": 111.84486173367634,
+      "original_index_cell": "Cuadro 2!BM74",
+      "yoy_percent": 10.42235011348744,
+      "yoy_percent_cell": "Cuadro 3!BM73"
+    },
+    {
+      "period": "2021-08",
+      "activity_id": "textiles",
+      "original_index": 95.95148457041158,
+      "original_index_cell": "Cuadro 2!V74",
+      "yoy_percent": 13.065672048939447,
+      "yoy_percent_cell": "Cuadro 3!V73"
+    },
+    {
+      "period": "2021-09",
+      "activity_id": "construction",
+      "original_index": 213.78965520825255,
+      "original_index_cell": "Cuadro 2!BE75",
+      "yoy_percent": 7.425197503273239,
+      "yoy_percent_cell": "Cuadro 3!BE74"
+    },
+    {
+      "period": "2021-09",
+      "activity_id": "metals",
+      "original_index": 114.69713678765311,
+      "original_index_cell": "Cuadro 2!BM75",
+      "yoy_percent": 10.464213572401775,
+      "yoy_percent_cell": "Cuadro 3!BM74"
+    },
+    {
+      "period": "2021-09",
+      "activity_id": "textiles",
+      "original_index": 96.7991406915492,
+      "original_index_cell": "Cuadro 2!V75",
+      "yoy_percent": 20.07687656575949,
+      "yoy_percent_cell": "Cuadro 3!V74"
+    },
+    {
+      "period": "2021-10",
+      "activity_id": "construction",
+      "original_index": 225.27760744411833,
+      "original_index_cell": "Cuadro 2!BE76",
+      "yoy_percent": 6.751212912517531,
+      "yoy_percent_cell": "Cuadro 3!BE75"
+    },
+    {
+      "period": "2021-10",
+      "activity_id": "metals",
+      "original_index": 107.99854427099102,
+      "original_index_cell": "Cuadro 2!BM76",
+      "yoy_percent": 6.097654029028263,
+      "yoy_percent_cell": "Cuadro 3!BM75"
+    },
+    {
+      "period": "2021-10",
+      "activity_id": "textiles",
+      "original_index": 87.63228847249103,
+      "original_index_cell": "Cuadro 2!V76",
+      "yoy_percent": 5.933581755393448,
+      "yoy_percent_cell": "Cuadro 3!V75"
+    },
+    {
+      "period": "2021-11",
+      "activity_id": "construction",
+      "original_index": 217.86143892012637,
+      "original_index_cell": "Cuadro 2!BE77",
+      "yoy_percent": 0.40171900007959493,
+      "yoy_percent_cell": "Cuadro 3!BE76"
+    },
+    {
+      "period": "2021-11",
+      "activity_id": "metals",
+      "original_index": 111.91606521472413,
+      "original_index_cell": "Cuadro 2!BM77",
+      "yoy_percent": 10.169236291543072,
+      "yoy_percent_cell": "Cuadro 3!BM76"
+    },
+    {
+      "period": "2021-11",
+      "activity_id": "textiles",
+      "original_index": 87.65511354095896,
+      "original_index_cell": "Cuadro 2!V77",
+      "yoy_percent": 15.055717053188161,
+      "yoy_percent_cell": "Cuadro 3!V76"
+    },
+    {
+      "period": "2021-12",
+      "activity_id": "construction",
+      "original_index": 200.67172311128846,
+      "original_index_cell": "Cuadro 2!BE78",
+      "yoy_percent": 4.886047386235461,
+      "yoy_percent_cell": "Cuadro 3!BE77"
+    },
+    {
+      "period": "2021-12",
+      "activity_id": "metals",
+      "original_index": 100.56239396098483,
+      "original_index_cell": "Cuadro 2!BM78",
+      "yoy_percent": 9.34152538223887,
+      "yoy_percent_cell": "Cuadro 3!BM77"
+    },
+    {
+      "period": "2021-12",
+      "activity_id": "textiles",
+      "original_index": 68.23754525324517,
+      "original_index_cell": "Cuadro 2!V78",
+      "yoy_percent": 3.2602460662194375,
+      "yoy_percent_cell": "Cuadro 3!V77"
+    },
+    {
+      "period": "2022-01",
+      "activity_id": "construction",
+      "original_index": 174.66073665687838,
+      "original_index_cell": "Cuadro 2!BE79",
+      "yoy_percent": 0.1503989367554368,
+      "yoy_percent_cell": "Cuadro 3!BE78"
+    },
+    {
+      "period": "2022-01",
+      "activity_id": "metals",
+      "original_index": 88.95689681648902,
+      "original_index_cell": "Cuadro 2!BM79",
+      "yoy_percent": -4.3799971138421085,
+      "yoy_percent_cell": "Cuadro 3!BM78"
+    },
+    {
+      "period": "2022-01",
+      "activity_id": "textiles",
+      "original_index": 53.1258957305509,
+      "original_index_cell": "Cuadro 2!V79",
+      "yoy_percent": -4.579952454062635,
+      "yoy_percent_cell": "Cuadro 3!V78"
+    },
+    {
+      "period": "2022-02",
+      "activity_id": "construction",
+      "original_index": 182.9388085988873,
+      "original_index_cell": "Cuadro 2!BE80",
+      "yoy_percent": 16.694409493921896,
+      "yoy_percent_cell": "Cuadro 3!BE79"
+    },
+    {
+      "period": "2022-02",
+      "activity_id": "metals",
+      "original_index": 95.48676644066154,
+      "original_index_cell": "Cuadro 2!BM80",
+      "yoy_percent": 3.809364585001788,
+      "yoy_percent_cell": "Cuadro 3!BM79"
+    },
+    {
+      "period": "2022-02",
+      "activity_id": "textiles",
+      "original_index": 70.60042597926979,
+      "original_index_cell": "Cuadro 2!V80",
+      "yoy_percent": 5.344876720339613,
+      "yoy_percent_cell": "Cuadro 3!V79"
+    },
+    {
+      "period": "2022-03",
+      "activity_id": "construction",
+      "original_index": 195.78331852962833,
+      "original_index_cell": "Cuadro 2!BE81",
+      "yoy_percent": 5.019457615744756,
+      "yoy_percent_cell": "Cuadro 3!BE80"
+    },
+    {
+      "period": "2022-03",
+      "activity_id": "metals",
+      "original_index": 111.50091221436641,
+      "original_index_cell": "Cuadro 2!BM81",
+      "yoy_percent": 0.23365180267775543,
+      "yoy_percent_cell": "Cuadro 3!BM80"
+    },
+    {
+      "period": "2022-03",
+      "activity_id": "textiles",
+      "original_index": 86.47987094148945,
+      "original_index_cell": "Cuadro 2!V81",
+      "yoy_percent": 0.36999705052693344,
+      "yoy_percent_cell": "Cuadro 3!V80"
+    },
+    {
+      "period": "2022-04",
+      "activity_id": "construction",
+      "original_index": 203.47329297025217,
+      "original_index_cell": "Cuadro 2!BE82",
+      "yoy_percent": 13.020568552783459,
+      "yoy_percent_cell": "Cuadro 3!BE81"
+    },
+    {
+      "period": "2022-04",
+      "activity_id": "metals",
+      "original_index": 109.24669639453225,
+      "original_index_cell": "Cuadro 2!BM82",
+      "yoy_percent": -2.0843817064459103,
+      "yoy_percent_cell": "Cuadro 3!BM81"
+    },
+    {
+      "period": "2022-04",
+      "activity_id": "textiles",
+      "original_index": 87.62532934492134,
+      "original_index_cell": "Cuadro 2!V82",
+      "yoy_percent": -5.322965086795222,
+      "yoy_percent_cell": "Cuadro 3!V81"
+    },
+    {
+      "period": "2022-05",
+      "activity_id": "construction",
+      "original_index": 211.53627280816556,
+      "original_index_cell": "Cuadro 2!BE83",
+      "yoy_percent": 22.646618414992588,
+      "yoy_percent_cell": "Cuadro 3!BE82"
+    },
+    {
+      "period": "2022-05",
+      "activity_id": "metals",
+      "original_index": 111.22955495241814,
+      "original_index_cell": "Cuadro 2!BM83",
+      "yoy_percent": 5.729832120660802,
+      "yoy_percent_cell": "Cuadro 3!BM82"
+    },
+    {
+      "period": "2022-05",
+      "activity_id": "textiles",
+      "original_index": 96.43956355995194,
+      "original_index_cell": "Cuadro 2!V83",
+      "yoy_percent": 0.7324897684463565,
+      "yoy_percent_cell": "Cuadro 3!V82"
+    },
+    {
+      "period": "2022-06",
+      "activity_id": "construction",
+      "original_index": 213.9164847183392,
+      "original_index_cell": "Cuadro 2!BE84",
+      "yoy_percent": 16.232612643795605,
+      "yoy_percent_cell": "Cuadro 3!BE83"
+    },
+    {
+      "period": "2022-06",
+      "activity_id": "metals",
+      "original_index": 107.69796037698598,
+      "original_index_cell": "Cuadro 2!BM84",
+      "yoy_percent": -7.191852926972956,
+      "yoy_percent_cell": "Cuadro 3!BM83"
+    },
+    {
+      "period": "2022-06",
+      "activity_id": "textiles",
+      "original_index": 106.47017643866842,
+      "original_index_cell": "Cuadro 2!V84",
+      "yoy_percent": 0.43830314546494265,
+      "yoy_percent_cell": "Cuadro 3!V83"
+    },
+    {
+      "period": "2022-07",
+      "activity_id": "construction",
+      "original_index": 225.580578391814,
+      "original_index_cell": "Cuadro 2!BE85",
+      "yoy_percent": 10.658029854230278,
+      "yoy_percent_cell": "Cuadro 3!BE84"
+    },
+    {
+      "period": "2022-07",
+      "activity_id": "metals",
+      "original_index": 116.03191667259463,
+      "original_index_cell": "Cuadro 2!BM85",
+      "yoy_percent": 2.7129355218665268,
+      "yoy_percent_cell": "Cuadro 3!BM84"
+    },
+    {
+      "period": "2022-07",
+      "activity_id": "textiles",
+      "original_index": 106.36791478147643,
+      "original_index_cell": "Cuadro 2!V85",
+      "yoy_percent": -0.19705029831462184,
+      "yoy_percent_cell": "Cuadro 3!V84"
+    },
+    {
+      "period": "2022-08",
+      "activity_id": "construction",
+      "original_index": 230.5580130683004,
+      "original_index_cell": "Cuadro 2!BE86",
+      "yoy_percent": 10.141186672007493,
+      "yoy_percent_cell": "Cuadro 3!BE85"
+    },
+    {
+      "period": "2022-08",
+      "activity_id": "metals",
+      "original_index": 122.40248370085261,
+      "original_index_cell": "Cuadro 2!BM86",
+      "yoy_percent": 9.439523464489554,
+      "yoy_percent_cell": "Cuadro 3!BM85"
+    },
+    {
+      "period": "2022-08",
+      "activity_id": "textiles",
+      "original_index": 110.65754545207405,
+      "original_index_cell": "Cuadro 2!V86",
+      "yoy_percent": 15.326558987079352,
+      "yoy_percent_cell": "Cuadro 3!V85"
+    },
+    {
+      "period": "2022-09",
+      "activity_id": "construction",
+      "original_index": 232.97755939536927,
+      "original_index_cell": "Cuadro 2!BE87",
+      "yoy_percent": 8.975132201053299,
+      "yoy_percent_cell": "Cuadro 3!BE86"
+    },
+    {
+      "period": "2022-09",
+      "activity_id": "metals",
+      "original_index": 120.78961589728965,
+      "original_index_cell": "Cuadro 2!BM87",
+      "yoy_percent": 5.311797033709723,
+      "yoy_percent_cell": "Cuadro 3!BM86"
+    },
+    {
+      "period": "2022-09",
+      "activity_id": "textiles",
+      "original_index": 99.03624441959795,
+      "original_index_cell": "Cuadro 2!V87",
+      "yoy_percent": 2.3110780860930333,
+      "yoy_percent_cell": "Cuadro 3!V86"
+    },
+    {
+      "period": "2022-10",
+      "activity_id": "construction",
+      "original_index": 223.04820944457725,
+      "original_index_cell": "Cuadro 2!BE88",
+      "yoy_percent": -0.9896225483014689,
+      "yoy_percent_cell": "Cuadro 3!BE87"
+    },
+    {
+      "period": "2022-10",
+      "activity_id": "metals",
+      "original_index": 114.18017665385335,
+      "original_index_cell": "Cuadro 2!BM88",
+      "yoy_percent": 5.723810838923285,
+      "yoy_percent_cell": "Cuadro 3!BM87"
+    },
+    {
+      "period": "2022-10",
+      "activity_id": "textiles",
+      "original_index": 82.24620330085716,
+      "original_index_cell": "Cuadro 2!V88",
+      "yoy_percent": -6.146233614935923,
+      "yoy_percent_cell": "Cuadro 3!V87"
+    },
+    {
+      "period": "2022-11",
+      "activity_id": "construction",
+      "original_index": 217.06841870047722,
+      "original_index_cell": "Cuadro 2!BE89",
+      "yoy_percent": -0.3640021031624059,
+      "yoy_percent_cell": "Cuadro 3!BE88"
+    },
+    {
+      "period": "2022-11",
+      "activity_id": "metals",
+      "original_index": 119.0984866493247,
+      "original_index_cell": "Cuadro 2!BM89",
+      "yoy_percent": 6.4176858083960155,
+      "yoy_percent_cell": "Cuadro 3!BM88"
+    },
+    {
+      "period": "2022-11",
+      "activity_id": "textiles",
+      "original_index": 83.02781894482924,
+      "original_index_cell": "Cuadro 2!V89",
+      "yoy_percent": -5.278978497891643,
+      "yoy_percent_cell": "Cuadro 3!V88"
+    },
+    {
+      "period": "2022-12",
+      "activity_id": "construction",
+      "original_index": 188.48649638275265,
+      "original_index_cell": "Cuadro 2!BE90",
+      "yoy_percent": -6.072219114687201,
+      "yoy_percent_cell": "Cuadro 3!BE89"
+    },
+    {
+      "period": "2022-12",
+      "activity_id": "metals",
+      "original_index": 102.41559330169545,
+      "original_index_cell": "Cuadro 2!BM90",
+      "yoy_percent": 1.842835346013743,
+      "yoy_percent_cell": "Cuadro 3!BM89"
+    },
+    {
+      "period": "2022-12",
+      "activity_id": "textiles",
+      "original_index": 61.450160789147475,
+      "original_index_cell": "Cuadro 2!V90",
+      "yoy_percent": -9.946700806584047,
+      "yoy_percent_cell": "Cuadro 3!V89"
+    },
+    {
+      "period": "2023-01",
+      "activity_id": "construction",
+      "original_index": 179.57082313663196,
+      "original_index_cell": "Cuadro 2!BE91",
+      "yoy_percent": 2.811213655533493,
+      "yoy_percent_cell": "Cuadro 3!BE90"
+    },
+    {
+      "period": "2023-01",
+      "activity_id": "metals",
+      "original_index": 106.46457982877315,
+      "original_index_cell": "Cuadro 2!BM91",
+      "yoy_percent": 19.68108560306581,
+      "yoy_percent_cell": "Cuadro 3!BM90"
+    },
+    {
+      "period": "2023-01",
+      "activity_id": "textiles",
+      "original_index": 53.91517122158786,
+      "original_index_cell": "Cuadro 2!V91",
+      "yoy_percent": 1.4856699923519159,
+      "yoy_percent_cell": "Cuadro 3!V90"
+    },
+    {
+      "period": "2023-02",
+      "activity_id": "construction",
+      "original_index": 173.85754705139777,
+      "original_index_cell": "Cuadro 2!BE92",
+      "yoy_percent": -4.96409789537941,
+      "yoy_percent_cell": "Cuadro 3!BE91"
+    },
+    {
+      "period": "2023-02",
+      "activity_id": "metals",
+      "original_index": 99.1696869425319,
+      "original_index_cell": "Cuadro 2!BM92",
+      "yoy_percent": 3.8569957274226425,
+      "yoy_percent_cell": "Cuadro 3!BM91"
+    },
+    {
+      "period": "2023-02",
+      "activity_id": "textiles",
+      "original_index": 68.60858001823475,
+      "original_index_cell": "Cuadro 2!V92",
+      "yoy_percent": -2.821294536692875,
+      "yoy_percent_cell": "Cuadro 3!V91"
+    },
+    {
+      "period": "2023-03",
+      "activity_id": "construction",
+      "original_index": 209.1645034069841,
+      "original_index_cell": "Cuadro 2!BE93",
+      "yoy_percent": 6.834691013438274,
+      "yoy_percent_cell": "Cuadro 3!BE92"
+    },
+    {
+      "period": "2023-03",
+      "activity_id": "metals",
+      "original_index": 119.15760107493597,
+      "original_index_cell": "Cuadro 2!BM93",
+      "yoy_percent": 6.8669293448013775,
+      "yoy_percent_cell": "Cuadro 3!BM92"
+    },
+    {
+      "period": "2023-03",
+      "activity_id": "textiles",
+      "original_index": 84.65470766183019,
+      "original_index_cell": "Cuadro 2!V93",
+      "yoy_percent": -2.1105064794721216,
+      "yoy_percent_cell": "Cuadro 3!V92"
+    },
+    {
+      "period": "2023-04",
+      "activity_id": "construction",
+      "original_index": 201.9580544813653,
+      "original_index_cell": "Cuadro 2!BE94",
+      "yoy_percent": -0.7446866695711236,
+      "yoy_percent_cell": "Cuadro 3!BE93"
+    },
+    {
+      "period": "2023-04",
+      "activity_id": "metals",
+      "original_index": 111.16009491859768,
+      "original_index_cell": "Cuadro 2!BM94",
+      "yoy_percent": 1.7514474919730247,
+      "yoy_percent_cell": "Cuadro 3!BM93"
+    },
+    {
+      "period": "2023-04",
+      "activity_id": "textiles",
+      "original_index": 87.05151996985751,
+      "original_index_cell": "Cuadro 2!V94",
+      "yoy_percent": -0.654844186439675,
+      "yoy_percent_cell": "Cuadro 3!V93"
+    },
+    {
+      "period": "2023-05",
+      "activity_id": "construction",
+      "original_index": 204.88702947602883,
+      "original_index_cell": "Cuadro 2!BE95",
+      "yoy_percent": -3.143311189077579,
+      "yoy_percent_cell": "Cuadro 3!BE94"
+    },
+    {
+      "period": "2023-05",
+      "activity_id": "metals",
+      "original_index": 110.39911618835379,
+      "original_index_cell": "Cuadro 2!BM95",
+      "yoy_percent": -0.7465990171583456,
+      "yoy_percent_cell": "Cuadro 3!BM94"
+    },
+    {
+      "period": "2023-05",
+      "activity_id": "textiles",
+      "original_index": 97.10378166659221,
+      "original_index_cell": "Cuadro 2!V95",
+      "yoy_percent": 0.6887402660500186,
+      "yoy_percent_cell": "Cuadro 3!V94"
+    },
+    {
+      "period": "2023-06",
+      "activity_id": "construction",
+      "original_index": 206.44985301559865,
+      "original_index_cell": "Cuadro 2!BE96",
+      "yoy_percent": -3.4904424091353974,
+      "yoy_percent_cell": "Cuadro 3!BE95"
+    },
+    {
+      "period": "2023-06",
+      "activity_id": "metals",
+      "original_index": 109.76965840954276,
+      "original_index_cell": "Cuadro 2!BM96",
+      "yoy_percent": 1.9236186324281306,
+      "yoy_percent_cell": "Cuadro 3!BM95"
+    },
+    {
+      "period": "2023-06",
+      "activity_id": "textiles",
+      "original_index": 103.40035400416072,
+      "original_index_cell": "Cuadro 2!V96",
+      "yoy_percent": -2.883269791776911,
+      "yoy_percent_cell": "Cuadro 3!V95"
+    },
+    {
+      "period": "2023-07",
+      "activity_id": "construction",
+      "original_index": 208.1349010603504,
+      "original_index_cell": "Cuadro 2!BE97",
+      "yoy_percent": -7.733678783801139,
+      "yoy_percent_cell": "Cuadro 3!BE96"
+    },
+    {
+      "period": "2023-07",
+      "activity_id": "metals",
+      "original_index": 110.7719501345878,
+      "original_index_cell": "Cuadro 2!BM97",
+      "yoy_percent": -4.5332066286975135,
+      "yoy_percent_cell": "Cuadro 3!BM96"
+    },
+    {
+      "period": "2023-07",
+      "activity_id": "textiles",
+      "original_index": 110.73726097182463,
+      "original_index_cell": "Cuadro 2!V97",
+      "yoy_percent": 4.107767083076368,
+      "yoy_percent_cell": "Cuadro 3!V96"
+    },
+    {
+      "period": "2023-08",
+      "activity_id": "construction",
+      "original_index": 229.03509957123887,
+      "original_index_cell": "Cuadro 2!BE98",
+      "yoy_percent": -0.6605337532165407,
+      "yoy_percent_cell": "Cuadro 3!BE97"
+    },
+    {
+      "period": "2023-08",
+      "activity_id": "metals",
+      "original_index": 122.65979746008826,
+      "original_index_cell": "Cuadro 2!BM98",
+      "yoy_percent": 0.2102193938029302,
+      "yoy_percent_cell": "Cuadro 3!BM97"
+    },
+    {
+      "period": "2023-08",
+      "activity_id": "textiles",
+      "original_index": 104.98999963216949,
+      "original_index_cell": "Cuadro 2!V98",
+      "yoy_percent": -5.121698476819361,
+      "yoy_percent_cell": "Cuadro 3!V97"
+    },
+    {
+      "period": "2023-09",
+      "activity_id": "construction",
+      "original_index": 217.43240596316156,
+      "original_index_cell": "Cuadro 2!BE99",
+      "yoy_percent": -6.672382298342811,
+      "yoy_percent_cell": "Cuadro 3!BE98"
+    },
+    {
+      "period": "2023-09",
+      "activity_id": "metals",
+      "original_index": 116.64554475400425,
+      "original_index_cell": "Cuadro 2!BM99",
+      "yoy_percent": -3.430817386495548,
+      "yoy_percent_cell": "Cuadro 3!BM98"
+    },
+    {
+      "period": "2023-09",
+      "activity_id": "textiles",
+      "original_index": 100.87145461323864,
+      "original_index_cell": "Cuadro 2!V99",
+      "yoy_percent": 1.8530692519652234,
+      "yoy_percent_cell": "Cuadro 3!V98"
+    },
+    {
+      "period": "2023-10",
+      "activity_id": "construction",
+      "original_index": 218.22120492831462,
+      "original_index_cell": "Cuadro 2!BE100",
+      "yoy_percent": -2.1641081666975026,
+      "yoy_percent_cell": "Cuadro 3!BE99"
+    },
+    {
+      "period": "2023-10",
+      "activity_id": "metals",
+      "original_index": 113.62500776658162,
+      "original_index_cell": "Cuadro 2!BM100",
+      "yoy_percent": -0.4862217799458932,
+      "yoy_percent_cell": "Cuadro 3!BM99"
+    },
+    {
+      "period": "2023-10",
+      "activity_id": "textiles",
+      "original_index": 96.50738637579265,
+      "original_index_cell": "Cuadro 2!V100",
+      "yoy_percent": 17.339624812549687,
+      "yoy_percent_cell": "Cuadro 3!V99"
+    },
+    {
+      "period": "2023-11",
+      "activity_id": "construction",
+      "original_index": 198.67890723873194,
+      "original_index_cell": "Cuadro 2!BE101",
+      "yoy_percent": -8.471758154335717,
+      "yoy_percent_cell": "Cuadro 3!BE100"
+    },
+    {
+      "period": "2023-11",
+      "activity_id": "metals",
+      "original_index": 111.9173466017872,
+      "original_index_cell": "Cuadro 2!BM101",
+      "yoy_percent": -6.029581273086819,
+      "yoy_percent_cell": "Cuadro 3!BM100"
+    },
+    {
+      "period": "2023-11",
+      "activity_id": "textiles",
+      "original_index": 88.58874874157614,
+      "original_index_cell": "Cuadro 2!V101",
+      "yoy_percent": 6.697670572849887,
+      "yoy_percent_cell": "Cuadro 3!V100"
+    },
+    {
+      "period": "2023-12",
+      "activity_id": "construction",
+      "original_index": 164.42304325266846,
+      "original_index_cell": "Cuadro 2!BE102",
+      "yoy_percent": -12.766672197683278,
+      "yoy_percent_cell": "Cuadro 3!BE101"
+    },
+    {
+      "period": "2023-12",
+      "activity_id": "metals",
+      "original_index": 85.10840697693219,
+      "original_index_cell": "Cuadro 2!BM102",
+      "yoy_percent": -16.898975797347404,
+      "yoy_percent_cell": "Cuadro 3!BM101"
+    },
+    {
+      "period": "2023-12",
+      "activity_id": "textiles",
+      "original_index": 61.7874851576548,
+      "original_index_cell": "Cuadro 2!V102",
+      "yoy_percent": 0.548939765454449,
+      "yoy_percent_cell": "Cuadro 3!V101"
+    },
+    {
+      "period": "2024-01",
+      "activity_id": "construction",
+      "original_index": 138.03559764729022,
+      "original_index_cell": "Cuadro 2!BE103",
+      "yoy_percent": -23.13027515485541,
+      "yoy_percent_cell": "Cuadro 3!BE102"
+    },
+    {
+      "period": "2024-01",
+      "activity_id": "metals",
+      "original_index": 90.14673554278392,
+      "original_index_cell": "Cuadro 2!BM103",
+      "yoy_percent": -15.32701703442892,
+      "yoy_percent_cell": "Cuadro 3!BM102"
+    },
+    {
+      "period": "2024-01",
+      "activity_id": "textiles",
+      "original_index": 50.774231607703555,
+      "original_index_cell": "Cuadro 2!V103",
+      "yoy_percent": -5.825706462055464,
+      "yoy_percent_cell": "Cuadro 3!V102"
+    },
+    {
+      "period": "2024-02",
+      "activity_id": "construction",
+      "original_index": 134.5473064318967,
+      "original_index_cell": "Cuadro 2!BE104",
+      "yoy_percent": -22.610603500508233,
+      "yoy_percent_cell": "Cuadro 3!BE103"
+    },
+    {
+      "period": "2024-02",
+      "activity_id": "metals",
+      "original_index": 92.03085009663761,
+      "original_index_cell": "Cuadro 2!BM104",
+      "yoy_percent": -7.198607826634756,
+      "yoy_percent_cell": "Cuadro 3!BM103"
+    },
+    {
+      "period": "2024-02",
+      "activity_id": "textiles",
+      "original_index": 62.671469895953,
+      "original_index_cell": "Cuadro 2!V104",
+      "yoy_percent": -8.653597145872695,
+      "yoy_percent_cell": "Cuadro 3!V103"
+    },
+    {
+      "period": "2024-03",
+      "activity_id": "construction",
+      "original_index": 126.33351268335076,
+      "original_index_cell": "Cuadro 2!BE105",
+      "yoy_percent": -39.600883216051265,
+      "yoy_percent_cell": "Cuadro 3!BE104"
+    },
+    {
+      "period": "2024-03",
+      "activity_id": "metals",
+      "original_index": 87.93599377101684,
+      "original_index_cell": "Cuadro 2!BM105",
+      "yoy_percent": -26.201943495223972,
+      "yoy_percent_cell": "Cuadro 3!BM104"
+    },
+    {
+      "period": "2024-03",
+      "activity_id": "textiles",
+      "original_index": 63.05520593305151,
+      "original_index_cell": "Cuadro 2!V105",
+      "yoy_percent": -25.514826434770896,
+      "yoy_percent_cell": "Cuadro 3!V104"
+    },
+    {
+      "period": "2024-04",
+      "activity_id": "construction",
+      "original_index": 121.6302676739049,
+      "original_index_cell": "Cuadro 2!BE106",
+      "yoy_percent": -39.77449030876472,
+      "yoy_percent_cell": "Cuadro 3!BE105"
+    },
+    {
+      "period": "2024-04",
+      "activity_id": "metals",
+      "original_index": 90.12273078059611,
+      "original_index_cell": "Cuadro 2!BM106",
+      "yoy_percent": -18.92528443179829,
+      "yoy_percent_cell": "Cuadro 3!BM105"
+    },
+    {
+      "period": "2024-04",
+      "activity_id": "textiles",
+      "original_index": 63.31409355054925,
+      "original_index_cell": "Cuadro 2!V106",
+      "yoy_percent": -27.268250373488698,
+      "yoy_percent_cell": "Cuadro 3!V105"
+    },
+    {
+      "period": "2024-05",
+      "activity_id": "construction",
+      "original_index": 147.218936803503,
+      "original_index_cell": "Cuadro 2!BE107",
+      "yoy_percent": -28.146287649347187,
+      "yoy_percent_cell": "Cuadro 3!BE106"
+    },
+    {
+      "period": "2024-05",
+      "activity_id": "metals",
+      "original_index": 98.93225695459509,
+      "original_index_cell": "Cuadro 2!BM107",
+      "yoy_percent": -10.386731008058874,
+      "yoy_percent_cell": "Cuadro 3!BM106"
+    },
+    {
+      "period": "2024-05",
+      "activity_id": "textiles",
+      "original_index": 75.68820761401612,
+      "original_index_cell": "Cuadro 2!V107",
+      "yoy_percent": -22.054315171891957,
+      "yoy_percent_cell": "Cuadro 3!V106"
+    },
+    {
+      "period": "2024-06",
+      "activity_id": "construction",
+      "original_index": 144.14816603281227,
+      "original_index_cell": "Cuadro 2!BE108",
+      "yoy_percent": -30.177636880215687,
+      "yoy_percent_cell": "Cuadro 3!BE107"
+    },
+    {
+      "period": "2024-06",
+      "activity_id": "metals",
+      "original_index": 87.01137124190129,
+      "original_index_cell": "Cuadro 2!BM108",
+      "yoy_percent": -20.7327666837879,
+      "yoy_percent_cell": "Cuadro 3!BM107"
+    },
+    {
+      "period": "2024-06",
+      "activity_id": "textiles",
+      "original_index": 78.67797660557494,
+      "original_index_cell": "Cuadro 2!V108",
+      "yoy_percent": -23.90937404101244,
+      "yoy_percent_cell": "Cuadro 3!V107"
+    },
+    {
+      "period": "2024-07",
+      "activity_id": "construction",
+      "original_index": 174.4657914492414,
+      "original_index_cell": "Cuadro 2!BE109",
+      "yoy_percent": -16.176580400298334,
+      "yoy_percent_cell": "Cuadro 3!BE108"
+    },
+    {
+      "period": "2024-07",
+      "activity_id": "metals",
+      "original_index": 101.27635985033315,
+      "original_index_cell": "Cuadro 2!BM109",
+      "yoy_percent": -8.572197449550643,
+      "yoy_percent_cell": "Cuadro 3!BM108"
+    },
+    {
+      "period": "2024-07",
+      "activity_id": "textiles",
+      "original_index": 93.98884652874774,
+      "original_index_cell": "Cuadro 2!V109",
+      "yoy_percent": -15.124461537240165,
+      "yoy_percent_cell": "Cuadro 3!V108"
+    },
+    {
+      "period": "2024-08",
+      "activity_id": "construction",
+      "original_index": 175.1548153081236,
+      "original_index_cell": "Cuadro 2!BE110",
+      "yoy_percent": -23.524902673861305,
+      "yoy_percent_cell": "Cuadro 3!BE109"
+    },
+    {
+      "period": "2024-08",
+      "activity_id": "metals",
+      "original_index": 109.58906302070793,
+      "original_index_cell": "Cuadro 2!BM110",
+      "yoy_percent": -10.656086761950974,
+      "yoy_percent_cell": "Cuadro 3!BM109"
+    },
+    {
+      "period": "2024-08",
+      "activity_id": "textiles",
+      "original_index": 94.7447004465239,
+      "original_index_cell": "Cuadro 2!V110",
+      "yoy_percent": -9.75835719739004,
+      "yoy_percent_cell": "Cuadro 3!V109"
+    },
+    {
+      "period": "2024-09",
+      "activity_id": "construction",
+      "original_index": 176.25790585802994,
+      "original_index_cell": "Cuadro 2!BE111",
+      "yoy_percent": -18.93668973708897,
+      "yoy_percent_cell": "Cuadro 3!BE110"
+    },
+    {
+      "period": "2024-09",
+      "activity_id": "metals",
+      "original_index": 103.06180518364513,
+      "original_index_cell": "Cuadro 2!BM111",
+      "yoy_percent": -11.645313671436057,
+      "yoy_percent_cell": "Cuadro 3!BM110"
+    },
+    {
+      "period": "2024-09",
+      "activity_id": "textiles",
+      "original_index": 82.27867857393515,
+      "original_index_cell": "Cuadro 2!V111",
+      "yoy_percent": -18.43214823320622,
+      "yoy_percent_cell": "Cuadro 3!V110"
+    },
+    {
+      "period": "2024-10",
+      "activity_id": "construction",
+      "original_index": 172.97376986008302,
+      "original_index_cell": "Cuadro 2!BE112",
+      "yoy_percent": -20.73466466427739,
+      "yoy_percent_cell": "Cuadro 3!BE111"
+    },
+    {
+      "period": "2024-10",
+      "activity_id": "metals",
+      "original_index": 99.79256690395611,
+      "original_index_cell": "Cuadro 2!BM112",
+      "yoy_percent": -12.173764503533675,
+      "yoy_percent_cell": "Cuadro 3!BM111"
+    },
+    {
+      "period": "2024-10",
+      "activity_id": "textiles",
+      "original_index": 76.24612819025289,
+      "original_index_cell": "Cuadro 2!V112",
+      "yoy_percent": -20.994515494020234,
+      "yoy_percent_cell": "Cuadro 3!V111"
+    },
+    {
+      "period": "2024-11",
+      "activity_id": "construction",
+      "original_index": 167.74305991383204,
+      "original_index_cell": "Cuadro 2!BE113",
+      "yoy_percent": -15.570775858822046,
+      "yoy_percent_cell": "Cuadro 3!BE112"
+    },
+    {
+      "period": "2024-11",
+      "activity_id": "metals",
+      "original_index": 97.73863447099517,
+      "original_index_cell": "Cuadro 2!BM113",
+      "yoy_percent": -12.66891376655066,
+      "yoy_percent_cell": "Cuadro 3!BM112"
+    },
+    {
+      "period": "2024-11",
+      "activity_id": "textiles",
+      "original_index": 73.29485718816181,
+      "original_index_cell": "Cuadro 2!V113",
+      "yoy_percent": -17.2639209500841,
+      "yoy_percent_cell": "Cuadro 3!V112"
+    },
+    {
+      "period": "2024-12",
+      "activity_id": "construction",
+      "original_index": 162.2034308885501,
+      "original_index_cell": "Cuadro 2!BE114",
+      "yoy_percent": -1.3499399598799044,
+      "yoy_percent_cell": "Cuadro 3!BE113"
+    },
+    {
+      "period": "2024-12",
+      "activity_id": "metals",
+      "original_index": 86.03707693290058,
+      "original_index_cell": "Cuadro 2!BM114",
+      "yoy_percent": 1.091161248289012,
+      "yoy_percent_cell": "Cuadro 3!BM113"
+    },
+    {
+      "period": "2024-12",
+      "activity_id": "textiles",
+      "original_index": 62.362370187776705,
+      "original_index_cell": "Cuadro 2!V114",
+      "yoy_percent": 0.9304230924030037,
+      "yoy_percent_cell": "Cuadro 3!V113"
+    },
+    {
+      "period": "2025-01",
+      "activity_id": "construction",
+      "original_index": 145.36925983340436,
+      "original_index_cell": "Cuadro 2!BE115",
+      "yoy_percent": 5.31287748313531,
+      "yoy_percent_cell": "Cuadro 3!BE114"
+    },
+    {
+      "period": "2025-01",
+      "activity_id": "metals",
+      "original_index": 86.11809454142956,
+      "original_index_cell": "Cuadro 2!BM115",
+      "yoy_percent": -4.4689815744269055,
+      "yoy_percent_cell": "Cuadro 3!BM114"
+    },
+    {
+      "period": "2025-01",
+      "activity_id": "textiles",
+      "original_index": 46.32468569634137,
+      "original_index_cell": "Cuadro 2!V115",
+      "yoy_percent": -8.763393891887262,
+      "yoy_percent_cell": "Cuadro 3!V114"
+    },
+    {
+      "period": "2025-02",
+      "activity_id": "construction",
+      "original_index": 149.67992817471517,
+      "original_index_cell": "Cuadro 2!BE116",
+      "yoy_percent": 11.247064058081406,
+      "yoy_percent_cell": "Cuadro 3!BE115"
+    },
+    {
+      "period": "2025-02",
+      "activity_id": "metals",
+      "original_index": 81.55688698404961,
+      "original_index_cell": "Cuadro 2!BM116",
+      "yoy_percent": -11.380926180285996,
+      "yoy_percent_cell": "Cuadro 3!BM115"
+    },
+    {
+      "period": "2025-02",
+      "activity_id": "textiles",
+      "original_index": 65.89799253208027,
+      "original_index_cell": "Cuadro 2!V116",
+      "yoy_percent": 5.148311730176317,
+      "yoy_percent_cell": "Cuadro 3!V115"
+    },
+    {
+      "period": "2025-03",
+      "activity_id": "construction",
+      "original_index": 141.17007098583082,
+      "original_index_cell": "Cuadro 2!BE117",
+      "yoy_percent": 11.743960875739461,
+      "yoy_percent_cell": "Cuadro 3!BE116"
+    },
+    {
+      "period": "2025-03",
+      "activity_id": "metals",
+      "original_index": 81.45448634389388,
+      "original_index_cell": "Cuadro 2!BM117",
+      "yoy_percent": -7.370710387376363,
+      "yoy_percent_cell": "Cuadro 3!BM116"
+    },
+    {
+      "period": "2025-03",
+      "activity_id": "textiles",
+      "original_index": 75.8666048272067,
+      "original_index_cell": "Cuadro 2!V117",
+      "yoy_percent": 20.317749668056933,
+      "yoy_percent_cell": "Cuadro 3!V116"
+    },
+    {
+      "period": "2025-04",
+      "activity_id": "construction",
+      "original_index": 159.4755411080633,
+      "original_index_cell": "Cuadro 2!BE118",
+      "yoy_percent": 31.115012864744273,
+      "yoy_percent_cell": "Cuadro 3!BE117"
+    },
+    {
+      "period": "2025-04",
+      "activity_id": "metals",
+      "original_index": 84.96684347180825,
+      "original_index_cell": "Cuadro 2!BM118",
+      "yoy_percent": -5.720962141437852,
+      "yoy_percent_cell": "Cuadro 3!BM117"
+    },
+    {
+      "period": "2025-04",
+      "activity_id": "textiles",
+      "original_index": 79.16644486254324,
+      "original_index_cell": "Cuadro 2!V118",
+      "yoy_percent": 25.03763447128506,
+      "yoy_percent_cell": "Cuadro 3!V117"
+    },
+    {
+      "period": "2025-05",
+      "activity_id": "construction",
+      "original_index": 158.66793837288228,
+      "original_index_cell": "Cuadro 2!BE119",
+      "yoy_percent": 7.776853859949128,
+      "yoy_percent_cell": "Cuadro 3!BE118"
+    },
+    {
+      "period": "2025-05",
+      "activity_id": "metals",
+      "original_index": 85.6563710371644,
+      "original_index_cell": "Cuadro 2!BM119",
+      "yoy_percent": -13.419168152126204,
+      "yoy_percent_cell": "Cuadro 3!BM118"
+    },
+    {
+      "period": "2025-05",
+      "activity_id": "textiles",
+      "original_index": 82.26610080647576,
+      "original_index_cell": "Cuadro 2!V119",
+      "yoy_percent": 8.690776806348268,
+      "yoy_percent_cell": "Cuadro 3!V118"
+    },
+    {
+      "period": "2025-06",
+      "activity_id": "construction",
+      "original_index": 161.0867171991337,
+      "original_index_cell": "Cuadro 2!BE120",
+      "yoy_percent": 11.750792002768677,
+      "yoy_percent_cell": "Cuadro 3!BE119"
+    },
+    {
+      "period": "2025-06",
+      "activity_id": "metals",
+      "original_index": 83.53235521343177,
+      "original_index_cell": "Cuadro 2!BM120",
+      "yoy_percent": -3.9983463986534247,
+      "yoy_percent_cell": "Cuadro 3!BM119"
+    },
+    {
+      "period": "2025-06",
+      "activity_id": "textiles",
+      "original_index": 82.81280205210852,
+      "original_index_cell": "Cuadro 2!V120",
+      "yoy_percent": 5.255378474286545,
+      "yoy_percent_cell": "Cuadro 3!V119"
+    },
+    {
+      "period": "2025-07",
+      "activity_id": "construction",
+      "original_index": 167.49112777049808,
+      "original_index_cell": "Cuadro 2!BE121",
+      "yoy_percent": -3.997725640543422,
+      "yoy_percent_cell": "Cuadro 3!BE120"
+    },
+    {
+      "period": "2025-07",
+      "activity_id": "metals",
+      "original_index": 92.54436380203461,
+      "original_index_cell": "Cuadro 2!BM121",
+      "yoy_percent": -8.621948953539345,
+      "yoy_percent_cell": "Cuadro 3!BM120"
+    },
+    {
+      "period": "2025-07",
+      "activity_id": "textiles",
+      "original_index": 84.22031768199192,
+      "original_index_cell": "Cuadro 2!V121",
+      "yoy_percent": -10.393285168967353,
+      "yoy_percent_cell": "Cuadro 3!V120"
+    },
+    {
+      "period": "2025-08",
+      "activity_id": "construction",
+      "original_index": 172.59999696197593,
+      "original_index_cell": "Cuadro 2!BE122",
+      "yoy_percent": -1.4586058291651085,
+      "yoy_percent_cell": "Cuadro 3!BE121"
+    },
+    {
+      "period": "2025-08",
+      "activity_id": "metals",
+      "original_index": 90.13387647201753,
+      "original_index_cell": "Cuadro 2!BM122",
+      "yoy_percent": -17.752854173973674,
+      "yoy_percent_cell": "Cuadro 3!BM121"
+    },
+    {
+      "period": "2025-08",
+      "activity_id": "textiles",
+      "original_index": 76.75517027903567,
+      "original_index_cell": "Cuadro 2!V122",
+      "yoy_percent": -18.987373523484763,
+      "yoy_percent_cell": "Cuadro 3!V121"
+    },
+    {
+      "period": "2025-09",
+      "activity_id": "construction",
+      "original_index": 174.8535712372673,
+      "original_index_cell": "Cuadro 2!BE123",
+      "yoy_percent": -0.7967498614750355,
+      "yoy_percent_cell": "Cuadro 3!BE122"
+    },
+    {
+      "period": "2025-09",
+      "activity_id": "metals",
+      "original_index": 90.40721728127484,
+      "original_index_cell": "Cuadro 2!BM123",
+      "yoy_percent": -12.278639870339134,
+      "yoy_percent_cell": "Cuadro 3!BM122"
+    },
+    {
+      "period": "2025-09",
+      "activity_id": "textiles",
+      "original_index": 65.22538410443126,
+      "original_index_cell": "Cuadro 2!V123",
+      "yoy_percent": -20.72626197342231,
+      "yoy_percent_cell": "Cuadro 3!V122"
+    },
+    {
+      "period": "2025-10",
+      "activity_id": "construction",
+      "original_index": 187.19364125572727,
+      "original_index_cell": "Cuadro 2!BE124",
+      "yoy_percent": 8.220825277235136,
+      "yoy_percent_cell": "Cuadro 3!BE123"
+    },
+    {
+      "period": "2025-10",
+      "activity_id": "metals",
+      "original_index": 90.39244714094299,
+      "original_index_cell": "Cuadro 2!BM124",
+      "yoy_percent": -9.419659253840152,
+      "yoy_percent_cell": "Cuadro 3!BM123"
+    },
+    {
+      "period": "2025-10",
+      "activity_id": "textiles",
+      "original_index": 57.636167073717395,
+      "original_index_cell": "Cuadro 2!V124",
+      "yoy_percent": -24.407745754773345,
+      "yoy_percent_cell": "Cuadro 3!V123"
+    },
+    {
+      "period": "2025-11",
+      "activity_id": "construction",
+      "original_index": 162.58430316921874,
+      "original_index_cell": "Cuadro 2!BE125",
+      "yoy_percent": -3.075392059297897,
+      "yoy_percent_cell": "Cuadro 3!BE124"
+    },
+    {
+      "period": "2025-11",
+      "activity_id": "metals",
+      "original_index": 81.49528788956908,
+      "original_index_cell": "Cuadro 2!BM125",
+      "yoy_percent": -16.61916668811905,
+      "yoy_percent_cell": "Cuadro 3!BM124"
+    },
+    {
+      "period": "2025-11",
+      "activity_id": "textiles",
+      "original_index": 47.10621178595289,
+      "original_index_cell": "Cuadro 2!V125",
+      "yoy_percent": -35.73053609338197,
+      "yoy_percent_cell": "Cuadro 3!V124"
+    },
+    {
+      "period": "2025-12",
+      "activity_id": "construction",
+      "original_index": 154.2563436740744,
+      "original_index_cell": "Cuadro 2!BE126",
+      "yoy_percent": -4.899456917120403,
+      "yoy_percent_cell": "Cuadro 3!BE125"
+    },
+    {
+      "period": "2025-12",
+      "activity_id": "metals",
+      "original_index": 78.88614396695408,
+      "original_index_cell": "Cuadro 2!BM126",
+      "yoy_percent": -8.311455038765942,
+      "yoy_percent_cell": "Cuadro 3!BM125"
+    },
+    {
+      "period": "2025-12",
+      "activity_id": "textiles",
+      "original_index": 45.915084264276395,
+      "original_index_cell": "Cuadro 2!V126",
+      "yoy_percent": -26.373734471567673,
+      "yoy_percent_cell": "Cuadro 3!V125"
+    },
+    {
+      "period": "2026-01",
+      "activity_id": "construction",
+      "original_index": 140.37935326863408,
+      "original_index_cell": "Cuadro 2!BE127",
+      "yoy_percent": -3.4325734137250095,
+      "yoy_percent_cell": "Cuadro 3!BE126"
+    },
+    {
+      "period": "2026-01",
+      "activity_id": "metals",
+      "original_index": 79.37593368066906,
+      "original_index_cell": "Cuadro 2!BM127",
+      "yoy_percent": -7.828971247752108,
+      "yoy_percent_cell": "Cuadro 3!BM126"
+    },
+    {
+      "period": "2026-01",
+      "activity_id": "textiles",
+      "original_index": 34.306724601690995,
+      "original_index_cell": "Cuadro 2!V127",
+      "yoy_percent": -25.94288749939544,
+      "yoy_percent_cell": "Cuadro 3!V126"
+    },
+    {
+      "period": "2026-02",
+      "activity_id": "construction",
+      "original_index": 134.47688823189398,
+      "original_index_cell": "Cuadro 2!BE128",
+      "yoy_percent": -10.157033162840193,
+      "yoy_percent_cell": "Cuadro 3!BE127"
+    },
+    {
+      "period": "2026-02",
+      "activity_id": "metals",
+      "original_index": 77.12875026089384,
+      "original_index_cell": "Cuadro 2!BM128",
+      "yoy_percent": -5.429506798146676,
+      "yoy_percent_cell": "Cuadro 3!BM127"
+    },
+    {
+      "period": "2026-02",
+      "activity_id": "textiles",
+      "original_index": 44.82867143880543,
+      "original_index_cell": "Cuadro 2!V128",
+      "yoy_percent": -31.972629641210887,
+      "yoy_percent_cell": "Cuadro 3!V127"
+    },
+    {
+      "period": "2026-03",
+      "activity_id": "construction",
+      "original_index": 160.30501761654222,
+      "original_index_cell": "Cuadro 2!BE129",
+      "yoy_percent": 13.554534964165299,
+      "yoy_percent_cell": "Cuadro 3!BE128"
+    },
+    {
+      "period": "2026-03",
+      "activity_id": "metals",
+      "original_index": 89.15052601453547,
+      "original_index_cell": "Cuadro 2!BM129",
+      "yoy_percent": 9.448269845014522,
+      "yoy_percent_cell": "Cuadro 3!BM128"
+    },
+    {
+      "period": "2026-03",
+      "activity_id": "textiles",
+      "original_index": 58.3143636747273,
+      "original_index_cell": "Cuadro 2!V129",
+      "yoy_percent": -23.135661853402127,
+      "yoy_percent_cell": "Cuadro 3!V128"
+    },
+    {
+      "period": "2026-04",
+      "activity_id": "construction",
+      "original_index": 140.64011167136894,
+      "original_index_cell": "Cuadro 2!BE130",
+      "yoy_percent": -11.810857831754376,
+      "yoy_percent_cell": "Cuadro 3!BE129"
+    },
+    {
+      "period": "2026-04",
+      "activity_id": "metals",
+      "original_index": 83.70926910468783,
+      "original_index_cell": "Cuadro 2!BM130",
+      "yoy_percent": -1.4800765989826061,
+      "yoy_percent_cell": "Cuadro 3!BM129"
+    },
+    {
+      "period": "2026-04",
+      "activity_id": "textiles",
+      "original_index": 58.86948934985327,
+      "original_index_cell": "Cuadro 2!V130",
+      "yoy_percent": -25.638331426820542,
+      "yoy_percent_cell": "Cuadro 3!V129"
+    },
+    {
+      "period": "2026-05",
+      "activity_id": "construction",
+      "original_index": 159.9909179069933,
+      "original_index_cell": "Cuadro 2!BE131",
+      "yoy_percent": 0.8338039478410053,
+      "yoy_percent_cell": "Cuadro 3!BE130"
+    },
+    {
+      "period": "2026-05",
+      "activity_id": "metals",
+      "original_index": 84.44051871846916,
+      "original_index_cell": "Cuadro 2!BM131",
+      "yoy_percent": -1.419453455677811,
+      "yoy_percent_cell": "Cuadro 3!BM130"
+    },
+    {
+      "period": "2026-05",
+      "activity_id": "textiles",
+      "original_index": 60.80858751700233,
+      "original_index_cell": "Cuadro 2!V131",
+      "yoy_percent": -26.08305617881473,
+      "yoy_percent_cell": "Cuadro 3!V130"
+    },
+    {
+      "period": "2026-06",
+      "activity_id": "construction",
+      "original_index": 152.34066163367345,
+      "original_index_cell": "Cuadro 2!BE132",
+      "yoy_percent": -5.429408282402619,
+      "yoy_percent_cell": "Cuadro 3!BE131"
+    },
+    {
+      "period": "2026-06",
+      "activity_id": "metals",
+      "original_index": 86.54691440672396,
+      "original_index_cell": "Cuadro 2!BM132",
+      "yoy_percent": 3.6088521454827287,
+      "yoy_percent_cell": "Cuadro 3!BM131"
+    },
+    {
+      "period": "2026-06",
+      "activity_id": "textiles",
+      "original_index": 69.57962776655536,
+      "original_index_cell": "Cuadro 2!V132",
+      "yoy_percent": -15.979623871712988,
+      "yoy_percent_cell": "Cuadro 3!V131"
+    },
+    {
+      "period": "2026-07",
+      "activity_id": "construction",
+      "original_index": 155.97496987959033,
+      "original_index_cell": "Cuadro 2!BE133",
+      "yoy_percent": -6.875682338641582,
+      "yoy_percent_cell": "Cuadro 3!BE132"
+    },
+    {
+      "period": "2026-07",
+      "activity_id": "metals",
+      "original_index": 84.75016212608219,
+      "original_index_cell": "Cuadro 2!BM133",
+      "yoy_percent": -8.422124649995226,
+      "yoy_percent_cell": "Cuadro 3!BM132"
+    },
+    {
+      "period": "2026-07",
+      "activity_id": "textiles",
+      "original_index": 73.2896496249277,
+      "original_index_cell": "Cuadro 2!V133",
+      "yoy_percent": -12.978659256947239,
+      "yoy_percent_cell": "Cuadro 3!V132"
+    }
+  ]
+}

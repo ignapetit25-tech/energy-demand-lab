@@ -24,6 +24,21 @@ const assert = require('assert/strict');
   assert.match(await page.locator('#alert-summary').innerText(),/6 actividades en prioridad/);
   assert.match(await page.locator('#sensitivity-summary').innerText(),/entre 4 y 8/);
   const production=await page.locator('#production-rows').innerText();
+  assert.equal(await page.locator('#production-period option').count(),43);
+  const initialAlerts=await page.locator('#alert-rows').innerText();
+  for(const p of await page.locator('#production-period option').evaluateAll(x=>x.map(o=>o.value))){
+   await page.selectOption('#production-period',p);
+   assert.equal(await page.locator('#production-history-rows tr').count(),3);
+   const rates=await page.evaluate(p=>window.SECTOR_ALERTS.production_history.comparisons.filter(r=>r.period===p).map(r=>r.yoy_percent),p);
+   const shown=await page.locator('#production-history-rows td:nth-child(3)').allTextContents();
+   assert.deepEqual(shown,rates.map(v=>new Intl.NumberFormat('es-AR',{maximumFractionDigits:1,minimumFractionDigits:1,signDisplay:'exceptZero'}).format(v)+'%'));
+   assert.equal(await page.locator('#production-rows').innerText(),production);
+   assert.equal(await page.locator('#alert-rows').innerText(),initialAlerts);
+  }
+  await page.selectOption('#production-period','2026-07');
+  await page.locator('#production-period').focus();await page.keyboard.press('End');await page.keyboard.press('Enter');
+  assert.equal(await page.locator('#production-period').inputValue(),'2023-01');
+  await page.selectOption('#production-period','2026-07');
   assert.match(production,/-43,3%/);assert.match(production,/-8,4%/);
   for(const p of await page.locator('#alert-period option').evaluateAll(x=>x.map(o=>o.value))){
    await page.selectOption('#alert-period',p);
@@ -57,6 +72,8 @@ const assert = require('assert/strict');
   }
   await page.setViewportSize({width:390,height:900});
   await page.screenshot({path:path.resolve(__dirname,'../work/alerts-mobile.png'),fullPage:true});
+  await page.locator('#production-period').scrollIntoViewIfNeeded();
+  await page.screenshot({path:path.resolve(__dirname,'../work/production-history-mobile.png')});
   await page.emulateMedia({media:'print'});
   assert.equal(await page.locator('thead th').first().evaluate(e=>getComputedStyle(e).position),'static');
   await page.setViewportSize({width:1200,height:900});
@@ -65,6 +82,6 @@ const assert = require('assert/strict');
   await page.goto(base+'sector-alerts.html?period=2026-07');assert.equal(await page.locator('#alert-period').inputValue(),'2026-07');
   for(const entry of ['index.html','monthly-report.html']){await page.goto(base+entry);assert.ok(await page.locator('a[href="sector-alerts.html"]').count()>0);}
   assert.deepEqual(errors,[]);
-  console.log('Alerts verified: 44 periods, 27 interactive variants, base unchanged, fixed July comparison, keyboard/reset, JSON, 320–1440 px and print.');
+  console.log('Alerts verified: 44 alert periods, 43 independent production periods, 27 variants, keyboard/reset, JSON, 320–1440 px and print.');
  }finally{await browser.close();await new Promise(r=>server.close(r));}
 })().catch(e=>{console.error(e);process.exit(1);});

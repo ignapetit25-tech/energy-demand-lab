@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-09-26 — Historical production, Excel alerts and prospective design
+
+- Archived INDEC's historical XLS and extracted 381 observations with source-cell addresses. Added 129 matched electricity/production comparisons across 43 months, retaining original-series units, revisable vintage and non-equivalent populations.
+- Extended the existing dashboard with an independent production-month selector; preserved the original July PDF comparison and missing August production.
+- Added Alertas and Producción to the workbook. Formula-based alert calculations use existing activity inputs and the report-month selector; six prior sheets are preserved.
+- Defined a separate October 2026–September 2027 validation protocol with frozen rules, pre-publication signals, a last-known-production baseline, missingness/revision rules and an empty registry. No prospective results, automated ingestion or notifications are claimed.
+
 ## 2026-09-26 — Sector review dashboard and production contrast
 
 - Added a separate, linked dashboard for 14 activities across 44 complete comparable months; Aluar remains separate and incomplete September is excluded.

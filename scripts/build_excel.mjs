@@ -23,6 +23,10 @@ const ai=fresh?wb.worksheets.add('IA y energía'):wb.worksheets.getItem('IA y en
 wb.recalculate();
 const serialValue=v=>v instanceof Date?(v.getTime()-Date.UTC(1899,11,30))/86400000:v;
 const preserved=[report,data,ai].map(sh=>({name:sh.name,formulas:JSON.stringify(sh.getUsedRange().formulas),values:sh.getUsedRange().values.map(row=>row.map(serialValue))}));
+if(process.argv.includes('--alerts-only')) {
+ await extendAlertsWorkbook(wb,root,output,work);
+ process.exit(0);
+}
 const dateSerial=p=>Math.round((Date.parse(p+'T00:00:00Z')-Date.UTC(1899,11,30))/86400000);
 const start=10,end=start+raw.length-1,dates=`'Datos'!$A$${start}:$A$${end}`;
 const num='#,##0.0;[Red](#,##0.0);0.0';
@@ -237,3 +241,115 @@ const digest=crypto.createHash('sha256').update(await fs.readFile(destination)).
 const researchHashes={};for(const p of ['data/concentration_evidence.json','data/sector_history.json','data/activity_monthly_history.json','data/aluar_monthly_research.json'])researchHashes[p]=crypto.createHash('sha256').update(await fs.readFile(path.join(root,p))).digest('hex');
 await fs.writeFile(path.join(output,'excel-manifest.json'),JSON.stringify({file:'energy-demand.xlsx',source_sha256:source.sha256,evidence_sha256:crypto.createHash('sha256').update(await fs.readFile(path.join(root,'data/ai_energy_evidence.json'))).digest('hex'),research_sha256:researchHashes,research_reviewed_at:'2026-09-26',latest_period:source.coverage.end,downloaded_at:source.downloaded_at,sha256:digest,default_month:source.coverage.end,month_selector:'Informe!B4'},null,2)+'\n');
 console.log('Excel exported and formula recalculation checked for current, historical and missing months.');
+
+async function extendAlertsWorkbook(book,repo,out,previewDir) {
+ const alerts=JSON.parse(await fs.readFile(path.join(repo,'dashboard/downloads/sector_alerts.json'),'utf8'));
+ const history=JSON.parse(await fs.readFile(path.join(repo,'data/activity_monthly_history.json'),'utf8'));
+ const production=JSON.parse(await fs.readFile(path.join(repo,'data/production_history.json'),'utf8'));
+ const rawProduction=JSON.parse(await fs.readFile(path.join(repo,'data/production_history_source.json'),'utf8'));
+ const oldNames=['Informe','Datos','IA y energía','Concentración','Aluar','Actividades'];
+ const before=oldNames.map(name=>{const s=book.worksheets.getItem(name);return {name,values:s.getUsedRange().values.map(row=>row.map(serialValue)),formulas:JSON.stringify(s.getUsedRange().formulas)};});
+ const add=name=>{try{return book.worksheets.getItem(name);}catch{return book.worksheets.add(name);}};
+ const a=add('Alertas'),p=add('Producción');
+ const serial=period=>Math.round((Date.parse(period+'-01T00:00:00Z')-Date.UTC(1899,11,30))/86400000);
+ const fmt='#,##0.0;[Red](#,##0.0);0.0';
+ function setup(sh,end,widths){sh.showGridLines=false;sh.tabColor='#175E4B';sh.getRange(`A1:M${end}`).format={font:{name:'Arial',size:11,color:'#203B35'},rowHeight:24,verticalAlignment:'center'};for(const [col,width] of Object.entries(widths))sh.getRange(`${col}1:${col}${end}`).format.columnWidth=width;}
+ function heading(sh,title){sh.getRange('A2').values=[[title]];sh.getRange('A2').format.font={name:'Arial',size:17,bold:true,color:'#175E4B'};}
+ function header(sh,row,labels){sh.getRangeByIndexes(row-1,0,1,labels.length).values=[labels];sh.getRangeByIndexes(row-1,0,1,labels.length).format={fill:'#175E4B',font:{name:'Arial',size:11,color:'#FFFFFF',bold:true},wrapText:true,rowHeight:42,horizontalAlignment:'center'};}
+ const first=41,last=first+alerts.periods.length*14-1;
+ setup(a,last,{A:51,B:21,C:21,D:21,E:21,F:36,G:17,H:14,I:19,J:18,K:21,L:26,M:65});heading(a,'Alertas sectoriales');
+ a.getRange('A3').values=[['Regla base proposal-1. Señales descriptivas, no alarmas calibradas. Aluar se consulta por separado.']];
+ a.getRange('A4').values=[['Mes vinculado a Informe!B4']];a.getRange('B4').formulas=[["='Informe'!B4"]];a.getRange('B4').setNumberFormat('mmm yyyy');
+ a.getRange('A6:B8').values=[['Observación mínima %',alerts.baseline_rules.watch_yoy_percent/100],['Prioridad mínima %',alerts.baseline_rules.priority_yoy_percent/100],['Persistencia (meses)',alerts.baseline_rules.persistence_months]];
+ a.getRange('C6:D7').values=[['Observación MW',alerts.baseline_rules.watch_absolute_mw],['Prioridad MW',alerts.baseline_rules.priority_absolute_mw]];
+ a.getRange('B6:B7').setNumberFormat('0%');a.getRange('A9').values=[['Se exigen porcentaje y MW simultáneamente. Persistencia: observación en la misma dirección.']];
+ a.getRange('A10').values=[['Cobertura del mes']];a.getRange('B10').formulas=[[`=IF(AND(COUNTIFS($A$${first}:$A$${last},$B$4)=14,COUNTIFS($A$${first}:$A$${last},$B$4,$K$${first}:$K$${last},"No evaluable")=0),"Disponible","No evaluable")`]];
+ a.getRange('A11').values=[['Actividades prioritarias']];a.getRange('B11').formulas=[[`=IF(B10="Disponible",COUNTIFS($A$${first}:$A$${last},$B$4,$K$${first}:$K$${last},"Prioridad"),"n.a.")`]];
+ a.getRange('A13').values=[['El mes se cambia en Informe. Los umbrales de arriba documentan la base, no un escenario validado.']];
+ a.getRange('A14').values=[['Los datos revisados no identifican consumo de IA. No se ajustaron por calendario, clima o usuarios.']];
+ header(a,16,['Actividad','Cambio MW','Interanual','Racha observación','Estado','Motivo','Fila de cálculo']);
+ const labels=Object.fromEntries(alerts.activities.map(v=>[v.id,v.label]));
+ for(let i=0;i<14;i++){
+  const r=17+i;a.getRange(`A${r}`).values=[[alerts.activities[i].label]];
+  a.getRange(`G${r}`).formulas=[[`=IF(COUNTIFS($A$${first}:$A$${last},$B$4,$B$${first}:$B$${last},A${r})=1,SUMIFS($M$${first}:$M$${last},$A$${first}:$A$${last},$B$4,$B$${first}:$B$${last},A${r}),0)`]];
+  a.getRange(`B${r}:F${r}`).formulas=[[...['E','F','I','K','L'].map(c=>`=IF(G${r}=0,"n.a.",INDEX($${c}$${first}:$${c}$${last},G${r}))`)]];
+ }
+ a.getRange('A17:A30').format.wrapText=true;a.getRange('A17:G30').format.rowHeight=48;a.getRange('B17:B30').setNumberFormat(fmt);a.getRange('C17:C30').setNumberFormat('+0.0%;[Red]-0.0%;0.0%');a.getRange('F17:F30').format.wrapText=true;
+ a.getRange('E17:E30').conditionalFormats.clear();
+ a.getRange('E17:E30').conditionalFormats.add('containsText',{text:'Prioridad',format:{fill:'#FFF0BF',font:{bold:true}}});
+ a.getRange('A32').values=[['Cálculo histórico: 44 meses comparables. Al inicio puede faltar historia para una racha de tres meses.']];
+ a.getRange('A33').values=[['Datos eléctricos enlazados a Actividades. La hoja conserva sus originales y fuentes.']];
+ a.getRange('A34').values=[['Regla: https://github.com/ignapetit25-tech/energy-demand-lab/blob/main/data/sector_alert_rules.json']];
+ a.getRange('A35').values=[['La racha cuenta meses consecutivos con observación y mismo signo, no meses de prioridad por magnitud.']];
+ a.getRange('A36').values=[['Futuro: protocolo independiente, octubre 2026–septiembre 2027. No hay resultados prospectivos.']];
+ a.getRange('A37').values=[['https://github.com/ignapetit25-tech/energy-demand-lab/blob/main/docs/validacion-sectorial-prospectiva.md']];
+ header(a,40,['Mes','Actividad','MW actual','MW año anterior','Cambio MW','Interanual','Observación','Signo','Racha meses','Magnitud alta','Estado','Motivo','Registro']);
+ let n=0;
+ for(const period of alerts.periods)for(let i=0;i<14;i++){
+  const r=first+n++,old=r-14,sourceRow=10+history.monthly.findIndex(m=>m.period===period)*14+i;
+  a.getRange(`A${r}:B${r}`).values=[[serial(period),alerts.activities[i].label]];
+  a.getRange(`C${r}:M${r}`).formulas=[[
+   `=IF(ISNUMBER('Actividades'!F${sourceRow}),'Actividades'!F${sourceRow},"n.a.")`,
+   `=IF(ISNUMBER('Actividades'!G${sourceRow}),'Actividades'!G${sourceRow},"n.a.")`,
+   `=IF(AND(ISNUMBER(C${r}),ISNUMBER(D${r}),C${r}>=0,D${r}>0),C${r}-D${r},"n.a.")`,
+   `=IF(ISNUMBER(E${r}),E${r}/D${r},"n.a.")`,
+   `=IF(ISNUMBER(F${r}),IF(AND(ABS(F${r})+0.00000000001>=$B$6,ABS(E${r})+0.000000001>=$D$6),1,0),"n.a.")`,
+   `=IF(ISNUMBER(E${r}),SIGN(E${r}),"n.a.")`,
+   n<=14?`=IF(ISNUMBER(G${r}),G${r},"n.a.")`:`=IF(NOT(ISNUMBER(G${r})),"n.a.",IF(G${r}=0,0,IF(AND(B${r}=B${old},A${r}=EDATE(A${old},1),H${r}=H${old},ISNUMBER(I${old})),I${old}+1,1)))`,
+   `=IF(ISNUMBER(F${r}),IF(AND(ABS(F${r})+0.00000000001>=$B$7,ABS(E${r})+0.000000001>=$D$7),1,0),"n.a.")`,
+   `=IF(NOT(ISNUMBER(F${r})),"No evaluable",IF(OR(J${r}=1,I${r}>=$B$8),"Prioridad",IF(G${r}=1,"Observar","Sin umbral")))`,
+   `=IF(K${r}="No evaluable","Faltan datos",IF(J${r}=1,"Magnitud",IF(I${r}>=$B$8,"Persistencia",IF(G${r}=1,"Cambio del mes","Sin umbral"))))`,
+   `=ROW()-${first-1}`]];
+ }
+ a.getRange(`A${first}:A${last}`).setNumberFormat('mmm yyyy');a.getRange(`C${first}:E${last}`).setNumberFormat(fmt);a.getRange(`F${first}:F${last}`).setNumberFormat('0.0%');a.getRange(`B${first}:B${last}`).format.wrapText=true;a.getRange(`A${first}:M${last}`).format.rowHeight=48;
+ if(!a.tables.items.length)a.tables.add(`A40:M${last}`,true,'CalculoAlertas').style='TableStyleLight1';a.freezePanes.freezeRows(4);
+ const pf=17,pl=pf+production.comparisons.length-1;
+ setup(p,pl,{A:17,B:31,C:19,D:19,E:19,F:20,G:20,H:19,I:19,J:18,K:25,L:25,M:3});heading(p,'Producción y electricidad');
+ p.getRange('A3').values=[['43 meses comunes. Enero 2023–julio 2026. Tasas interanuales de series originales, sin ajuste estacional.']];
+ p.getRange('A4').values=[['Captura revisada al 26/09/2026. Categorías relacionadas, no establecimientos equivalentes ni consumo de IA.']];
+ p.getRange('A5').values=[['Cemento es parcial: incluye solo un componente de cemento y canteras. IPI no mide toneladas en todas las ramas.']];
+ header(p,7,['Indicador INDEC','Meses comparables','Igual dirección','Proporción']);
+ for(let i=0;i<3;i++){const r=8+i,label=production.summary[i].label;p.getRange(`A${r}`).values=[[label]];p.getRange(`B${r}:D${r}`).formulas=[[`=COUNTIFS($B$${pf}:$B$${pl},A${r})`,`=SUMIFS($J$${pf}:$J$${pl},$B$${pf}:$B$${pl},A${r})`,`=IF(B${r}>0,C${r}/B${r},"n.a.")`]];}
+ p.getRange('D8:D10').setNumberFormat('0.0%');p.getRange('A8:A10').format.wrapText=true;p.getRange('A8:D10').format.rowHeight=40;
+ p.getRange('A11').values=[['Igual dirección es descriptivo, no acierto prospectivo. No se calculan elasticidades o eficiencia.']];
+ p.getRange('A12').values=[[production.source.url]];
+ p.getRange('A13').values=[['INDEC cuadros 2 y 3. Captura 26/09/2026. SHA-256: '+production.source.sha256]];
+ p.getRange('A14').values=[['Electricidad: fuente CAMMESA de Actividades. Agosto IPI permanece ausente, no cero.']];
+ p.getRange('A15').values=[['Índices base 2004=100. La tasa publicada conserva precisión; se contrasta con el índice del mismo mes anterior.']];
+ header(p,16,['Mes','Indicador','MW actual','MW año anterior','Electricidad %','Índice IPI','Índice año anterior','IPI publicado %','IPI calculado %','Igual signo 1/0','Celda índice','Celda tasa']);
+ for(let i=0;i<production.comparisons.length;i++){
+  const v=production.comparisons[i],r=pf+i,m=production.mapping.find(x=>x.electricity_activity_id===v.activity_id);
+  const previousPeriod=String(Number(v.period.slice(0,4))-1)+v.period.slice(4);
+  const old=rawProduction.observations.find(x=>x.period===previousPeriod&&x.activity_id===v.activity_id);
+  p.getRange(`A${r}:L${r}`).values=[[serial(v.period),m.production_label,v.electricity_current_mw,v.electricity_previous_mw,null,v.original_index,old.original_index,v.yoy_percent/100,null,null,v.original_index_cell,v.yoy_percent_cell]];
+  p.getRange(`E${r}`).formulas=[[`=IF(AND(ISNUMBER(C${r}),ISNUMBER(D${r}),D${r}>0),C${r}/D${r}-1,"n.a.")`]];
+  p.getRange(`I${r}:J${r}`).formulas=[[`=IF(AND(ISNUMBER(F${r}),ISNUMBER(G${r}),G${r}>0),F${r}/G${r}-1,"n.a.")`,`=IF(AND(ISNUMBER(E${r}),ISNUMBER(H${r})),IF(SIGN(E${r})=SIGN(H${r}),1,0),"n.a.")`]];
+ }
+ p.getRange(`A${pf}:A${pl}`).setNumberFormat('mmm yyyy');for(const col of ['C','D','F','G'])p.getRange(`${col}${pf}:${col}${pl}`).setNumberFormat(fmt);for(const col of ['E','H','I'])p.getRange(`${col}${pf}:${col}${pl}`).setNumberFormat('0.0%');p.getRange(`B${pf}:B${pl}`).format.wrapText=true;p.getRange(`A${pf}:L${pl}`).format.rowHeight=36;
+ if(!p.tables.items.length)p.tables.add(`A16:L${pl}`,true,'ContrasteProduccion').style='TableStyleLight1';p.freezePanes.freezeRows(16);
+ book.recalculate();
+ const close=(x,y)=>assert.ok(typeof x==='number'&&Math.abs(x-y)<1e-8,`${x} != ${y}`);
+ const translated={prioridad:'Prioridad',observar:'Observar',sin_umbral:'Sin umbral',no_evaluable:'No evaluable'};
+ n=0;for(const period of alerts.periods)for(const activity of alerts.activities){const expected=alerts.baseline[period].rows.find(v=>v.id===activity.id),r=first+n++;assert.equal(a.getRange(`K${r}`).values[0][0],translated[expected.status]);close(a.getRange(`F${r}`).values[0][0],expected.yoy_percent/100);}
+ close(a.getRange('B11').values[0][0],6);
+ for(let i=0;i<3;i++)close(p.getRange(`C${8+i}`).values[0][0],production.summary[i].matching_direction);
+ for(let i=0;i<production.comparisons.length;i++){const r=pf+i;close(p.getRange(`I${r}`).values[0][0],p.getRange(`H${r}`).values[0][0]);}
+ const control=book.worksheets.getItem('Informe').getRange('B4'),originalMonth=control.values[0][0];
+ for(const period of alerts.periods){control.values=[[serial(period)]];book.recalculate();const count=alerts.baseline[period].rows.filter(v=>v.status==='prioridad').length;close(a.getRange('B11').values[0][0],count);for(let i=0;i<14;i++){const expected=alerts.baseline[period].rows.find(v=>v.id===alerts.activities[i].id);assert.equal(a.getRange(`E${17+i}`).values[0][0],translated[expected.status]);close(a.getRange(`B${17+i}`).values[0][0],expected.delta_mw);}}
+ control.values=[[serial('2027-01')]];book.recalculate();assert.equal(a.getRange('B11').values[0][0],'n.a.');
+ control.values=[[null]];book.recalculate();assert.equal(a.getRange('B11').values[0][0],'n.a.');
+ control.values=[[originalMonth]];
+ const rawCell=book.worksheets.getItem('Actividades').getRange('F780'),rawOriginal=rawCell.values[0][0];rawCell.values=[[null]];book.recalculate();assert.equal(a.getRange('B11').values[0][0],'n.a.');rawCell.values=[[0]];book.recalculate();assert.equal(a.getRange('B10').values[0][0],'Disponible');rawCell.values=[[rawOriginal]];
+ book.recalculate();
+ for(const old of before){const s=book.worksheets.getItem(old.name);assert.equal(JSON.stringify(s.getUsedRange().formulas),old.formulas,'Preserved formulas '+old.name);s.getUsedRange().values.forEach((row,i)=>row.forEach((value,j)=>{const x=serialValue(value),y=old.values[i][j];if(typeof x==='number'&&typeof y==='number')assert.ok(Math.abs(x-y)<0.00002,'Preserved numeric value '+old.name);else assert.equal(x,y,'Preserved value '+old.name);}));}
+ console.log((await book.inspect({kind:'table',range:'Alertas!A16:G20',include:'values,formulas',tableMaxRows:5,tableMaxCols:7,maxChars:1800})).ndjson);
+ console.log((await book.inspect({kind:'match',searchTerm:'#REF!|#DIV/0!|#VALUE!|#NAME\\?|#N/A|#NUM!|#NULL!|#SPILL!|#CALC!',options:{useRegex:true,maxResults:15},summary:'Final alert extension formula scan'})).ndjson);
+ for(const [sheetName,range,name] of [['Alertas','A1:G30','alertas'],['Alertas',`A${last-13}:L${last}`,'alertas-calculo'],['Producción','A1:D11','produccion'],['Producción',`A${pl-8}:L${pl}`,'produccion-datos']]){const png=await book.render({sheetName,range,scale:1.2,format:'png'});await fs.writeFile(path.join(previewDir,name+'.png'),new Uint8Array(await png.arrayBuffer()));}
+ const destination=path.join(out,'energy-demand.xlsx');await(await SpreadsheetFile.exportXlsx(book)).save(destination);
+ const manifest=JSON.parse(await fs.readFile(path.join(out,'excel-manifest.json'),'utf8'));
+ for(const file of ['data/sector_alert_rules.json','data/production_history.json'])manifest.research_sha256[file]=crypto.createHash('sha256').update(await fs.readFile(path.join(repo,file))).digest('hex');
+ manifest.sha256=crypto.createHash('sha256').update(await fs.readFile(destination)).digest('hex');
+ manifest.alert_rule='proposal-1';manifest.production_comparison_periods=43;
+ await fs.writeFile(path.join(out,'excel-manifest.json'),JSON.stringify(manifest,null,2)+'\n');
+ console.log('Alert extension verified: 616 classifications, 129 production comparisons, month changes, missing and zero inputs; six original sheets preserved.');
+}

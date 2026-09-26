@@ -6,12 +6,16 @@
     "data/concentration_evidence.json": "bda42c0e621587f4bb0a21d23d2cbd0e775e625380aebcbf8dcb0186e78884d8",
     "data/sector_history.json": "de4a00b9d6e47b12304746c4b20f97ffd2ef3c124d31f807e0b55074f298790a",
     "data/activity_monthly_history.json": "1b6aa0c50f8cc9bbef07c103c057c070b8fcc37b95a8465451c7cc70fa19e49f",
-    "data/aluar_monthly_research.json": "87f36d7e0f0d28c1b8d0aa8899d93ed14af715c7a40e6e3e0b6bb4f673704b95"
+    "data/aluar_monthly_research.json": "87f36d7e0f0d28c1b8d0aa8899d93ed14af715c7a40e6e3e0b6bb4f673704b95",
+    "data/sector_alert_rules.json": "83d38aa342469b9a529a9611a18d28eaffa7cb35096b8e044009c4c4f3b97a04",
+    "data/production_history.json": "9b8a75934d2591531c605c1ceeb28b58839aa8325b0bc68ff48cf07fe9b5092f"
   },
   "research_reviewed_at": "2026-09-26",
   "latest_period": "2026-08-01",
   "downloaded_at": "2026-09-20",
-  "sha256": "c6cb362d06f33038aed5aa3a700d5f15d73e589ceaa43acf000bcc0cf865feb3",
+  "sha256": "2a5fbead14eba2d1caf5d5bfe0f25d15134ff1c0defa1210a400f6e89b12ff67",
   "default_month": "2026-08-01",
-  "month_selector": "Informe!B4"
+  "month_selector": "Informe!B4",
+  "alert_rule": "proposal-1",
+  "production_comparison_periods": 43
 }

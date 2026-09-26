@@ -32,7 +32,24 @@ class ExcelExportTests(unittest.TestCase):
             self.assertAlmostEqual(float(ai.find('.//s:c[@r="B23"]/s:v',NS).text),70/800)
             self.assertIsNotNone(ai.find('.//s:c[@r="B8"]/s:f',NS))
             sheets=ET.fromstring(archive.read('xl/workbook.xml')).find('s:sheets',NS)
-            self.assertEqual([s.attrib['name'] for s in sheets],['Informe','Datos','IA y energía','Concentración','Aluar','Actividades'])
+            self.assertEqual([s.attrib['name'] for s in sheets],['Informe','Datos','IA y energía','Concentración','Aluar','Actividades','Alertas','Producción'])
+            alerts=ET.fromstring(archive.read('xl/worksheets/sheet7.xml'))
+            self.assertEqual(float(alerts.find('.//s:c[@r="B11"]/s:v',NS).text),6)
+            self.assertIsNotNone(alerts.find('.//s:c[@r="B4"]/s:f',NS))
+            self.assertIsNotNone(alerts.find('.//s:c[@r="K656"]/s:f',NS))
+            model=json.loads((ROOT/'dashboard/downloads/sector_alerts.json').read_text())
+            shared=[''.join(e.itertext()) for e in ET.fromstring(archive.read('xl/sharedStrings.xml'))]
+            def cell_text(sheet,address):
+                c=sheet.find(f'.//s:c[@r="{address}"]',NS);v=c.find('s:v',NS).text
+                return shared[int(v)] if c.attrib.get('t')=='s' else v
+            translation={'prioridad':'Prioridad','observar':'Observar','sin_umbral':'Sin umbral','no_evaluable':'No evaluable'}
+            for i,activity in enumerate(model['activities']):
+                expected_alert=next(r for r in model['baseline']['2026-08']['rows'] if r['id']==activity['id'])
+                self.assertEqual(cell_text(alerts,f'E{17+i}'),translation[expected_alert['status']])
+                self.assertAlmostEqual(float(cell_text(alerts,f'B{17+i}')),expected_alert['delta_mw'])
+            production=ET.fromstring(archive.read('xl/worksheets/sheet8.xml'))
+            for address,value in [('B8',43),('C8',37),('C9',28),('C10',36)]:
+                self.assertEqual(float(production.find(f'.//s:c[@r="{address}"]/s:v',NS).text),value)
             for part,address,value in [('sheet4','C8',expected['sectors'][0]['delta_gwh']/expected['total']['delta_gwh']),('sheet4','F24',171/131),('sheet5','D65',279.532209),('sheet5','D77',407.095973),('sheet5','C14',112918)]:
                 cell=ET.fromstring(archive.read('xl/worksheets/'+part+'.xml')).find(f'.//s:c[@r="{address}"]',NS)
                 self.assertIsNotNone(cell.find('s:f',NS));self.assertAlmostEqual(float(cell.find('s:v',NS).text),value,places=5)

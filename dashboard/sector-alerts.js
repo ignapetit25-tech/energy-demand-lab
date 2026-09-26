@@ -56,6 +56,17 @@
   $('production-finding').textContent = d.production.conclusion;
   $('production-mapping').innerHTML = d.production.comparisons.map(r=>`<li><b>${esc(r.production_label)}:</b> ${esc(r.mapping)} Cuadro ${esc(r.table)}, página ${r.page}.</li>`).join('');
   const source = d.production.source;
+  const ph = d.production_history;
+  $('production-period').innerHTML = [...ph.periods].reverse().map(p=>`<option value="${p}">${month(p)}</option>`).join('');
+  function renderProductionHistory() {
+    const p = $('production-period').value;
+    $('production-history-caption').textContent = `${month(p)} contra el mismo mes del año anterior · series originales`;
+    $('production-history-rows').innerHTML = ph.comparisons.filter(r=>r.period===p).map(r=>`<tr><th scope="row">${esc(ph.mapping.find(m=>m.electricity_activity_id===r.activity_id).production_label)}</th><td>${number(r.electricity_yoy_percent,true)}%</td><td>${number(r.yoy_percent,true)}%</td><td>${esc(r.direction)}</td></tr>`).join('');
+  }
+  $('production-period').addEventListener('change',renderProductionHistory);
+  $('production-history-summary').textContent = ph.summary.map(s=>`${s.label}: igual dirección en ${s.matching_direction} de ${s.pairs} meses`).join('. ')+'. No son aciertos prospectivos ni evidencia causal.';
+  $('production-history-source').innerHTML = `<a href="${esc(ph.source.url)}" target="_blank" rel="noopener">Serie histórica INDEC, cuadros 2 y 3 ↗</a>. Captura ${esc(ph.source.retrieved_at)}. SHA-256: ${esc(ph.source.sha256)}. El JSON conserva celdas de origen y los 129 pares.`;
+  renderProductionHistory();
   $('production-source').innerHTML = `INDEC · publicación ${esc(source.published_at)} · consulta ${esc(source.retrieved_at)}. <a href="${esc(source.source_url)}" target="_blank" rel="noopener">Abrir informe oficial de julio ↗</a> · <a href="${esc(source.landing_url)}" target="_blank" rel="noopener">Publicaciones y próxima fecha ↗</a>`;
   $('alert-sources').innerHTML = `<p><a href="${esc(d.source.url)}" target="_blank" rel="noopener">CAMMESA, base diaria oficial ↗</a>. Captura ${esc(d.source.retrieved_at)}. Hoja ${esc(d.source.sheet)}. El enlace puede actualizarse; la huella identifica la copia utilizada.</p><pre>SHA-256 CAMMESA: ${esc(d.source.sha256)}\nSHA-256 INDEC IPI: ${esc(source.sha256)}</pre><p>El JSON incluye los parámetros, 31 escenarios, 44 meses comparables, el mapeo de categorías y las huellas de los archivos de entrada. No se calcula una participación de IA.</p>`;
   $('alert-period').addEventListener('change',renderMonth);

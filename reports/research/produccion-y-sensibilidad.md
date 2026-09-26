@@ -18,6 +18,19 @@ El IPI combina variables de volumen y otras aproximaciones, incluidas ventas def
 
 La [página oficial](https://www.indec.gob.ar/Nivel4/Tema/3/6/14) anuncia el 07/10/2026 para el informe de agosto. A esta revisión, producción de agosto se mantiene ausente: no se la estima ni se usa julio como sustituto. La captura eléctrica es retrospectiva y revisable.
 
+
+## Historia ampliada
+
+Se archivó la [serie histórica oficial INDEC](https://www.indec.gob.ar/ftp/cuadros/economia/sh_ipi_manufacturero_2026.xls). Contiene 381 observaciones para las tres categorías, enero de 2016–julio de 2026. El cruce con electricidad cubre 43 meses, enero de 2023–julio de 2026, con 129 pares. La captura es revisada: no reproduce información disponible en cada fecha pasada.
+
+| Indicador | Meses con igual dirección | Meses comparables |
+| --- | ---: | ---: |
+| IPI Cemento | 37 | 43 |
+| IPI Productos de metal | 28 | 43 |
+| IPI Productos textiles | 36 | 43 |
+
+Los conteos son descriptivos, no aciertos de un pronóstico. No se eligieron categorías adicionales según su correlación. Julio reconcilia al redondear con el PDF conservado; se retienen ambas fuentes. Cada registro conserva sus celdas de origen.
+
 ## Sensibilidad: no existe una única cantidad natural de alertas
 
 Se evaluaron las 27 combinaciones de umbral de observación {5%, 10%, 15%}, cambio absoluto {2,5; 5; 10 MW} y persistencia {2, 3, 4 meses}. La prioridad por magnitud permanece fija en 20% y 10 MW. Para agosto, resultan entre **4 y 8 actividades prioritarias**, frente a 6 con la regla base.
@@ -55,6 +68,6 @@ Historia: 44 meses comparables, enero de 2023-agosto de 2026, 14 actividades, 61
 
 El selector de mes mantiene la regla base. El laboratorio de sensibilidad tiene controles separados y un botón para restaurarla; cambiar controles no guarda ni redefine la regla oficial del proyecto. El contraste de producción mantiene su propio período visible. Los estados textuales acompañan el color, las tablas pueden recorrerse con teclado y los originales permanecen intactos.
 
-La calidad de fuente sigue condicionada por cobertura de establecimientos no verificada y la discrepancia PDF-XLSX documentada. Ningún indicador identifica demanda de IA. El Excel descargable y los pronósticos congelados no se modifican en esta ampliación.
+La calidad de fuente sigue condicionada por cobertura de establecimientos no verificada y la discrepancia PDF-XLSX documentada. Ningún indicador identifica demanda de IA. El Excel añade Alertas y Producción, conservando sus seis hojas previas. El protocolo de validación sectorial futura es independiente de los pronósticos nacionales congelados, que no cambian.
 
 Los resultados completos y las huellas de entradas están en la descarga JSON del módulo de alertas. Reproducir: `python3 scripts/build_sector_alerts.py`.

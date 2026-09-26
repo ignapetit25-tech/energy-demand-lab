@@ -113,6 +113,8 @@ def main():
     if sha(ROOT/history['source']['archive']) != history['source']['sha256']:
         raise ValueError('Electricity source archive changed')
     result = build(history, rules, evidence)
+    result['production_history'] = json.loads((ROOT/'data/production_history.json').read_text())
+    paths.append('data/production_history.json')
     result['input_sha256'] = {p:sha(ROOT/p) for p in paths}
     text = json.dumps(result, ensure_ascii=False, separators=(',', ':'), allow_nan=False)
     (ROOT/'dashboard/sector-alerts-data.js').write_text('window.SECTOR_ALERTS = '+text+';\n')
@@ -131,6 +133,8 @@ def report(data):
     baseline = next(v for v in data['scenarios'] if v['id']==data['baseline_scenario_id'])
     rows = [baseline]+[v for v in data['scenarios'] if v['family']=='one_factor']
     variants = '\n'.join(f"| {v['rules']['priority_yoy_percent']}% y {v['rules']['priority_absolute_mw']} MW | {len(v['periods'][latest]['prioridad'])} | {v['historical_priority_months']} |" for v in rows)
+    history = data.get('production_history')
+    history_text = '' if not history else '\n## Historia ampliada\n\nSe archivó la [serie histórica oficial INDEC]('+history['source']['url']+'). Contiene 381 observaciones para las tres categorías, enero de 2016–julio de 2026. El cruce con electricidad cubre 43 meses, enero de 2023–julio de 2026, con 129 pares. La captura es revisada: no reproduce información disponible en cada fecha pasada.\n\n| Indicador | Meses con igual dirección | Meses comparables |\n| --- | ---: | ---: |\n'+'\n'.join(f"| {r['label']} | {r['matching_direction']} | {r['pairs']} |" for r in history['summary'])+'\n\nLos conteos son descriptivos, no aciertos de un pronóstico. No se eligieron categorías adicionales según su correlación. Julio reconcilia al redondear con el PDF conservado; se retienen ambas fuentes. Cada registro conserva sus celdas de origen.\n'
     return f'''# Alertas, producción y sensibilidad de umbrales
 
 Revisión: 26/09/2026. Las alertas se integran como módulo descriptivo del tablero, sin notificaciones ni actualización automática. La regla base sigue siendo `proposal-1`; los umbrales no se optimizaron para conseguir un resultado deseado.
@@ -149,6 +153,7 @@ El IPI combina variables de volumen y otras aproximaciones, incluidas ventas def
 
 La [página oficial](https://www.indec.gob.ar/Nivel4/Tema/3/6/14) anuncia el 07/10/2026 para el informe de agosto. A esta revisión, producción de agosto se mantiene ausente: no se la estima ni se usa julio como sustituto. La captura eléctrica es retrospectiva y revisable.
 
+{history_text}
 ## Sensibilidad: no existe una única cantidad natural de alertas
 
 Se evaluaron las 27 combinaciones de umbral de observación {{5%, 10%, 15%}}, cambio absoluto {{2,5; 5; 10 MW}} y persistencia {{2, 3, 4 meses}}. La prioridad por magnitud permanece fija en 20% y 10 MW. Para agosto, resultan entre **{s['min_priority']} y {s['max_priority']} actividades prioritarias**, frente a {len(baseline['periods'][latest]['prioridad'])} con la regla base.
@@ -169,7 +174,7 @@ Historia: 44 meses comparables, enero de 2023-agosto de 2026, 14 actividades, 61
 
 El selector de mes mantiene la regla base. El laboratorio de sensibilidad tiene controles separados y un botón para restaurarla; cambiar controles no guarda ni redefine la regla oficial del proyecto. El contraste de producción mantiene su propio período visible. Los estados textuales acompañan el color, las tablas pueden recorrerse con teclado y los originales permanecen intactos.
 
-La calidad de fuente sigue condicionada por cobertura de establecimientos no verificada y la discrepancia PDF-XLSX documentada. Ningún indicador identifica demanda de IA. El Excel descargable y los pronósticos congelados no se modifican en esta ampliación.
+La calidad de fuente sigue condicionada por cobertura de establecimientos no verificada y la discrepancia PDF-XLSX documentada. Ningún indicador identifica demanda de IA. El Excel añade Alertas y Producción, conservando sus seis hojas previas. El protocolo de validación sectorial futura es independiente de los pronósticos nacionales congelados, que no cambian.
 
 Los resultados completos y las huellas de entradas están en la descarga JSON del módulo de alertas. Reproducir: `python3 scripts/build_sector_alerts.py`.
 '''

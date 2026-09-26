@@ -1,0 +1,28 @@
+{
+  "version": "sector-validation-1",
+  "designed_at": "2026-09-26",
+  "state": "designed_no_observations",
+  "start_period": "2026-10",
+  "end_period": "2027-09",
+  "months": 12,
+  "activity_ids": ["construction", "metals", "textiles"],
+  "indec_codes": {"construction": "26941", "metals": "28", "textiles": "17"},
+  "rule_version": "proposal-1",
+  "frozen_inputs": {
+    "data/sector_alert_rules.json": "83d38aa342469b9a529a9611a18d28eaffa7cb35096b8e044009c4c4f3b97a04",
+    "scripts/analyze_sector_followups.py": "aee15da85a4aa02a4ccc91e4b0b608b6aaf5aea788ead31e66f447eef36db1f4"
+  },
+  "target": "same_month_original_series_ipi_yoy_direction",
+  "baseline": "last_ipi_yoy_direction_publicly_available_at_signal_issue",
+  "primary_subset": "eligible_priority_activity_months",
+  "neutral_band_percent_inclusive": [-0.5, 0.5],
+  "minimum_priority_pairs": 12,
+  "minimum_distinct_months": 6,
+  "minimum_accuracy_improvement_pp": 10,
+  "bootstrap": {"cluster": "calendar_month", "replicates": 10000, "seed": 20260926, "percentile_interval": 0.95, "lower_bound_must_exceed": 0, "maximum_empty_fraction": 0.05},
+  "automatic_refresh": false,
+  "notifications": false,
+  "signals": [],
+  "outcomes": [],
+  "primary_metrics": null
+}

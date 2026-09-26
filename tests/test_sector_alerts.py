@@ -86,6 +86,7 @@ class PublishedAlertsTests(unittest.TestCase):
         d = json.loads((ROOT/'dashboard/downloads/sector_alerts.json').read_text())
         for path, sha in d.pop('input_sha256').items():
             self.assertEqual(hashlib.sha256((ROOT/path).read_bytes()).hexdigest(),sha)
+        self.assertEqual(d.pop('production_history'),json.loads((ROOT/'data/production_history.json').read_text()))
         self.assertEqual(d,self.result)
         raw = (ROOT/'dashboard/sector-alerts-data.js').read_text()
         self.assertEqual(json.loads(raw.removeprefix('window.SECTOR_ALERTS = ').removesuffix(';\n')),json.loads((ROOT/'dashboard/downloads/sector_alerts.json').read_text()))

@@ -58,6 +58,7 @@ def validate_site(site):
 
 def main():
     subprocess.run([sys.executable,str(ROOT/'scripts/build_activity_history.py')],check=True,cwd=ROOT)
+    subprocess.run([sys.executable,str(ROOT/'scripts/build_production_history.py')],check=True,cwd=ROOT)
     subprocess.run([sys.executable,str(ROOT/'scripts/build_sector_alerts.py')],check=True,cwd=ROOT)
     subprocess.run([sys.executable, str(ROOT/'scripts/build_dashboard.py')], check=True, cwd=ROOT)
     expected = set(ASSETS) | set(DOCUMENTS) | set(DOWNLOADS) | {'.nojekyll', 'site-manifest.json'}
@@ -67,7 +68,7 @@ def main():
         raise ValueError('Excel is stale or modified; regenerate and verify before publishing')
     if excel.get('evidence_sha256')!=hashlib.sha256((ROOT/'data/ai_energy_evidence.json').read_bytes()).hexdigest():
         raise ValueError('Excel AI evidence is stale; regenerate before publishing')
-    for p in ('data/concentration_evidence.json','data/sector_history.json','data/activity_monthly_history.json','data/aluar_monthly_research.json'):
+    for p in ('data/concentration_evidence.json','data/sector_history.json','data/activity_monthly_history.json','data/aluar_monthly_research.json','data/sector_alert_rules.json','data/production_history.json'):
         if excel.get('research_sha256',{}).get(p)!=hashlib.sha256((ROOT/p).read_bytes()).hexdigest():
             raise ValueError('Excel research evidence is stale: '+p)
     if SITE.exists():
