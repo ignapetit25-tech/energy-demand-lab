@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-09-26 — Daily-source activity history and expanded workbook
+
+- Archived CAMMESA's daily GUMA workbook and reconstructed 56 complete months plus a separately labeled partial month for 14 activities; no fixed establishment panel or contemporaneous historical vintages are assumed.
+- Calculated Aluar monthly net-grid energy, including August 2025/2026, without imputing monthly production, gross consumption or self-generation. Reviewed quarterly disclosures and documented missing data/access limitations.
+- Preserved conflicting August totals across PDF editions and the daily XLSX; did not silently reconcile or relabel them as growth.
+- Extended the existing XLSX with Concentración, Aluar and Actividades. Added formulas, source references, missing-data guards and source-hash freshness checks while preserving the original three sheets.
+- Added website filters, source-rich JSON, updated August TXT context, regression tests and browser coverage. Original national CSV and frozen forecasts remain unchanged.
+
 ## 2026-09-24 — Growth concentration and Aluar supply evidence
 
 - Added interactive monthly/YTD national contributions and twelve monthly branch decompositions, separating shares of net growth from shares of consumption.

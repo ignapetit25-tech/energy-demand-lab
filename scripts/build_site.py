@@ -13,10 +13,11 @@ ASSETS = ('index.html', 'monthly-report.html', 'styles.css', 'report.css',
           'app.js', 'report.js', 'data.js', 'report-data.js', 'prospective-data.js', 'favicon.svg',
           'research-data.js','research-report.js','infrastructure.html','infrastructure.js','infrastructure.css',
           'sector-history.html','sector-history.js','sector-history.css',
-          'concentration.html','concentration.css','concentration.js','concentration-data.js')
+          'concentration.html','concentration.css','concentration.js','concentration-data.js',
+          'activity-history-data.js','activity-history.js')
 DOWNLOADS = ('downloads/energy-demand.xlsx','downloads/excel-manifest.json',
              'downloads/infrastructure_registry.json','downloads/sector_deep_dive.json','downloads/sector_history.json',
-             'downloads/concentration_analysis.json')
+             'downloads/concentration_analysis.json','downloads/activity_monthly_history.json')
 DOCUMENTS = ('prospective/preregistration.md', 'results/nested_exploratory/report.md')
 
 
@@ -53,6 +54,7 @@ def validate_site(site):
 
 
 def main():
+    subprocess.run([sys.executable,str(ROOT/'scripts/build_activity_history.py')],check=True,cwd=ROOT)
     subprocess.run([sys.executable, str(ROOT/'scripts/build_dashboard.py')], check=True, cwd=ROOT)
     expected = set(ASSETS) | set(DOCUMENTS) | set(DOWNLOADS) | {'.nojekyll', 'site-manifest.json'}
     excel=json.loads((ROOT/'dashboard/downloads/excel-manifest.json').read_text())
@@ -61,6 +63,9 @@ def main():
         raise ValueError('Excel is stale or modified; regenerate and verify before publishing')
     if excel.get('evidence_sha256')!=hashlib.sha256((ROOT/'data/ai_energy_evidence.json').read_bytes()).hexdigest():
         raise ValueError('Excel AI evidence is stale; regenerate before publishing')
+    for p in ('data/concentration_evidence.json','data/sector_history.json','data/activity_monthly_history.json','data/aluar_monthly_research.json'):
+        if excel.get('research_sha256',{}).get(p)!=hashlib.sha256((ROOT/p).read_bytes()).hexdigest():
+            raise ValueError('Excel research evidence is stale: '+p)
     if SITE.exists():
         unexpected = [str(p.relative_to(SITE)) for p in SITE.rglob('*')
                       if p.is_file() and str(p.relative_to(SITE)) not in expected]

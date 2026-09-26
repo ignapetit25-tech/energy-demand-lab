@@ -2,9 +2,16 @@
   "file": "energy-demand.xlsx",
   "source_sha256": "31d390ba985e387f964c213c854979ac39e1d382ee40d7b8b45fbfb7aa90f04b",
   "evidence_sha256": "06b64b4a5aa0aba7d60786693acb3aaee33bcaae7ace05391e13d3f4404f092d",
+  "research_sha256": {
+    "data/concentration_evidence.json": "bda42c0e621587f4bb0a21d23d2cbd0e775e625380aebcbf8dcb0186e78884d8",
+    "data/sector_history.json": "de4a00b9d6e47b12304746c4b20f97ffd2ef3c124d31f807e0b55074f298790a",
+    "data/activity_monthly_history.json": "1b6aa0c50f8cc9bbef07c103c057c070b8fcc37b95a8465451c7cc70fa19e49f",
+    "data/aluar_monthly_research.json": "87f36d7e0f0d28c1b8d0aa8899d93ed14af715c7a40e6e3e0b6bb4f673704b95"
+  },
+  "research_reviewed_at": "2026-09-26",
   "latest_period": "2026-08-01",
   "downloaded_at": "2026-09-20",
-  "sha256": "0b6bd0297cce53e2814095d6c2de16ea1f9271aa40755f7eb5a58242a8bc7b3e",
+  "sha256": "c6cb362d06f33038aed5aa3a700d5f15d73e589ceaa43acf000bcc0cf865feb3",
   "default_month": "2026-08-01",
   "month_selector": "Informe!B4"
 }

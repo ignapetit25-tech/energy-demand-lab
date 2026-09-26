@@ -167,6 +167,21 @@ Fuentes nuevas (paginación del PDF):
 - Aluar, documento 2026-09-04, páginas [5, 8]: https://cdn.aluar.com.ar/assets/uploads/EEFF_Aluar_Ejercicio_2025_2026_4_T_c41c605c28.pdf. SHA-256 30499fa9d6ff97cca836715de0efc04f6f7f45899bcbc4beb5ed566be6620da9.
 - CAMMESA, documento 2026-09-17, páginas [1, 5, 7, 11]: https://cammesaweb.cammesa.com/download/analisis-demanda-grandes-usuarios-al-j25-de-febrero-21/?wpdmdl=39430. SHA-256 a681b72a0d000be76d17ea21826037f96c8d20859c89b68a877f7476513f49ff.
 
+Actualización documental del 26/09/2026: base diaria y balance mensual de red
+
+CAMMESA GUMAs + AUTO: 1.727 días desde enero 2022 hasta el 23/09/2026. Se reconstruyen 56 meses completos y se separa septiembre parcial.
+Aluar, agosto 2025: 375,715 MW medios y 279,532 GWh netos de red. Agosto 2026: 547,172 MW medios y 407,096 GWh. Cambio: +45,63%.
+Energía calculada = suma de MW medios diarios × 24 / 1.000. No es consumo bruto ni una liquidación certificada por DTE.
+Se reconstruyeron 56 meses completos de demanda neta de red desde datos diarios, incluida la comparación agosto 2025/2026. No se encontró en las fuentes consultadas un balance mensual completo que permita separar producción de autogeneración.
+
+Diez de catorce actividades aumentan en agosto frente al mismo mes de 2025; el bloque industrial sin Aluar cae aproximadamente 0,9%. No equivale a la muestra GUMA/GUME/GUDI.
+
+Agosto: PDF del 17/09 = 2293,1 MW; PDF del 24/09 = 2295,2 MW; promedio de la base diaria capturada el 26/09 = 2292,0401 MW. Diferencia entre archivos/capturas, no crecimiento. No se confirmó la causa ni se sustituyen silenciosamente las ediciones anteriores.
+
+Excel ampliado: hojas Concentración, Aluar y Actividades. Datos nacionales y pronósticos originales conservados.
+Historia mensual, fuentes y vacíos: https://ignapetit25-tech.github.io/energy-demand-lab/downloads/activity_monthly_history.json
+Fuente diaria: https://cammesaweb.cammesa.com/download/base-de-datos-2/?wpdmdl=39428
+
 IA y electricidad: evidencia y límites
 
 En el mes seleccionado, comercio e industria varió -0,5% y grandes usuarios +12,0%. Estas categorías no separan centros de datos ni cargas de IA. Ni un aumento demuestra un efecto de IA ni una caída descarta que exista carga de IA dentro del agregado.

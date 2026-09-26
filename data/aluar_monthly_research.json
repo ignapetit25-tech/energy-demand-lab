@@ -1,0 +1,16 @@
+{
+  "reviewed_at":"2026-09-26",
+  "scope":"Aluar, demanda neta de red en la base operativa GUMAs + AUTO de CAMMESA. No es consumo bruto de la planta.",
+  "finding":"Se reconstruyeron 56 meses completos de demanda neta de red desde datos diarios, incluida la comparación agosto 2025/2026. No se encontró en las fuentes consultadas un balance mensual completo que permita separar producción de autogeneración.",
+  "missing_fields":["Producción mensual de aluminio líquido (t)","Consumo eléctrico bruto de planta (MWh)","Generación térmica propia efectivamente utilizada (MWh)","Generación eólica propia efectivamente utilizada (MWh)","Ventas o inyecciones a terceros y pérdidas (MWh)"],
+  "monthly_causal_attribution":{"production_percent":null,"self_generation_percent":null,"ai_percent":null},
+  "sources":[
+    {"id":"cammesa_daily","url":"https://cammesaweb.cammesa.com/download/base-de-datos-2/?wpdmdl=39428","local_file":"data/reference/cammesa-gumas-base-2026-09-25.zip","sha256":"97c70adf2017edebd4d9e45b5981411a392e3e2f0654cf55ab7f273bd1ce8c4a","finding":"Hoja Base Detalle diaria GUMAs ACT, columna Z: Aluar. MW medios diarios; agregación mensual propia. Días faltantes y meses parciales no se completan."},
+    {"id":"aluar_quarter","url":"https://cdn.aluar.com.ar/assets/uploads/EEFF_Aluar_Ejercicio_2025_2026_1_T_ec2d20bfc1.pdf","local_file":"data/reference/aluar-trimestre-2025-09.pdf","sha256":"0ab1150d209690793ceccd4a3b4e3968966dd9f7f8d00f216922b1bb1f5abfd9","page":34,"finding":"La producción de 113363 t corresponde al trimestre julio-septiembre 2025. La venta eólica/térmica de 81,8 GWh no es autogeneración consumida. No se divide el trimestre por tres ni se asigna a agosto. La tabla de Futaleufú lleva otra cabecera de período y no se usa como balance mensual de Aluar."},
+    {"id":"aluar_investors","url":"https://www.aluar.com.ar/inversores","finding":"Se revisaron las publicaciones trimestrales y memorias disponibles. Las memorias anuales ya archivadas terminan en junio, no explican el mes de agosto."},
+    {"id":"memnet","url":"https://memnet.cammesa.com/","finding":"Portal de usuarios registrados e informes personalizados. No se accedió a información privada ni se solicitó una cuenta."},
+    {"id":"cammesa_renewables","url":"https://cammesaweb.cammesa.com/historico-energias-mensuales/","finding":"La respuesta pública de generación histórica consultada presenta agregados por tecnología. No identifica cuánto de la generación de Aluar se autoconsume. La página de informe mensual renovable no pudo descargarse en esta revisión."}
+  ],
+  "next_required_data":"Solicitar o localizar, para agosto 2025 y agosto 2026, las toneladas de producción, consumo bruto, energía de red, autogeneración utilizada, ventas/inyecciones y pérdidas, con perímetro común y estado definitivo/provisorio. Una serie de generación de un parque no demuestra su autoconsumo.",
+  "request_sent":false
+}

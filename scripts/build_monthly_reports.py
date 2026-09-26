@@ -194,6 +194,19 @@ def markdown(r, source, evidence=None, research=None):
                           'No se identifican establecimientos individuales adicionales ni consumo de IA. No se atribuyen causas al cambio de agosto.', '',
                           'Análisis interactivo y descarga con cálculos: https://ignapetit25-tech.github.io/energy-demand-lab/concentration.html', '', 'Fuentes nuevas (paginación del PDF):']
                 lines += [f'- {s["publisher"]}, documento {s["document_date"]}, páginas {s["pages"]}: {s["url"]}. SHA-256 {s["sha256"]}.' for s in e['sources']]
+                history=research.get('daily_activity')
+                if history:
+                    monthly={p['period']:p for p in history['monthly']}; now=monthly['2026-08']; before=monthly['2025-08']
+                    lines += ['', '## Actualización documental del 26/09/2026: base diaria y balance mensual de red', '',
+                              'CAMMESA GUMAs + AUTO: 1.727 días desde enero 2022 hasta el 23/09/2026. Se reconstruyen 56 meses completos y se separa septiembre parcial.',
+                              f'Aluar, agosto 2025: {number(before["mw"]["aluar"],3)} MW medios y {number(before["aluar_net_grid_gwh"],3)} GWh netos de red. Agosto 2026: {number(now["mw"]["aluar"],3)} MW medios y {number(now["aluar_net_grid_gwh"],3)} GWh. Cambio: {number(now["yoy_percent"]["aluar"],2,True)}%.',
+                              'Energía calculada = suma de MW medios diarios × 24 / 1.000. No es consumo bruto ni una liquidación certificada por DTE.',
+                              history['aluar_research']['finding'], '',
+                              'Diez de catorce actividades aumentan en agosto frente al mismo mes de 2025; el bloque industrial sin Aluar cae aproximadamente 0,9%. No equivale a la muestra GUMA/GUME/GUDI.', '',
+                              history['revision_comparison']['note'], '',
+                              'Excel ampliado: hojas Concentración, Aluar y Actividades. Datos nacionales y pronósticos originales conservados.',
+                              'Historia mensual, fuentes y vacíos: https://ignapetit25-tech.github.io/energy-demand-lab/downloads/activity_monthly_history.json',
+                              'Fuente diaria: '+history['source']['url']]
     if evidence:
         lines += ['', '## IA y electricidad: evidencia y límites', '', ai_diagnosis(r), '',
                   evidence['conclusion'], '',
@@ -228,6 +241,7 @@ def build():
     evidence=json.loads((ROOT/'data/ai_energy_evidence.json').read_text())
     research=build_research()
     research['concentration']=build_concentration(reports,source,research['history'])
+    research['daily_activity']=json.loads((ROOT/'data/activity_monthly_history.json').read_text())
     for report in reports:
         report['ai_diagnosis']=ai_diagnosis(report)
         report['markdown']=markdown(report,source,evidence,research)

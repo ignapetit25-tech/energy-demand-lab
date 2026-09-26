@@ -19,6 +19,19 @@ const fs=require('fs/promises');
   const base=process.env.SITE_BASE||`http://127.0.0.1:${server.address().port}/`;
   await page.goto(base+'concentration.html');
   await page.waitForSelector('#granular-rows tr');
+  assert.equal(await page.locator('#history-monthly-period option').count(),56);
+  assert.equal(await page.locator('#history-monthly-rows tr').count(),14);
+  assert.match(await page.locator('#history-monthly-finding').innerText(),/10 de 14/);
+  assert.match(await page.locator('#aluar-monthly-finding').innerText(),/407,1 GWh/);
+  assert.match(await page.locator('#history-revision-note').innerText(),/2292,0401/);
+  for(const p of ['2022-01','2023-01','2024-02','2025-08','2026-08']){
+   await page.selectOption('#history-monthly-period',p);
+   assert.doesNotMatch(await page.locator('#monthly-history').innerText(),/NaN|undefined|Infinity/);
+  }
+  await page.selectOption('#history-monthly-period','2022-01');assert.match(await page.locator('#history-monthly-rows').innerText(),/No disponible/);
+  await page.selectOption('#history-monthly-period','2026-08');
+  for(const id of await page.locator('#history-monthly-activity option').evaluateAll(x=>x.map(o=>o.value))){await page.selectOption('#history-monthly-activity',id);assert.equal(await page.locator('#activity-track-rows tr').count(),5);}
+  await page.selectOption('#history-monthly-activity','construction');
   for(const [id,count] of [['national-rows',3],['contribution-rows',4],['annual-rows',5],['granular-rows',14],['pulse-rows',4],['persistence-rows',12]]){
    assert.equal(await page.locator('#'+id+' tr').count(),count);
   }
@@ -51,11 +64,13 @@ const fs=require('fs/promises');
   await page.selectOption('#activity-branch','all');
   await page.selectOption('#activity-window','2026-08');
   await page.selectOption('#national-window','month');
-  const pending=page.waitForEvent('download');await page.locator('a[download]').click();
+  const pending=page.waitForEvent('download');await page.locator('a[download]').first().click();
   const download=await pending,stream=await download.createReadStream();let content='';for await(const chunk of stream)content+=chunk;
   const data=JSON.parse(content);assert.equal(data.evidence.gumas.activities.length,14);
   assert.equal(data.evidence.aluar.monthly_attribution.ai_share_percent,null);
   assert.equal(data.evidence.aluar.observations[0].unreconciled_mwh,385);
+  const pendingHistory=page.waitForEvent('download');await page.locator('a[download][href="downloads/activity_monthly_history.json"]').click();
+  const dh=await pendingHistory,sh=await dh.createReadStream();let jh='';for await(const c of sh)jh+=c;assert.equal(JSON.parse(jh).daily_count,1727);
   await page.screenshot({path:path.resolve(__dirname,'../work/concentration-desktop.png'),fullPage:true});
   await page.locator('#aluar').screenshot({path:path.resolve(__dirname,'../work/concentration-aluar.png')});
   for(const width of [1440,390]){
@@ -64,6 +79,7 @@ const fs=require('fs/promises');
   }
   await page.screenshot({path:path.resolve(__dirname,'../work/concentration-mobile.png'),fullPage:true});
   await page.locator('#activities').screenshot({path:path.resolve(__dirname,'../work/concentration-activities-mobile.png')});
+  await page.locator('#monthly-history').screenshot({path:path.resolve(__dirname,'../work/activity-history-mobile.png')});
   assert.deepEqual(errors,[]);
   console.log('Concentration: 12 monthly selections, 8 activity filters, YTD, annual balance, download, keyboard and desktop/mobile checks passed.');
  }finally{await browser.close();await new Promise(r=>server.close(r));}
