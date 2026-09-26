@@ -1,0 +1,177 @@
+{
+  "as_of": "2026-09-26",
+  "snapshot_note": "Estado de archivos conservados, no comprobación en vivo de las fuentes. Las próximas comprobaciones son tareas propuestas, no un calendario oficial.",
+  "sources": [
+    {
+      "id": "national",
+      "label": "Demanda nacional",
+      "latest_period": "2026-08",
+      "captured_at": "2026-09-20",
+      "published_at": null,
+      "source_url": "https://apis.datos.gob.ar/series/api/series/?ids=367.3_DEMANDA_TOTAL__13,367.3_DEMANDA_REIAL__19,367.3_COMERCIO_ERIA__20,367.3_GRANDES_USIOS__16&format=json&limit=5000",
+      "sha256": "31d390ba985e387f964c213c854979ac39e1d382ee40d7b8b45fbfb7aa90f04b",
+      "coverage": "260 meses; tres sectores y total",
+      "condition": "Instantánea histórica; publicación original no verificada",
+      "next_check": "Comprobar nueva edición de la fuente antes de actualizar el informe."
+    },
+    {
+      "id": "electricity",
+      "label": "Actividades eléctricas",
+      "latest_period": "2026-08",
+      "captured_at": "2026-09-26",
+      "published_at": null,
+      "source_url": "https://cammesaweb.cammesa.com/download/base-de-datos-2/?wpdmdl=39428",
+      "sha256": "97c70adf2017edebd4d9e45b5981411a392e3e2f0654cf55ab7f273bd1ce8c4a",
+      "coverage": "56 meses completos; 14 actividades y Aluar separado",
+      "condition": "Provisorio; panel de usuarios no constante garantizado",
+      "next_check": "Capturar el próximo mes completo y revisar cambios de cobertura."
+    },
+    {
+      "id": "production",
+      "label": "Producción IPI",
+      "latest_period": "2026-07",
+      "captured_at": "2026-09-26",
+      "published_at": null,
+      "source_url": "https://www.indec.gob.ar/ftp/cuadros/economia/sh_ipi_manufacturero_2026.xls",
+      "sha256": "aec17aa46fced8d9ca905a56c0a24b2552539f143e498313aa13714264bfc48b",
+      "coverage": "43 meses comparables; tres categorías relacionadas",
+      "condition": "Serie revisada; fecha propia del XLS no verificada",
+      "next_check": "Verificar nueva publicación INDEC y preservar la edición anterior."
+    }
+  ],
+  "partial_periods": [
+    "2026-09"
+  ],
+  "metals": {
+    "narrative": "Revisión 2026-09-26, independiente del mes seleccionado: 15 de 43 meses muestran signos opuestos; 14 fuera de ±0,5%. La oposición persiste en 13 usando mediana diaria y en 14 usando media de días hábiles. La causa no está identificada.",
+    "summary": {
+      "pairs": 43,
+      "opposite": 15,
+      "material_opposite": 14,
+      "opposite_after_median": 13,
+      "opposite_after_working_mean": 14,
+      "by_year": {
+        "2023": 6,
+        "2024": 0,
+        "2025": 7,
+        "2026": 2
+      }
+    },
+    "casebook": {
+      "version": "metals-casebook-1",
+      "reviewed_at": "2026-09-26",
+      "scope": "Productos de metal; no siderurgia ni Aluar. Expediente exploratorio, separado del protocolo prospectivo.",
+      "hypotheses": [
+        {
+          "id": "panel",
+          "title": "Cambió la composición de usuarios eléctricos",
+          "status": "Pendiente de datos",
+          "support": "CAMMESA e INDEC no tienen un panel común validado.",
+          "counter": "Esa diferencia de universos no demuestra que hubiera altas, bajas o reclasificaciones en los meses divergentes.",
+          "needed": "Cantidad de usuarios y altas, bajas y reclasificaciones agregadas por actividad y mes.",
+          "action": "Revisar con CAMMESA la disponibilidad de un panel agregado. La solicitud preparada no fue enviada.",
+          "source": "electricity_source",
+          "source_url": "https://cammesaweb.cammesa.com/download/base-de-datos-2/?wpdmdl=39428"
+        },
+        {
+          "id": "composition",
+          "title": "Las subramas productivas tienen pesos eléctricos distintos",
+          "status": "Heterogeneidad documentada; causa pendiente",
+          "support": "El informe de abril documenta movimientos diferentes entre uso estructural, envases y otros productos.",
+          "counter": "No conocemos los pesos eléctricos de esas subramas; el agregado IPI usa ponderaciones distintas.",
+          "needed": "Correspondencia de categorías y pesos de consumo bajo una misma cobertura.",
+          "action": "Ampliar las subramas en todos los meses disponibles, no solo en los meses divergentes.",
+          "source": "ipi_april",
+          "source_url": "https://www.indec.gob.ar/uploads/informesdeprensa/ipi_manufacturero_06_269AB5D3D090.pdf"
+        },
+        {
+          "id": "calendar",
+          "title": "Calendario o días extremos explican la oposición",
+          "status": "Explicación única debilitada; contribución pendiente",
+          "support": "La mediana y la media de días hábiles cambian el signo en algunos casos.",
+          "counter": "La oposición persiste en la mayoría de los meses bajo ambos controles exploratorios. No son ajustes estacionales ni climáticos.",
+          "needed": "Calendario homogéneo, paradas y temperaturas relevantes para el universo eléctrico.",
+          "action": "Contrastar todos los meses con controles predefinidos sin cambiar las alertas congeladas.",
+          "source": "electricity_source",
+          "source_url": "https://cammesaweb.cammesa.com/download/base-de-datos-2/?wpdmdl=39428"
+        },
+        {
+          "id": "energy_balance",
+          "title": "Autoabastecimiento, paradas o eficiencia",
+          "status": "Sin mediciones suficientes",
+          "support": "Son mecanismos posibles, no hallazgos del proyecto.",
+          "counter": "Una diferencia entre tasas de electricidad e IPI no identifica ninguno de esos mecanismos.",
+          "needed": "Producción, consumo bruto, compras de red y generación propia con el mismo perímetro.",
+          "action": "Buscar balances comparables antes de calcular intensidad energética. Mantener Aluar en su expediente separado.",
+          "source": "ipi_july_method",
+          "source_url": "https://www.indec.gob.ar/uploads/informesdeprensa/ipi_manufacturero_09_26B810401E77.pdf"
+        }
+      ]
+    },
+    "april_case": {
+      "electricity_yoy_percent": 24.853265291368643,
+      "first_report_ipi_yoy_percent": -1.4,
+      "revised_snapshot_ipi_yoy_percent": -1.4800765989826061,
+      "subgroups": [
+        {
+          "label": "Uso estructural",
+          "yoy_percent": 3.5,
+          "contribution_pp": 0.9
+        },
+        {
+          "label": "Envases metálicos",
+          "yoy_percent": 29.5,
+          "contribution_pp": 2.0
+        },
+        {
+          "label": "Otros productos y servicios de trabajo de metales",
+          "yoy_percent": -6.4,
+          "contribution_pp": -4.3
+        }
+      ],
+      "interpretation": "La composición del IPI es heterogénea. No se conoce el peso eléctrico de esas subclases: no se puede atribuir la divergencia a envases u otro componente."
+    },
+    "sources": [
+      {
+        "id": "ipi_april",
+        "url": "https://www.indec.gob.ar/uploads/informesdeprensa/ipi_manufacturero_06_269AB5D3D090.pdf",
+        "archive": "data/reference/indec-ipi-2026-04.pdf",
+        "pages": [
+          17
+        ],
+        "retrieved_at": "2026-09-26",
+        "sha256": "1b50504adfa2a05c237c8917f6e05467f60e6e22a06482f765cdf58de1fa4e2d"
+      },
+      {
+        "id": "ipi_july_method",
+        "url": "https://www.indec.gob.ar/uploads/informesdeprensa/ipi_manufacturero_09_26B810401E77.pdf",
+        "archive": "data/reference/indec-ipi-2026-07.pdf",
+        "pages": [
+          17,
+          26
+        ],
+        "retrieved_at": "2026-09-26",
+        "sha256": "e6217e94766c558df4e79c3e540f3d492b3b62ac1e1bc28f51c8a2b066f93ae7"
+      }
+    ]
+  },
+  "operations": {
+    "period": "2026-10",
+    "state": "Aún no corresponde emitir",
+    "steps": [
+      "Esperar el cierre de 2026-10. Primera fecha posible de captura completa: 2026-11-01; no es una fecha oficial de publicación.",
+      "Falta una captura eléctrica completa de 2026-10; la instantánea disponible cierra en 2026-08.",
+      "Verificar la última publicación IPI conocida y archivar el comparador con revisión humana.",
+      "Emitir una sola vez con sector_registry issue; publicar originales y comprobar el commit antes del IPI objetivo.",
+      "Si se perdió la oportunidad, documentar la exclusión; no retrofechar.",
+      "Revisar, ejecutar las pruebas y publicar los cambios manualmente."
+    ],
+    "automatic": false
+  },
+  "document_assistant": {
+    "status": "Preparación y evaluación local; sin modelo conectado",
+    "measured_accuracy": null,
+    "real_runs": 0,
+    "description": "Paquete de extracción con fuentes y evaluación contra referencias revisadas. No se envían documentos ni se incorporan respuestas automáticamente."
+  }
+}

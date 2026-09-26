@@ -19,6 +19,9 @@ def review(period,data):
     rows=[dict(r,label=labels[r['id']]) for r in a['baseline'].get(p,{}).get('rows',[])]
     # Never substitute another month's IPI for the selected month.
     comparisons=[dict(r,label=next(v['production_label'] for v in h['mapping'] if v['electricity_activity_id']==r['activity_id'])) for r in h['comparisons'] if r['period']==p]
+    matched={r['activity_id'] for r in comparisons}
+    for row in rows:
+        row['quality']=('Proxy parcial: cemento dentro de construcción' if row['id']=='construction' else 'Categorías relacionadas; sin panel común') if row['id'] in matched else ('IPI del mismo mes ausente' if row['id'] in ['construction','metals','textiles'] else 'Sin correspondencia productiva validada')
     return dict(period=p,rows=rows,production=comparisons,
         alert_note=(f'{sum(r["status"]=="prioridad" for r in rows)} prioridades entre {len(rows)} actividades en {p}. Regla propuesta, reconstrucción histórica; no señal emitida en aquella fecha.' if rows else 'Sin alertas reconstruidas para este mes.'),
         production_note=(f'Contraste del mismo mes: {p}. Categorías relacionadas, sin panel común validado.' if comparisons else f'Sin contraste IPI del mes {p} en esta captura. Historia disponible: {h["periods"][0]} a {h["periods"][-1]}; no se traslada julio a agosto.'),
@@ -32,8 +35,8 @@ def markdown_section(r):
     rate=lambda n:f'{n:+.2f}%'.replace('.',',')
     lines=['','## Alertas y producción: mes seleccionado','',v['alert_note'],'',v['scope'],'']
     if v['rows']:
-        lines+=['| Actividad | Electricidad interanual | Estado |','| --- | ---: | --- |']
-        lines += [f'| {x["label"]} | {rate(x["yoy_percent"])} | {x["status"]} |' for x in v['rows']]
+        lines+=['| Actividad | Electricidad interanual | Intensidad / estado | Calidad de comparación |','| --- | ---: | --- | --- |']
+        lines += [f'| {x["label"]} | {rate(x["yoy_percent"])} | {x["status"]} | {x["quality"]} |' for x in v['rows']]
         lines+=['','La persistencia necesita tres comparaciones completas: enero y febrero de 2023 tienen historia insuficiente para ese criterio. No se interpreta ausencia de umbral como ausencia de riesgo.']
     lines+=['',v['production_note'],'']
     if v['production']:

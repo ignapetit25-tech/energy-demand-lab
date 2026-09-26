@@ -6,6 +6,8 @@ A reproducible time-series investigation of whether monthly temperature adds pre
 
 ## Monthly reporting tool
 
+The [analysis workbench](docs/mesa-de-analisis.md) adds a date-aligned executive summary, separate signal-strength and data-quality labels, archived-source status, a metals hypothesis casebook and a read-only prospective checklist. The offline documentary-assistance package and evaluator use seven previously reviewed fields; no model is connected and no real AI accuracy is claimed. Rebuild web, text and audit downloads together with `python3 scripts/build_site.py`.
+
 The [operational sector registry](docs/registro-sectorial.md) now implements append-only issuance, public-commit and archived-evidence verification, first-observation scoring and separate revisions. The October 2026–September 2027 ledger remains empty; synthetic tests are not observations. Ingestion is manual. The monthly web/TXT report includes date-aligned alerts and IPI comparisons, plus a separately dated current registry status. [Metal-products investigation](reports/research/divergencias-metales.md) documents 15 divergent months out of 43, exploratory daily/calendar checks and heterogeneous IPI subcategories without identifying a causal explanation. Rebuild all public projections with `python3 scripts/build_site.py`.
 
 The production extension archives INDEC's historical workbook and retains cell addresses: 381 observations for the three pre-existing category mappings, and 129 same-month electricity/production pairs across January 2023–July 2026. No historical vintage or causal claim is inferred. The downloadable Excel now adds `Alertas` (formula-driven, linked to `Informe!B4`) and `Producción`, preserving six existing sheets. [Future validation protocol](docs/validacion-sectorial-prospectiva.md) fixes October 2026–September 2027, prior-publication issuance, a last-known-IPI comparator and reporting rules; its registry is empty and no monitor is enabled.
@@ -59,7 +61,7 @@ This extension is explicitly exploratory relative to the original fixed holdout.
 
 ## Shoulder-month diagnostic
 
-A diagnostic protocol was committed before investigating the rolling model's shoulder-season failure. The expanding temperature regression overpredicted every evaluated shoulder month by an average of 1,029.4 GWh. Temperature features were inactive inside the 18-22 C dead band in 39.7% of shoulder observations, but the more important failure was the long linear trend: fitting the same model on only the most recent 60 months reduced shoulder MAE from 1,029.4 to 362.2 GWh.
+A diagnostic protocol was committed before investigating the rolling model's shoulder-season failure. The expanding temperature regression overpredicted every evaluated shoulder month by an average of 1,029.4 GWh. Temperature features were inactive inside the 18-22 C dead band in 39.7% of shoulder observations. Fitting the same specification on the most recent 60 months reduced shoulder MAE from 1,029.4 to 362.2 GWh, but also re-estimated the intercept, seasonality and temperature coefficients. Trend misspecification is a hypothesis, not an identified principal cause.
 
 The recent-window result is a promising exploratory lead, not an independently confirmed winner. An annual-change temperature model also improved on seasonal naive, supporting a future architecture that anchors on recent demand rather than extrapolating the full 2001-present trend.
 
@@ -99,7 +101,7 @@ python3 -m unittest discover -s tests -v
 python3 scripts/verify_release.py
 ```
 
-The GitHub Actions workflow runs the same release verifier on every push and pull request, and can also be started manually. Until the repository is published, this is validated CI configuration rather than evidence of a hosted run.
+The GitHub Actions workflow runs the same release verifier on every push and pull request, and can also be started manually. The repository and website are public; successful historical runs are not a guarantee that a future update will pass.
 
 The analysis writes:
 

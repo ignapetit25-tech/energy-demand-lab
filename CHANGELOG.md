@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-09-26 — Executive workbench and documentary assistance
+
+- Added up to three executive priorities selected by absolute MW change, without changing alert rules. Separated intensity from production-comparison quality for all activities.
+- Added archived-source dates, coverage, hashes, explicit unknown publication dates and proposed manual checks; no live freshness guarantee or automatic refresh.
+- Added a metals casebook with competing hypotheses, limitations, missing evidence and actions. Web findings now derive from the research data rather than duplicated HTML numbers.
+- Added a read-only prospective preparation checklist and an offline documentary extraction package, candidate comparator and reference-field evaluator. No model connected, no real AI scores and no automatic import.
+- Corrected the README's overstatement about trend identification and clarified operational registry documentation. Preserved Excel, national CSV, frozen rules and forecasts.
+
 ## 2026-09-26 — Operational sector registry and integrated report
 
 - Implemented a separate append-only ledger with actual-clock issuance, archived originals and hashes, conservative public-commit verification, first-result evaluation and non-overwriting revisions. The frozen protocol and classifier are unchanged; the registry contains no observations yet.

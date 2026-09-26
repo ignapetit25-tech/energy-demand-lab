@@ -2,7 +2,9 @@
 
 ## Entregado
 
-- Historia de producción: 381 observaciones INDEC y 129 pares con electricidad en 43 meses comunes. Selector propio en el tablero, fuentes y celdas de origen en JSON. Excel con nuevas hojas Alertas (mes ligado a Informe!B4) y Producción; las seis hojas anteriores se conservan. [Validación sectorial futura](validacion-sectorial-prospectiva.md): octubre 2026–septiembre 2027, diseñada pero aún sin observaciones ni automatización.
+- Registro sectorial operativo implementado, distinto del pronóstico nacional: emisiones, verificación pública, resultados y revisiones separadas. Su operación sigue siendo manual y todavía no tiene observaciones. El protocolo original conserva su texto de diseño; el estado operativo está en `prospective/sector-alerts-ledger.json` y en [la guía del registro](registro-sectorial.md).
+
+- Historia de producción: 381 observaciones INDEC y 129 pares con electricidad en 43 meses comunes. Selector propio en el tablero, fuentes y celdas de origen en JSON. Excel con nuevas hojas Alertas (mes ligado a Informe!B4) y Producción; las seis hojas anteriores se conservan. [Validación sectorial futura](validacion-sectorial-prospectiva.md): octubre 2026–septiembre 2027, con registro implementado pero todavía sin observaciones ni actualización automática.
 
 - Tablero de señales sectoriales con 44 meses comparables, regla base conservada, 27 combinaciones exploratorias y cuatro variantes de prioridad de un solo parámetro. Contraste de julio con IPI INDEC de julio para textiles, productos de metal y cemento, ampliado con 43 meses históricos; agosto queda sin dato de producción. No son alertas calibradas ni notificaciones automáticas. [Resultados y límites](../reports/research/produccion-y-sensibilidad.md). CSV nacional y pronósticos permanecen sin cambios.
 

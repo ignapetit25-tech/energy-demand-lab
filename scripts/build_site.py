@@ -19,7 +19,8 @@ ASSETS = ('index.html', 'monthly-report.html', 'styles.css', 'report.css',
 DOWNLOADS = ('downloads/energy-demand.xlsx','downloads/excel-manifest.json',
              'downloads/infrastructure_registry.json','downloads/sector_deep_dive.json','downloads/sector_history.json',
              'downloads/concentration_analysis.json','downloads/activity_monthly_history.json',
-             'downloads/sector_alerts.json','downloads/sector_prospective_registry.json')
+             'downloads/sector_alerts.json','downloads/sector_prospective_registry.json',
+             'downloads/analysis_workbench.json','downloads/document_review_task.json')
 DOCUMENTS = ('prospective/preregistration.md', 'results/nested_exploratory/report.md',
              'reports/research/produccion-y-sensibilidad.md',
              'reports/research/divergencias-metales.md','reports/research/divergencias-metales.json')

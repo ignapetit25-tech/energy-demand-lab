@@ -10,10 +10,14 @@ try:
     from .build_research import build as build_research
     from .build_concentration import build as build_concentration
     from .monthly_sector_review import inputs, review, markdown_section
+    from .analysis_workbench import build as build_workbench, executive, text_section
+    from .document_review import package as document_package
 except ImportError:
     from build_research import build as build_research
     from build_concentration import build as build_concentration
     from monthly_sector_review import inputs, review, markdown_section
+    from analysis_workbench import build as build_workbench, executive, text_section
+    from document_review import package as document_package
 
 ROOT = Path(__file__).resolve().parents[1]
 SECTORS = [('residential_gwh', 'Residencial'),
@@ -210,6 +214,11 @@ def markdown(r, source, evidence=None, research=None):
                               'Historia mensual, fuentes y vacíos: https://ignapetit25-tech.github.io/energy-demand-lab/downloads/activity_monthly_history.json',
                               'Fuente diaria: '+history['source']['url']]
     lines += markdown_section(r)
+    if 'executive' in r and research and 'workbench' in research:
+        addition=text_section(r['executive'],research['workbench'])
+        boundary=addition.index('## Calidad y actualización: instantánea actual')
+        lines[6:6]=addition[:boundary]
+        lines += ['']+addition[boundary:]
     if research and 'metals' in research and r['period']==research['sector']['cammesa']['period']:
         m=research['metals'];s=m['summary']
         lines += ['', '## Productos de metal: investigación histórica, no atribución causal', '',
@@ -254,8 +263,13 @@ def build():
     research['daily_activity']=json.loads((ROOT/'data/activity_monthly_history.json').read_text())
     sector_inputs=inputs()
     research['metals']=sector_inputs['metals']
+    workbench=build_workbench(sector_inputs)
+    research['workbench']=workbench
+    for filename,value in [('analysis_workbench.json',workbench),('document_review_task.json',document_package())]:
+        (ROOT/'dashboard/downloads'/filename).write_text(json.dumps(value,ensure_ascii=False,indent=2,allow_nan=False)+'\n')
     for report in reports:
         report['sector_review']=review(report['period'],sector_inputs)
+        report['executive']=executive(report,report['sector_review'])
         report['ai_diagnosis']=ai_diagnosis(report)
         report['markdown']=markdown(report,source,evidence,research)
         report['csv']=monthly_csv(report,source)
@@ -268,7 +282,7 @@ def build():
                 line=' · '.join(v.strip() for v in line.strip('|').split('|'))
             text_lines.append(line.lstrip('# ').replace('`',''))
         report['text']='\n'.join(text_lines)+'\n'
-    bundle=dict(source=source, evidence=evidence, reports=reports, latest_period=reports[-1]['period'])
+    bundle=dict(source=source, evidence=evidence, reports=reports, latest_period=reports[-1]['period'],workbench=workbench)
     # The browser downloads plain text; do not ship a duplicate Markdown version per month.
     web_bundle=dict(bundle,reports=[{k:v for k,v in r.items() if k!='markdown'} for r in reports])
     (ROOT/'dashboard/report-data.js').write_text('window.MONTHLY_REPORTS = '+json.dumps(web_bundle,ensure_ascii=False,allow_nan=False,separators=(',',':'))+';\n')
