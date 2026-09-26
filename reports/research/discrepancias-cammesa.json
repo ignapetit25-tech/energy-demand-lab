@@ -1,0 +1,258 @@
+{
+  "reviewed_at": "2026-09-26",
+  "period": "2026-08",
+  "rows": [
+    {
+      "id": "food_commerce_services",
+      "label": "ALIMENTACIÓN, COMERCIOS Y SERVICIOS",
+      "pdf17_mw": 462.0,
+      "pdf24_mw": 462.8,
+      "daily_mean_mw": 460.7661962365591,
+      "pdf_revision_mw": 0.8000000000000114,
+      "pdf24_minus_daily_mw": 2.0338037634409147,
+      "exceeds_single_value_rounding": true
+    },
+    {
+      "id": "ports",
+      "label": "CARGAS Y PUERTOS",
+      "pdf17_mw": 9.6,
+      "pdf24_mw": 9.6,
+      "daily_mean_mw": 9.595604838709678,
+      "pdf_revision_mw": 0.0,
+      "pdf24_minus_daily_mw": 0.004395161290322136,
+      "exceeds_single_value_rounding": false
+    },
+    {
+      "id": "commerce",
+      "label": "COMERCIO Y SERVICIOS (PRINCIPALMENTE SUPERMERCADOS Y OTROS CENTROS COMERCIALES)",
+      "pdf17_mw": 50.9,
+      "pdf24_mw": 50.9,
+      "daily_mean_mw": 50.93604704301075,
+      "pdf_revision_mw": 0.0,
+      "pdf24_minus_daily_mw": -0.03604704301075401,
+      "exceeds_single_value_rounding": false
+    },
+    {
+      "id": "food",
+      "label": "INDUSTRIA DE LA ALIMENTACIÓN Y ARTÍCULOS DE CONSUMO MASIVO",
+      "pdf17_mw": 331.9,
+      "pdf24_mw": 332.7,
+      "daily_mean_mw": 330.6915510752688,
+      "pdf_revision_mw": 0.8000000000000114,
+      "pdf24_minus_daily_mw": 2.0084489247311694,
+      "exceeds_single_value_rounding": true
+    },
+    {
+      "id": "public_services",
+      "label": "SECTOR DE SERVICIOS PÚBLICOS Y TRANSPORTE (AGUA Y TRANSPORTE EN GBA)",
+      "pdf17_mw": 69.5,
+      "pdf24_mw": 69.5,
+      "daily_mean_mw": 69.5429932795699,
+      "pdf_revision_mw": 0.0,
+      "pdf24_minus_daily_mw": -0.042993279569898846,
+      "exceeds_single_value_rounding": false
+    },
+    {
+      "id": "aluar",
+      "label": "ALUAR **",
+      "pdf17_mw": 547.2,
+      "pdf24_mw": 547.2,
+      "daily_mean_mw": 547.1720067204301,
+      "pdf_revision_mw": 0.0,
+      "pdf24_minus_daily_mw": 0.02799327956995512,
+      "exceeds_single_value_rounding": false
+    },
+    {
+      "id": "industry",
+      "label": "INDUSTRIAS",
+      "pdf17_mw": 1093.1,
+      "pdf24_mw": 1093.8,
+      "daily_mean_mw": 1093.3003427419355,
+      "pdf_revision_mw": 0.7000000000000455,
+      "pdf24_minus_daily_mw": 0.49965725806441696,
+      "exceeds_single_value_rounding": true
+    },
+    {
+      "id": "automotive",
+      "label": "INDUSTRIA AUTOMOTRIZ",
+      "pdf17_mw": 45.1,
+      "pdf24_mw": 45.1,
+      "daily_mean_mw": 44.86576612903225,
+      "pdf_revision_mw": 0.0,
+      "pdf24_minus_daily_mw": 0.23423387096774917,
+      "exceeds_single_value_rounding": true
+    },
+    {
+      "id": "petroleum_products",
+      "label": "INDUSTRIA DE DERIVADOS DE PETRÓLEO",
+      "pdf17_mw": 158.6,
+      "pdf24_mw": 158.6,
+      "daily_mean_mw": 158.5797862903226,
+      "pdf_revision_mw": 0.0,
+      "pdf24_minus_daily_mw": 0.020213709677392444,
+      "exceeds_single_value_rounding": false
+    },
+    {
+      "id": "construction",
+      "label": "INDUSTRIA DE LA CONSTRUCCIÓN (ELABORACIÓN DE CEMENTO Y CANTERAS)",
+      "pdf17_mw": 90.2,
+      "pdf24_mw": 90.2,
+      "daily_mean_mw": 90.21100403225807,
+      "pdf_revision_mw": 0.0,
+      "pdf24_minus_daily_mw": -0.011004032258071561,
+      "exceeds_single_value_rounding": false
+    },
+    {
+      "id": "wood_paper",
+      "label": "INDUSTRIA DE LA MADERA Y EL PAPEL",
+      "pdf17_mw": 105.3,
+      "pdf24_mw": 105.4,
+      "daily_mean_mw": 105.26906989247311,
+      "pdf_revision_mw": 0.10000000000000853,
+      "pdf24_minus_daily_mw": 0.13093010752689338,
+      "exceeds_single_value_rounding": true
+    },
+    {
+      "id": "metals",
+      "label": "INDUSTRIA DE PRODUCTOS METÁLICOS NO AUTOMOTORES",
+      "pdf17_mw": 36.4,
+      "pdf24_mw": 36.4,
+      "daily_mean_mw": 36.33427688172043,
+      "pdf_revision_mw": 0.0,
+      "pdf24_minus_daily_mw": 0.06572311827957122,
+      "exceeds_single_value_rounding": true
+    },
+    {
+      "id": "steel",
+      "label": "GRAN SIDERURGIA",
+      "pdf17_mw": 286.7,
+      "pdf24_mw": 286.7,
+      "daily_mean_mw": 286.66648387096774,
+      "pdf_revision_mw": 0.0,
+      "pdf24_minus_daily_mw": 0.03351612903225032,
+      "exceeds_single_value_rounding": false
+    },
+    {
+      "id": "textiles",
+      "label": "INDUSTRIA TEXTIL",
+      "pdf17_mw": 40.6,
+      "pdf24_mw": 40.6,
+      "daily_mean_mw": 40.63267741935484,
+      "pdf_revision_mw": 0.0,
+      "pdf24_minus_daily_mw": -0.032677419354840254,
+      "exceeds_single_value_rounding": false
+    },
+    {
+      "id": "chemicals",
+      "label": "INDUSTRIAS QUÍMICAS, DEL CAUCHO, PLÁSTICO Y OTROS MATERIALES MINERALES NO METÁLICOS",
+      "pdf17_mw": 330.3,
+      "pdf24_mw": 330.9,
+      "daily_mean_mw": 330.74127822580647,
+      "pdf_revision_mw": 0.5999999999999659,
+      "pdf24_minus_daily_mw": 0.1587217741935092,
+      "exceeds_single_value_rounding": true
+    },
+    {
+      "id": "oil_minerals",
+      "label": "PETROLEOS Y MINERALES",
+      "pdf17_mw": 190.8,
+      "pdf24_mw": 191.4,
+      "daily_mean_mw": 190.80160215053763,
+      "pdf_revision_mw": 0.5999999999999943,
+      "pdf24_minus_daily_mw": 0.5983978494623727,
+      "exceeds_single_value_rounding": true
+    },
+    {
+      "id": "mining",
+      "label": "EXTRACCIÓN DE MINERALES",
+      "pdf17_mw": 36.2,
+      "pdf24_mw": 36.2,
+      "daily_mean_mw": 36.16088037634408,
+      "pdf_revision_mw": 0.0,
+      "pdf24_minus_daily_mw": 0.03911962365592103,
+      "exceeds_single_value_rounding": false
+    },
+    {
+      "id": "oil_extraction",
+      "label": "EXTRACCIÓN DE PETRÓLEO",
+      "pdf17_mw": 154.6,
+      "pdf24_mw": 155.2,
+      "daily_mean_mw": 154.64072177419354,
+      "pdf_revision_mw": 0.5999999999999943,
+      "pdf24_minus_daily_mw": 0.5592782258064517,
+      "exceeds_single_value_rounding": true
+    },
+    {
+      "id": "total",
+      "label": "TOTAL",
+      "pdf17_mw": 2293.1,
+      "pdf24_mw": 2295.2,
+      "daily_mean_mw": 2292.0401478494623,
+      "pdf_revision_mw": 2.099999999999909,
+      "pdf24_minus_daily_mw": 3.1598521505375174,
+      "exceeds_single_value_rounding": true
+    },
+    {
+      "id": "without_aluar",
+      "label": "TOTAL SIN ALUAR",
+      "pdf17_mw": 1745.9,
+      "pdf24_mw": 1748.0,
+      "daily_mean_mw": 1744.8681411290322,
+      "pdf_revision_mw": 2.099999999999909,
+      "pdf24_minus_daily_mw": 3.1318588709677897,
+      "exceeds_single_value_rounding": true
+    }
+  ],
+  "calendar_checks": [
+    {
+      "days_type": "todos",
+      "count": 31,
+      "total_mw": 2292.0401478494623
+    },
+    {
+      "days_type": "habiles",
+      "count": 20,
+      "total_mw": 2363.221395833333
+    },
+    {
+      "days_type": "no_habiles",
+      "count": 11,
+      "total_mw": 2162.619696969697
+    }
+  ],
+  "cross_sheet_checks": [
+    {
+      "sheet": "Base diaria",
+      "daily_count": 1727,
+      "maximum_absolute_difference_mw": 9.094947017729282e-13,
+      "august_total_mw": 2292.0401478494623
+    },
+    {
+      "sheet": "Base Detalle diaria GUMAS Rama",
+      "daily_count": 1727,
+      "maximum_absolute_difference_mw": 9.094947017729282e-13,
+      "august_total_mw": 2292.0401478494623
+    }
+  ],
+  "source_zip": {
+    "path": "data/reference/cammesa-gumas-base-2026-09-25.zip",
+    "sha256": "97c70adf2017edebd4d9e45b5981411a392e3e2f0654cf55ab7f273bd1ce8c4a"
+  },
+  "pdf_sources": [
+    {
+      "edition": "2026-09-17",
+      "path": "data/reference/cammesa-gumas-2026-09-17.pdf",
+      "sha256": "a681b72a0d000be76d17ea21826037f96c8d20859c89b68a877f7476513f49ff",
+      "page": 7
+    },
+    {
+      "edition": "2026-09-24",
+      "path": "data/reference/cammesa-gumas-2026-09-24.pdf",
+      "sha256": "471a3c0bf65b8156d8dfd367544a25e0fa85911497031013d41733486274e189",
+      "page": 7
+    }
+  ],
+  "rounding_max_mw_for_15_components_plus_total": 0.8,
+  "cause_status": "No confirmada. Cambios de versión observados; revisión de datos operativos plausible, no demostrada para esta diferencia.",
+  "note": "No se modifica ni se empalma ninguna fuente. Los cambios de septiembre 16 a 23 días no son revisiones de un período idéntico."
+}

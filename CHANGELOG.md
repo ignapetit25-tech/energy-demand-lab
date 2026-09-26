@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-09-26 — Sector review dashboard and production contrast
+
+- Added a separate, linked dashboard for 14 activities across 44 complete comparable months; Aluar remains separate and incomplete September is excluded.
+- Preserved the original alert rule and added 27 exploratory sensitivity combinations plus four one-factor priority checks. Six August baseline priorities range from four to eight under the 27 combinations; frequency is not a confidence probability or a validation result.
+- Archived and hashed the July INDEC IPI report. Compared July with July for textiles, metal products and cement, retaining category/population limitations and missing August production.
+- Added reproducible JSON and a methods report, seven regression tests and browser checks covering periods, controls, downloads, keyboard, responsive layouts and print.
+- Preserved Excel, national CSV and frozen forecasts. Data requests remain unsent; no automatic notifications or refresh were enabled.
+
 ## 2026-09-26 — Daily-source activity history and expanded workbook
 
 - Archived CAMMESA's daily GUMA workbook and reconstructed 56 complete months plus a separately labeled partial month for 14 activities; no fixed establishment panel or contemporaneous historical vintages are assumed.

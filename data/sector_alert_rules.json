@@ -1,0 +1,13 @@
+{
+  "version": "proposal-1",
+  "defined_at": "2026-09-26",
+  "status": "exploratory_proposal_not_deployed",
+  "notification_enabled": false,
+  "watch_yoy_percent": 10,
+  "watch_absolute_mw": 5,
+  "priority_yoy_percent": 20,
+  "priority_absolute_mw": 10,
+  "persistence_months": 3,
+  "calendar_working_day_difference": 2,
+  "description": "Reglas editoriales simétricas para priorizar revisión de subas y bajas. No son umbrales estadísticos ni parámetros oficiales de CAMMESA. Definidas después de conocer la historia; su aplicación histórica es descriptiva, no validación fuera de muestra."
+}

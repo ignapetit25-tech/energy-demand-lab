@@ -1,0 +1,52 @@
+{
+  "reviewed_at": "2026-09-26",
+  "publisher": "INDEC",
+  "period": "2026-07",
+  "published_at": "2026-09-08",
+  "retrieved_at": "2026-09-26",
+  "source_url": "https://www.indec.gob.ar/uploads/informesdeprensa/ipi_manufacturero_09_26B810401E77.pdf",
+  "landing_url": "https://www.indec.gob.ar/Nivel4/Tema/3/6/14",
+  "local_file": "data/reference/indec-ipi-2026-07.pdf",
+  "sha256": "e6217e94766c558df4e79c3e540f3d492b3b62ac1e1bc28f51c8a2b066f93ae7",
+  "next_release_announced": "2026-10-07",
+  "next_release_period": "2026-08",
+  "provisional": true,
+  "metric": "Variación interanual de la serie original del IPI manufacturero, en porcentaje. No variación mensual desestacionalizada.",
+  "method_note": "El IPI utiliza indicadores de volumen y otras variables, incluidas ventas deflactadas; no equivale a toneladas observadas para todas las divisiones. Cobertura nacional, distinta de los usuarios eléctricos GUMAs + AUTO. Metodología: página 26.",
+  "august_production_yoy_percent": null,
+  "observations": [
+    {
+      "electricity_activity_id": "construction",
+      "production_label": "IPI Cemento",
+      "code": "26941",
+      "page": 15,
+      "table": "2.9",
+      "original_index_base_2004": 156.0,
+      "yoy_percent": -6.9,
+      "mapping": "Parcial: cemento es un componente relacionado; la categoría eléctrica incluye cemento y canteras. No representa a toda la construcción ni sustituye al ISAC.",
+      "comparison_scope": "proxy_parcial"
+    },
+    {
+      "electricity_activity_id": "metals",
+      "production_label": "IPI Productos de metal",
+      "code": "28",
+      "page": 17,
+      "table": "2.11",
+      "original_index_base_2004": 84.8,
+      "yoy_percent": -8.4,
+      "mapping": "Categorías relacionadas, sin correspondencia de establecimientos validada. No confundir productos de metal con industrias metálicas básicas ni con producción de Aluar.",
+      "comparison_scope": "categorias_relacionadas"
+    },
+    {
+      "electricity_activity_id": "textiles",
+      "production_label": "IPI Productos textiles",
+      "code": "17",
+      "page": 9,
+      "table": "2.3",
+      "original_index_base_2004": 73.3,
+      "yoy_percent": -13.0,
+      "mapping": "Categorías relacionadas, sin panel común de establecimientos. No extender a prendas de vestir, cuero o calzado.",
+      "comparison_scope": "categorias_relacionadas"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Alertas sectoriales · Energy Demand Lab</title>
+<meta name="description" content="Señales eléctricas exploratorias de 14 actividades argentinas, contraste con producción industrial y sensibilidad de umbrales.">
+<link rel="icon" href="favicon.svg"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="sector-alerts.css">
+<script defer src="sector-alerts-data.js"></script><script defer src="sector-alerts.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Saltar a las alertas</a>
+<header><a class="brand" href="index.html"><span class="mark">↗</span> ENERGY DEMAND <b>LAB</b></a><nav aria-label="Principal"><a href="monthly-report.html">Informe mensual</a><a href="concentration.html#monthly-history">Historia eléctrica</a><a href="infrastructure.html">Infraestructura IA</a></nav></header>
+<main id="main">
+<section class="intro"><div><p class="eyebrow">ARGENTINA / SEÑALES PARA INVESTIGAR</p><h1>Qué merece<br><em>una mirada más cercana.</em></h1><p class="lede">Cambios eléctricos que orientan la revisión mensual. Contrastar con producción y comprobar cuánto dependen de las reglas elegidas.</p></div><div class="snapshot">REVISIÓN DOCUMENTAL<span>26 septiembre 2026</span><small>Exploratorio · sin notificaciones automáticas</small></div></section>
+<nav class="alert-section-links" aria-label="Secciones"><a href="#signals">Alertas del mes</a><a href="#sensitivity">Sensibilidad</a><a href="#production">Producción física</a><a href="#sources">Fuentes y reglas</a></nav>
+<p class="notice alert-notice">Son señales descriptivas, no diagnósticos confirmados. GUMAs + AUTO no representa toda la industria ni garantiza los mismos establecimientos. No se identifica consumo de IA.</p>
+<section class="panel" id="signals">
+<div class="section-top"><div><p class="eyebrow">01 / REGLA BASE CONSERVADA</p><h2>Agenda de revisión del mes</h2></div><label for="alert-period">Mes completo <select id="alert-period"></select></label></div>
+<p id="base-rules"></p>
+<p class="finding" id="alert-summary" aria-live="polite"></p>
+<div class="table-wrap" tabindex="0" aria-label="Alertas sectoriales, tabla desplazable"><table><caption id="alert-caption"></caption><thead><tr><th scope="col">Actividad eléctrica</th><th scope="col">Interanual</th><th scope="col">Cambio MW</th><th scope="col">Estado de revisión</th><th scope="col">Motivo</th></tr></thead><tbody id="alert-rows"></tbody></table></div>
+<p class="note">Los límites combinan porcentaje y MW; no están calibrados estadísticamente. «Sin umbral» no significa normalidad. «Prioridad» no significa emergencia. La persistencia requiere cambios en la misma dirección en meses consecutivos.</p>
+<p id="calendar-note" class="note"></p>
+<aside class="alert-aside"><h3>Aluar se informa aparte</h3><p id="alert-aluar"></p><p>La medición es toma neta de red, no consumo bruto de planta. No se atribuye su variación a producción, autogeneración ni IA.</p></aside>
+<p class="notice alert-notice">Calidad pendiente: la captura es provisoria y no se verificó la estabilidad del conjunto de usuarios. En agosto existe una diferencia PDF-base de 3,16 MW. Se conservan las versiones y no se corrige una con la otra. <a href="concentration.html#monthly-history">Ver detalle documental</a>.</p>
+</section>
+<section class="panel" id="sensitivity">
+<p class="eyebrow">02 / LABORATORIO DE UMBRALES</p><h2>¿Cambiar las reglas cambia la lectura?</h2>
+<p>Probá 27 combinaciones de observación y persistencia. La prioridad por magnitud se mantiene en 20% y 10 MW. Los controles no modifican la regla base de arriba ni guardan cambios.</p>
+<div class="alert-controls"><label for="sensitivity-percent">Variación mínima <select id="sensitivity-percent"><option value="5">5%</option><option value="10" selected>10% · base</option><option value="15">15%</option></select></label><label for="sensitivity-mw">Cambio mínimo <select id="sensitivity-mw"><option value="2.5">2,5 MW</option><option value="5" selected>5 MW · base</option><option value="10">10 MW</option></select></label><label for="sensitivity-months">Meses consecutivos <select id="sensitivity-months"><option value="2">2 meses</option><option value="3" selected>3 meses · base</option><option value="4">4 meses</option></select></label><button id="reset-thresholds" type="button">Restaurar regla base</button></div>
+<p class="finding" id="sensitivity-summary" aria-live="polite"></p>
+<p id="scenario-label"></p>
+<div class="table-wrap" tabindex="0" aria-label="Sensibilidad por actividad, tabla desplazable"><table><caption id="sensitivity-caption"></caption><thead><tr><th scope="col">Actividad</th><th scope="col">Regla base</th><th scope="col">Variante elegida</th><th scope="col">Prioridad en la grilla</th></tr></thead><tbody id="sensitivity-rows"></tbody></table></div>
+<p class="note">«27 de 27» no es una probabilidad ni una garantía: quien supera 20% y 10 MW entra siempre por construcción. La grilla solo mide sensibilidad a estos criterios, no a revisiones de fuente o cambios de cobertura.</p>
+<h3>También cambiar el umbral de prioridad</h3><p>Cuatro alternativas, un parámetro por vez. Observación y persistencia se mantienen en 10%, 5 MW y 3 meses.</p>
+<div class="table-wrap" tabindex="0" aria-label="Umbrales de prioridad"><table><caption id="priority-caption"></caption><thead><tr><th scope="col">Prioridad por magnitud</th><th scope="col">Prioritarias en el mes</th><th scope="col">Actividad-meses prioritarios históricos</th></tr></thead><tbody id="priority-rows"></tbody></table></div>
+<p class="note">Historia: enero de 2023–agosto de 2026, 44 meses y 616 actividad-meses. Se cuentan repeticiones, no eventos independientes. Al inicio puede faltar historia para evaluar persistencia. Las reglas se definieron después de conocer los datos: no es validación prospectiva ni una medición de falsas alarmas. No se eligió una variante «ganadora».</p>
+</section>
+<section class="panel" id="production">
+<p class="eyebrow">03 / CONTRASTE EXTERNO · PERÍODO PROPIO</p><h2>Producción: comparar julio con julio</h2>
+<p>Este contraste permanece en julio de 2026, independientemente del mes elegido arriba. Compara tasas interanuales de la serie original del IPI con categorías eléctricas relacionadas; no compara toneladas con MW.</p>
+<p class="notice alert-notice">Producción de agosto: no disponible en esta revisión. INDEC anuncia su informe para el 7 de octubre. No se sustituye con julio ni se considera confirmada la señal de agosto.</p>
+<div class="table-wrap" tabindex="0" aria-label="Contraste de electricidad y producción en julio"><table><caption>Julio de 2026 contra julio de 2025 · ambas fuentes provisorias</caption><thead><tr><th scope="col">Categoría eléctrica</th><th scope="col">Electricidad interanual</th><th scope="col">Indicador de producción</th><th scope="col">IPI interanual</th><th scope="col">Dirección</th></tr></thead><tbody id="production-rows"></tbody></table></div>
+<p id="production-finding" class="finding"></p><ul id="production-mapping"></ul>
+<p class="note">El IPI combina indicadores de volumen y otras aproximaciones, incluidas ventas deflactadas. No son toneladas medidas para todas las ramas. Las diferencias de magnitud no se interpretan como elasticidad o eficiencia energética. Las fuentes no identifican demanda de IA.</p>
+<p id="production-source" class="sources"></p>
+</section>
+<section class="panel" id="sources"><p class="eyebrow">MÉTODO / FUENTES Y LÍMITES</p><h2>Qué respalda cada señal</h2><p>Solo se calculan tasas entre meses completos con datos válidos y base positiva. Septiembre 1–23 queda excluido. Se conserva la captura histórica revisada: no se afirma que estos fueran los valores conocidos en cada fecha pasada.</p><p>Para confirmar una lectura económica faltan controles de usuarios, calendario, clima y paradas. Para interpretar Aluar falta un balance eléctrico mensual bajo un mismo perímetro.</p><div class="links"><a href="downloads/sector_alerts.json" download>Descargar alertas, escenarios y fuentes (JSON) ↓</a><a href="../reports/research/produccion-y-sensibilidad.md">Informe de contraste y sensibilidad ↗</a><a href="https://github.com/ignapetit25-tech/energy-demand-lab/blob/main/docs/protocolo-alertas-sectoriales.md">Protocolo original de alertas ↗</a><a href="downloads/energy-demand.xlsx">Excel del diagnóstico anterior ↓</a></div><p class="note">Esta ampliación actualiza el tablero y la descarga JSON. No modifica el Excel ni el CSV nacional, no envía las solicitudes preparadas y no activa un monitor automático.</p><details><summary>Fuentes originales y huellas</summary><div id="alert-sources"></div></details></section>
+<noscript><p>Las tablas requieren JavaScript. El informe metodológico y la descarga JSON permanecen disponibles en los enlaces de fuentes.</p></noscript>
+</main><footer><span>ENERGY DEMAND LAB</span><span>Señales exploratorias · Sin atribución causal a IA</span></footer>
+</body></html>

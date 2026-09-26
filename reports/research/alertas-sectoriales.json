@@ -1,0 +1,743 @@
+{
+  "reviewed_at": "2026-09-26",
+  "period": "2026-08",
+  "rules": {
+    "version": "proposal-1",
+    "defined_at": "2026-09-26",
+    "status": "exploratory_proposal_not_deployed",
+    "notification_enabled": false,
+    "watch_yoy_percent": 10,
+    "watch_absolute_mw": 5,
+    "priority_yoy_percent": 20,
+    "priority_absolute_mw": 10,
+    "persistence_months": 3,
+    "calendar_working_day_difference": 2,
+    "description": "Reglas editoriales simétricas para priorizar revisión de subas y bajas. No son umbrales estadísticos ni parámetros oficiales de CAMMESA. Definidas después de conocer la historia; su aplicación histórica es descriptiva, no validación fuera de muestra."
+  },
+  "source_sha256": "97c70adf2017edebd4d9e45b5981411a392e3e2f0654cf55ab7f273bd1ce8c4a",
+  "rows": [
+    {
+      "id": "food",
+      "label": "Alimentación y artículos de consumo masivo",
+      "delta_mw": 45.321309139785,
+      "yoy_percent": 15.881582057189835,
+      "current_mw": 330.6915510752688,
+      "previous_mw": 285.3702419354838,
+      "working_day_difference": 0,
+      "status": "prioridad",
+      "direction": "suba",
+      "persistent": true,
+      "persistence_evaluable": true,
+      "persistence_inputs": [
+        {
+          "period": "2026-08",
+          "comparison": {
+            "delta_mw": 45.321309139785,
+            "yoy_percent": 15.881582057189835,
+            "current_mw": 330.6915510752688,
+            "previous_mw": 285.3702419354838,
+            "working_day_difference": 0
+          }
+        },
+        {
+          "period": "2026-07",
+          "comparison": {
+            "delta_mw": 44.239909946236594,
+            "yoy_percent": 15.358041520217114,
+            "current_mw": 332.2968857526882,
+            "previous_mw": 288.0569758064516,
+            "working_day_difference": 0
+          }
+        },
+        {
+          "period": "2026-06",
+          "comparison": {
+            "delta_mw": 51.687215277777796,
+            "yoy_percent": 18.520143363370735,
+            "current_mw": 330.7736902777778,
+            "previous_mw": 279.086475,
+            "working_day_difference": 2
+          }
+        }
+      ],
+      "calendar_review": false,
+      "branch": "food_commerce_services",
+      "branch_contribution_pp": 10.977030917808447
+    },
+    {
+      "id": "construction",
+      "label": "Construcción: elaboración de cemento y canteras",
+      "delta_mw": -32.370548387096775,
+      "yoy_percent": -26.40735718238927,
+      "current_mw": 90.21100403225807,
+      "previous_mw": 122.58155241935485,
+      "working_day_difference": 0,
+      "status": "prioridad",
+      "direction": "baja",
+      "persistent": false,
+      "persistence_evaluable": true,
+      "persistence_inputs": [
+        {
+          "period": "2026-08",
+          "comparison": {
+            "delta_mw": -32.370548387096775,
+            "yoy_percent": -26.40735718238927,
+            "current_mw": 90.21100403225807,
+            "previous_mw": 122.58155241935485,
+            "working_day_difference": 0
+          }
+        },
+        {
+          "period": "2026-07",
+          "comparison": {
+            "delta_mw": -19.557594086021496,
+            "yoy_percent": -15.99205495177748,
+            "current_mw": 102.73809677419355,
+            "previous_mw": 122.29569086021505,
+            "working_day_difference": 0
+          }
+        },
+        {
+          "period": "2026-06",
+          "comparison": {
+            "delta_mw": -10.50877638888889,
+            "yoy_percent": -9.41540490917877,
+            "current_mw": 101.10380416666666,
+            "previous_mw": 111.61258055555555,
+            "working_day_difference": 2
+          }
+        }
+      ],
+      "calendar_review": false,
+      "branch": "industry",
+      "branch_contribution_pp": -2.9346018467270474
+    },
+    {
+      "id": "metals",
+      "label": "Productos metálicos no automotores",
+      "delta_mw": -11.286775537634412,
+      "yoy_percent": -23.70123078810219,
+      "current_mw": 36.33427688172043,
+      "previous_mw": 47.62105241935484,
+      "working_day_difference": 0,
+      "status": "prioridad",
+      "direction": "baja",
+      "persistent": false,
+      "persistence_evaluable": true,
+      "persistence_inputs": [
+        {
+          "period": "2026-08",
+          "comparison": {
+            "delta_mw": -11.286775537634412,
+            "yoy_percent": -23.70123078810219,
+            "current_mw": 36.33427688172043,
+            "previous_mw": 47.62105241935484,
+            "working_day_difference": 0
+          }
+        },
+        {
+          "period": "2026-07",
+          "comparison": {
+            "delta_mw": -18.854232526881717,
+            "yoy_percent": -43.30179652360099,
+            "current_mw": 24.68722311827957,
+            "previous_mw": 43.541455645161285,
+            "working_day_difference": 0
+          }
+        },
+        {
+          "period": "2026-06",
+          "comparison": {
+            "delta_mw": 2.571522222222228,
+            "yoy_percent": 6.733041789387828,
+            "current_mw": 40.7641,
+            "previous_mw": 38.19257777777777,
+            "working_day_difference": 2
+          }
+        }
+      ],
+      "calendar_review": false,
+      "branch": "industry",
+      "branch_contribution_pp": -1.0232199943062579
+    },
+    {
+      "id": "mining",
+      "label": "Extracción de minerales",
+      "delta_mw": 10.831815860215048,
+      "yoy_percent": 42.76437392039318,
+      "current_mw": 36.16088037634408,
+      "previous_mw": 25.329064516129034,
+      "working_day_difference": 0,
+      "status": "prioridad",
+      "direction": "suba",
+      "persistent": true,
+      "persistence_evaluable": true,
+      "persistence_inputs": [
+        {
+          "period": "2026-08",
+          "comparison": {
+            "delta_mw": 10.831815860215048,
+            "yoy_percent": 42.76437392039318,
+            "current_mw": 36.16088037634408,
+            "previous_mw": 25.329064516129034,
+            "working_day_difference": 0
+          }
+        },
+        {
+          "period": "2026-07",
+          "comparison": {
+            "delta_mw": 5.902798387096773,
+            "yoy_percent": 23.098559517495467,
+            "current_mw": 31.457631720430108,
+            "previous_mw": 25.554833333333335,
+            "working_day_difference": 0
+          }
+        },
+        {
+          "period": "2026-06",
+          "comparison": {
+            "delta_mw": 10.495744444444448,
+            "yoy_percent": 41.275411738964166,
+            "current_mw": 35.924308333333336,
+            "previous_mw": 25.42856388888889,
+            "working_day_difference": 2
+          }
+        }
+      ],
+      "calendar_review": false,
+      "branch": "oil_minerals",
+      "branch_contribution_pp": 6.358066072401375
+    },
+    {
+      "id": "textiles",
+      "label": "Industria textil",
+      "delta_mw": -9.407864247311828,
+      "yoy_percent": -18.800484435160815,
+      "current_mw": 40.63267741935484,
+      "previous_mw": 50.04054166666667,
+      "working_day_difference": 0,
+      "status": "prioridad",
+      "direction": "baja",
+      "persistent": true,
+      "persistence_evaluable": true,
+      "persistence_inputs": [
+        {
+          "period": "2026-08",
+          "comparison": {
+            "delta_mw": -9.407864247311828,
+            "yoy_percent": -18.800484435160815,
+            "current_mw": 40.63267741935484,
+            "previous_mw": 50.04054166666667,
+            "working_day_difference": 0
+          }
+        },
+        {
+          "period": "2026-07",
+          "comparison": {
+            "delta_mw": -8.724509408602152,
+            "yoy_percent": -17.452132990827774,
+            "current_mw": 41.2665685483871,
+            "previous_mw": 49.99107795698925,
+            "working_day_difference": 0
+          }
+        },
+        {
+          "period": "2026-06",
+          "comparison": {
+            "delta_mw": -12.451576388888888,
+            "yoy_percent": -23.489007519618067,
+            "current_mw": 40.55865138888889,
+            "previous_mw": 53.01022777777778,
+            "working_day_difference": 2
+          }
+        }
+      ],
+      "calendar_review": false,
+      "branch": "industry",
+      "branch_contribution_pp": -0.8528844017027408
+    },
+    {
+      "id": "commerce",
+      "label": "Comercio y servicios: principalmente supermercados y centros comerciales",
+      "delta_mw": 5.508248655913981,
+      "yoy_percent": 12.125281989185144,
+      "current_mw": 50.93604704301075,
+      "previous_mw": 45.42779838709677,
+      "working_day_difference": 0,
+      "status": "prioridad",
+      "direction": "suba",
+      "persistent": true,
+      "persistence_evaluable": true,
+      "persistence_inputs": [
+        {
+          "period": "2026-08",
+          "comparison": {
+            "delta_mw": 5.508248655913981,
+            "yoy_percent": 12.125281989185144,
+            "current_mw": 50.93604704301075,
+            "previous_mw": 45.42779838709677,
+            "working_day_difference": 0
+          }
+        },
+        {
+          "period": "2026-07",
+          "comparison": {
+            "delta_mw": 6.218319892473119,
+            "yoy_percent": 14.139392034534804,
+            "current_mw": 50.19701344086022,
+            "previous_mw": 43.9786935483871,
+            "working_day_difference": 0
+          }
+        },
+        {
+          "period": "2026-06",
+          "comparison": {
+            "delta_mw": 5.434262500000003,
+            "yoy_percent": 12.338347820739838,
+            "current_mw": 49.477943055555556,
+            "previous_mw": 44.043680555555554,
+            "working_day_difference": 2
+          }
+        }
+      ],
+      "calendar_review": false,
+      "branch": "food_commerce_services",
+      "branch_contribution_pp": 1.334123328442569
+    },
+    {
+      "id": "petroleum_products",
+      "label": "Derivados de petróleo",
+      "delta_mw": 13.784920698924765,
+      "yoy_percent": 9.52031043547148,
+      "current_mw": 158.5797862903226,
+      "previous_mw": 144.79486559139784,
+      "working_day_difference": 0,
+      "status": "sin_umbral",
+      "direction": "suba",
+      "persistent": false,
+      "persistence_evaluable": true,
+      "persistence_inputs": [
+        {
+          "period": "2026-08",
+          "comparison": {
+            "delta_mw": 13.784920698924765,
+            "yoy_percent": 9.52031043547148,
+            "current_mw": 158.5797862903226,
+            "previous_mw": 144.79486559139784,
+            "working_day_difference": 0
+          }
+        },
+        {
+          "period": "2026-07",
+          "comparison": {
+            "delta_mw": -15.452430107526851,
+            "yoy_percent": -8.921098400106242,
+            "current_mw": 157.7597620967742,
+            "previous_mw": 173.21219220430106,
+            "working_day_difference": 0
+          }
+        },
+        {
+          "period": "2026-06",
+          "comparison": {
+            "delta_mw": 2.820805555555552,
+            "yoy_percent": 1.8627394242179962,
+            "current_mw": 154.25398611111112,
+            "previous_mw": 151.43318055555557,
+            "working_day_difference": 2
+          }
+        }
+      ],
+      "calendar_review": false,
+      "branch": "industry",
+      "branch_contribution_pp": 1.249693185802672
+    },
+    {
+      "id": "chemicals",
+      "label": "Químicas, caucho, plástico y otros minerales no metálicos",
+      "delta_mw": 12.887194892473133,
+      "yoy_percent": 4.054437418995915,
+      "current_mw": 330.74127822580647,
+      "previous_mw": 317.85408333333334,
+      "working_day_difference": 0,
+      "status": "sin_umbral",
+      "direction": "suba",
+      "persistent": false,
+      "persistence_evaluable": true,
+      "persistence_inputs": [
+        {
+          "period": "2026-08",
+          "comparison": {
+            "delta_mw": 12.887194892473133,
+            "yoy_percent": 4.054437418995915,
+            "current_mw": 330.74127822580647,
+            "previous_mw": 317.85408333333334,
+            "working_day_difference": 0
+          }
+        },
+        {
+          "period": "2026-07",
+          "comparison": {
+            "delta_mw": 19.022361559139824,
+            "yoy_percent": 6.011127552292517,
+            "current_mw": 335.4748306451613,
+            "previous_mw": 316.4524690860215,
+            "working_day_difference": 0
+          }
+        },
+        {
+          "period": "2026-06",
+          "comparison": {
+            "delta_mw": 36.96508333333338,
+            "yoy_percent": 11.639443404005355,
+            "current_mw": 354.5497138888889,
+            "previous_mw": 317.5846305555555,
+            "working_day_difference": 2
+          }
+        }
+      ],
+      "calendar_review": false,
+      "branch": "industry",
+      "branch_contribution_pp": 1.1683084722054933
+    },
+    {
+      "id": "steel",
+      "label": "Gran siderurgia",
+      "delta_mw": 11.902491935483852,
+      "yoy_percent": 4.331896567538096,
+      "current_mw": 286.66648387096774,
+      "previous_mw": 274.7639919354839,
+      "working_day_difference": 0,
+      "status": "sin_umbral",
+      "direction": "suba",
+      "persistent": false,
+      "persistence_evaluable": true,
+      "persistence_inputs": [
+        {
+          "period": "2026-08",
+          "comparison": {
+            "delta_mw": 11.902491935483852,
+            "yoy_percent": 4.331896567538096,
+            "current_mw": 286.66648387096774,
+            "previous_mw": 274.7639919354839,
+            "working_day_difference": 0
+          }
+        },
+        {
+          "period": "2026-07",
+          "comparison": {
+            "delta_mw": 25.77199059139781,
+            "yoy_percent": 9.86460739138737,
+            "current_mw": 287.02912499999996,
+            "previous_mw": 261.25713440860216,
+            "working_day_difference": 0
+          }
+        },
+        {
+          "period": "2026-06",
+          "comparison": {
+            "delta_mw": 27.09468750000002,
+            "yoy_percent": 10.151480978146266,
+            "current_mw": 293.9984777777778,
+            "previous_mw": 266.9037902777778,
+            "working_day_difference": 2
+          }
+        }
+      ],
+      "calendar_review": false,
+      "branch": "industry",
+      "branch_contribution_pp": 1.0790387112640878
+    },
+    {
+      "id": "oil_extraction",
+      "label": "Extracción de petróleo",
+      "delta_mw": 9.60641263440857,
+      "yoy_percent": 6.623544933185332,
+      "current_mw": 154.64072177419354,
+      "previous_mw": 145.03430913978497,
+      "working_day_difference": 0,
+      "status": "sin_umbral",
+      "direction": "suba",
+      "persistent": false,
+      "persistence_evaluable": true,
+      "persistence_inputs": [
+        {
+          "period": "2026-08",
+          "comparison": {
+            "delta_mw": 9.60641263440857,
+            "yoy_percent": 6.623544933185332,
+            "current_mw": 154.64072177419354,
+            "previous_mw": 145.03430913978497,
+            "working_day_difference": 0
+          }
+        },
+        {
+          "period": "2026-07",
+          "comparison": {
+            "delta_mw": 9.070228494623677,
+            "yoy_percent": 6.218807529959691,
+            "current_mw": 154.9217997311828,
+            "previous_mw": 145.85157123655912,
+            "working_day_difference": 0
+          }
+        },
+        {
+          "period": "2026-06",
+          "comparison": {
+            "delta_mw": 5.568400000000025,
+            "yoy_percent": 3.667663262851484,
+            "current_mw": 157.3925888888889,
+            "previous_mw": 151.82418888888887,
+            "working_day_difference": 2
+          }
+        }
+      ],
+      "calendar_review": false,
+      "branch": "oil_minerals",
+      "branch_contribution_pp": 5.638778117772437
+    },
+    {
+      "id": "automotive",
+      "label": "Industria automotriz",
+      "delta_mw": 4.1519341397849345,
+      "yoy_percent": 10.197846620975092,
+      "current_mw": 44.86576612903225,
+      "previous_mw": 40.71383198924732,
+      "working_day_difference": 0,
+      "status": "sin_umbral",
+      "direction": "suba",
+      "persistent": false,
+      "persistence_evaluable": true,
+      "persistence_inputs": [
+        {
+          "period": "2026-08",
+          "comparison": {
+            "delta_mw": 4.1519341397849345,
+            "yoy_percent": 10.197846620975092,
+            "current_mw": 44.86576612903225,
+            "previous_mw": 40.71383198924732,
+            "working_day_difference": 0
+          }
+        },
+        {
+          "period": "2026-07",
+          "comparison": {
+            "delta_mw": 4.191552419354835,
+            "yoy_percent": 10.759504916795803,
+            "current_mw": 43.14829301075269,
+            "previous_mw": 38.95674059139785,
+            "working_day_difference": 0
+          }
+        },
+        {
+          "period": "2026-06",
+          "comparison": {
+            "delta_mw": 2.774538888888891,
+            "yoy_percent": 6.58039969362787,
+            "current_mw": 44.93822222222222,
+            "previous_mw": 42.16368333333333,
+            "working_day_difference": 2
+          }
+        }
+      ],
+      "calendar_review": false,
+      "branch": "industry",
+      "branch_contribution_pp": 0.3763999747053627
+    },
+    {
+      "id": "public_services",
+      "label": "Servicios públicos y transporte: agua y transporte en GBA",
+      "delta_mw": -3.2478776881720393,
+      "yoy_percent": -4.461929971426459,
+      "current_mw": 69.5429932795699,
+      "previous_mw": 72.79087096774194,
+      "working_day_difference": 0,
+      "status": "sin_umbral",
+      "direction": "baja",
+      "persistent": false,
+      "persistence_evaluable": true,
+      "persistence_inputs": [
+        {
+          "period": "2026-08",
+          "comparison": {
+            "delta_mw": -3.2478776881720393,
+            "yoy_percent": -4.461929971426459,
+            "current_mw": 69.5429932795699,
+            "previous_mw": 72.79087096774194,
+            "working_day_difference": 0
+          }
+        },
+        {
+          "period": "2026-07",
+          "comparison": {
+            "delta_mw": -3.9066801075268955,
+            "yoy_percent": -5.31322017625977,
+            "current_mw": 69.62086021505375,
+            "previous_mw": 73.52754032258065,
+            "working_day_difference": 0
+          }
+        },
+        {
+          "period": "2026-06",
+          "comparison": {
+            "delta_mw": -3.855073611111095,
+            "yoy_percent": -5.2087483908988315,
+            "current_mw": 70.15644166666668,
+            "previous_mw": 74.01151527777778,
+            "working_day_difference": 2
+          }
+        }
+      ],
+      "calendar_review": false,
+      "branch": "food_commerce_services",
+      "branch_contribution_pp": -0.7866510142141456
+    },
+    {
+      "id": "wood_paper",
+      "label": "Madera y papel",
+      "delta_mw": 0.5745846774193524,
+      "yoy_percent": 0.5488203855619433,
+      "current_mw": 105.26906989247311,
+      "previous_mw": 104.69448521505376,
+      "working_day_difference": 0,
+      "status": "sin_umbral",
+      "direction": "suba",
+      "persistent": false,
+      "persistence_evaluable": true,
+      "persistence_inputs": [
+        {
+          "period": "2026-08",
+          "comparison": {
+            "delta_mw": 0.5745846774193524,
+            "yoy_percent": 0.5488203855619433,
+            "current_mw": 105.26906989247311,
+            "previous_mw": 104.69448521505376,
+            "working_day_difference": 0
+          }
+        },
+        {
+          "period": "2026-07",
+          "comparison": {
+            "delta_mw": 3.8006653225806417,
+            "yoy_percent": 3.81560706547992,
+            "current_mw": 103.40906989247313,
+            "previous_mw": 99.60840456989249,
+            "working_day_difference": 0
+          }
+        },
+        {
+          "period": "2026-06",
+          "comparison": {
+            "delta_mw": 6.301037500000021,
+            "yoy_percent": 6.245922439407625,
+            "current_mw": 107.18345416666668,
+            "previous_mw": 100.88241666666666,
+            "working_day_difference": 2
+          }
+        }
+      ],
+      "calendar_review": false,
+      "branch": "industry",
+      "branch_contribution_pp": 0.052089857585731335
+    },
+    {
+      "id": "ports",
+      "label": "Cargas y puertos",
+      "delta_mw": 0.3104932795698918,
+      "yoy_percent": 3.343990835137123,
+      "current_mw": 9.595604838709678,
+      "previous_mw": 9.285111559139786,
+      "working_day_difference": 0,
+      "status": "sin_umbral",
+      "direction": "suba",
+      "persistent": false,
+      "persistence_evaluable": true,
+      "persistence_inputs": [
+        {
+          "period": "2026-08",
+          "comparison": {
+            "delta_mw": 0.3104932795698918,
+            "yoy_percent": 3.343990835137123,
+            "current_mw": 9.595604838709678,
+            "previous_mw": 9.285111559139786,
+            "working_day_difference": 0
+          }
+        },
+        {
+          "period": "2026-07",
+          "comparison": {
+            "delta_mw": 0.1153857526881712,
+            "yoy_percent": 1.1880022114081124,
+            "current_mw": 9.82797311827957,
+            "previous_mw": 9.712587365591398,
+            "working_day_difference": 0
+          }
+        },
+        {
+          "period": "2026-06",
+          "comparison": {
+            "delta_mw": -0.1591888888888917,
+            "yoy_percent": -1.6508056852379216,
+            "current_mw": 9.483913888888887,
+            "previous_mw": 9.643102777777779,
+            "working_day_difference": 2
+          }
+        }
+      ],
+      "calendar_review": false,
+      "branch": "food_commerce_services",
+      "branch_contribution_pp": 0.07520290994018301
+    }
+  ],
+  "aluar": {
+    "label": "Aluar, toma neta de red",
+    "delta_mw": 171.45667204301077,
+    "yoy_percent": 45.634728268469416,
+    "current_mw": 547.1720067204301,
+    "previous_mw": 375.7153346774193,
+    "working_day_difference": 0,
+    "status": "prioridad",
+    "direction": "suba",
+    "persistent": false,
+    "persistence_evaluable": true,
+    "persistence_inputs": [
+      {
+        "period": "2026-08",
+        "comparison": {
+          "delta_mw": 171.45667204301077,
+          "yoy_percent": 45.634728268469416,
+          "current_mw": 547.1720067204301,
+          "previous_mw": 375.7153346774193,
+          "working_day_difference": 0
+        }
+      },
+      {
+        "period": "2026-07",
+        "comparison": {
+          "delta_mw": 9.611786290322584,
+          "yoy_percent": 2.079092949612371,
+          "current_mw": 471.9185,
+          "previous_mw": 462.3067137096774,
+          "working_day_difference": 0
+        }
+      },
+      {
+        "period": "2026-06",
+        "comparison": {
+          "delta_mw": 124.66428194444444,
+          "yoy_percent": 31.13089786809653,
+          "current_mw": 525.1162138888889,
+          "previous_mw": 400.4519319444444,
+          "working_day_difference": 2
+        }
+      }
+    ],
+    "calendar_review": false
+  },
+  "data_quality": "Cálculos sobre una instantánea revisable. Cobertura de establecimientos no verificada; no confirma cambios de producción.",
+  "partial_periods": [
+    "2026-09"
+  ],
+  "excluded_month_status": "no_evaluable",
+  "deployment_status": "Propuesta ilustrada con datos conocidos. Sin automatización ni alertas enviadas."
+}

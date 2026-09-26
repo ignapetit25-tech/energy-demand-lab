@@ -14,11 +14,14 @@ ASSETS = ('index.html', 'monthly-report.html', 'styles.css', 'report.css',
           'research-data.js','research-report.js','infrastructure.html','infrastructure.js','infrastructure.css',
           'sector-history.html','sector-history.js','sector-history.css',
           'concentration.html','concentration.css','concentration.js','concentration-data.js',
-          'activity-history-data.js','activity-history.js')
+          'activity-history-data.js','activity-history.js',
+          'sector-alerts.html','sector-alerts.css','sector-alerts.js','sector-alerts-data.js')
 DOWNLOADS = ('downloads/energy-demand.xlsx','downloads/excel-manifest.json',
              'downloads/infrastructure_registry.json','downloads/sector_deep_dive.json','downloads/sector_history.json',
-             'downloads/concentration_analysis.json','downloads/activity_monthly_history.json')
-DOCUMENTS = ('prospective/preregistration.md', 'results/nested_exploratory/report.md')
+             'downloads/concentration_analysis.json','downloads/activity_monthly_history.json',
+             'downloads/sector_alerts.json')
+DOCUMENTS = ('prospective/preregistration.md', 'results/nested_exploratory/report.md',
+             'reports/research/produccion-y-sensibilidad.md')
 
 
 class Links(HTMLParser):
@@ -55,6 +58,7 @@ def validate_site(site):
 
 def main():
     subprocess.run([sys.executable,str(ROOT/'scripts/build_activity_history.py')],check=True,cwd=ROOT)
+    subprocess.run([sys.executable,str(ROOT/'scripts/build_sector_alerts.py')],check=True,cwd=ROOT)
     subprocess.run([sys.executable, str(ROOT/'scripts/build_dashboard.py')], check=True, cwd=ROOT)
     expected = set(ASSETS) | set(DOCUMENTS) | set(DOWNLOADS) | {'.nojekyll', 'site-manifest.json'}
     excel=json.loads((ROOT/'dashboard/downloads/excel-manifest.json').read_text())

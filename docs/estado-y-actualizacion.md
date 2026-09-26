@@ -2,6 +2,8 @@
 
 ## Entregado
 
+- Tablero de señales sectoriales con 44 meses comparables, regla base conservada, 27 combinaciones exploratorias y cuatro variantes de prioridad de un solo parámetro. Contraste de julio con IPI INDEC de julio para textiles, productos de metal y cemento; agosto queda sin dato de producción. No son alertas calibradas ni notificaciones automáticas. [Resultados y límites](../reports/research/produccion-y-sensibilidad.md). Excel, CSV nacional y pronósticos permanecen sin cambios en esta extensión.
+
 - Web pública y publicación automática al enviar cambios a `main`.
 - Informe sectorial mensual con comparación interanual, aportes y acumulado.
 - Apertura CAMMESA por ramas para agosto de 2026, con PDF archivado y tasas de la fuente, y capacidad instalada INDEC de julio como contexto de otro período. Registro documental de infraestructura de IA con filtro por país y descargas JSON. [Alcance y mantenimiento](infraestructura-y-sectores.md). Desde el 26/09, el Excel añade Concentración, Aluar y Actividades con 56 meses completos de apertura GUMAs + AUTO en hojas separadas. El CSV y las hojas nacionales originales no cambian. [Método y límites del balance mensual](balance-mensual-y-actividades.md).
